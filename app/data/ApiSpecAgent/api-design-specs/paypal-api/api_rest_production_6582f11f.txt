@@ -1,0 +1,172 @@
+Move your app to production
+
+After you've tested your application in the
+sandbox
+, move your application to PayPal's production environment to go live.
+
+To take your application live:
+
+Ensure your application adheres to the
+
+PayPal Application Policies and Guidelines
+
+.
+
+Obtain your live PayPal credentials
+
+Use the PayPal production host
+
+Register your application with PayPal
+
+Go live checklist
+
+Obtain your live PayPal credentials
+
+All calls to PayPal operations are made through the application account, which is a PayPal account that is controlled by the application owner. Every PayPal service request needs a set of API credentials to make the call. PayPal assigns a set of API credentials (a User ID, Password, and Signature) to an account upon request. See
+Register your application with PayPal
+ for more information.
+
+Tip:
+
+To obtain live PayPal credentials, you must have a verified Premier or verified Business PayPal account.
+
+If you have API credentials, you can use this
+shortcut
+ to review them.
+
+Tip:
+
+Remember, the AppID you use for sandbox testing is not supported by the PayPal production servers.
+
+Use the PayPal production host
+
+Trade out the sandbox host you've been using for the live host:
+https://api-m.paypal.com
+.
+
+Register your application with PayPal
+
+PayPal is a global leader in online payments. As such, one of our main goals is to offer a safe, secure, and reliable environment for all of our users. When you go live, you move from sandbox accounts to live accounts that hold actual balances. As part of this process, PayPal requires that you register your apps before you can go live and access the PayPal production servers.
+
+Important:
+
+Before you register your PayPal application, make sure the status of the PayPal account used to submit the application is verified.
+
+The PayPal Developer agreement highlights all the points with which your application must comply. Be sure to read and fully understand this document before you submit your application to PayPal:
+PayPal Developer Agreement
+
+Submit your application
+
+To submit your website or mobile application to PayPal:
+
+PayPal Developer website
+
+by using the credentials of the PayPal account registered to the application owner.
+
+Note:
+
+The PayPal account associated with the application must be a verified Premier or verified Business account.
+
+Click
+
+My Apps & Credentials
+
+and toggle to the
+
+Live
+
+tab.
+
+Review applications with Merchant API calls
+
+If your application makes calls to the PayPal Merchant APIs (such as Express Checkout), you can begin making production calls using the credentials assigned to your PayPal account as soon as you register your application. PayPal reviews your application within 24 – 72 hours of your submission to ensure it complies with all requirements. After the review, PayPal grants final approval to your application.
+
+PayPal will contact you only if there are any questions or concerns raised during the review process. If you do not hear from PayPal, either during or after the review period, you can assume your application was reviewed without concern and you may continue using the credentials assigned to you. If the review process does surface questions, these must be addressed before you can continue making production calls from your application.
+
+Review applications with Mass Pay API calls
+
+If your application uses the Mass Pay operation, you must allowlist your application before you can move it to the live environment. To enable Mass Pay, reference transactions, and
+AddressVerify
+ on your account, contact
+PayPal Customer Service
+.
+
+About the review process
+
+When you register your application, a PayPal agent reviews it to ensure it meets the criteria outlined by PayPal. Reviewers might require additional information or they might have questions about your application. If reviewers have questions, they will post them to the account that submitted the application.
+
+During the time your application is in review, check the submission page often; the review process will be held until all questions or requests are answered. If questions are posted, a notification will be sent to the e-mail address associated with the PayPal account that was used to submit the application. If you don't have access to this e-mail, check the Developer site. It's also a good idea to check your junk mail folder to insure that legitimate PayPal messages are not being marked as spam.
+
+All reviews are performed on a first-come, first-serve basis and there is no expedited review process available. Review times can vary and you should make sure to take the review time into account in your business planning. The amount of time it takes to review your application depends on a number of factors, including the different PayPal APIs in your application, the uniqueness and complexity of your business model, and whether you are submitting a PayPal application or are applying for Business Payments. The PayPal reviewers might have many questions, or perhaps they will have none—it all depends on the application you submit.
+
+Upgrade your application
+
+PayPal offers an integrated suite of powerful APIs to help you throughout your transaction processing. It can behoove you to consider the full range of PayPal's APIs when you first create the accounts receivable aspect of your business. For example, if your business handles a high volume of transactions, you might benefit from integrating a refund feature into the flow of your application by taking advantage of the PayPal API that handles refunds.
+
+Using the tried-and-tested solutions from PayPal helps to provide a robust base upon which you can build your business. Leveraging the PayPal APIs in your accounts receivables module frees you from the worry associated with the implementation of this important part of your application. With transaction processing handled by PayPal, you are free to focus your energies on the other important features of your service.
+
+Manage your applications
+
+Manage your existing PayPal apps through the PayPal Developer website
+My Apps & Credentials
+ page.
+
+Manage REST API apps
+
+Manage your REST API apps in the
+REST API apps
+ section of
+My Apps & Credentials
+ page. To move between sandbox and live settings, click the Sandbox or Live toggle. From there you can:
+
+View your sandbox or live credentials.
+
+Add a
+
+webhook
+
+.
+
+Modify your app settings.
+
+Additionally, in the left-hand navigation, you will find the
+Live >
+
+Transactions
+ and
+Webhooks Events
+ areas, which display all transactions and webhooks events for your app in the live environment.
+
+Go live checklist
+
+After you finish testing your application in the PayPal sandbox, move it into the production environment so you can process live transactions. This quick-reference checklist provides an overview of how to successfully take your application live.
+
+Review the items below to make sure you're ready to Go Live:
+
+Ensure your PayPal Business account is verified before you go live.
+
+Configure your live PayPal account settings and profile.
+
+Make sure your Seller Preferences settings match those that you used during your sandbox testing (or are appropriate for production use). For example, you might have configured an IPN listener or customized your invoice settings while testing. You want to be sure to duplicate these settings in your live PayPal account. It can help to keep things organized if you use an email address similar to:
+
+paypal@ yourDomain .com
+
+.
+
+Make sure your PayPal API calls are directed at
+PayPal's production environment
+.
+
+Get your
+live API credentials
+ and use them wherever you call PayPal API operations.
+
+Do not to confuse your live API credentials with those generated in your sandbox. While you can use either a signature or API certificate, PayPal recommends you use your PayPal-assigned signature to authenticate PayPal API calls.
+
+Configure any needed third-party authorizations.
+
+If you make API calls on behalf of a merchant, make sure to replicate the third-party authentication you set up in the sandbox in your live account.
+
+If you use the PayPal SDKs, create an SDK API profile.
+
+If your application uses the PayPal SDKs, create an API Profile object that contains the details of your live account. Make sure the environment field is set to live and configure your live API credentials where they are defined.

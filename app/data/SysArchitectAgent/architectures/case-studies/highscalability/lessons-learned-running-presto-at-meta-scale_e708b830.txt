@@ -1,0 +1,117 @@
+high availablilty
+
+Lessons Learned Running Presto at Meta Scale
+
+Philip Bell
+
+16 Jul 2023
+— 7 min read
+
+Presto
+ is a free, open source SQL query engine. We've been using it at Meta for the past ten years, and learned a lot while doing so. Running anything at scale - tools, processes, services - takes problem solving to overcome unexpected challenges. Here are four things we learned while scaling up Presto to Meta scale, and some advice if you're interested in running your own queries at scale.
+
+Scaling Presto rapidly to meet growing demands: What challenges did we face?
+
+Deploying new Presto releases
+
+Figure 1: Process workflow for pushing new versions of Presto (Diagram by Philip S. Bell)
+
+Meta runs a large number of Presto clusters spanning data centers across locations worldwide. A new version of Presto is built and ready for deployment roughly at least once, and sometimes twice, each month. One of the earliest challenges we faced as Presto's footprint at Meta grew rapidly was deploying the query engine to a high volume of clusters while ensuring consistent availability and reliability. This continues to be especially true for interactive use cases of Presto, i.e., when a user launches a query and is actively waiting for a result. Query failure is less of a concern for automated "batch" use cases where automatic retries ensure that the query eventually succeeds.
+
+The solution for this was simple. All Presto clusters sit behind a load balancer called the Gateway which is responsible (in conjunction with other systems at Meta) for routing Presto queries to the appropriate cluster. When a Presto cluster needs to be updated, it is first marked as drained from the Gateway, i.e., the Gateway stops routing any new queries to it. Automation then waits for a predetermined time in order for queries currently running on the cluster to finish. The cluster is then updated, and once online, it is made visible to the Gateway, which can start routing new queries to it.
+
+The other aspect to deploying new Presto releases is availability. We need to ensure that users can still use Presto while clusters are getting updated. Again, automation ensures that every data center in every physical region always has the necessary number of Presto clusters available. Of course, a balance has to be struck between taking down too many clusters at once (availability issue) and taking down too few at once (deployment takes too long).
+
+Automating standup and decommission of Presto clusters
+
+Figure 2: Automated workflow for adding hardware to clusters (Diagram by Philip S. Bell)
+
+The distribution of the data warehouse at Meta across different regions is constantly evolving. This means new Presto clusters must be stood up while existing ones are decommissioned regularly. Previously, when there was only a small number of Presto clusters, this was a manual process. As Meta started scaling up, it quickly became challenging to track all changes manually. To solve this problem, we implemented automations to handle the standing up and decommissioning of clusters.
+
+First we had to standardize our cluster configurations, i.e., we had to build base configurations for the different Presto use cases at Meta. Each cluster would then have a minimal number of additional or overridden specifications over the base configuration. Once that was complete, any new cluster could be turned up by automatically generating configs from the base template. Cluster turnup also required integration with automation hooks in order to integrate with the various company-wide infrastructure services like Tupperware and data warehouse-specific services. Once a cluster comes online, a few test queries are sent to the cluster and automation verifies that the queries were successfully executed by the cluster. The cluster is then registered with the Gateway and starts serving queries.
+
+Decommissioning a cluster follows pretty much the reverse process. The cluster is de-registered from the Gateway and any running queries are allowed to finish. The Presto processes are shut down and the cluster configs are deleted.
+
+This automation is integrated into the hardware stand up and decommission workflow for the data warehouse. The end result is that the entire process, from new hardware showing up at a data center, to Presto clusters being online and serving queries, then being shut off when hardware is decommissioned, is fully automated. Implementing this has saved valuable people-hours, reduced hardware idle time, and minimizes human error.
+
+Automated debugging and remediations
+
+Figure 3: Bad host detection (Diagram by Philip S. Bell)
+
+Given the large deployment of Presto at Meta, it's imperative that we have tooling and automation in place that makes the life of the oncall (the point of contact for Presto) easy.
+
+Over the years, we've built several "analyzers" which help the oncall efficiently debug and assess the root cause for issues that come up. Monitoring systems fire alerts when there are breaches of customer-facing SLAs. The analyzers are then triggered. They source information from a wide range of monitoring systems (Operational Data Store or ODS), events published to Scuba, and even host-level logs. Custom logic in the analyzer then ties all this information together to infer probable root cause. This is extremely useful for the oncall by presenting them with root cause analysis and allowing them to jump directly into potential mitigation options. In some cases, we have completely automated both the debugging and the remediation so that the oncall doesn't even need to get involved. A couple of examples are described below:
+
+Bad host detection
+
+When running Presto at scale on a large number of machines, we noticed that certain "bad" hosts could cause excessive query failures. Following our investigations, we identified a few root causes which resulted in the hosts going "bad", including:
+
+Hardware-level issues which hadn't yet been caught by fleet-wide monitoring systems due to lack of coverage
+
+Obscure JVM bugs which would sometimes lead to a steady drip of query failures
+
+To combat this issue, we now monitor query failures in Presto clusters. Specifically, we attribute each query failure to the host that caused it, where possible. We also set up alerts that fire when an abnormally high number of query failures are attributed to specific hosts. Automation then kicks in to drain the host from the Presto fleet and thus stem the failures.
+
+Debugging queueing issues
+
+Each Presto cluster supports queuing queries on it once it reaches its maximum concurrency for running queries based on use case, hardware configuration, and query size. At Meta, there is a sophisticated routing mechanism in place so that a Presto query is dispatched to the "right" cluster which can execute the query while making the best use of resources. Several systems beyond Presto are involved in making the routing decision and they take multiple factors into account:
+
+Current state of queuing on Presto clusters
+
+Distribution of hardware across different datacenters
+
+The data locality of the tables that the query uses
+
+Given this complexity, it can be very hard for an oncall to figure out the root cause of any queueing problems encountered in production. This is another instance where analyzers come to the fore by pulling information from multiple sources and presenting conclusions.
+
+Load balancer robustness
+
+Figure 4: Load balancer robustness (Diagram by Philip S. Bell)
+
+As mentioned above, our Presto clusters sit behind load balancers which route every single Presto query at Meta. In the beginning, when Presto had not yet scaled up the level of internal usage it has today, the Gateway was very simple. However, as usage of Presto increased across Meta, we ran into scalability issues on a couple of occasions. One of them was the Gateway failing under heavy load, which could lead to Presto being unavailable for all users. The root cause for some stability issues was one service unintentionally bombarding the Gateway with millions of queries in a short span, resulting in the Gateway processes crashing and unable to route any queries.
+
+To prevent such a scenario, we set about making the Gateway more robust and tolerant to such unintended DDoS-style traffic. We implemented a throttling feature, which rejects queries when under heavy load. The throttling can be activated based on query count per second across various dimensions like per user, per source, per IP, and also at a global level for all queries. Another enhancement we implemented was autoscaling. Leaning on a Meta-wide service that supports scaling up and down of jobs, the number of Gateway instances are now dynamic. This means that under heavy load, the Gateway can now scale up to handle the additional traffic and not be maxed out on CPU/memory, thus preventing the crashing scenario described above. This, in conjunction with the throttling feature, ensures that the Gateway is robust and can withstand adverse unpredictable traffic patterns.
+
+What advice would we give a team scaling up their own Data Lakehouse using Presto?
+
+Figure 5: Presto architecture scaling (Diagram by Philip S. Bell)
+
+Some of the important aspects to be kept in mind when scaling up Presto are:
+
+Establishing easy-to-understand and well-defined customer-facing SLAs. Defining SLAs around important metrics like queueing time and query failure rate in a manner that tracks customer pain points becomes crucial as Presto is scaled up. When there is a large number of users, the lack of proper SLAs can greatly hinder efforts to mitigate production issues because of confusion in determining the impact of an incident.
+
+Monitoring and automated debugging. As Presto is scaled up and the number of clusters increases, monitoring and automated debugging becomes critical.
+
+Having thorough monitoring can help identify production issues before their blast radius becomes too big. Catching issues early will ensure we're minimizing user impact where we can.
+
+Manual investigations in the face of customer-impacting production issues are not scalable. It's imperative to have automated debugging in place so that the root cause can be quickly determined.
+
+Good load balancing. As the Presto fleet grows, it's important to have a good load balancing solution sitting in front of the Presto clusters. At scale, small inefficiencies in load balancing can have an outsized negative impact due to the sheer volume of the workload.
+
+Configuration management. Configuration management of a large fleet of Presto clusters can become a pain if it's not well planned for. Where possible, configurations should be made hot reloadable so that Presto instances do not have to be restarted or updated in a disruptive manner which will result in query failures and customer dissatisfaction.
+
+This article was written in collaboration with Neerad Somanchi, a Production Engineer at Meta, and Philip Bell, a Developer Advocate at Meta.
+
+To learn more about Presto, visit
+prestodb.io
+, watch Philip Bell's
+quick explanation of Presto
+ on YouTube, or follow Presto on
+Twitter
+,
+Facebook
+ and
+LinkedIn
+.
+
+To learn more about Meta Open Source, visit our
+open source site
+, subscribe to our
+YouTube channel
+, or follow us on
+Twitter
+,
+Facebook
+ and
+LinkedIn
+.

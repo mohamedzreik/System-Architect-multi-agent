@@ -1,0 +1,77 @@
+Manufacturing
+
+News and updates on Google Cloud products and services for the manufacturing industry
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Security & Identity
+
+Auto-ISAC and Google partner to boost automotive sector cybersecurity
+
+By Nick Panos • 3-minute read](https://cloud.google.com/blog/products/identity-security/auto-isac-google-partner-to-boost-automotive-sector-cybersecurity)
+
+[Databases
+
+Waze keeps traffic flowing with 1M+ real-time reads per second on Memorystore
+
+By Eden Levin • 4-minute read
+
+](https://cloud.google.com/blog/products/databases/how-waze-keeps-traffic-flowing-with-memorystore)
+
+[Manufacturing
+
+Driving for the Horizon: New Android Automotive solution on cloud offers faster builds
+
+By Florian Haubner • 7-minute read
+
+](https://cloud.google.com/blog/topics/manufacturing/slash-android-automotive-os-build-times-and-get-to-market-faster-with-horizon-on-google-cloud)
+
+[AI & Machine Learning
+
+Build live voice-driven agentic applications with Vertex AI Gemini Live API
+
+By Anant Nawalgaria • 6-minute read](https://cloud.google.com/blog/products/ai-machine-learning/build-voice-driven-applications-with-live-api)
+
+[Manufacturing
+
+How AI will help address 5 urgent manufacturing challenges
+
+By Praveen Rao • 5-minute read](https://cloud.google.com/blog/topics/manufacturing/five-manufacturing-trends-being-reshaped-by-ai)
+
+[Manufacturing
+
+Unlock AI with IT and OT data powered by Manufacturing Data Engine with Cortex Framework
+
+By John Studdert • 4-minute read](https://cloud.google.com/blog/topics/manufacturing/google-cloud-manufacturing-data-engine-with-cortex-framework)
+
+[Databases
+
+Nuro drives autonomous innovation with AlloyDB for PostgreSQL
+
+By Fei Meng • 5-minute read](https://cloud.google.com/blog/products/databases/nuro-drives-autonomous-innovation-with-alloydb-for-postgresql)
+
+[Security & Identity
+
+Google Cloud first CSP to join BRC, MFG-ISAC, and affiliates to advance security
+
+By Vinod D'Souza • 4-minute read](https://cloud.google.com/blog/products/identity-security/google-cloud-first-csp-to-join-brc-mfg-isac-and-affiliates-to-advance-security)
+
+[Manufacturing
+
+Google Cloud helps manufacturers bridge IT and OT data with Manufacturing Data Engine and Cortex Framework
+
+By Praveen Rao • 4-minute read
+
+](https://cloud.google.com/blog/topics/manufacturing/manufacturing-bridging-it-ot-data-engine-cortex-framework)
+
+[Hybrid & Multicloud
+
+Enabling modern manufacturing outcomes with AI, edge, and modern infrastructure
+
+By Fabien Duboeuf • 4-minute read](https://cloud.google.com/blog/topics/hybrid-cloud/google-distributed-cloud-for-manufacturing)
+
+Load more stories

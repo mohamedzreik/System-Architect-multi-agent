@@ -1,0 +1,127 @@
+Shopify offers a GitHub app to connect your Shopify and GitHub accounts. Use it when developing
+themes
+ and
+Hydrogen storefronts
+.
+
+Anchor to Connect Shopify and GitHub
+Connect Shopify and GitHub
+
+Install the
+Shopify GitHub app
+ to connect your accounts.
+
+Your Shopify account can only be connected to one GitHub account, which is why we recommend using
+organization accounts
+, which enable more flexible access control.
+
+Anchor to Organization accounts
+Organization accounts
+
+We recommend using
+GitHub organizations
+ if possible. Organizations work with multiple individual GitHub accounts, enabling easier collaboration for teams, and more secure access control for GitHub repositories and Shopify stores.
+
+Organization accounts are particularly helpful if you need to
+transfer repository ownership
+, which is common for agencies and freelance developers.
+
+Anchor to Personal accounts
+Personal accounts
+
+You can connect your personal GitHub account to Shopify, but you can only have one Shopify account connected to one personal GitHub account at a time. That's why we recommend using
+organization accounts
+ if possible.
+
+You can convert a
+personal GitHub account to an organization
+.
+
+Anchor to Required GitHub permissions
+Required GitHub permissions
+
+For security reasons, we recommend granting access permission on a per-repository basis, instead of granting them for all repositories in your account or organization.
+
+|
+Read and write access
+ |
+Read access
+ |
+| --- | --- |
+| * Repository permissions * Administration * Contents * Dependabot secrets * Pull requests * Secrets * GitHub Actions * Workflows | * Account permissions + Email addresses * Organization permissions + Members * Repository permissions + Deployments * Events + Delete + Organization + Public + Pull request + Push + Workflow run + Workflow job |
+
+Anchor to Disconnect Shopify and GitHub
+Disconnect Shopify and GitHub
+
+You can disconnect your Shopify and GitHub accounts in your GitHub settings:
+
+Open your
+GitHub settings for app authorizations
+
+Beside the Shopify app, click
+Revoke
+.
+
+Check the GitHub docs for more details on
+deleting GitHub apps
+.
+
+Anchor to Troubleshooting and known limitations
+Troubleshooting and known limitations
+
+If you're connecting a new dev or client transfer store, then you can't set up the GitHub app on the initial login after the store is created. Log out of your store and log in again before proceeding.
+
+If you access GitHub with SAML/SSO, you need an active SAML session to use the Shopify GitHub app. You can create a new SAML session by going to
+https://github.com/orgs/{YOUR_ORGANIZATION}/sso
+.
+
+If your GitHub organization enables SAML/SSO and you already had the Shopify GitHub app installed, then you'll need to
+re-authorize all your GitHub apps
+, including the Shopify app.
+
+The Shopify GitHub app doesn't support the
+IP allow list
+ feature of GitHub Enterprise Cloud.
+
+If you
+convert your user account to an organization
+, then you'll need to uninstall and reinstall the Shopify GitHub app.
+
+When connecting a repository, if you don't see the one you want to connect in the list of available repositories, then the GitHub organization owner will need to
+update the repository access settings
+ for the Shopify GitHub app.
+
+Anchor to Using GitHub in Shopify development
+Using GitHub in Shopify development
+
+[
+
+GitHub integration for themes
+
+Link your themes to GitHub repositories for two-way synchronization and version control
+
+GitHub integration for themes
+
+Link your themes to GitHub repositories for two-way synchronization and version control](/docs/storefronts/themes/tools/github)
+
+[GitHub integration for themes
+
+Link your themes to GitHub repositories for two-way synchronization and version control](/docs/storefronts/themes/tools/github)
+
+[
+
+Hydrogen CI/CD with GitHub
+
+Set up continuous integration and deployment for your Hydrogen storefronts
+
+Hydrogen CI/CD with GitHub
+
+Set up continuous integration and deployment for your Hydrogen storefronts](/docs/storefronts/headless/hydrogen/deployments/github)
+
+[Hydrogen CI/CD with GitHub
+
+Set up continuous integration and deployment for your Hydrogen storefronts](/docs/storefronts/headless/hydrogen/deployments/github)
+
+Was this page helpful?
+
+YesNo

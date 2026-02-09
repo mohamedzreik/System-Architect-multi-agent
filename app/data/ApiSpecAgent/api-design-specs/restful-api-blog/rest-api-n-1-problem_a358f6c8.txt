@@ -1,0 +1,79 @@
+The N+1 problem is a common issue in data retrieval scenarios, especially when working with relational databases or REST APIs that interact with them. It occurs when a client makes a request to retrieve a list of resources (N), and for each resource, an additional query (1) is made to fetch related data. As a result, for N resources, N+1 queries are executed.
+
+N+1 Problem
+
+The N+1 problem is mostly talked about in the context of ORMs. In this kind of problem, the system needs to load N children of a one-parent entity where only the parent entity was requested. By default, ORMs are configured with lazy-loading disabled, so one query issued for the parent entity causes N more queries, i.e. one each for N child entities.
+
+This N+1 problem is often considered a significant performance bottleneck, and so shall be solved at the design level of the application.
+
+N+1 Problem in REST
+
+Though mostly directly associated, the N+1 problem is not specific to ORMs only. This problem can be related to the context of web APIs as well, e.g. REST APIs.
+
+In the case of web APIs, the N+1 problem is a situation where client applications are required to call the server N+1 times to fetch one collection resource + N child resources.
+
+This is mostly because the collection resource did not provide enough information about the child resources to help the client application to build its user interface altogether.
+
+For example, a REST API returns a collection of books as a resource.
+
+<books uri="/books" size="100">
+ <book uri="/books/1" id="1">
+ <isbn>3434253561</isbn>
+ </book>
+ <book uri="/books/2" id="2">
+ <isbn>3423423534</isbn>
+ </book>
+ <book uri="/books/3" id="3">
+ <isbn>5352342344</isbn>
+ </book>
+ ...
+ ...
+</books>
+
+Here
+/books
+ resource return list of books with information including only it's
+id
+ and
+isbn
+. This information is not enough to build a client application UI, which will want to typically show the books
+name
+ in UI rather than ISBN.
+
+In some situations, the clients may want to show other information such as the author's name and the publication year as well.
+
+In the above scenario, the client application MUST make N more requests for each individual book resource at
+/books/{id}
+. So in total client will end up invoking REST APIs N+1 times.
+
+HTTP GET /books/1
+HTTP GET /books/2
+HTTP GET /books/3
+HTTP GET /books/4
+...
+...
+N Times
+
+The above scenario is only for example. The idea is that insufficient information in collection resources may lead to the N+1 problem in REST APIs.
+
+How to Solve N+1 Problem
+
+The good thing about the previously discussed problem is that we know what exactly is the issue. And this makes the solution pretty easy.
+
+When designing APIs we can ensure that endpoints allow clients to specify the depth of related data they require. This prevents over-fetching and mitigates the N+1 problem.
+
+To solve N+1 problem in REST, include enough information in single resources inside collection resources.
+
+We may be required to consult with API consumers, do market research for similar applications and their user interfaces, or simply put ourselves in the client's shoes.
+
+Moreover, we may evolve our APIs over time as our understanding of client requirements improves. This is possible using
+API versioning
+.
+
+Summary
+
+The N+1 problem is a performance concern that can impact the efficiency and scalability of REST APIs. In the context of REST APIs, sometimes the resources have relationships, and fetching related sub-resources can trigger the N+1 problem if not managed properly.
+
+By understanding its causes and the impacts it can have, developers can take proactive steps to design and optimize their APIs to prevent or mitigate the N+1 problem and build an efficient API design that leads to more responsive and resource-efficient APIs
+
+Happy Learning !!

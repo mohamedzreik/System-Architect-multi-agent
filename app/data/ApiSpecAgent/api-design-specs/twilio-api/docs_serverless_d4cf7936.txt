@@ -1,0 +1,53 @@
+Serverless
+
+Positive FeedbackNegative Feedback
+
+Twilio offers serverless solutions to help you build and deploy applications without managing infrastructure:
+
+Expand image
+
+You can build and deploy applications with Twilio's serverless offerings. Create proofs of concept, integrations, and APIs with no-code, low-code, or full-code options. Integrate your stack by using Twilio developer tools and pay only for what you use with pay-as-you-go pricing.
+
+Products and solutions
+
+products-and-solutions page anchor
+
+Positive FeedbackNegative Feedback
+
+Choose the serverless solution that fits your use case. Each product works on its own or together to help you build Twilio applications without managing infrastructure.
+
+Functions and Assets
+: Host HTTP endpoints, create Studio logic, or integrate Twilio with your systems by writing Node.js Functions. Host your application assets on the Twilio CDN. Upload and manage media files, images, and privacy settings from the same platform.
+
+TwiML Bins
+: Write and host Twilio Markup Language (
+TwiML
+) and customize its behavior with Handlebars templates. Prototype without your own web server.
+
+Studio
+: Use drag-and-drop widgets to define communication tasks without writing code. Build contact center workflows, call forwarders, SMS surveys, and more.
+
+Sync
+: Build in-app collaboration and continuous experiences across devices. Twilio stores state in the cloud and synchronizes changes to subscribed devices.
+
+Tooling
+
+tooling page anchor
+
+Positive FeedbackNegative Feedback
+
+Twilio provides tools to help you explore and integrate serverless solutions into your applications.
+
+Use the following tools to enhance your serverless development:
+
+Code Exchange & Quick Deploy(link takes you to an external page)
+: Create a proof of concept hosted on the Twilio platform in minutes—no code required. Modify common functionality through configuration variables or the Functions source code.
+
+Serverless Toolkit (Twilio Labs)
+: Integrate Functions and Assets deployments into your CI/CD workflows by using the CLI and SDK tooling.
+
+Serverless API
+: Customize the provisioning and deployment of Functions and Assets by using the REST API.
+
+Twilio Dev Phone (Twilio Labs)
+: Test your Twilio apps with Twilio Dev Phone when you lack reliable access to SMS or calling capabilities.

@@ -1,0 +1,77 @@
+Data Center Engineering
+
+Open Source Is Good for the Environment
+
+AI Research
+
+SEP 29, 2025
+
+Meta's Infrastructure Evolution and the Advent of AI
+
+Production Engineering
+
+MAY 21, 2025
+
+Journey to 1000 models: Scaling Instagram's recommendation system
+
+Articles
+
+Videos
+
+Publications
+
+The Latest
+
+Data Infrastructure
+
+MAY 20, 2025
+
+Meta's Full-stack HHVM optimizations for GenAI
+
+Networking & Traffic
+
+FEB 3, 2025
+
+How Precision Time Protocol handles leap seconds
+
+Open Source
+
+JAN 21, 2025
+
+Strobelight: A profiling service built on open source technology
+
+Connectivity
+
+JAN 10, 2025
+
+ILA Evo: Meta's journey to reimagine fiber optic in-line amplifier sites
+
+iOS
+
+DEC 18, 2024
+
+How we think about Threads' iOS performance
+
+ML Applications
+
+DEC 2, 2024
+
+Meta Andromeda: Supercharging Advantage+ automation with the next-gen personalized ads retrieval engine
+
+Data Infrastructure
+
+NOV 19, 2024
+
+Sequence learning: A paradigm shift for personalized ads recommendations
+
+Data Center Engineering
+
+OCT 15, 2024
+
+OCP Summit 2024: The open future of networking hardware for AI
+
+AI Research
+
+AUG 21, 2024
+
+Bringing Llama 3 to life

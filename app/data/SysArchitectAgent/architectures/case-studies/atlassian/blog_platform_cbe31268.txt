@@ -1,0 +1,39 @@
+Articles About
+
+Platform
+
+Platform
+
+Scaling responsibly: evolving our API rate limits to power the next generation of Atlassian Cloud
+
+At Atlassian, we're committed to delivering a cloud platform that's reliable, scalable, and flexible enough to let developers and partners...
+
+Company News
+
+Introducing passkeys and multiple 2-step verification factors to enhance your account security
+
+ Introducing passkeys and multiple 2-step verification factors to enhance your account security We are excited to announce two major...
+
+Company News
+
+Make your Atlassian account safer (and easier to use!) with two-step verification
+
+Have you noticed more email one-time passcodes (OTPs) when logging in to your Atlassian account lately? You're not alone! Atlassian...
+
+Enterprise
+
+From tradition to transformation: how Ford continuously evolves as an enterprise
+
+Discover how Ford Motor Company empowers its people and drives continuous improvement by applying data-driven insights and automation with Atlassian Cloud Enterprise. Learn how a 120-year legacy brand is transforming its culture and operations...
+
+Enterprise
+
+Following a historic merger, two leading insurers come together on Atlassian's Cloud Platform to accelerate collaboration
+
+Future-thinking German insurer BarmeniaGothaer brings together thousands of employees on Atlassian's tools to deliver even more value for policyholders
+
+Platform
+
+Atlassian Account protection for security changes
+
+Enhanced Security with Step-Up Authentication via Email OTP We are excited to announce a significant enhancement to the security of...

@@ -1,0 +1,402 @@
+At Rapid7, we track a wide range of threats targeting cloud environments, where a frequent objective is hijacking victim infrastructure to host phishing or spam campaigns. Beyond the obvious security risks, this approach allows threat actors to offload their operational costs onto the target company, often resulting in significant, unwanted bills for services the victim never intended to use.
+
+Rapid7 recently investigated a cloud abuse incident in which threat actors leveraged compromised AWS credentials to deploy phishing and spam infrastructure using AWS WorkMail, bypassing the anti-abuse controls normally enforced by AWS Simple Email Service (SES). AWS SES is a general-purpose, API-driven email platform intended for application-generated email such as transactional notifications and marketing messages. This allows the threat actor to leverage Amazon's high sender reputation to masquerade as a valid business entity, with the ability to send email directly from victim-owned AWS infrastructure. Generating minimal service-attributed telemetry also makes threat actor activity difficult to distinguish from routine activity. Any organization with exposed AWS credentials and permissive Identity and Access Management (IAM) policies are potentially at risk, particularly those without guardrails or monitoring around WorkMail and SES configuration.
+
+In this post, we analyzed a real-world incident observed by our MDR team in which threat actors abused native AWS email services to build phishing and spam infrastructure inside a compromised cloud environment. We will reconstruct the attacker's progression from credential validation and IAM reconnaissance to bypassing Amazon SES safeguards by pivoting to AWS WorkMail. Along the way, we highlight how legitimate service abstractions can be leveraged to evade detection, examine the resulting logging and attribution gaps, and outline practical detection and prevention strategies defenders can use to identify and disrupt similar cloud-native abuse.
+
+Background: AWS WorkMail and its key components
+
+AWS WorkMail is a fully managed business email and calendaring service that allows organizations to operate corporate mailboxes without deploying or maintaining their own mail servers. It supports standard email protocols such as IMAP and SMTP, as well as common desktop and mobile clients, making it a lightweight, pay-as-you-go alternative for teams already operating within AWS.
+
+To understand the activities performed by threat actors in the incident, it's important to first introduce several core concepts within AWS WorkMail.
+
+Organization
+
+An Organization is the top-level container in WorkMail. It represents an isolated email environment that holds all users, groups, and domains. Each WorkMail organization is region-specific and operates independently, which allows attackers to create disposable, self-contained email infrastructures with minimal setup.
+
+Users
+
+Users represent individual mail-enabled identities within a WorkMail organization. After a user is created using the "
+workmail:CreateUser"
+ API call, a mailbox can be assigned via a "
+workmail:RegisterToWorkMail
+"API call. Once registered, the user can authenticate to the AWS WorkMail web client or connect via standard email protocols and immediately begin sending and receiving email.
+
+Groups
+
+Groups are collections of users that can receive email on behalf of multiple members. They are typically used for distribution lists or shared inboxes and can simplify bulk message delivery or internal coordination within a WorkMail organization.
+
+Domains
+
+Domains define the email address namespace used by a WorkMail organization (
+[email protected]
+). Before a domain can be used, ownership must be verified. This verification process leverages the standard domain verification mechanism of Amazon Simple Email Service, typically via DNS records. Once verified, the domain can be actively used for sending and receiving email, enabling threat actors to operate from attacker-controlled, but seemingly legitimate, domains.
+
+Attack analysis
+
+The diagram below contains a graphical representation of the key events carried out by the attackers throughout the attack, starting with initial access actions, continuing through privilege escalation, and ending with the achievement of objectives.
+
+Figure 1: Graphical visualization of the attack
+
+Initial access
+
+The compromise began with the exposure of long-term AWS access keys. The first indication of malicious activity was an
+"sts:GetCallerIdentity"
+ API call with the User-Agent set to
+"
+TruffleHog Firefox.
+"
+ This strongly suggests the use of TruffleHog, a tool commonly leveraged by adversaries to discover and validate leaked credentials from sources such as GitHub, GitLab, and public S3 buckets. Rapid7 has frequently observed TruffleHog usage in active campaigns, including activity attributed to groups such as the
+Crimson Collective
+.
+
+Several days after this initial credential validation, we observed suspicious activity involving a second IAM user authenticated via long-term access keys. While we cannot conclusively prove that both users were accessed by the same operator, multiple factors suggest they were part of the same intrusion activity. Notably, both authentications originated from the same geographic region, which was anomalous for the victim's normal operating patterns. Throughout the incident window, access to both accounts was conducted through a rotating set of IP addresses associated primarily with cloud service providers such as Amazon and DigitalOcean. This infrastructure choice is consistent with common adversary tradecraft used to obfuscate true origin and blend into legitimate cloud-to-cloud traffic.
+
+⠀
+
+Figure 2: Example TruffleHog output showing discovered credentials for Google Cloud Platform (GCP)
+
+Discovery phase and privilege escalation
+
+Following initial access, the first compromised user was used to perform basic environment discovery via native AWS APIs. These attempts repeatedly resulted in AccessDenied errors, indicating that the exposed credentials were constrained by limited permissions. The activity was conducted using the AWS command-line interface (CLI), suggesting hands-on, interactive exploration by the threat actor rather than automated tooling.
+
+After encountering these limitations, the adversary shifted activity to the second set of compromised credentials, which possessed significantly broader permissions. With this user, enumeration became more deliberate and structured. The actor began with
+iam:ListUsers
+ API calls to understand the identity landscape and then used a technique of intentionally triggering API errors to confirm specific permissions without making persistent changes.
+
+As part of this broader discovery effort, the actor also queried Amazon SES to assess its current configuration and readiness for abuse. Specifically, they executed
+ses:GetAccount
+and
+ses:ListIdentities
+. These calls allowed the adversary to quickly map the operational status of SES within the account. The
+ses:ListIdentities
+ API call was used to determine whether any verified identities (domains or email addresses) already existed that could be immediately leveraged for sending mail; none were present at the time. In parallel,
+ses:GetAccount
+was used to identify whether the account was operating in the SES sandbox, which would impose strict sending limits and require additional steps before large-scale email campaigns could be launched.
+
+This SES-focused reconnaissance indicates early intent to abuse email-sending capabilities and demonstrates how attackers can efficiently evaluate service readiness using only a small number of low-noise management API calls.
+
+For example, the actor attempted to create an IAM user that already existed. The resulting error response confirmed possession of
+iam:CreateUser
+permissions without successfully creating a new entity:
+
+⠀
+
+{
+"userAgent": "aws-cli/1.22.34 Python/3.10.12 Linux/5.15.0-113-generic botocore/1.23.34",
+"errorCode": "EntityAlreadyExistsException",
+"errorMessage": "User with name xxxx already exists."
+}
+
+Listing 1: Part of the
+
+iam:CreateUser
+
+CloudTrail log
+
+⠀
+
+A similar validation was performed using
+iam:CreateLoginProfile
+*.* By supplying a password that violated the account's password policy, the actor received a
+PasswordPolicyViolationException
+, confirming their ability to create console login profiles:
+
+⠀
+
+{
+"userAgent": "aws-cli/1.22.34 Python/3.10.12 Linux/5.15.0-113-generic botocore/1.23.34",
+"errorCode": "PasswordPolicyViolationException",
+"errorMessage": "Password should have at least one uppercase letter"
+}
+
+Listing 2: Part of the
+
+iam:CreateLoginProfile
+
+CloudTrail log
+
+⠀
+
+After validating the scope of their privileges, the adversary created a new IAM user, attached the AWS managed policy "
+AdministratorAccess"
+, and established a login profile to enable AWS Management Console access. This marked a transition from CLI-based reconnaissance to full GUI-based control, providing unrestricted access and setting the stage for subsequent operational activity.
+
+Action on objectives: Preparing email infrastructure for abuse
+
+By the end of the discovery phase, the threat actor had established two critical facts:
+
+No verified identities existed in Amazon Simple Email Service (SES).
+
+The account remained restricted by the SES sandbox.
+
+The SES sandbox is explicitly designed to limit fraud and abuse, and its restrictions effectively prevent meaningful phishing or spam campaigns. While an account remains in the sandbox, the following controls apply:
+
+Emails can only be sent to verified identities (email addresses or domains) or the SES mailbox simulator.
+
+A maximum of
+200 messages per 24-hour period
+.
+
+A maximum sending rate of
+1 message per second
+.
+
+These constraints made SES unsuitable for immediate abuse at scale. Rather than abandoning the service, the attacker initiated a process to legitimize higher-volume email sending.
+
+First, they opened a support case with AWS requesting removal from the SES sandbox. In parallel, they requested a substantial increase to the daily sending quota— setting it to
+100,000 emails per day
+ —using the
+servicequotas:RequestServiceQuotaIncrease
+API call.
+
+⠀
+
+{
+    "requestParameters": {
+"serviceCode": "ses",
+"quotaCode": "L-XXXXXX",
+"desiredValue": 100000
+
+}
+
+Listing 3: Request parameters from
+
+RequestServiceQuotaIncrease
+
+API call
+
+⠀
+
+During this waiting period, the actor focused on persistence and stealth. Multiple IAM users were created.. These usernames were deliberately chosen to resemble region- or service-scoped automation accounts rather than human operators. To further reduce suspicion during IAM audits, the attacker attached narrowly scoped, SES-only policies to these users instead of broad administrative permissions. This approach allowed them to preserve operational access while minimizing obvious indicators of compromise such as over-privileged identities.
+
+At this stage, the attacker had effectively prepared the account for large-scale email abuse-but they did not wait for AWS approval to proceed.
+
+Bypassing SES controls by abusing AWS WorkMail
+
+Rather than remaining idle while SES sandbox removal and quota increases were pending, the attacker pivoted to AWS WorkMail, which offers an alternative email-sending pathway with significantly fewer upfront restrictions.
+
+Using the
+workmail:CreateOrganization
+API, the threat actor created multiple WorkMail organizations. They then initiated domain verification workflows for domains designed to appear legitimate and business-like, including:
+
+cloth-prelove[.]me
+
+ipad-service-london[.]com
+
+Domain verification was performed through
+ses:VerifyDomainIdentity
+ and
+ses:VerifyDomainDkim
+, with the calls originating from
+workmail.amazonaws.com
+. This highlights an important nuance for defenders: although SES APIs are involved, the activity is driven by WorkMail provisioning rather than traditional SES email campaigns.
+
+Once domain verification was completed, the actor created multiple mailbox users directly within WorkMail, such as:
+
+service@ipad-service-london[.]com
+
+marketing@ipad-service-london[.]com
+
+These accounts served two purposes. First, they established persistence at the application layer, independent of IAM. Second, they provided credible sender identities for phishing and spam operations, closely resembling legitimate corporate email addresses.
+
+There were also AWS directory service events logged by CloudTrail that show new aliases created for the new sender domains, using the victim's directory tenant:
+
+CreateAlias
+
+AuthorizeAppication
+
+This pivot is particularly impactful because
+AWS WorkMail does not implement a sandbox model
+ comparable to SES. Emails can be sent immediately to external, unverified recipients. Additionally, WorkMail supports significantly higher sending volumes than SES sandbox limits. While Rapid7 has not empirically validated the maximum throughput, AWS documentation cites a default upper limit of
+100,000 external recipients per day per organization
+, aggregated across all users.
+
+Email sending methods and logging gaps
+
+The attacker had two viable options for sending email through WorkMail:
+
+1. Web interface
+
+Emails sent through the AWS WorkMail web client may surface indirectly in CloudTrail as "
+ses:SendRawEmail"
+ events. These events are generated because WorkMail uses Amazon Simple Email Service (SES) as its underlying mail transport, even though the messages are composed and sent entirely through the WorkMail application.
+
+While these events are not attributed to an IAM principal, they do expose several pieces of valuable metadata within the "
+requestParameters"
+ field — most notably the sender's email address and associated SES identity. This allows defenders to link outbound email activity to specific WorkMail users and recently verified domains, even in the absence of traditional application or message-level logs.
+
+One notable limitation of these "
+ses:SendRawEmail"
+ events is the absence of a true client source IP address. Because emails sent via the WorkMail web interface are executed by an AWS-managed service on behalf of the mailbox user, CloudTrail records the "
+sourceIPAddress"
+ as "
+workmail.
+.amazonaws.com"
+ rather than the originating IP address of the actor's browser session. This effectively obscures the attacker's true network origin and prevents defenders from correlating email-sending activity with suspicious IP ranges, TOR exit nodes, or previously observed intrusion infrastructure.
+
+⠀
+
+{
+"eventVersion": "1.11",
+"userIdentity": {
+"type": "AWSService",
+"invokedBy": "workmail.us-east-1.amazonaws.com"
+    },
+"eventTime": "2025-12-20T11:26:59Z",
+"eventSource": "ses.amazonaws.com",
+"eventName": "SendRawEmail",
+"awsRegion": "us-east-1",
+"sourceIPAddress": "workmail.us-east-1.amazonaws.com",
+"userAgent": "workmail.us-east-1.amazonaws.com",
+"requestParameters": {
+"sourceArn": "arn:aws:ses:us-east-1:123456789012:identity/malicious-organiation[.]com",
+"destinations": [
+"HIDDEN_DUE_TO_SECURITY_REASONS"
+        ],
+"source": "=?UTF-8?Q?Malicious_User?= <marketing@malicious-organiation[.]com>",
+"fromArn": "arn:aws:ses:us-east-1:123456789012:identity/malicious-organiation[.]com",
+"configurationSetName": "gcp-iad-prod-workmail-default-configuration-set",
+"rawMessage": {
+"data": "HIDDEN_DUE_TO_SECURITY_REASONS"
+        }
+    },
+"responseElements": null,
+"additionalEventData": {
+"SignatureVersion": "4",
+"sesMessageId": "0100019b3c4a8bb7-50af951c-fbd4-4610-bc94-c7fc35733699-000000"
+    },
+"requestID": "aff61405-04bd-4969-802a-7ce4d5946949",
+"eventID": "c34ed12d-5bec-3fdd-aef9-57ae4313ca88",
+"readOnly": true,
+"resources": [
+        {
+"accountId": "123456789012",
+"type": "AWS::SES::ConfigurationSet",
+"ARN": "arn:aws:ses:us-east-1:123456789012:configuration-set/gcp-iad-prod-workmail-default-configuration-set"
+        },
+        {
+"accountId": "123456789012",
+"type": "AWS::SES::EmailIdentity",
+"ARN": "arn:aws:ses:us-east-1:123456789012:identity/malicious-organiation[.]com"
+        }
+    ],
+"eventType": "AwsApiCall",
+"managementEvent": false,
+"recipientAccountId": "123456789012",
+"sharedEventID": "xxx",
+"eventCategory": "xxx"}
+
+Listing 4:
+
+SendRawEmail
+
+event logged after an email is sent via AWS WorkMail web interface
+*⠀*
+
+⠀
+
+While limited, this telemetry can still be valuable for correlating suspicious sending behavior with recently created WorkMail users or newly verified domains.
+
+2. SMTP access
+
+Alternatively, the attacker can authenticate directly to WorkMail's SMTP endpoint and send messages programmatically. Emails sent via SMTPdo not generate CloudTrail events, even when SES data events are enabled, creating a significant blind spot for defenders.
+
+An example Python script used to send email through WorkMail SMTP is shown below:
+
+⠀
+
+import smtplib
+from email.message import EmailMessage
+
+# Configuration
+SMTP_SERVER = "smtp.mail.us-east-1.awsapps.com"
+SMTP_PORT = 465
+EMAIL_ADDRESS = "[email protected]"
+EMAIL_PASSWORD = "****"
+
+# Create the message
+msg = EmailMessage()
+msg["Subject"] = "WorkMail SMTP"
+msg["From"] = EMAIL_ADDRESS
+msg["To"] = "<unverified_email>"
+msg.set_content("Email Delivered to an Unverified Email via AWS WorkMail")
+
+# Send the email
+try:
+with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as smtp:
+smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+smtp.send_message(msg)
+print("Email sent successfully!")
+except Exception as e:
+print(f"Error: {e}")
+
+Listing 5: Example script sending messages via AWS WorkMail via SMTP
+
+⠀
+
+From an attacker's perspective, this method is ideal: higher volume, immediate external reach, and minimal centralized logging. From a defender's perspective, it underscores the importance of monitoring WorkMail organization creation, domain verification events, and mailbox provisioning, as these actions often precede phishing activity that will never be visible in CloudTrail.
+
+Conclusion
+
+This incident illustrates how threat actors can abuse higher-level AWS services to deploy phishing and spam infrastructure closely resembling legitimate enterprise usage. While AWS WorkMail is not designed to support bulk email operations, attackers can still leverage it as an interim capability alongside Amazon SES. By abusing WorkMail's authenticated mailboxes and relaxed upfront controls, adversaries can begin sending lower volumes of email immediately — well before SES is moved out of the sandbox and higher sending quotas are approved. This staged approach allows attackers to establish sender reputation, validate infrastructure, and maintain operational momentum while bypassing many of the friction points intentionally built into SES.
+
+To mitigate this class of abuse, organizations should combine preventive guardrails with focused detection. Where AWS WorkMail is not required, its use should be explicitly blocked using AWS Organizations Service Control Policies (SCPs) to prevent organization creation and mailbox provisioning. In environments where WorkMail is needed, IAM policies should enforce strict least-privilege access and treat WorkMail and SES administration as privileged operations subject to monitoring and approval. Finally, organizations should reduce the likelihood of initial access by implementing secure development and operational practices — such as secret scanning in code repositories, regular key rotation, and minimizing long-term access keys — to limit the impact of credential leakage and prevent attackers from converting compromised credentials into scalable email abuse.
+
+MITRE ATT&CK techniques
+
+| | | |
+| --- | --- | --- |
+|
+Tactic
+ |
+Technique
+ |
+Details
+ |
+| Initial Access | Valid Accounts: Cloud Accounts (T1078.004) | The attacker authenticated to AWS using exposed long-term access keys validated with sts:GetCallerIdentity |
+| Persistence | Create Account: Cloud Account (T1136.003) | The attacker created multiple IAM users and AWS WorkMail mailbox users to maintain persistent access |
+| Privilege Escalation | Account Manipulation: Additional Cloud Roles (T1098.003) | The attacker attached the AdministratorAccess managed policy to a newly created IAM user |
+| Discovery | Cloud Infrastructure Discovery (T1580) | The attacker enumerated IAM users and assessed Amazon SES configuration and sandbox status via API calls |
+| Impact | Resource Hijacking: Cloud Service Hijacking (T1496.004) | The attacker abused AWS WorkMail and SES to send high-volume phishing and spam emails from the victim account |
+
+Indicators of compromise (IOCs)
+
+139.59.117[.]125
+
+3.0.205[.]202
+
+54.151.176[.]0
+
+Note:
+ IP addresses
+3.0.205[.]202
+ and
+54.151.176[.]0
+ are Amazon owned IP addresses so care should be taken when applying IP blocks.
+
+Rapid7 customers
+
+InsightIDR and Managed Detection and Response (MDR) customers have existing detection coverage through Rapid7's expansive library of detection rules. These detections are deployed and will alert on the behaviors described in this technical analysis.
+
+Article Tags
+
+Cloud Security
+
+AWS
+
+Phishing
+
+[
+
+Jan Blažek
+
+Author Posts](/blog/author/jan-blazek/)
+
+[
+
+Calvin House
+
+Author Posts](/blog/author/calvin-house/)
+
+Related blog posts

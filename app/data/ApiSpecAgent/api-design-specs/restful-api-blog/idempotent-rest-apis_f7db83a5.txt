@@ -1,0 +1,143 @@
+In the realm of RESTful web services, idempotency relates to the concept that making the same API request multiple times should yield the same result as making it just once. This means that regardless of how many times you repeat an idempotent request, the outcome remains consistent.
+
+What is an Idempotent API?
+
+Idempotency
+ essentially means that the effect of a successfully performed request on a server resource is independent of the number of times it is executed.
+
+For example, in arithmetic, adding zero to a number is an idempotent operation.
+
+When we design the REST APIs, we must realize that API consumers can make mistakes. Consumers can write the client code in such a way that there can be duplicate requests coming to the APIs.
+
+These duplicate requests may be unintentional as well as intentional sometimes (e.g. due to timeout or network issues). We have to make our APIs
+fault-tolerant
+ so that duplicate requests do not leave the system unstable.
+
+Also, idempotency is a key enabler for efficient caching and optimization strategies. Caches (and CDNs) can store and serve the results of idempotent requests to reduce the load on servers and improve response times.
+
+Idempotency with HTTP Methods
+
+An idempotent HTTP method is a method that can be invoked many times without different outcomes. It should not matter if the method has been called only once, or ten times over. The result should always be the same.
+
+If we follow the REST principles in designing our APIs, we will have automatically
+idempotent REST APIs
+ for GET, PUT, DELETE, HEAD, OPTIONS, and TRACE methods.
+Only
+POST
+ and
+PATCH
+ APIs will not be idempotent
+.
+
+POST
+ and
+PATCH
+ are NOT idempotent.
+
+GET
+,
+PUT
+,
+DELETE
+,
+HEAD
+,
+OPTIONS
+ and
+TRACE
+ are idempotent.
+
+Let's analyze how the above HTTP methods end up being idempotent – and why POST and PATCH are not.
+
+2.1. HTTP POST and PATCH
+
+Generally – not necessarily –
+POST
+ APIs are used to create a new resource on the server. So when we execute the same POST request N times, we will have N new resources on the server. So,
+POST is not idempotent
+.
+
+POST requests can trigger various side effects beyond just resource creation. These side effects may include sending notifications, making changes to the server's state, or performing actions that are not idempotent.
+
+HTTP PATCH is used for making partial updates to an existing resource without replacing the entire resource. The result of a PATCH request depends on the initial state of the resource and the specific changes provided in the request. Repeating the same PATCH request may lead to different resource states if the resource has been modified in the meantime.
+
+For instance, if you use a PATCH request to increment the number of items in a shopping cart, repeating the same PATCH request multiple times will increase the quantity with each request, which is a non-idempotent behavior.
+
+2.2. HTTP GET, HEAD, OPTIONS and TRACE
+
+GET
+,
+HEAD
+,
+OPTIONS
+ and
+TRACE
+ methods NEVER change the resource state on the server. They are purely for retrieving the resource representation or metadata at that point in time.
+
+So invoking multiple requests will not have any write operation on the server, so
+GET, HEAD, OPTIONS, and TRACE are idempotent
+.
+
+2.3. HTTP PUT
+
+Generally – not necessarily –
+PUT
+ APIs are used to update the resource state. If you execute a
+PUT
+ API N times, the very first request will update the resource; the other N-1 requests will just overwrite the same resource state again and again – effectively not changing anything.
+
+Hence,
+PUT is idempotent
+.
+
+2.4 HTTP DELETE
+
+2.4.1. Delete with the resource identifier
+
+When you execute N similar
+DELETE
+ requests, the first request will delete the resource and the response will be
+200 (OK)
+ or
+204 (No Content)
+.
+
+Other N-1 requests will return 404 (Not Found).
+
+Clearly, the response is different from the first request, but there is no change of state for any resource on the server-side because the original resource is already deleted.
+
+So,
+DELETE is idempotent
+.
+
+2.4.1. Delete without the resource identifier
+
+Please keep in mind that some systems may have DELETE APIs like this:
+
+DELETE /item/last
+
+In the above case, calling operation N times will delete N resources – hence
+DELETE
+ is not idempotent in this case. In this case, a good suggestion might be to change the above API to POST – because POST is not idempotent.
+
+POST /item/last
+
+Now, this is closer to HTTP spec – hence more REST compliant.
+
+Handling Non-Idempotent Operations
+
+As discussed above, not all HTTP methods are inherently idempotent. POST and PATCH, for instance, are non-idempotent methods. These methods can have side effects, and issuing the same request multiple times can result in different outcomes.
+
+For example, when a user signs up for an account, a POST request is made to create a new user. If this operation is repeated with the same data, it can lead to multiple accounts being created for the same user.
+
+To make non-idempotent operations safer, developers often implement strategies such as using unique request identifiers, transactional mechanisms, or idempotent request headers to ensure that repeating the request doesn't lead to unintended consequences.
+
+Summary
+
+The idempotent REST APIs help in enabling predictable behavior, even in the face of network failures and retries. By understanding idempotency and adhering to its principles, we can create robust web services that offer a consistent experience to the users.
+
+References:
+
+Rfc 2616
+
+SO Thread

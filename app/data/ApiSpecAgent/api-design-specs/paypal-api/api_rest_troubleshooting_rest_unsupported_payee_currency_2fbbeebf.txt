@@ -1,0 +1,16 @@
+Unsupported payee currency
+
+Returns from the Payments v1 API.
+
+UNSUPPORTED_PAYEE_CURRENCY
+ indicates that the payee's PayPal account does not support the currency specified in the transaction, and the payee cannot accept payments.
+
+Note: If an issue persists or if you have further questions, you can reach out to
+paypal-techsupport.com
+.
+
+| Cause | Impact | Resolution |
+| --- | --- | --- |
+| - Account restrictions: The payee account restrictions permit only transactions in certain currencies. - Disabled currency: The payee did not enable the specified currency in their account settings. - Region limitations: Certain regions do not make available specific currencies for the merchant account, resulting in a currency mismatch during a transaction. | - Failed payment attempt: The transaction cannot be completed using the specified currency. - Customer dissatisfaction: Unprocessable payments can cause inconvenience for both the payer and payee. | - Verify supported currencies: Change the currency code in your API request to a
+supported currency
+ for the payee account. - Contact payee: Communicate with the payee to confirm their account settings and the currencies they enabled. |

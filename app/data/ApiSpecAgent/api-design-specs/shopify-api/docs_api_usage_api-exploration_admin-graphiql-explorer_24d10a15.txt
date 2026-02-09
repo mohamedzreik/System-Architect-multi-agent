@@ -1,0 +1,153 @@
+GraphiQL is an in-browser tool for writing, validating, and testing GraphQL queries. When working with Shopify's GraphQL Admin API, GraphiQL can be useful for the following tasks:
+
+Learning about the available queries and mutations
+
+Executing specific queries and mutations to extract information or accomplish tasks
+
+For more information on GraphQL Admin API queries, refer to the
+GraphQL Admin API reference
+.
+
+Anchor to Execute queries on your store
+Execute queries on your store
+
+You can use GraphiQL to interact with your store's data in the following ways.
+
+Anchor to Install the GraphiQL app
+Install the GraphiQL app
+
+To build queries and mutations on your development store,
+install Shopify's GraphiQL app
+.
+
+Some scopes aren't available within the GraphiQL app. The app also can't be used to access data owned by other apps. If you're developing an app, then you should
+use a local GraphiQL instance
+ instead.
+
+Anchor to Use a local GraphiQL instance
+Use a local GraphiQL instance
+
+If you are developing an app using
+Shopify CLI
+, you can launch GraphiQL while running the
+dev
+ command by tapping the
+g
+ key.
+
+Shopify CLI's GraphiQL instance connects as your app, so it has the same access scopes as your app, and it can access data owned by your app. It can't access data owned by other apps.
+
+Anchor to Execute queries from GraphQL code blocks
+Execute queries from GraphQL code blocks
+
+If you're running a local app server with Shopify CLI, then you can send GraphQL examples to GraphiQL using the
+Open in GraphiQL
+ button. Access this feature in example code blocks on the references, and on code blocks inside of the Dev Assistant.
+
+You should use the
+latest version of Shopify CLI
+. You can check your Shopify CLI version by running the following command:
+
+$
+
+$
+
+shopify version
+
+Tip
+
+If you need to upgrade to the latest Shopify CLI version, then you can run the
+install
+ command.
+
+Tip:
+
+If you need to upgrade to the latest Shopify CLI version, then you can run the
+install
+ command.
+
+Anchor to Existing apps
+Existing apps
+
+If you've already started developing an app using
+Shopify CLI
+, then complete the following steps:
+
+Navigate to your app directory:
+
+$
+
+$
+
+cd
+
+Use the Shopify CLI
+dev
+ command
+ to start the dev preview:
+
+$
+
+$
+
+shopify app dev
+
+To execute GraphQL code examples, click
+Run in GraphiQL
+ in the code block.
+
+Anchor to New apps
+New apps
+
+If you haven't started developing an app yet, then complete the following steps:
+
+Install Shopify CLI
+.
+
+Scaffold an app
+.
+
+Navigate to your app directory:
+
+$
+
+$
+
+cd
+
+Use the Shopify CLI
+dev
+ command
+ to start the dev preview:
+
+$
+
+$
+
+shopify app dev
+
+To execute GraphQL code examples, click
+Run in GraphiQL
+ in the code block.
+
+Anchor to Execute queries on a demo store
+Execute queries on a demo store
+
+This is a read-only demo which can execute queries without needing to connect to a development store.
+
+Click
+Explorer
+ and use checkboxes and fields to build GraphQL queries.
+
+Click
+ to expand the
+Documentation Explorer
+. You can search schemas to view descriptions and supported fields.
+
+Launch GraphiQL in its
+own window
+.
+
+Was this page helpful?
+
+YesNo

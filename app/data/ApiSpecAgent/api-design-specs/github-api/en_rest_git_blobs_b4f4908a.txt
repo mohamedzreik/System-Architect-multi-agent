@@ -1,0 +1,235 @@
+The REST API is now versioned. For more information, see "
+About API versioning
+."
+
+REST API endpoints for Git blobs
+
+Use the REST API to interact with a Git blob (binary large object), the object type used to store the contents of each file in a repository.
+
+About Git blobs
+
+A Git blob (binary large object) is the object type used to store the contents of each file in a repository. The file's SHA-1 hash is computed and stored in the blob object. These endpoints allow you to read and write
+blob objects
+
+to your Git database on GitHub. Blobs leverage
+these custom media types
+. For more information about the use of media types in the API, see
+Getting started with the REST API
+.
+
+Create a blob
+
+Fine-grained access tokens for "Create a blob"
+
+This endpoint works with the following fine-grained token types:
+
+GitHub App user access tokens
+
+GitHub App installation access tokens
+
+Fine-grained personal access tokens
+
+The fine-grained token must have the following permission set:
+
+"Contents" repository permissions (write)
+
+Parameters for "Create a blob"
+
+Headers
+
+| Name, Type, Description |
+| --- |
+|
+accept
+ string Setting to
+application/vnd.github+json
+ is recommended. |
+
+Path parameters
+
+| Name, Type, Description |
+| --- |
+|
+owner
+ string Required The account owner of the repository. The name is not case sensitive. |
+|
+repo
+ string Required The name of the repository without the
+.git
+ extension. The name is not case sensitive. |
+
+Body parameters
+
+| Name, Type, Description |
+| --- |
+|
+content
+ string Required The new blob's content. |
+|
+encoding
+ string The encoding used for
+content
+. Currently,
+"utf-8"
+ and
+"base64"
+ are supported. Default:
+utf-8
+ |
+
+HTTP response status codes for "Create a blob"
+
+| Status code | Description |
+| --- | --- |
+|
+201
+ | Created |
+|
+403
+ | Forbidden |
+|
+404
+ | Resource not found |
+|
+409
+ | Conflict |
+|
+422
+ | Validation failed |
+
+Code samples for "Create a blob"
+
+Request example
+
+post/repos/{owner}/{repo}/git/blobs
+
+cURL
+
+JavaScript
+
+GitHub CLI
+
+Copy to clipboard curl request example
+
+curl -L \ -X POST \ -H "Accept: application/vnd.github+json" \ -H "Authorization: Bearer <YOUR-TOKEN>" \ -H "X-GitHub-Api-Version: 2022-11-28" \ https://api.github.com/repos/OWNER/REPO/git/blobs \ -d '{"content":"Content of the blob","encoding":"utf-8"}'
+
+Response
+
+Example response
+
+Response schema
+
+Status: 201
+
+{ "url": "https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15", "sha": "3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15" }
+
+Get a blob
+
+The
+content
+ in the response will always be Base64 encoded.
+
+This endpoint supports the following custom media types. For more information, see "
+Media types
+."
+
+application/vnd.github.raw+json
+: Returns the raw blob data.
+
+application/vnd.github+json
+: Returns a JSON representation of the blob with
+content
+ as a base64 encoded string. This is the default if no media type is specified.
+
+Note
+ This endpoint supports blobs up to 100 megabytes in size.
+
+Fine-grained access tokens for "Get a blob"
+
+This endpoint works with the following fine-grained token types:
+
+GitHub App user access tokens
+
+GitHub App installation access tokens
+
+Fine-grained personal access tokens
+
+The fine-grained token must have the following permission set:
+
+"Contents" repository permissions (read)
+
+This endpoint can be used without authentication or the aforementioned permissions if only public resources are requested.
+
+Parameters for "Get a blob"
+
+Headers
+
+| Name, Type, Description |
+| --- |
+|
+accept
+ string Setting to
+application/vnd.github+json
+ is recommended. |
+
+Path parameters
+
+| Name, Type, Description |
+| --- |
+|
+owner
+ string Required The account owner of the repository. The name is not case sensitive. |
+|
+repo
+ string Required The name of the repository without the
+.git
+ extension. The name is not case sensitive. |
+|
+file_sha
+ string Required |
+
+HTTP response status codes for "Get a blob"
+
+| Status code | Description |
+| --- | --- |
+|
+200
+ | OK |
+|
+403
+ | Forbidden |
+|
+404
+ | Resource not found |
+|
+409
+ | Conflict |
+|
+422
+ | Validation failed, or the endpoint has been spammed. |
+
+Code samples for "Get a blob"
+
+Request example
+
+get/repos/{owner}/{repo}/git/blobs/{file_sha}
+
+cURL
+
+JavaScript
+
+GitHub CLI
+
+Copy to clipboard curl request example
+
+curl -L \ -H "Accept: application/vnd.github+json" \ -H "Authorization: Bearer <YOUR-TOKEN>" \ -H "X-GitHub-Api-Version: 2022-11-28" \ https://api.github.com/repos/OWNER/REPO/git/blobs/FILE_SHA
+
+Response
+
+Example response
+
+Response schema
+
+Status: 200
+
+{ "content": "Q29udGVudCBvZiB0aGUgYmxvYg==", "encoding": "base64", "url": "https://api.github.com/repos/octocat/example/git/blobs/3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15", "sha": "3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15", "size": 19, "node_id": "Q29udGVudCBvZiB0aGUgYmxvYg==" }

@@ -1,0 +1,756 @@
+GraphQL Customer Account API
+
+Create personalized, customer authenticated experiences with the Customer Account API. The API offers a full range of options making it possible for customers to view their orders, manage their profile and much more.
+
+Ask assistant
+
+Choose a version:
+
+unstable 2026-04 release candidate2026-01 latest2025-10 2025-07 2025-04
+
+2026-01latest
+
+Anchor to Authentication
+Authentication
+
+This guide will provide an overview of the new authentication system for the Customer Account API and help developers understand how to use it effectively.
+
+Anchor to Overview
+Overview
+
+The Customer Account API is designed to serve as the primary source for customer-scoped data and authenticated customer actions. To ensure secure access to this data, a robust authentication system is in place for developers.
+
+Anchor to Authentication process
+Authentication process
+
+We support two types of clients:
+
+Confidential
+ - A client capable of keeping a client secret confidential. This type is typically used for server-side applications.
+
+Public
+ - A client unable to keep a client secret confidential. This type is typically used for client-side applications, including web and mobile clients.
+
+For
+public clients
+, we use
+Proof Key for Code Exchange
+ or PKCE to mitigate the risk of authorization code interception.
+
+In order to authenticate and utilize the Customer Account API, the sections below outline the necessary steps required by the
+OAuth 2.0 authorization specification
+.
+
+Anchor to Discovery endpoints
+Discovery endpoints
+
+Discovery endpoints are standardized URLs that return configuration data about a shop's authentication and API endpoints. Use these endpoints whenever you need to authenticate customers or make API requests to ensure your application works with any shop's configuration.
+
+Using discovery endpoints automatically provides authentication and API URLs rather than hardcoding URLs. This keeps your integration working as Shopify's infrastructure evolves and automatically resolves the correct URLs for any shop, removing the need for hardcoded domain dependencies.
+
+Your app can use the following discovery endpoints on the storefront domain:
+
+OpenID configuration
+
+Endpoint
+:
+GET /.well-known/openid-configuration
+
+Returns
+:
+
+Authentication endpoints (authorization, token, logout URLs)
+
+Standard OpenID Connect discovery format
+
+Customer Account API configuration
+:
+
+Endpoint
+:
+GET /.well-known/customer-account-api
+
+Returns
+:
+
+Customer Account API endpoints (GraphQL API, MCP API)
+
+Shopify-specific discovery format
+
+Anchor to Discover authentication endpoints
+Discover authentication endpoints
+
+Before initiating the authorization flow, discover the authentication endpoints from the shop's storefront domain. The response contains
+authorization_endpoint
+,
+token_endpoint
+,
+end_session_endpoint
+, and
+jwks_uri
+.
+
+The example code demonstrates how to:
+
+Make a request to the discovery endpoint.
+
+Parse the JSON response to access the authentication URLs.
+
+Use these discovered endpoints in your OAuth flow.
+
+You should include this discovery step once, at the beginning of your authentication flow. Then you can reuse the discovered endpoints throughout your application.
+
+Anchor to Authorization
+Authorization
+
+To redirect a customer to the login page, use the
+authorization_endpoint
+ from the discovery response with the following parameters:
+
+scope•openid email customer-account-api:fullrequired
+
+A list of scope names separated by space. Scopes are attached to all access tokens issued from this authorization request and determine what data these access token will be able to retrieve from API endpoints.
+
+client_id•<client_id>required
+
+Unique UUID associated with the application. This should be visible in the Customer Account API settings of the given application / storefront.
+
+response_type•coderequired
+
+Implies that authorization code flow will be used.
+
+redirect_uri•<redirect_uri>required
+
+URL to redirect with
+authorization code
+ after successful authentication. This has to be one of the redirect URIs defined in the customer account api settings of the given application/storefront. For public mobile applications, the scheme must be "shop.{shop_id}.*."
+
+state•
+required
+
+A string of characters which will be returned along with the
+code
+ during callback/redirect. This is used to prevent CSRF/XSRF. See
+Generating state
+ for more details on usage.
+
+nonce•
+
+This is used to mitigate replay attacks. The
+nonce
+ will be returned in the
+id_token
+ as part of the
+Obtain access code
+ step. See
+Generating nonce
+ and
+Retrieving Nonce
+ for more details on usage.
+
+prompt•none
+
+Specifies that no login screen should be shown to the user. If a session is present, a
+code
+ is returned that can be used in the
+Obtain access token
+ step. If no session is present, a login_required error is returned to your redirect_uri endpoint.
+
+locale•en
+
+Specifies the the language for the login screen. Supported Locales:
+
+en
+,
+fr
+,
+cs
+,
+da
+,
+de
+,
+el
+,
+es
+,
+fi
+,
+hi
+,
+hr
+,
+hu
+,
+id
+,
+it
+,
+ja
+,
+ko
+,
+lt
+,
+ms
+,
+nb
+,
+nl
+,
+pl
+,
+pt-BR
+,
+pt-PT
+,
+ro
+,
+ru
+,
+sk
+,
+sl
+,
+sv
+,
+th
+,
+tr
+,
+vi
+,
+zh-CN
+,
+zh-TW
+
+login_hint•
+
+An email address of a user who is trying to authenticate. If present, the hint simplifies the sign-in flow by prefilling the email field in the sign-in form.
+
+Anchor to Public client
+Public client
+
+In addition to the parameters above, public clients (web or mobile) need to provide the parameters outlined below.
+
+Info
+
+An example implementing a code challenge and verifier can be seen in the
+Code challenge and verifier
+ section
+
+Info:
+
+An example implementing a code challenge and verifier can be seen in the
+Code challenge and verifier
+ section
+
+code_challenge•<code_verifier>required
+
+A string that is derived from the
+code_verifier
+ using a hashing algorithm. The
+code_verifier
+ is a string that is randomly generated by the client.
+
+code_challenge_method•S256required
+
+The code challenge method.
+
+Anchor to Retrieve code to get access token
+Retrieve code to get access token
+
+When a customer successfully completes a login and is redirected to the uri specified in the parameters above, a
+code
+ is received as a query parameter. The code will be utilized in the
+Obtain access token
+ step and enables you to make requests to the Customer Account API.
+
+The optional
+state
+ parameter will also be returned if it was part of the original
+Authorization step
+ above.
+
+Anchor to Obtain access token
+Obtain access token
+
+To authenticate with the Customer Account API, your application needs to obtain an access token. You can request an access token by sending a
+POST
+ request to the
+token_endpoint
+ discovered from the OpenID configuration:
+
+If in the
+Authorization step
+ a
+nonce
+ was passed, it can be validated using the
+Retrieving nonce
+ step.
+
+This will return a json result that contains the
+access_token
+,
+refresh_token
+,
+id_token
+ and
+expires_in
+ (in seconds) of the access token.
+
+Confidential client only
+
+Headers containing authorization credentials are required in order to get an access token. Check out the
+Authorization header
+ section for more details.
+
+If a response code of
+301
+ is returned, ensure the correct
+shop_id
+ is specified in the
+POST
+ request.
+
+If a response code of
+400
+ with a message of
+invalid_grant
+ is returned, then ensure that padding is removed (for example,
+=
+) from your base64-encoded code challenge in the
+Authorization step
+. Additionally, make sure to replace "+" with "-" and "/" with "_" to ensure compatibility with URL encoding.
+
+If a response code of
+401
+ with a message of
+invalid_client
+ is returned, then verify that the
+client_id
+ is correct.
+
+If a response code of
+401
+ with a message of
+invalid_token
+ in the
+www-authenticate
+ header is returned, then ensure that an
+origin
+ header is specified in the request. Verify that the
+origin
+ header specified is set in the list of Javascript Origin(s) in the Customer Account API settings page.
+
+If a response code of
+403
+ with a message of
+You do not have permission to access this website
+ is returned, then ensure that a
+user-agent
+ header is specified in the request.
+
+With this access token, you can now make requests to the Customer Account API.
+
+grant_type•authorization_coderequired
+
+Must be set to
+authorization_code
+.
+
+client_id•<client_id>required
+
+Same client_id used in the
+authorize
+ request.
+
+redirect_uri•<redirect_uri>required
+
+Same redirect_uri specified in the first
+/authorize
+ request.
+
+code•
+required
+
+The
+code
+ received as a parameter as part of the
+Retrieve code
+ section.
+
+Anchor to Public Client
+Public Client
+
+In addition to the parameters above, public clients (web or mobile) need to provide the following parameters.
+
+code_verifier•<code_verifier>required
+
+The
+code_verifier
+ used to generate the
+code_challenge
+ in the
+Authorization
+ section.
+
+Anchor to Use refresh token
+Use refresh token
+
+The access token retrieved in the previous step has an associated
+expires_in
+ property (in seconds). Once that has passed, the access token is invalid and needs to be refreshed.
+
+The procedure to refresh the token is very similar to the
+Obtain access token step
+ except different parameters are passed.
+
+To refresh your token, make a
+POST
+ request to the
+token_endpoint
+ from the discovery response:
+
+grant_type•refresh_tokenrequired
+
+Must be set to
+refresh_token
+.
+
+client_id•<client_id>required
+
+Same client_id used in the
+authorize
+ request.
+
+refresh_token•<refresh_token>required
+
+The
+refresh_token
+ received as part of the
+Obtain access token step
+.
+
+Anchor to Authorization header (confidential client only)
+Authorization header (confidential client only)
+
+An Authorization Header is a Base64 encode of the
+client_id
+ and
+client_secret
+ and is required for certain requests.
+
+Anchor to Code challenge and verifier (public client only)
+Code challenge and verifier (public client only)
+
+A code challenge and verifier are needed when doing requests from a public client in order to verify that the client is the same client that initiated the authorization request.
+
+Anchor to Generating state
+Generating state
+
+The state parameter is used to maintain the state of the client application during the
+Authorization step
+. It acts as a security measure to prevent cross-site request forgery (CSRF) attacks.
+
+This
+state
+ is then returned as a parameter in addition to the
+code
+ in the
+Retrieve code to get access token
+ and can be used to verify that the response matches the request.
+
+Anchor to Generating nonce
+Generating nonce
+
+A nonce (number used once) is a random or unique value used to prevent replay attacks. It can be provided in the
+Authorization step
+ to ensure the freshness and integrity of the communication.
+
+Nonces help protect against unauthorized reuse of captured messages by verifying that they are recent and have not been tampered with.
+
+Once passed as part of the
+Authorization step
+, it can be verified in the
+Obtain access token step
+. See
+Retrieving nonce
+ for more information.
+
+Anchor to Retrieving nonce
+Retrieving nonce
+
+In the
+Obtain access token step
+ an
+id_token
+ is returned, this is an encoded JWT token that once decoded contains the nonce that was passed in the
+Authorization step
+.
+
+Anchor to Logging out
+Logging out
+
+To log out a customer, redirect them to the
+end_session_endpoint
+ discovered from the OpenID configuration:
+
+id_token_hint•<id_token>required
+
+The
+id_token
+ received as part of the
+Obtain access code
+ step
+
+post_logout_redirect_uri•<post_logout_redirect_uri>required
+
+The URI to redirect to after logging out. If this isn't specified, then the uri to redirect to will to one of the URIs in the Logout URI setting.
+
+Anchor to Mobile client
+Mobile client
+
+For mobile clients, the logout uri can be called as an API endpoint that returns a
+200 OK
+ status code on successful logout, rather than performing a redirect.
+id_token_hint
+ is still required.
+
+Anchor to Stay authenticated from Headless storefront to Checkout
+Stay authenticated from Headless storefront to Checkout
+
+In order to stay authenticated from the headless storefront to checkout, you need to add a query parameter
+logged_in=true
+ to the end of the checkout url.
+
+For example, if the checkout url is
+https://<shop-domain>/checkouts/<checkout_id>
+, then the URL should look like this:
+
+https://<shop-domain>/checkouts/<checkout_id>?logged_in=true
+
+Anchor to Stay authenticated from Checkout to Headless storefront via Cart
+Stay authenticated from Checkout to Headless storefront via Cart
+
+Info
+
+Customer Accounts must be enabled.
+
+Info:
+ Customer Accounts must be enabled.
+
+There are situations where a customer can be authenticated in checkout but not in the headless storefront. This can be addressed with the following steps.
+
+During the
+Authorization step
+ detailed above, include the optional
+prompt
+ parameter with a value of
+none
+. This performs a silent check with the authorization server and will not prompt the customer to log in again. If the customer's session has expired, the
+redirect_uri
+ will receive code parameter set to
+login_required
+.
+
+Anchor to Endpoints and queries
+Endpoints and queries
+
+The Customer Account API is available only in GraphQL.
+
+Anchor to Discover API endpoints
+Discover API endpoints
+
+Before making API requests, discover the GraphQL endpoint dynamically from the shop's storefront domain. The response contains
+graphql_api
+ and
+mcp_api
+ endpoints with the current API version already included.
+
+The example code demonstrates how to:
+
+Make a request to the Customer Account API discovery endpoint.
+
+Parse the JSON response to get the GraphQL and MCP API URLs.
+
+Use the discovered
+graphql_api
+ endpoint for your API requests.
+
+The discovered endpoint already includes the latest stable API version, so you can use it directly without appending version numbers.
+
+Like other Shopify APIs, the Customer Account API releases once a quarter. If you need a specific API version, then construct the
+versioned URL
+ from the discovered URL.
+
+https://{shop-domain}/customer/api/2026-01/graphql
+
+If this request responds with a
+500
+, then verify you don't have any misspelled parameters when obtaining the
+access token
+.
+
+Anchor to Directives
+Directives
+
+A directive provides a way for apps to describe additional options to the GraphQL executor. It lets GraphQL change the result of the query or mutation based on the additional information provided by the directive.
+
+Anchor to Customer Account API Directives
+Customer Account API Directives
+
+Anchor to @inContext (Language)
+@inContext (Language)
+
+In Customer Account API versions higher than 2025-04, the
+@incontext
+ directive takes an optional
+language code argument
+ and applies this to the query or mutation.
+
+This example shows how to return user errors that are translated into French
+@incontext(language: FR)
+.
+
+Anchor to Rate limits
+Rate limits
+
+The Customer Account API is rate-limited using calculated query costs, measured in cost points. Each field returned by a query costs a set number of points. The total cost of a query is the sum of all the fields it returns, so more complex queries cost more to run.
+
+This API limits each app to 7500 cost points per store and customer. This quota replenishes at a rate of either 100.0 or 200.0 cost points per second, depending on your plan.
+
+Most fields cost 1 point. Most mutations cost 10 points. The best way to determine the true cost of a query is to run it. The API response includes information about the total query cost and the client's current quota under the extensions key. Include a
+Shopify-GraphQL-Cost-Debug=1
+ header to receive a more detailed breakdown of the query cost.
+
+Learn more about
+rate limits
+.
+
+Anchor to Status and error codes
+Status and error codes
+
+All API queries return HTTP status codes that contain more information about the response.
+
+Anchor to 200 OK
+200 OK
+
+GraphQL HTTP status codes are different from REST API status codes. Most importantly, the GraphQL API can return a
+200 OK
+ response code in cases that would typically produce 4xx or 5xx errors in REST.
+
+Anchor to Error handling
+Error handling
+
+The response for the errors object contains additional detail to help you debug your operation.
+
+The response for mutations contains additional detail to help debug your query. To access this, you must request
+userErrors
+.
+
+Properties
+
+errors•array
+
+A list of all errors returned
+
+Show error item properties
+
+errors[n].message•string
+
+Contains details about the error(s).
+
+errors[n].extensions•object
+
+Provides more information about the error(s) including properties and metadata.
+
+Show extensions properties
+
+extensions.code•string
+
+Shows error codes common to Shopify. Additional error codes may also be shown.
+
+Show common error codes
+
+THROTTLED
+
+The client has exceeded the
+rate limit
+. Similar to 429 Too Many Requests.
+
+SHOP_INACTIVE
+
+The shop is not active. This can happen when stores repeatedly exceed API rate limits or due to fraud risk.
+
+INTERNAL_SERVER_ERROR
+
+Shopify experienced an internal error while processing the request. This error is returned instead of 500 Internal Server Error in most circumstances.
+
+Anchor to 4xx and 5xx status codes
+4xx and 5xx status codes
+
+The 4xx and 5xx errors occur infrequently. They are often related to network communications, your account, or an issue with Shopify's services.
+
+Many errors that would typically return a 4xx or 5xx status code, return an HTTP 200 errors response instead. Refer to the
+200 OK section
+ above for details.
+
+Anchor to [object Object]
+400 Bad Request
+
+The server will not process the request.
+
+Anchor to [object Object]
+401 Bad Request
+
+The client does not have correct
+authentication
+ credentials.
+
+Anchor to [object Object]
+402 Payment Required
+
+The shop is frozen. The shop owner will need to pay the outstanding balance to
+unfreeze
+ the shop.
+
+Anchor to [object Object]
+403 Forbidden
+
+The shop is forbidden. Returned if the store has been marked as fraudulent.
+
+Anchor to [object Object]
+404 Not Found
+
+The resource isn't available. This is often caused by querying for something that's been deleted.
+
+Anchor to [object Object]
+423 Locked
+
+The shop isn't available. This can happen when stores repeatedly exceed API rate limits or due to fraud risk.
+
+Anchor to [object Object]
+5xx Errors
+
+An internal error occurred in Shopify. Check out the
+Shopify status page
+ for more information.
+
+Info
+
+Didn't find the status code you're looking for? View the complete list of
+
+API status response and error codes
+.
+
+Info:
+
+Didn't find the status code you're looking for? View the complete list of
+
+API status response and error codes
+.
+
+Was this page helpful?
+
+YesNo

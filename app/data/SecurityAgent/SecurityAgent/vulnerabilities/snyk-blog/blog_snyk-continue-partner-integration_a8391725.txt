@@ -1,0 +1,84 @@
+Written by
+
+Sarah Conway
+
+November 18, 2025
+
+0 mins read
+
+Snyk is excited to announce a new partnership with
+Continue
+, which will embed AI-powered security into every step of the SDLC. Continue builds AI-powered development tools designed to automate repetitive coding tasks. Crucially, their mission is to keep the developer fully in charge of creative decisions, ensuring AI amplifies human work rather than automating it away.
+
+"Continue's core mission is to enhance developer productivity, eliminating repetitive work so developers can stay focused on creative, high-impact tasks. While our expertise lies in optimizing developer workflow, security is a non-negotiable part of the modern development lifecycle,"
+
+said Chad Metcalf, CEO at Continue.
+
+With the Snyk Studio integration, developers can configure the Workflow, an AI-powered security feature from Continue, that automatically scans code, dependencies, IaC, and containers. The results are faster development cycles that are secure by design and uninterrupted creative flow for developers.
+
+This partnership allows developers to scan code, dependencies, and IaC using natural language commands and get context-aware fix suggestions instantly, whether leveraging Agents in Continue Mission Control, an IDE extension, or a CLI.
+
+The challenge: Security speed bumps in the dev workflow
+
+AI-driven software development moves at incredible speed, so it's critical that security be integrated without introducing friction. Developers often face several key challenges:
+
+Slower remediation and context switching:
+ Developers manually jump between their Integrated Development Environment (IDE), reports, and documentation to understand and fix vulnerabilities.
+
+Increased development overhead:
+ Running security scans and implementing automated fixes often requires complex scripting and manual tool orchestration.
+
+Gaps in security guardrails:
+ Enforcing security policies early in the development lifecycle (shifting left) remains challenging, resulting in vulnerable code being merged.
+
+Difficulty validating fixes:
+ Developers often waste time when they cannot easily verify if a proposed fix actually resolves the vulnerability before submission.
+
+A better way: Continuous security with a natural language interface
+
+The partnership between Snyk and Continue delivers an automated security scanning system that uses Continuous AI with
+Snyk Studio
+. This integration enables developers to identify vulnerabilities in code, dependencies, IaC, and containers, all through simple, natural language prompts. This streamlined approach transforms the entire detect, analyze, and fix security loop, making security an effortless and continuous part of the developer's process.
+
+The system leverages Continuous AI and Snyk MCP to automatically handle orchestrating Snyk's various security tools (Code, Open Source, IaC, Container) based on simple user prompts. This deep integration ensures security becomes a seamless and automated part of the development cycle.
+
+Top benefits for developers
+
+The combined solution offers tangible advantages that streamline security and accelerate development:
+
+Accelerated vulnerability remediation (faster time-to-fix):
+ The partnership drastically reduces the time a vulnerability remains open. The Continue AI Agent automatically generates, proposes, and validates minimal code diffs for vulnerabilities identified by Snyk using simple natural language prompts, eliminating the manual steps of analysis and fix validation.
+
+Zero-context-switching security integration:
+ Comprehensive Snyk security scans (SAST, SCA, IaC, etc.) are embedded directly into an environment (IDE or CLI) via the Continue Agent. You use natural language to initiate scans and receive AI-generated fixes, meaning you never have to leave your workflow to address security issues.
+
+Proactive security policy enforcement (guardrails):
+ Customers can implement "Security Guardrails" that automatically run Snyk scans and enforce policies (e.g., blocking commits if high-severity issues are found) at the point of code creation, preventing vulnerable code and dependencies from ever being introduced or merged.
+
+Market significance: Making "Secure by Default" a reality
+
+For years, the industry has advocated for a "Shift Left" security approach. This partnership moves the entire remediation workflow, from detection to validated fix, directly into the developer's environment via a natural language interface, making security truly Continuous and Native.
+
+By wrapping complex security processes into simple, natural language prompts (e.g., "Run a complete security scan on this project and fix the top 3 issues"), we are setting a new bar for Developer Experience (DevEx). This approach simplifies security, accelerates the adoption of secure coding practices, and makes security accessible to all developers, regardless of their level of security expertise.
+
+Get started today
+
+The joint offering is available today. To learn more:
+
+Check out the Snyk Studio Quick Start Guide on Continue:
+
+https://docs.snyk.io/integrations/snyk-studio-agentic-integrations/quickstart-guides-for-snyk-studio/continue-guide
+
+Explore Continue's Snyk Cookbook:
+
+https://docs.continue.dev/guides/snyk-mcp-continue-cookbook#demo-video
+
+Build Snyk Agents in the Continue Mission Control:
+
+https://docs.continue.dev/hub/introduction
+
+Innovate with AI. Securely.
+
+Learn more about how Snyk Studio helps you secure the AI-driven development workflow.
+
+Get started today

@@ -1,0 +1,42 @@
+HS Editor
+
+[
+
+Kafka 101
+
+This is a guest article by Stanislav Kozlovski, an Apache Kafka Committer. If you would like to connect with Stanislav, you can do so on Twitter and LinkedIn.
+Originally developed in LinkedIn during 2011, Apache Kafka is one of the most popular open-source Apache projects out there. So far it
+
+By HS Editor
+09 May 2024](/untitled-2/)
+
+[
+
+Capturing A Billion Emo(j)i-ons
+
+This blog post was written by Dedeepya Bonthu. This is a repost from her Medium article, approved by the author.
+In stadiums, sports fans love to express themselves by cheering for their favorite teams, holding up placards and team logos. Emoji's allow fans at home to rapidly express themselves,
+
+By HS Editor
+26 Mar 2024](/capturing-a-billion-emo-j-i-ons/)
+
+[
+
+Brief History of Scaling Uber
+
+This blog post was written by Josh Clemm, Senior Director of Engineering at Uber Eats. This is a repost from his LinkedIn article, approved by the author.
+On a cold evening in Paris in 2008, Travis Kalanick and Garrett Camp couldn't get a cab. That's when
+
+By HS Editor
+14 Mar 2024](/brief-history-of-scaling-uber/)
+
+[
+
+Behind AWS S3's Massive Scale
+
+This is a guest article by Stanislav Kozlovski, an Apache Kafka Committer. If you would like to connect with Stanislav, you can do so on Twitter and LinkedIn.
+AWS S3 is a service every engineer is familiar with.
+It's the service that popularized the notion of cold-storage to the
+
+By HS Editor
+06 Mar 2024](/behind-aws-s3s-massive-scale/)

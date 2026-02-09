@@ -1,0 +1,25 @@
+Rate limiting guidelines
+
+PayPal's primary focus is site availability and security in support of merchants.
+
+While we do not publish a rate limiting policy, we might temporarily rate limit if we identify traffic that appears to be abusive. We rate limit until we are confident that the activity is not problematic for PayPal, merchants, or customers.
+
+To ensure maximum protection and site stability, we constantly evaluate traffic as it surges and subsides to adjust our policies. If you or your customers receive the HTTP
+429 Unprocessable Entity - RATE_LIMIT_REACHED
+ status code, too many requests were sent, and that might indicate anomalous traffic, so we rate limit to ensure site stability.
+
+If this policy negatively affects your integration, contact
+Merchant Technical Support
+.
+
+Tips to avoid rate limiting:
+
+Do not poll and instead use webhooks or IPN. To learn more, see
+Webhooks
+ and
+Instant Payment Notification
+.
+
+Rather than generate an OAuth 2.0 access token for each transaction, cache tokens. See
+OAuth 2.0 authorization protocol
+.

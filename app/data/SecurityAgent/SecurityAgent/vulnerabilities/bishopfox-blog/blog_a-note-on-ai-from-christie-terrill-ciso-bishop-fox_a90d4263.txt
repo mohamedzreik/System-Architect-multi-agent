@@ -1,0 +1,33 @@
+Share
+
+This month I've been at several industry events and conferences, and I've had so many great
+AI
+-focused conversations with peers like other CISOs, heads of security, and practitioners. I want to share a few thoughts and trends that keep coming up across those discussions:
+
+AI is top of mind for everyone.
+ But what's striking is how there's no single consensus on what that means for security or even how transformative it will truly be. Most of us have a healthy dose of skepticism. We want to enable the business and not be the "office of no," but we're also seeing more challenges than opportunities right now.
+
+The idea that AI is going to take all our jobs?
+ Within security, we don't see it that way. We see it as adding efficiency by helping us analyze data, process logs, and curate better datasets. Humans are still very much needed in the loop. For most security teams, especially outside very large enterprises, people already have niche skill sets. AI becomes an enabler that helps that one person with that one skill set do more, not a replacement for them.
+
+AI is introducing new risk vectors we
+
+can't ignore.
+ One that keeps coming up is what I'd call "shadow AI," e.g., individuals installing AI browser extensions or downloading free tools that haven't been vetted or approved. Many organizations are encouraging teams to experiment, which is great for innovation, but it's also changing user behavior in a way that breaks from how we've traditionally managed approved technologies. It's creating a large, mostly invisible new attack surface, and in some cases, we won't even know it's there until something goes wrong.
+
+The
+
+cost conversation is missing.
+ Compute power, infrastructure, energy. We're all feeling the impact, but there aren't yet great models for where that cost gets absorbed. It feels like an arms race. Everyone wants to be "AI-enabled," but often without the level of cost–benefit analysis we'd expect in other technology decisions.
+
+And finally, the topic that concerns me most (and where I'm hearing the most alignment from peers) is
+data security within AI ecosystems.
+ How do we negotiate, contractually and operationally, what happens to the data we put into models across our own environments and clients? These questions extend to our third-party vendors and supply chain, where AI integrations multiply the complexity of managing data security. The industry is moving so fast that some choices might prove irreversible before we even realize the risks. As for me, I'm still in the "slow and steady" camp. Assess and evaluate before moving forward, but I'm also trying to lead with a "yes, and how" mindset instead of "no, and here's why."
+
+If you've been feeling like it's hard to keep up, you're not alone. After all the conversations this month, I'm reassured that none of us have all the answers right now, and that's okay. The pace of change is intense. What feels right today may look different tomorrow. So staying flexible, learning from each other, and continuing to move thoughtfully is what will matter most.
+
+Subscribe to our blog
+
+Be first to learn about latest tools, advisories, and findings.
+
+Thank You! You have been subscribed.

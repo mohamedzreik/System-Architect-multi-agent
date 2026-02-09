@@ -1,0 +1,70 @@
+By
+Pascal Hartig
+
+Build a large enough website with a large enough codebase, and you'll eventually find that CSS presents challenges at scale. It's no different at Meta, which is why we open-sourced StyleX, a solution for CSS at scale. StyleX combines the ergonomics of CSS-in-JS with the performance of static CSS. It allows atomic styling of components while deduplicating definitions to reduce bundle size and exposes a simple API for developers.
+
+StyleX has become the standard at companies like Figma and Snowflake. Here at Meta,
+it's the standard styling system
+ across Facebook, Instagram, WhatsApp, Messenger, and Threads.
+
+On this episode of the Meta Tech Podcast, meet Melissa, a software engineer at Meta and one of StyleX's maintainers.
+Pascal Hartig
+ talks to her about all things StyleX—its origins, how open source has been a force multiplier for the project, and what it's like interacting with large companies across the industry as they've adopted StyleX.
+
+Download or listen to the episode below:
+
+You can also find the episode wherever you get your podcasts, including:
+
+Spotify
+
+Apple Podcasts
+
+Pocket Casts
+
+The
+Meta Tech Podcast
+ is a podcast, brought to you by Meta, where we highlight the work Meta's engineers are doing at every level – from low-level frameworks to end-user features.
+
+Send us feedback on
+Instagram
+,
+Threads
+, or
+X
+.
+
+And if you're interested in learning more about career opportunities at Meta visit the
+Meta Careers
+ page.
+
+Share this:
+
+Click to share on Facebook (Opens in new window)
+Facebook
+
+Click to share on Threads (Opens in new window)
+Threads
+
+Click to share on WhatsApp (Opens in new window)
+WhatsApp
+
+Click to share on LinkedIn (Opens in new window)
+LinkedIn
+
+Click to share on Reddit (Opens in new window)
+Reddit
+
+Click to share on X (Opens in new window)
+X
+
+Click to share on Bluesky (Opens in new window)
+Bluesky
+
+Click to share on Mastodon (Opens in new window)
+Mastodon
+
+Click to share on Hacker News (Opens in new window)
+Hacker News
+
+Click to email a link to a friend (Opens in new window)
+Email

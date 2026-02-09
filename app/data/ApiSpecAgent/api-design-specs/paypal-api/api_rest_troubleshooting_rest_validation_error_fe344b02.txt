@@ -1,0 +1,35 @@
+Validation error
+
+Returns from the Orders v2 or Payments v1 APIs.
+
+Note: If an issue persists or if you have further questions, you can reach out to
+paypal-techsupport.com
+.
+
+Cause
+
+This error occurs when a payment attempt fails due to invalid or incomplete data in the API request. Common causes include:
+
+Invalid or missing fields: Required fields are missing or contain incorrect values.
+
+Incorrect data types: Field values do not match expected data types.
+
+Currency issues: Currency codes are invalid or the amount formatting is incorrect.
+
+Invalid JSON: The request body is not properly formatted as JSON.
+
+Business rules: The transaction is blocked based on the account's status or configuration.
+
+API version conflicts: An incorrect or outdated API version is used. Some validation rules may change between versions.
+
+Impact
+
+The payment process is halted, preventing the buyer from finalizing their purchase. This can lead to lost sales if the issue is not resolved promptly.
+
+Resolution
+
+Review the error details: Check the error response from the API to identify the exact field and issue.
+
+Validate your data: Ensure all required fields are present. Verify that each field contains valid data and matches the expected format and type.
+
+Fix the data and retry: Update the request with correct data and resend it. This should allow the payment to process and the customer to complete their purchase.

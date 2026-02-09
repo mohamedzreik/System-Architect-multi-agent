@@ -1,0 +1,158 @@
+1. Overview
+Cassandra is a NoSQL database that provides high availability and horizontal scalability without compromising performance.
+
+To get the best performance out of Cassandra, we need to carefully design the schema around query patterns specific to the business problem at hand.
+
+In this article, we will review some of the key concepts around how to approach data modeling in Cassandra.
+
+Before proceeding, you can go through our Cassandra with Java article to understand the basics and how to connect to Cassandra using Java.
+
+Further reading:
+Build a Dashboard Using Cassandra, Astra, and Stargate
+Learn how to build a dashboard using DataStax Astra, a database-as-a-service powered by Apache Cassandra and Stargate APIs.
+Read more →
+Build a Dashboard With Cassandra, Astra, REST & GraphQL - Recording Status Updates
+An example of using Cassandra to store time-series data.
+Read more →
+Build a Dashboard With Cassandra, Astra and CQL – Mapping Event Data
+Learn how to display events on an interactive map, based on data stored in an Astra database.
+Read more →
+2. Partition Key
+Cassandra is a distributed database in which data is partitioned and stored across multiple nodes within a cluster.
+
+The partition key is made up of one or more data fields and is used by the partitioner to generate a token via hashing to distribute the data uniformly across a cluster.
+
+3. Clustering Key
+A clustering key is made up of one or more fields and helps in clustering or grouping together rows with same partition key and storing them in sorted order.
+
+Let's say that we are storing time-series data in Cassandra and we want to retrieve the data in chronological order. A clustering key that includes time-series data fields will be very helpful for efficient retrieval of data for this use case.
+
+Note: The combination of partition key and clustering key makes up the primary key and uniquely identifies any record in the Cassandra cluster.
+
+4. Guidelines Around Query Patterns
+Before starting with data modeling in Cassandra, we should identify the query patterns and ensure that they adhere to the following guidelines:
+
+Each query should fetch data from a single partition
+We should keep track of how much data is getting stored in a partition, as Cassandra has limits around the number of columns that can be stored in a single partition
+It is OK to denormalize and duplicate the data to support different kinds of query patterns over the same data
+Based on the above guidelines, let's look at some real-world use cases and how we would model the Cassandra data models for them.
+
+5. Real World Data Modeling Examples
+5.1. Facebook Posts
+Suppose that we are storing Facebook posts of different users in Cassandra. One of the common query patterns will be fetching the top 'N' posts made by a given user.
+
+Thus, we need to store all data for a particular user on a single partition as per the above guidelines.
+
+Also, using the post timestamp as the clustering key will be helpful for retrieving the top 'N' posts more efficiently.
+
+Let's define the Cassandra table schema for this use case:
+
+CREATE TABLE posts_facebook (
+ user_id uuid,
+ post_id timeuuid,
+ content text,
+ PRIMARY KEY (user_id, post_id) )
+WITH CLUSTERING ORDER BY (post_id DESC);
+Copy
+Now, let's write a query to find the top 20 posts for the user Anna:
+
+SELECT content FROM posts_facebook WHERE user_id = "Anna_id" LIMIT 20
+Copy
+5.2. Gyms Across the Country
+Suppose that we are storing the details of different partner gyms across the different cities and states of many countries and we would like to fetch the gyms for a given city.
+
+Also, let's say we need to return the results having gyms sorted by their opening date.
+
+Based on the above guidelines, we should store the gyms located in a given city of a specific state and country on a single partition and use the opening date and gym name as a clustering key.
+
+Let's define the Cassandra table schema for this example:
+
+CREATE TABLE gyms_by_city (
+ country_code text,
+ state text,
+ city text,
+ gym_name text,
+ opening_date timestamp,
+ PRIMARY KEY (
+ (country_code, state_province, city),
+ (opening_date, gym_name))
+ WITH CLUSTERING ORDER BY (opening_date ASC, gym_name ASC);
+Copy
+Now, let's look at a query that fetches the first ten gyms by their opening date for the city of Phoenix within the U.S. state of Arizona:
+
+SELECT * FROM gyms_by_city
+ WHERE country_code = "us" AND state = "Arizona" AND city = "Phoenix"
+ LIMIT 10
+Copy
+Next, let's see a query that fetches the ten most recently-opened gyms in the city of Phoenix within the U.S. state of Arizona:
+
+SELECT * FROM gyms_by_city
+ WHERE country_code = "us" and state = "Arizona" and city = "Phoenix"
+ ORDER BY opening_date DESC
+ LIMIT 10
+Copy
+Note: As the last query's sort order is opposite of the sort order defined during the table creation, the query will run slower as Cassandra will first fetch the data and then sort it in memory.
+
+5.3. E-commerce Customers and Products
+Let's say we are running an e-commerce store and that we are storing the Customer and Product information within Cassandra. Let's look at some of the common query patterns around this use case:
+
+Get Customer info
+Get Product info
+Get all Customers who like a given Product
+Get all Products a given Customer likes
+We will start by using separate tables for storing the Customer and Product information. However, we need to introduce a fair amount of denormalization to support the 3rd and 4th queries shown above.
+
+We will create two more tables to achieve this – "Customer_by_Product" and "Product_by_Customer".
+
+Let's look at the Cassandra table schema for this example:
+
+CREATE TABLE Customer (
+ cust_id text,
+ first_name text,
+ last_name text,
+ registered_on timestamp,
+ PRIMARY KEY (cust_id));
+
+CREATE TABLE Product (
+ prdt_id text,
+ title text,
+ PRIMARY KEY (prdt_id));
+
+CREATE TABLE Customer_By_Liked_Product (
+ liked_prdt_id text,
+ liked_on timestamp,
+ title text,
+ cust_id text,
+ first_name text,
+ last_name text,
+ PRIMARY KEY (prdt_id, liked_on));
+
+CREATE TABLE Product_Liked_By_Customer (
+ cust_id text,
+ first_name text,
+ last_name text,
+ liked_prdt_id text,
+ liked_on timestamp,
+ title text,
+ PRIMARY KEY (cust_id, liked_on));
+Copy
+Note: To support both the queries, recently-liked products by a given customer and customers who recently liked a given product, we have used the "liked_on" column as a clustering key.
+
+Let's look at the query to find the ten Customers who most recently liked the product "Pepsi":
+
+SELECT * FROM Customer_By_Liked_Product WHERE title = "Pepsi" LIMIT 10
+Copy
+And let's see the query that finds the recently-liked products (up to ten) by a customer named "Anna":
+
+SELECT * FROM Product_Liked_By_Customer
+ WHERE first_name = "Anna" LIMIT 10
+Copy
+6. Inefficient Query Patterns
+Due to the way that Cassandra stores data, some query patterns are not at all efficient, including the following:
+
+Fetching data from multiple partitions – this will require a coordinator to fetch the data from multiple nodes, store it temporarily in heap, and then aggregate the data before returning results to the user
+Join-based queries – due to its distributed nature, Cassandra does not support table joins in queries the same way a relational database does, and as a result, queries with joins will be slower and can also lead to inconsistency and availability issues
+7. Conclusion
+In this tutorial, we have covered several best practices around how to approach data modeling in Cassandra.
+
+Understanding the core concepts and identifying the query patterns in advance is necessary for designing a correct data model that gets the best performance from a Cassandra cluster.

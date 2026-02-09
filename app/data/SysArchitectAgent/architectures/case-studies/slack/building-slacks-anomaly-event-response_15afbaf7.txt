@@ -1,0 +1,260 @@
+September 4, 2025
+
+9 min read
+
+Building Slack's Anomaly Event Response
+
+Beyond Detection: Security That Works While You Do
+
+Nathan LehotskySenior Software Engineer, Security
+
+Ryan PersaudSr. Staff Software Engineer, Security
+
+Search
+
+Latest Posts
+
+December 1, 2025
+
+10 min read
+
+Streamlining Security Investigations with Agents
+
+November 19, 2025
+
+10 min read
+
+Android VPAT journey
+
+November 6, 2025
+
+18 min read
+
+Build better software to build software better
+
+October 23, 2025
+
+15 min read
+
+Advancing Our Chef Infrastructure: Safety Without Disruption
+
+October 7, 2025
+
+11 min read
+
+Deploy Safety: Reducing customer impact from change
+
+Archives
+
+2025
+ (9)
+
+2024
+ (19)
+
+2023
+ (16)
+
+2022
+ (21)
+
+2021
+ (24)
+
+2020
+ (26)
+
+2019
+ (21)
+
+2018
+ (11)
+
+2017
+ (21)
+
+2016
+ (19)
+
+As cyberattacks evolve to unprecedented levels of sophistication and speed, the time gap between breach detection and response has never been more critical. Traditional security approaches often operate reactively, identifying compromises only after damage has occurred. This delay grants attackers a tactical advantage, forcing security teams to focus on damage assessment and remediation rather than proactive threat detection and prevention. Organizations urgently need solutions that dramatically compress the detection-to-response window to regain a defensive advantage.
+
+To tackle this challenge, we've developed
+Anomaly Event Response (AER)
+ – a new proactive defence mechanism inside Slack. By combining real-time monitoring with advanced analytics, AER autonomously identifies high-confidence threat actor behaviours as they emerge on our platform. When suspicious activity is detected, the system automatically terminates the associated user sessions, reducing the  security detection and response gap from potential days/hours to mere minutes.
+
+The result? A powerful native security capability that disrupts attack chains before they can be fully executed, preventing data exfiltration and system compromise without requiring additional security tools, integration, or human capital.
+
+In this post, we'll explore the technical architecture behind Anomaly Event Response, examining our motivation, detection mechanisms, response capabilities, and the insights we gained along the way.
+
+The Shared Responsibility of Securing Slack
+
+Slack is where work happens. We're a central hub for workplace communication and collaboration for tens of millions of users on a weekly basis, generating billions of interactions daily. To ensure our customers' security, we provide comprehensive audit logs to Enterprise customers that record when entities take an action on the platform. Within the full
+list includes hundreds of actions
+ that we support, we also provide customers with
+anomaly
+ audit logs which take a step further by leveraging advanced analytics to flag unusual activities across a workspace including irregular logins, uploading malware, unexpected data transfers,
+and more
+. Those interested in learning more about these special audit logs and how they can use them in security investigations will be interested in reading our
+Slack Audit Logs and Anomalies
+ post.
+
+These specialized audit logs serve as an early warning system, highlighting suspicious activity and providing invaluable insight into potential threats that might otherwise remain undetected. That said, they aren't a solution in and of themselves; they still require review by security personnel or integration with third-party solutions to translate detected behaviour into actionable insights.
+
+Integrating your Slack audit logs into a larger security solution offers unparalleled flexibility and customizability, but we also know this isn't feasible for all customers based on their size, security capabilities, or resources. We created AER to bridge this gap between detection and response with an automated solution that any Enterprise Grid customer can use out-of-the-box, either by itself or as part of their broader security approach.
+
+Trust is our number one core value. We believe security is a shared responsibility between us and our customers by empowering them with data and tools to build security solutions while also fostering a secure platform and neutralizing threats. Our Anomaly Event Response solution bridges threat detection and automated response for everyone while still allowing advanced customers to add tailored security measures on top of this tool to address their unique needs.
+
+It also continues our ongoing commitment to enhancing user security with innovative automations like our
+measures against password breaches and cookie hijacking
+.
+
+Design Philosophy
+
+When designing this feature, we focused on supporting the most common types of threats that platforms face. Our goal was to prioritize detections that would have the broadest appeal across the platform. We landed on:
+
+Accessing Slack from a Tor exit node
+
+Excessive downloading as a potential indicator of data exfiltration
+
+Data scraping via non-Slack-native automation tools
+
+Session fingerprint mismatches
+
+Unexpected API call volumes and patterns
+
+Unexpected user agents indicating access from non-standard or virtual clients
+
+We know every customer uses Slack differently, and every organization is going to have a different risk profile, so we designed AER to let organizations select which detections are important to them and which should simply be logged without any responding action. This same configurability extends to notification preferences.
+
+To make changes to your configuration, navigate via
+Tools and Settings
+ →
+Organization settings
+ →
+Security (left-hand sidebar)
+ →
+Security Settings
+. From here, there will be an
+Anomaly Event Response Settings
+ section where you can choose which anomaly events should trigger user session termination and how you would like to be notified, if at all.
+
+System Architecture & Technical Deep-Dive
+
+AER utilizes a multi-tiered architecture we designed for real-time anomaly detection, asynchronous job orchestration, and dynamic notifications. These operations are performed by three core components: the underlying detection engine, a decision framework, and the response orchestrator.
+
+Detection Engine
+
+First, AER's detection engine monitors Slack events at scale of billions per day, using a combination of rule-based heuristics and dynamic thresholds calibrated to each enterprise's usage patterns. For example, when monitoring excessive downloading activity, what is anomalous for one organization may be the expected baseline for another, so we calculate thresholds for each organization based on historical data. This adaptive approach not only reduces false positives significantly across the customer-base, but it also allows us to constantly fine-tune the sensitivity of our detections and validate their effectiveness.
+
+Decision Framework
+
+Next, the decision framework evaluates each audit payload created when suspicious behaviour is identified, performing validation checks based on the customer's AER configuration and internal rules.
+
+One of these checks includes analyzing the given payload and checking what preceded it so we can determine if malicious behaviour is persisting through user session terminations on the account while also making sure we're protecting legitimate users from a continuous termination loop. We achieve this by analyzing the session(s) associated with every audit payload.
+
+Once an anomaly is validated and the customer has enabled detection for that event type, an asynchronous job is enqueued that performs the autonomous response.
+
+Response Orchestration
+
+Finally, AER terminates all active user sessions belonging to the acting user and executes a series of actions designed for transparency and accountability.
+
+AER generates a
+user_sessions_reset_by_anomaly_event_response
+ audit log containing the specific anomaly type that triggered the response, context about the acting user, and the
+session_id
+ from which the anomaly event originated. During an investigation, this datapoint lets you connect this activity back to the originating anomaly audit log for additional context. Customers should actively monitor for this audit log action so they are aware of when AER has taken autonomous action and if they need to conduct any further investigation into the acting user's actions across their organization.
+
+After generating this audit log, AER queries the customer's notification preferences to determine how any additional notifications should be routed. While the acting user always receives an email notification informing them of their terminated sessions, the customer's configuration determines if any additional notifications are routed up to two other contact types: the
+Org Primary Owner
+ and any users with the
+Security Admin
+
+system role
+.
+
+To reduce notification fatigue at this stage, we built smart notification logic that recognizes when someone is wearing multiple hats in your organization. For example, if the same person is both the Org Primary Owner and has the Security Admin system role, they'll receive just one notification instead of multiple alerts for the same event. AER efficiently tracks these areas of overlap and ensures everyone gets informed without being overwhelmed by duplicate messages.
+
+It's worth calling out, these contacts can opt to receive an email notification every time AER takes action on a user in their workspace, or they can choose to receive in-Slack DM notifications via Slack Security bot (or both!).
+
+For more information, see the
+Configure audit log anomaly event responses in Slack
+ article in Slack's Help Center.
+
+Key Findings & Impact
+
+Since launching AER in February 2025, its automated interventions have validated the importance of proactive security measures and demonstrated its effectiveness in disrupting suspicious activities in real-time.
+
+For context, according to IBM's most recent
+Cost of a Data Breach Report
+, the average cost of a data breach reached $4.88M USD in 2024 with an average incident response time of 277 days for cloud-based collaboration platforms. AER's ability to reduce this response window is a significant step forward in making a true security impact.
+
+By automatically terminating sessions engaging in anomalous activity, AER can prevent potential security incidents that could otherwise go undetected. For our enterprise customers, these benefits translate to enhanced protection of their data while simultaneously reducing security team overhead.  As threat actors continue to evolve their techniques, AER provides a scalable, adaptive defence mechanism, ensuring that we keep Slack a secure and trusted platform for collaboration and communication.
+
+Conclusion
+
+Security should work while you do. Anomaly Event Response continues our tradition of approaching security in innovative ways that prioritize shared responsibility and impact at scale. By closing the gap between detection and response, we've neutralized the delay that traditionally favors attackers over defenders.
+
+The shared responsibility model we've embraced with AER represents the future of enterprise security – where platform providers and customers work together to create multiple layers of defence. By providing advanced security that's accessible to everyone out of the box while still offering customization for organizations with sophisticated security operations, we're ensuring that all customers benefit from real-time threat disruption regardless of their size or security resources.
+
+And the most exciting part? As the digital threat landscape continues to evolve, so will AER. We're committed to providing security that works silently and effectively in the background by continuously refining our detection mechanisms, expanding our response capabilities, and incorporating customer feedback to extend the feature with new and exciting capabilities, allowing teams to collaborate with confidence. Slack is where work happens, and that modern collaborative environment requires and deserves modern forward-thinking security.
+
+#
+incident-response
+#
+security
+
+Copied!
+
+Previous Post
+
+Optimizing Our E2E Pipeline
+
+In the world of DevOps and Developer Experience (DevXP), speed and efficiency can make a…
+
+April 14, 2025
+
+6 min read
+
+Next Post
+
+Deploy Safety: Reducing customer impact from change
+
+It's mid 2023 and we've identified some opportunities to improve our reliability. Fast forward to…
+
+October 7, 2025
+
+11 min read
+
+Recommended Reading
+
+December 1, 2025
+
+10 min read
+
+Streamlining Security Investigations with Agents
+
+@Dominic Marks
+
+October 7, 2025
+
+11 min read
+
+Deploy Safety: Reducing customer impact from change
+
+@Sam Bailey
+
+November 14, 2024
+
+13 min read
+
+There's No Such Thing as a Free Lunch!
+
+@Scott Nelson Windels
+
+June 28, 2024
+
+8 min read
+
+Proactive Measures Against Password Breaches and Cookie Hijacking
+
+@Nathan Lehotsky@Ryan Persaud

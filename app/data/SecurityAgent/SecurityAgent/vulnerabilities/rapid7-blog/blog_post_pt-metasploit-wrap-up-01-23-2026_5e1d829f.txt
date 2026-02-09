@@ -1,0 +1,97 @@
+Oracle E-Business Suite Unauth RCE
+
+This week, we are pleased to announce the addition of a module that exploits CVE-2025-61882, a pre-authentication remote code execution vulnerability in Oracle E-Business Suite versions 12.2.3 through 12.2.14. The exploit chains multiple flaws—including SSRF, path traversal, HTTP request smuggling, and XSLT injection—to coerce the target into fetching and executing a malicious XSL file hosted by the attacker. Successful exploitation results in arbitrary command execution and an interactive shell on both Linux/Unix and Windows targets. The module is reliable, repeatable, and we here at Metasploit hope you enjoy it, happy hacking!
+
+New module content (3)
+
+Authenticated RCE in Splunk (splunk_archiver app)
+
+Authors: Alex Hordijk, Maksim Rogov, and psytester Type: Exploit Pull request:
+#20770
+ contributed by
+vognik
+ Path: linux/http/splunk_auth_rce_cve_2024_36985 AttackerKB reference:
+CVE-2024-36985
+
+Description: This adds two separate Metasploit exploit modules targeting Remote Code Execution (RCE) vulnerabilities in Splunk Enterprise. CVE-2024-36985 exploits unsafe use of the "copybuckets" lookup function within the splunk_archiver application, resulting in execution of the sudobash helper script with attacker-controlled arguments. Affected versions: All releases prior to 9.0.10, 9.1.2 through 9.1.5, 9.2.0 through 9.2.2 CVE-2022-43571, exploits a Python code injection vulnerability in Splunk SimpleXML dashboards by injecting malicious code into sparkline style parameters. Malicious code is executed when a user exports the dashboard to PDF. Affected versions: All releases prior to 8.1.12, 8.2.0 through 8.2.9, 9.0.0 through 9.0.2.
+
+Oracle E-Business Suite CVE-2025-61882 RCE
+
+Authors: Mathieu Dupas and watchTowr (Sonny, Sina Kheirkhah, Jake Knott) Type: Exploit Pull request:
+#20750
+ contributed by
+MatDupas
+ Path: multi/http/oracle_ebs_cve_2025_61882_exploit_rce AttackerKB reference:
+CVE-2025-61882
+
+Description: This adds an exploit for CVE-2025-61882, a critical Remote Code Execution (RCE) vulnerability in Oracle E-Business Suite (EBS). The flaw allows unauthenticated attackers to execute arbitrary code by leveraging a combination of SSRF, HTTP request smuggling and XSLT injection. Affected Versions: Oracle E-Business Suite, 12.2.3-12.2.14.
+
+Authenticated RCE in Splunk (SimpleXML dashboard PDF generation)
+
+Authors: Danylo Dmytriiev, Maksim Rogov, and psytester Type: Exploit Pull request:
+#20770
+ contributed by
+vognik
+ Path: multi/http/splunk_auth_rce_cve_2022_43571 AttackerKB reference:
+CVE-2022-43571
+
+Description: This adds two separate Metasploit exploit modules targeting Remote Code Execution (RCE) vulnerabilities in Splunk Enterprise. CVE-2024-36985 exploits unsafe use of the "copybuckets" lookup function within the splunk_archiver application, resulting in execution of the sudobash helper script with attacker-controlled arguments. Affected versions: All releases prior to 9.0.10, 9.1.2 through 9.1.5, 9.2.0 through 9.2.2 CVE-2022-43571, exploits a Python code injection vulnerability in Splunk SimpleXML dashboards by injecting malicious code into sparkline style parameters. Malicious code is executed when a user exports the dashboard to PDF. Affected versions: All releases prior to 8.1.12, 8.2.0 through 8.2.9, 9.0.0 through 9.0.2.
+
+Enhancements and features (3)
+
+#20755
+ from
+rudraditya21
+ - This adds an advanced datastore option, KrbClockSkew, to modules that use Kerberos authentication, allowing operators to adjust the Kerberos clock from the Metasploit side to fix clock skew errors.
+
+#20840
+ from
+xaitax
+ - This updates the MongoBleed auxiliary module and adds new options. The module can now use Wiz Magic Packet to detect the vulnerability quickly; it can detect compression libraries used by MongoDB (and warns or stops the user if zlib is not enabled). The module can also reuse the MongoDB socket connection during memory scanning, which significantly improves performance. Finally, it can better leak secrets, either by pattern matching or by storing the extracted information in raw or JSON format.
+
+#20861
+ from
+bcoles
+ - Adds multiple improvements to get_hostname resolution logic for post exploitation modules.
+
+Bugs fixed (1)
+
+#20888
+ from
+jheysel-r7
+ - Fixes an issue that caused dMSA kerberos authentication to fail.
+
+Documentation
+
+You can find the latest Metasploit documentation on our docsite at
+docs.metasploit.com
+.
+
+Get it
+
+As always, you can update to the latest Metasploit Framework with msfupdate and you can get more details on the changes since the last blog post from GitHub:
+
+Pull Requests 6.4.108...6.4.110
+
+Full diff 6.4.108...6.4.110
+
+If you are a git user, you can clone the
+Metasploit Framework repo
+ (master branch) for the latest. To install fresh without using git, you can use the open-source-only
+Nightly Installers
+ or the commercial edition
+Metasploit Pro
+
+Article Tags
+
+Metasploit
+
+Metasploit Weekly Wrapup
+
+[
+
+Jack Heysel
+
+Author Posts](/blog/author/jack-heysel/)
+
+Related blog posts

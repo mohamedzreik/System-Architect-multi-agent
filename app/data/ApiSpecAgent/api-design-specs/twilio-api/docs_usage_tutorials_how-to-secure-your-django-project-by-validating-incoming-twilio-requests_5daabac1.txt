@@ -1,0 +1,484 @@
+Secure your Django project by validating incoming Twilio requests
+
+Positive FeedbackNegative Feedback
+
+In this guide we'll cover how to secure your
+Django(link takes you to an external page)
+ application by validating incoming requests to your Twilio webhooks are, in fact, from Twilio.
+
+With a few lines of code, we'll write a custom decorator for our Django project that uses the Twilio Python SDK's validator utility. We can then use that decorator on our Django views which accept Twilio webhooks to confirm that incoming requests genuinely originated from Twilio.
+
+Let's get started!
+
+Create a custom decorator
+
+create-a-custom-decorator page anchor
+
+Positive FeedbackNegative Feedback
+
+The Twilio Python SDK includes a
+RequestValidator
+ class we can use to validate incoming requests.
+
+We could include our request validation code as part of our Django views, but this is a perfect opportunity to write
+a Python decorator(link takes you to an external page)
+. This way we can reuse our validation logic across all our views which accept incoming requests from Twilio.
+
+Custom decorator for Django projects to validate Twilio requests
+
+custom-decorator-for-django-projects-to-validate-twilio-requests page anchor
+
+Confirm incoming requests to your Django views are genuine with this custom decorator.
+
+Copy code block
+
+1
+
+from django.http import HttpResponse, HttpResponseForbidden
+
+2
+
+from functools import wraps
+
+3
+
+from twilio import twiml
+
+4
+
+from twilio.request_validator import RequestValidator
+
+5
+
+6
+
+import os
+
+7
+
+8
+
+9
+
+def validate_twilio_request(f):
+
+10
+
+"""Validates that incoming requests genuinely originated from Twilio"""
+
+11
+
+@wraps(f)
+
+12
+
+def decorated_function(request, *args, **kwargs):
+
+13
+
+# Create an instance of the RequestValidator class
+
+14
+
+validator = RequestValidator(os.environ.get('TWILIO_AUTH_TOKEN'))
+
+15
+
+16
+
+# Validate the request using its URL, POST data,
+
+17
+
+# and X-TWILIO-SIGNATURE header
+
+18
+
+request_valid = validator.validate(
+
+19
+
+request.build_absolute_uri(),
+
+20
+
+request.POST,
+
+21
+
+request.META.get('HTTP_X_TWILIO_SIGNATURE', ''))
+
+22
+
+23
+
+# Continue processing the request if it's valid, return a 403 error if
+
+24
+
+# it's not
+
+25
+
+if request_valid:
+
+26
+
+return f(request, *args, **kwargs)
+
+27
+
+else:
+
+28
+
+return HttpResponseForbidden()
+
+29
+
+return decorated_function
+
+30
+
+To validate an incoming request genuinely originated from Twilio, we first need to create an instance of the
+RequestValidator
+ class using our Twilio auth token. After that we call its
+validate
+ method, passing in the request's URL, payload, and the value of the request's
+X-TWILIO-SIGNATURE
+ header.
+
+That method will return True if the request is valid or False if it isn't. Our decorator then either continues processing the view or returns a 403 HTTP response for inauthentic requests.
+
+Use the decorator with our Twilio webhooks
+
+use-the-decorator-with-our-twilio-webhooks page anchor
+
+Positive FeedbackNegative Feedback
+
+Now we're ready to apply our decorator to any view in our Django project that handles incoming requests from Twilio.
+
+Apply the request validation decorator to a Django view
+
+apply-the-request-validation-decorator-to-a-django-view page anchor
+
+Apply a custom Twilio request validation decorator to a Django view used for Twilio webhooks.
+
+Copy code block
+
+1
+
+from django.http import HttpResponse
+
+2
+
+from django.views.decorators.csrf import csrf_exempt
+
+3
+
+from django.views.decorators.http import require_POST
+
+4
+
+from twilio.twiml.voice_response import VoiceResponse, MessagingResponse
+
+5
+
+6
+
+7
+
+@require_POST
+
+8
+
+@csrf_exempt
+
+9
+
+@validate_twilio_request
+
+10
+
+def incoming_call(request):
+
+11
+
+"""Twilio Voice URL - receives incoming calls from Twilio"""
+
+12
+
+# Create a new TwiML response
+
+13
+
+resp = VoiceResponse()
+
+14
+
+15
+
+# <Say> a message to the caller
+
+16
+
+from_number = request.POST['From']
+
+17
+
+body = """
+
+18
+
+Thanks for calling!
+
+19
+
+20
+
+Your phone number is {0}. I got your call because of Twilio's webhook.
+
+21
+
+22
+
+Goodbye!""".format(' '.join(from_number))
+
+23
+
+resp.say(body)
+
+24
+
+25
+
+# Return the TwiML
+
+26
+
+return HttpResponse(resp)
+
+27
+
+28
+
+29
+
+@require_POST
+
+30
+
+@csrf_exempt
+
+31
+
+@validate_twilio_request
+
+32
+
+def incoming_message(request):
+
+33
+
+"""Twilio Messaging URL - receives incoming messages from Twilio"""
+
+34
+
+# Create a new TwiML response
+
+35
+
+resp = MessagingResponse()
+
+36
+
+37
+
+# <Message> a text back to the person who texted us
+
+38
+
+body = "Your text to me was {0} characters long. Webhooks are neat :)" \
+
+39
+
+.format(len(request.POST['Body']))
+
+40
+
+resp.message(body)
+
+41
+
+42
+
+# Return the TwiML
+
+43
+
+return HttpResponse(resp)
+
+44
+
+To use the decorator with an existing view, just put
+@validate_twilio_request
+ above the view's definition. In this sample application, we use our decorator with two views: one that handles incoming phone calls and another that handles incoming text messages.
+
+Note:
+ If your Twilio webhook URLs start with
+https://
+ instead of
+http://
+, your request validator may fail locally when you use Ngrok or in production if your stack terminates SSL connections upstream from your app. This is because the request URL that your Django application sees does not match the URL Twilio used to reach your application.
+
+To fix this for local development with Ngrok, use
+http://
+ for your webhook instead of
+https://
+. To fix this in your production app, your decorator will need to reconstruct the request's original URL using request headers like
+X-Original-Host
+ and
+X-Forwarded-Proto
+, if available.
+
+Disable request validation during testing
+
+disable-request-validation-during-testing page anchor
+
+Positive FeedbackNegative Feedback
+
+If you write tests for your Django views those tests may fail for views where you use your Twilio request validation decorator. Any requests your test suite sends to those views will fail the decorator's validation check.
+
+To fix this problem we recommend adding an extra check in your decorator, like so, telling it to only reject incoming requests if your app is running in production.
+
+An improved Django request validation decorator, useful for testing
+
+an-improved-django-request-validation-decorator-useful-for-testing page anchor
+
+Use this version of the custom Django decorator if you test your Django views.
+
+Copy code block
+
+1
+
+from django.conf import settings
+
+2
+
+from django.http import HttpResponseForbidden
+
+3
+
+from functools import wraps
+
+4
+
+from twilio.request_validator import RequestValidator
+
+5
+
+6
+
+import os
+
+7
+
+8
+
+9
+
+def validate_twilio_request(f):
+
+10
+
+"""Validates that incoming requests genuinely originated from Twilio"""
+
+11
+
+@wraps(f)
+
+12
+
+def decorated_function(request, *args, **kwargs):
+
+13
+
+# Create an instance of the RequestValidator class
+
+14
+
+validator = RequestValidator(os.environ.get('TWILIO_AUTH_TOKEN'))
+
+15
+
+16
+
+# Validate the request using its URL, POST data,
+
+17
+
+# and X-TWILIO-SIGNATURE header
+
+18
+
+request_valid = validator.validate(
+
+19
+
+request.build_absolute_uri(),
+
+20
+
+request.POST,
+
+21
+
+request.META.get('HTTP_X_TWILIO_SIGNATURE', ''))
+
+22
+
+23
+
+# Continue processing the request if it's valid (or if DEBUG is True)
+
+24
+
+# and return a 403 error if it's not
+
+25
+
+if request_valid or settings.DEBUG:
+
+26
+
+return f(request, *args, **kwargs)
+
+27
+
+else:
+
+28
+
+return HttpResponseForbidden()
+
+29
+
+return decorated_function
+
+30
+
+What's next?
+
+whats-next page anchor
+
+Positive FeedbackNegative Feedback
+
+Validating requests to your Twilio webhooks is a great first step for securing your Twilio application. We recommend reading over
+our full security documentation
+ for more advice on protecting your app, and the
+Anti-Fraud Developer's Guide
+ in particular.
+
+To learn more about securing your Django application in general, check out
+the official Django security docs(link takes you to an external page)
+.

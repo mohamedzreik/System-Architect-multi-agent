@@ -1,0 +1,77 @@
+Healthcare & Life Sciences
+
+News and updates on Google Cloud solutions for the healthcare and life sciences industries.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Healthcare & Life Sciences
+
+Four agentic workflows you can build for life sciences for R&D
+
+By Pranav Mehrotra • 6-minute read](https://cloud.google.com/blog/topics/healthcare-life-sciences/agentic-ai-framework-in-life-sciences-for-rd)
+
+[AI & Machine Learning
+
+The Blueprint: How Giles AI transforms medical research with conversational AI
+
+By Rishi Wadhera • 4-minute read
+
+](https://cloud.google.com/blog/products/ai-machine-learning/the-blueprint-giles-ai-transforming-medical-research-conversational-generative-ai)
+
+[Healthcare & Life Sciences
+
+Inside the AI-powered assistant helping doctors work faster and better at Seattle Children's Hospital
+
+By Dr. Darren Migita • 4-minute read
+
+](https://cloud.google.com/blog/topics/healthcare-life-sciences/child-care-how-ai-is-transforming-pediatric-medicine-at-seattle-childrens)
+
+[Security & Identity
+
+Now available: Cloud HSM as an encryption key service for Workspace client-side encryption
+
+By Amit Bapat • 4-minute read](https://cloud.google.com/blog/products/identity-security/introducing-cloud-hsm-as-an-encryption-key-service-for-workspace-cse)
+
+[Customers
+
+Manipal Hospitals and Google Cloud partner to transform nurse handoffs with GenAI
+
+By Saroja Jaykumar • 4-minute read](https://cloud.google.com/blog/topics/customers/how-manipal-hospitals-sped-up-nurse-handoffs-across-37-hospitals)
+
+[Security & Identity
+
+Cloud CISO Perspectives: The global threats facing EU healthcare
+
+By Thiébaut Meyer • 8-minute read
+
+](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-global-threats-eu-healthcare)
+
+[Healthcare & Life Sciences
+
+How AI & IoT are helping detect hospital incidents — without compromising patient privacy
+
+By Marcel Walz & Erlandas Norkus • 9-minute read](https://cloud.google.com/blog/topics/healthcare-life-sciences/detecting-hospital-incidents-with-ai-without-compromising-patient-privacy)
+
+[AI & Machine Learning
+
+Accelerating AI in healthcare using NVIDIA BioNeMo Framework and Blueprints on GKE
+
+By Sujit Khasnis • 7-minute read](https://cloud.google.com/blog/products/ai-machine-learning/accelerate-ai-in-healthcare-nvidia-bionemo-gke)
+
+[Healthcare & Life Sciences
+
+Bupa: Building a cloud-first digital platform for the future of healthcare
+
+By Paul Schuster • 3-minute read](https://cloud.google.com/blog/topics/healthcare-life-sciences/bupa-healthcare-platform-cloud-first-innovation)
+
+[Security & Identity
+
+Cyber Public Health: A new approach to cybersecurity
+
+By Bill Reid • 4-minute read](https://cloud.google.com/blog/products/identity-security/cyber-public-health-a-new-approach-to-cybersecurity)
+
+Load more stories

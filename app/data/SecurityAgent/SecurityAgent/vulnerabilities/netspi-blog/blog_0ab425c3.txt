@@ -1,0 +1,230 @@
+Explore the Minds of The NetSPI Agents
+
+Advance your proactive security knowledge by learning from some of the brightest people in cybersecurity. Our executive blog gives perspective on industry trends, while Hack Responsibly dives deep into the latest CVEs and tactical approaches our team takes. Take your pick!
+
+Executive Blog
+
+Hack Responsibly
+
+Our Favorite Picks
+
+[
+
+Adversary Simulation
+
+CVE-2024-21378 — Remote Code Execution in Microsoft Outlook
+
+Learn how NetSPI discovered that Microsoft Outlook was vulnerable to authenticated remote code execution (RCE) via synced form objects.
+
+Learn More](https://www.netspi.com/blog/technical-blog/adversary-simulation/microsoft-outlook-remote-code-execution-cve-2024-21378/)
+[
+
+Network Pentesting
+
+15 Ways to Bypass the PowerShell Execution Policy
+
+NetSPI security expert Scott Sutherland covers 15 ways to bypass the PowerShell execution policy without having local administrator rights on the system.
+
+Learn More](https://www.netspi.com/blog/technical-blog/network-pentesting/15-ways-to-bypass-the-powershell-execution-policy/)
+[
+
+Attack Surface Management
+
+How to Use Attack Surface Management for Continuous Pentesting
+
+Uncover attack surfaces and exposures with NetSPI's offensive security including Attack Surface Management (ASM) to enable continuous pentesting.
+
+Learn More](https://www.netspi.com/blog/executive-blog/attack-surface-management/how-to-use-attack-surface-management-for-continuous-pentesting/)
+
+All Blog Posts
+
+All Blog Posts
+
+Executive Blog
+
+Technical Blog
+
+All Product Categories
+
+All Product Categories
+
+Adversary Simulation
+
+AI/ML Pentesting
+
+Application Pentesting
+
+Attack Surface Management
+
+Blockchain Pentesting
+
+CISO Perspectives
+
+Cloud Pentesting
+
+Compliance
+
+Cyber Asset Attack Surface Management (CAASM)
+
+Detective Controls Testing
+
+External Attack Surface Management (EASM)
+
+Hardware Penetration Testing
+
+Mainframe Penetration Testing
+
+Mobile Application Pentesting
+
+NetSPI Updates
+
+Network Pentesting
+
+Partners
+
+Penetration Testing
+
+Personnel Development
+
+Proactive Security
+
+Ransomware
+
+Red Teaming
+
+Secure Code Review
+
+Security Industry Trends
+
+Social Engineering
+
+Thick Application Pentesting
+
+Vulnerability Management
+
+Web Application Pentesting
+
+[
+
+Adversary Simulation
+
+Pipe Dreams: Remote Code Execution via Quest Desktop Authority Named Pipe
+
+February 1, 2026
+
+Discover the risks of the CVE-2025-67813 vulnerability in Quest Desktop Authority. Learn how this RCE flaw impacts your organization and how to mitigate it.
+
+Learn More](https://www.netspi.com/blog/technical-blog/adversary-simulation/pipe-dreams-remote-code-execution-via-quest-desktop-authority-named-pipe/)[
+
+Vulnerability Management
+
+Ivanti Endpoint Manager Mobile (EPMM) [CVE-2026-1281 & CVE-2026-1340]: Overview & Takeaways
+
+January 30, 2026
+
+Ivanti has disclosed two critical zero‑day vulnerabilities affecting Ivanti Endpoint Manager Mobile (EPMM), tracked as CVE‑2026‑1281 and CVE‑2026‑1340.
+Both vulnerabilities have been exploited in active attacks and allow unauthenticated remote threat actors to compromise EPMM appliances.
+
+Learn More](https://www.netspi.com/blog/executive-blog/vulnerability-management/ivanti-endpoint-manager-mobile-epmm-cve-2026-1281-cve-2026-1340-overview-takeaways/)[
+
+Attack Surface Management
+
+Why Your Security Program Needs Domain Monitoring
+
+January 26, 2026
+
+NetSPI Domain Monitoring continuously discovers and assesses look-alike domains related to your organization, providing deep contextual intelligence including risk profiles, WHOIS records, IP details, DNS records, and certificate data. The NetSPI Platform streamlines response, enabling rapid action against high-risk domains.
+
+Learn More](https://www.netspi.com/blog/executive-blog/attack-surface-management/why-your-security-program-needs-domain-monitoring/)[
+
+Vulnerability Management
+
+Oracle WebLogic Server Proxy Plugin (CVE-2026-21962): Overview & Takeaways
+
+January 22, 2026
+
+CVE-2026-21962 allows an unauthenticated remote attacker to bypass security controls and potentially gain unauthorized access to backend WebLogic systems. Because these proxy plugins often sit in DMZ environments, the exposure is significant.
+
+Learn More](https://www.netspi.com/blog/executive-blog/vulnerability-management/oracle-weblogic-server-proxy-plugin-cve-2026-21962-overview-takeaways/)[
+
+Hardware Penetration Testing
+
+Rust's Role in Embedded Security
+
+January 22, 2026
+
+Rust enhances memory safety in embedded systems, but rigorous security testing remains essential to address logic, hardware, and cryptographic vulnerabilities. Explore the benefits and key considerations of using Rust
+
+Learn More](https://www.netspi.com/blog/technical-blog/hardware-and-embedded-systems-penetration-testing/rusts-role-in-embedded-security/)[
+
+CISO Perspectives
+
+Tackling Technical Debt before It Owns Your Roadmap
+
+January 12, 2026
+
+Discover how prioritizing pentest findings and technical debt in Q1 can transform your security strategy. Read the article for actionable insights.
+
+Learn More](https://www.netspi.com/blog/executive-blog/ciso-perspectives/tackling-technical-debt-before-it-owns-your-roadmap/)[
+
+AI/ML Pentesting
+
+Webinar Recap: The AI Balancing Act: Benchmarking LLMs for Usability vs. Security
+
+January 7, 2026
+
+Explore how security teams balance usability and risk in LLMs, with insights on vulnerabilities, compliance, and a framework for effective AI benchmarking.
+
+Learn More](https://www.netspi.com/blog/executive-blog/ai-ml-pentesting/webinar-recap-the-ai-balancing-act-benchmarking-llms-for-usability-vs-security/)[
+
+Application Pentesting
+
+How Secure Are Your SaaS Applications? Pentesting for SaaS Providers
+
+December 16, 2025
+
+Proactive SaaS pentesting protects data, ensures compliance, and builds trust. Learn best practices for securing APIs and cloud apps.
+
+Learn More](https://www.netspi.com/blog/executive-blog/application-pentesting/how-secure-are-your-saas-applications-pentesting-for-saas-providers/)[
+
+NetSPI Updates
+
+NetSPI Celebrates Our 2025 Partners of the Year
+
+December 15, 2025
+
+Congratulations to NetSPI's 2025 Partner of the Year Recipients Stratascale, Defy Security, VLCM, BlackLake Security, Consortium, Softcat, CDW UK, ConnexIT, and AWS.
+
+Learn More](https://www.netspi.com/blog/executive-blog/netspi-updates/partner-awards-2025/)[
+
+AI/ML Pentesting
+
+When Your AI Provider Goes Bankrupt: 6 CISO Insights to Stay Ahead of AI Vendor Failure
+
+December 8, 2025
+
+AI vendor failure poses risks to data, security, and operations. Learn six CISO strategies to prepare for instability and protect your organisation effectively.
+
+Learn More](https://www.netspi.com/blog/executive-blog/ai-ml-pentesting/when-your-ai-provider-goes-bankrupt-6-ciso-insights-to-stay-ahead-of-ai-vendor-failure/)[
+
+Security Industry Trends
+
+What Cybersecurity Actually Looks Like in 2026
+
+December 1, 2025
+
+Discover 2026's top cybersecurity trends: AI, cloud, social engineering, and digital resilience. Stay ahead with a proactive security strategy.
+
+Learn More](https://www.netspi.com/blog/executive-blog/security-industry-trends/what-cybersecurity-actually-looks-like-in-2026-spoiler-its-complicated/)[
+
+Penetration Testing
+
+Pentesting for Third-Party Risk Management
+
+November 25, 2025
+
+Learn why traditional third-party risk management fails and what CISOs must demand from vendors, including continuous pentesting, to manage third-party risk effectively.
+
+Learn More](https://www.netspi.com/blog/executive-blog/penetration-testing-as-a-service/pentesting-for-third-party-risk-management-what-cisos-should-demand-from-vendors/)
+
+Load More

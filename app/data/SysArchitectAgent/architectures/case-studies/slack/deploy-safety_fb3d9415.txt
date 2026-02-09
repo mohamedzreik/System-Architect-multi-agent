@@ -1,0 +1,373 @@
+October 7, 2025
+
+11 min read
+
+Deploy Safety: Reducing customer impact from change
+
+Sam BaileySenior Engineering Manager
+
+Search
+
+Latest Posts
+
+December 1, 2025
+
+10 min read
+
+Streamlining Security Investigations with Agents
+
+November 19, 2025
+
+10 min read
+
+Android VPAT journey
+
+November 6, 2025
+
+18 min read
+
+Build better software to build software better
+
+October 23, 2025
+
+15 min read
+
+Advancing Our Chef Infrastructure: Safety Without Disruption
+
+October 7, 2025
+
+11 min read
+
+Deploy Safety: Reducing customer impact from change
+
+Archives
+
+2025
+ (9)
+
+2024
+ (19)
+
+2023
+ (16)
+
+2022
+ (21)
+
+2021
+ (24)
+
+2020
+ (26)
+
+2019
+ (21)
+
+2018
+ (11)
+
+2017
+ (21)
+
+2016
+ (19)
+
+It's mid 2023 and we've identified some opportunities to improve our reliability. Fast forward to January 2025. Customer impact hours are reduced from the peak by 90% and continuing to trend downward. We're a year and half into the Deploy Safety Program at Slack, improving the way we deploy, uplifting our safety culture and continuing our rate of change to meet business needs.
+
+Defining the problem
+
+System requirements change as businesses evolve whether that be due to changes in customer expectations, load & scale or response to business needs.
+
+In this case analysis showed two critical trends:
+
+Slack has become more mission critical for our customers, increasing expectations of reliability for the product as a whole and for specific features each company relies on.
+
+The increasing majority (73%) of customer facing incidents were triggered by Slack-induced change, particularly code deploys.
+
+We use our
+incident management
+ process heavily and frequently at Slack to ensure we have a strong and rapid response to issues of all shapes and sizes based on impact and severity. A portion of those incidents are customer impacting, many of which showed variable impact depending on which features they used in the product. Change-triggered incidents were occurring in a wide variety of systems and deployment processes.
+
+Finally, we also received customer feedback that interruptions became more disruptive after about 10 minutes – something they would treat as a "blip" – and this would continue to reduce with the introduction of Agentforce in 2025.
+
+All this was occurring in a software engineering environment with 100s of internal services and many different deployment systems & practices.
+
+In the past, our approach to reliability often zeroed in on individual deploy systems or services. This led to manual change processes that bogged down our pace of innovation. The increased time and effort required for changes not only dampened engineering morale but also hindered our ability to swiftly meet business objectives.
+
+This led us to set some initial "North Star" goals across
+all
+ deployment methods for our highest importance services:
+
+Reducing impact time from deployments
+
+Automated detection & remediation within 10 minutes
+
+Manual detection & remediation within 20 minutes
+
+Reducing severity of impact
+
+Detect problematic deployments prior to reaching 10% of the fleet
+
+Maintaining Slack's development velocity
+
+The initial North Star goals evolved and expanded into a Deploy Safety Manifesto that now applies to all Slack's deployment systems & processes.
+
+These goals encourage implementing automated system improvements, safety guardrails and cultural changes.
+
+The metric
+
+Programs are run to invoke change and change must be measured. Selecting a metric that serves as an imperfect analog has continued to be a constant source of discussion.
+
+The North Star goals could be measured against engineering efforts, but were not a direct measure of the end goal: improving customer sentiment of their experience of Slack's reliability. What we needed was a metric that was a reasonable (though imperfect) analog of customer sentiment. We had the internal data to design such a metric.
+
+The Deploy Safety metric:
+
+Hours of customer impact from high severity and selected medium severity change-triggered incidents.
+
+What does "selected" mean? That seems pretty ambiguous. We found that the incident dataset didn't exactly match what we needed. Severity levels at Slack convey current or impending customer impact rather than the final impact which often requires careful post-hoc analysis. This means we need to filter medium severity incidents based on a relevant level of customer impact.
+
+The on-going discussion around what metric to use relates to the semi-loose connection between:
+
+Customer sentiment <-> Program Metric <-> Project Metric
+
+They're all connected, but it's challenging to know for a specific project how much it is going to move the top line metric. How much does the Program metric reflect individual customer experience? This flow is especially difficult for engineers who prefer a more concrete feedback loop with hard data – i.e., "How much does my work or concept change customer sentiment?"
+
+Important criteria for designing the Deploy Safety metric:
+
+Measure results
+
+Understand what is measured (real vs analog)
+
+Consistency in measurement, especially subjective portions
+
+Continually validate the measurement matches customer sentiment with the leaders having the direct conversations with customers
+
+Which projects to invest in?
+
+The two largest unknowns we had at the start of the program were predicting which projects would have the highest likelihood of success given multiple sources of incidents and when each project would deliver impact. Incident data is a trailing dataset meaning that there is a time delay before we know the result. On top of this, customers were experiencing pain
+right now
+.
+
+This influenced our investment strategy to be:
+
+Invest widely initially and bias for action
+
+Focus on areas of known pain first
+
+Invest further in projects or patterns based on results
+
+Curtail investment in the least impactful areas
+
+Set a flexible shorter-term roadmap which may change based on results.
+
+Our goals directed us to look for projects that would therefore influence one or more the following:
+
+Detection of an issue earlier in the deployment process
+
+Improved automatic remediation time
+
+Improved manual remediation time
+
+Reduced issue severity through design of isolation boundaries (blast radius control)
+
+We attributed Webapp backend as the largest source of change-triggered incidents. The following is an example investment flow to address our
+Webapp backend deployments
+.
+
+A quarter of work to engineer automatic metric monitoring
+
+Another quarter to confirm customer impact alignment via automatic alerts and manual rollback actions
+
+Investing in
+automatic deployments and rollback
+
+Proving success with many automatic rollbacks keeping customer impact below 10 minutes
+
+Further investment to monitor additional metrics and invest in manual rollback optimisations
+
+Investing in a manual Frontend rollback capability
+
+Aligned further investment toward Slack's centralised deployment orchestration system inspired by
+ReleaseBot
+ and the AWS Pipelines deployment system to unify the use of metrics-based deployments with automatic remediation beyond
+Slack Bedrock
+ /
+Kubernetes
+ to many other deployment systems
+
+Achieved success criteria: Webapp backend, frontend, and a portion of infra deployments are now significantly safer and showing continual improvement quarter-over-quarter
+
+This pattern of trying something, finding success, then iterating + copying the pattern to other systems continues to serve us well.
+
+There have been too many projects to list, some more successful (e.g., faster Mobile App issue detection) and others where the impact hasn't been as noticeable. In some cases we had reduced impact due to the greater success of automation over manual remediation improvements. It's
+very important
+ to note that projects that didn't have the desired impact are not failures, they're a critical input to our success through guiding investment and understanding which areas are of greater value. Not all projects will be as impactful, and this is by design.
+
+Results
+
+Customer impact by quarter vs progressive targets
+
+Please note: our internal metric tracking of "impact" is much more granular and sensitive than disruptions that might qualify for the
+
+Slack Status Site
+.
+
+The bar chart above tells quite a story of non-linear progress and the difficulties with using trailing metrics based on waiting for incident occurrence.
+
+After the first quarter of work we had already seen improvement, but hadn't yet deployed any changes other than communicating with the engineering teams about the program. Once projects started to deliver changes, we then had the peak quarter of impact between February and April of 2024. Was this working?
+
+There was still confidence that the work we were doing was going to have the desired impact based on the early results from Webapp backend metrics based deploy alerts with manual remediation – the peak of impact in 2024 would have otherwise been even higher. What we needed was automatic instead of manual remediation. Once automatic rollbacks were introduced we observed dramatic improvement in results. We've continued to experience a 3-6 month lag time to observe each project's full impact.
+
+Over time the target number has been continually adjusted. Due to the metric requiring trailing incident data, the target was set based on expected potential results through the work delivered the previous quarter. This was notably different from expecting to be able to measure results as soon as work is delivered.
+
+We've reduced our target number again for 2025 and expect lower customer impact with a focus on mitigating the risk of infrequent spikes through deployment system consistency.
+
+Lessons learned
+
+This program required continual learning and iteration. We learned many important lessons. Each were critical for a successful program:
+
+Ensuring prioritisation and alignment
+
+Executive reviews every 4-6 weeks to ensure continued alignment and to seek support where needed
+
+High-level priority in company/engineering goals (OKR,
+V2MOM
+ etc.)
+
+Solid support from executive leadership with active project alignment, encouragement, and customer feedback (huge thanks to SVP Milena Talavera, SVP Peter Secor, and VP Cisco Vila)
+
+Patience with trailing metrics and faith that you have the right process even when some projects don't succeed
+
+Using a measurement with multiple months of delay from work delivery will need patience.
+
+Gather metrics to know if the improvement is at least functioning well (e.g., issue detection) whilst waiting for full results.
+
+Faith that you've made the best decisions you can with the information you have at the time and the agility to change the path once results are confirmed.
+
+Folks will delay adoption of a practice until they're familiar or comfortable with it
+
+They're worried they'll make the problem worse if they follow an unknown path even with the reassurance it is better and is recommended.
+
+Provide direct training (multiple times if necessary) to many groups to help them become comfortable with the new tooling – "Just roll back!"
+
+Continual improvement of manual rollback tooling in response to experience during incidents.
+
+Use the tooling often, not just for the infrequent worst case scenarios. Incidents are stressful and we found that without frequent use to build fluency, confidence, and comfort the processes and tools won't become routine. It would be as if you didn't build the tool/capability in the first place.
+
+Direct outreach to engineering teams is critical
+
+The Deploy Safety program team engaged directly with individual teams to understand their systems and processes, provide improvement guidance, and encourage innovation and prioritization. (A huge thanks to Petr Pchelko & Harrison Page for so much of this work.)
+
+Not all teams and systems are the same. Some teams know their areas of pain well and have ideas, others want to improve but need additional resources.
+
+Keep the top line metric as consistent as possible
+
+Pick a metric, be consistent, and make refinements based on validation of results
+
+It's very easy to burn time on deliberating the best metric (there isn't a perfect one)
+
+Maintain consistent, direct communication with engineering staff
+
+This is an area we're working to improve on
+
+Management understood prioritisation and results and were well aligned as a group. However, it hasn't always been clear to general engineering staff revealing an opportunity for better alignment.
+
+Into the future
+
+Trust is the #1 value
+ for Salesforce and Slack. As reliability is a key portion of that trust we intend to have ongoing investment into Deploy Safety at Slack.
+
+Improvements in automatic metrics based deployments & remediation to keep the positive trend going
+
+More consistency in our use of Deploy Safe processes for all deployments at Slack to mitigate unexpected or infrequent spikes of customer impact
+
+Change of the program's scope to include migrating remaining manual deploy processes to code-based deploys using Deploy Safe processes
+
+Examples of some of the ongoing projects in this space include:
+
+Centralised deployment orchestration tooling expansion into other infrastructure deployment patterns: EC2, Terraform and many more
+
+Automatic rollbacks for Frontend
+
+Metric quality improvements – do we have the right metrics for each system/service?
+
+AI metric-based anomaly detection
+
+Further rollout of AI generated pre-production tests
+
+Acknowledgements
+
+Many thanks to all the Deploy Safety team over this first year and a half: Dave Harrington, Sam Bailey, Sreedevi Rai, Petr Pchelko, Harrison Page, Vani Anantha, Matt Jennings, Nathan Steele, Sriganesh Krishnan.
+
+And a huge huge thanks to the too many to name teams that have picked up Deploy Safety projects large and small to improve the product experience for our customers.
+
+#
+automation
+#
+ci-cd
+#
+deployment
+#
+engineering
+#
+incident-response
+#
+infrastructure
+#
+observability
+
+Copied!
+
+Previous Post
+
+Building Slack's Anomaly Event Response
+
+As cyberattacks evolve to unprecedented levels of sophistication and speed, the time gap between breach…
+
+September 4, 2025
+
+9 min read
+
+Next Post
+
+Advancing Our Chef Infrastructure: Safety Without Disruption
+
+Last year, I wrote a blog post titled Advancing Our Chef Infrastructure, where we explored…
+
+October 23, 2025
+
+15 min read
+
+Recommended Reading
+
+November 6, 2025
+
+18 min read
+
+Build better software to build software better
+
+@David Reed
+
+September 4, 2025
+
+9 min read
+
+Building Slack's Anomaly Event Response
+
+@Nathan Lehotsky@Ryan Persaud
+
+April 14, 2025
+
+6 min read
+
+Optimizing Our E2E Pipeline
+
+@Dan Carton
+
+December 16, 2024
+
+15 min read
+
+Migration Automation: Easing the Jenkins → GHA shift with help from AI
+
+@Emmanuel Zerefa

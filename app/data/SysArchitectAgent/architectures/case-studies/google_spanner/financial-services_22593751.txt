@@ -1,0 +1,83 @@
+Financial Services
+
+Learn how financial services organizations are taking advantage of Google Cloud.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Financial Services
+
+A smart investment: FINRA builds a culture of improvement with DORA
+
+By Eric Maxwell • 2-minute read](https://cloud.google.com/blog/topics/financial-services/finra-builds-a-culture-of-improvement-with-dora-and-devops)
+
+[Security & Identity
+
+Using MCP with Web3: How to secure agents making blockchain transactions
+
+By Adrien Delaroche • 7-minute read](https://cloud.google.com/blog/products/identity-security/using-mcp-with-web3-how-to-secure-blockchain-interacting-agents)
+
+[Financial Services
+
+How CME Group builds a faster, smarter exchange on Cloud SQL
+
+By Kristofer Shane Sikora • 4-minute read
+
+](https://cloud.google.com/blog/topics/financial-services/how-cme-group-builds-a-faster-smarter-exchange-on-cloud-sql)
+
+[Financial Services
+
+How Global Payments built a resilient architecture for scale with Cloud SQL
+
+By Govindaraj Palanisamy • 4-minute read](https://cloud.google.com/blog/topics/financial-services/how-global-payments-built-a-resilient-architecture-for-scale-with-cloud-sql)
+
+[Financial Services
+
+Introducing an agentic commerce solution for merchants from PayPal and Google Cloud
+
+By Rohit Bhat • 4-minute read
+
+](https://cloud.google.com/blog/topics/financial-services/introducing-an-agentic-commerce-solution-for-merchants-from-paypal-and-google-cloud)
+
+[HPC
+
+Google Cloud and AMD at STAC Summit NYC: H4D VMs for Finance
+
+By Annie Ma-Weaver • 3-minute read](https://cloud.google.com/blog/topics/hpc/h4d-delivers-strong-performance-for-financial-services-workloads)
+
+[AI & Machine Learning
+
+How AI can scale customer experience — online and IRL
+
+By Jia Li • 5-minute read
+
+](https://cloud.google.com/blog/products/ai-machine-learning/how-ai-can-scale-customer-experience-online-and-irl)
+
+[Financial Services
+
+The oracles of DeFi: How to build trustworthy data feeds for decentralized applications
+
+By Peter Kohl-Landgraf • 7-minute read
+
+](https://cloud.google.com/blog/topics/financial-services/blockchain-oracles-dz-bank-solution-defi-enterprise-applications)
+
+[Financial Services
+
+Deutsche Bank delivers AI-powered financial research with DB Lumina
+
+By Max Sommerfeld • 9-minute read
+
+](https://cloud.google.com/blog/topics/financial-services/deutsche-bank-delivers-ai-powered-financial-research-with-db-lumina)
+
+[Financial Services
+
+How Mr. Cooper assembled a "team" of AI agents to handle complex mortgage questions
+
+By Meenakshi Subramanian • 8-minute read
+
+](https://cloud.google.com/blog/topics/financial-services/assembling-a-team-of-ai-agents-to-handle-complex-mortgage-questions-at-mr-cooper)
+
+Load more stories

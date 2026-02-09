@@ -1,0 +1,61 @@
+high availablilty
+
+[high availablilty
+
+Lessons Learned Running Presto at Meta Scale
+
+Presto is a free, open source SQL query engine. We've been using it at Meta for the past ten years, and learned a lot while doing so. Running anything at scale - tools, processes, services - takes problem solving to overcome unexpected challenges. Here are four things we learned
+
+By Philip Bell
+16 Jul 2023](/lessons-learned-running-presto-at-meta-scale/)
+
+[Monitoring
+
+TXlTUUwgSGlnaCBBdmFpbGFiaWxpdHkgRnJhbWV3b3JrIEV4cGxhaW5lZCDigJMgUGFydCBJSUk6 IEZhaWxvdmVyIFNjZW5hcmlvcw==
+
+In this three-part blog series, we introduced a High Availability (HA) Framework for MySQL hosting in Part I, and discussed the details of MySQL semisynchronous replication in Part II. Now in Part III, we review how the framework handles some of the important MySQL failure scenarios and recovers to ensure
+
+By Kristi Anderson
+16 Apr 2019](/mysql-high-availability-framework-explained-part-iii-failove/)
+
+[Java
+
+SW50cm8gdG8gUmVkaXMgQ2x1c3RlciBTaGFyZGluZyDigJMgQWR2YW50YWdlcywgTGltaXRhdGlv bnMsIERlcGxveWluZyAmIENsaWVudCBDb25uZWN0aW9ucw==
+
+Redis Cluster is the native sharding implementation available within Redis that allows you to automatically distribute your data across multiple nodes without having to rely on external tools and utilities. At ScaleGrid, we recently added support for Redis Clusters on our platform through our fully managed Redis hosting plans. In
+
+By Kristi Anderson
+19 Feb 2019](/intro-to-redis-cluster-sharding-advantages-limitations-deplo/)
+
+[high availablilty
+
+Scaling @ HelloFresh: API Gateway
+
+HelloFresh keeps growing every single day: our product is always improving, new ideas are popping up from everywhere, our supply chain is being completely automated. All of this is simply amazing us, but of course this constant growth brings many technical challenges.
+Today I'd like to take you on
+
+By Italo Vietro
+20 Feb 2017](/scaling-hellofresh-api-gateway/)
+
+[Database
+
+Using SSD as a Foundation for New Generations of Flash Databases - Nati Shalom
+
+"You just can't have it all" is a phrase that most of us are accustomed to hearing and that many still believe to be true when discussing the speed, scale and cost of processing data. To reach high speed data processing, it is necessary to utilize more memory
+
+By Nati Shalom
+09 Jul 2014](/using-ssd-as-a-foundation-for-new-generations-of-flash-datab/)
+
+[MySQL
+
+MySQL clustering strategies and comparisions
+
+Compare:
+  1. MySQL Clustering(ndb-cluster stogare)
+  2. MySQL / GFS-GNBD/ HA
+  3. MySQL / DRBD /HA
+  4. MySQL Write Master / Multiple MySQL Read Slaves
+  5. Standalone MySQL Servers(Functionally seperated)
+
+By praveenkumarks
+30 Dec 2007](/mysql-clustering-strategies-and-comparisions/)

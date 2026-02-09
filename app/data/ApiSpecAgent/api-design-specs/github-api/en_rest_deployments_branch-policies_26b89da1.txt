@@ -1,0 +1,532 @@
+The REST API is now versioned. For more information, see "
+About API versioning
+."
+
+REST API endpoints for deployment branch policies
+
+Use the REST API to manage custom deployment branch policies.
+
+About deployment branch policies
+
+You can use the REST API to specify custom name patterns that branches must match in order to deploy to an environment. The
+deployment_branch_policy.custom_branch_policies
+ property for the environment must be set to
+true
+ to use these endpoints. To update the
+deployment_branch_policy
+ for an environment, see
+REST API endpoints for deployment environments
+.
+
+For more information about restricting environment deployments to certain branches, see
+Managing environments for deployment
+.
+
+List deployment branch policies
+
+Lists the deployment branch policies for an environment.
+
+Anyone with read access to the repository can use this endpoint.
+
+OAuth app tokens and personal access tokens (classic) need the
+repo
+ scope to use this endpoint with a private repository.
+
+Fine-grained access tokens for "List deployment branch policies"
+
+This endpoint works with the following fine-grained token types:
+
+GitHub App user access tokens
+
+GitHub App installation access tokens
+
+Fine-grained personal access tokens
+
+The fine-grained token must have the following permission set:
+
+"Actions" repository permissions (read)
+
+This endpoint can be used without authentication or the aforementioned permissions if only public resources are requested.
+
+Parameters for "List deployment branch policies"
+
+Headers
+
+| Name, Type, Description |
+| --- |
+|
+accept
+ string Setting to
+application/vnd.github+json
+ is recommended. |
+
+Path parameters
+
+| Name, Type, Description |
+| --- |
+|
+owner
+ string Required The account owner of the repository. The name is not case sensitive. |
+|
+repo
+ string Required The name of the repository without the
+.git
+ extension. The name is not case sensitive. |
+|
+environment_name
+ string Required The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with
+%2F
+. |
+
+Query parameters
+
+| Name, Type, Description |
+| --- |
+|
+per_page
+ integer The number of results per page (max 100). For more information, see "
+Using pagination in the REST API
+." Default:
+30
+ |
+|
+page
+ integer The page number of the results to fetch. For more information, see "
+Using pagination in the REST API
+." Default:
+1
+ |
+
+HTTP response status codes for "List deployment branch policies"
+
+| Status code | Description |
+| --- | --- |
+|
+200
+ | OK |
+
+Code samples for "List deployment branch policies"
+
+Request example
+
+get/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies
+
+cURL
+
+JavaScript
+
+GitHub CLI
+
+Copy to clipboard curl request example
+
+curl -L \ -H "Accept: application/vnd.github+json" \ -H "Authorization: Bearer <YOUR-TOKEN>" \ -H "X-GitHub-Api-Version: 2022-11-28" \ https://api.github.com/repos/OWNER/REPO/environments/ENVIRONMENT_NAME/deployment-branch-policies
+
+Response
+
+Example response
+
+Response schema
+
+Status: 200
+
+{ "total_count": 2, "branch_policies": [ { "id": 361471, "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjE0NzE=", "name": "release/*" }, { "id": 361472, "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjE0NzI=", "name": "main" } ] }
+
+Create a deployment branch policy
+
+Creates a deployment branch or tag policy for an environment.
+
+OAuth app tokens and personal access tokens (classic) need the
+repo
+ scope to use this endpoint.
+
+Fine-grained access tokens for "Create a deployment branch policy"
+
+This endpoint works with the following fine-grained token types:
+
+GitHub App user access tokens
+
+GitHub App installation access tokens
+
+Fine-grained personal access tokens
+
+The fine-grained token must have the following permission set:
+
+"Administration" repository permissions (write)
+
+Parameters for "Create a deployment branch policy"
+
+Headers
+
+| Name, Type, Description |
+| --- |
+|
+accept
+ string Setting to
+application/vnd.github+json
+ is recommended. |
+
+Path parameters
+
+| Name, Type, Description |
+| --- |
+|
+owner
+ string Required The account owner of the repository. The name is not case sensitive. |
+|
+repo
+ string Required The name of the repository without the
+.git
+ extension. The name is not case sensitive. |
+|
+environment_name
+ string Required The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with
+%2F
+. |
+
+Body parameters
+
+| Name, Type, Description |
+| --- |
+|
+name
+ string Required The name pattern that branches or tags must match in order to deploy to the environment. Wildcard characters will not match
+/
+. For example, to match branches that begin with
+release/
+ and contain an additional single slash, use
+release/*/*
+. For more information about pattern matching syntax, see the
+Ruby File.fnmatch documentation
+. |
+|
+type
+ string Whether this rule targets a branch or tag Can be one of:
+branch
+,
+tag
+ |
+
+HTTP response status codes for "Create a deployment branch policy"
+
+| Status code | Description |
+| --- | --- |
+|
+200
+ | OK |
+|
+303
+ | Response if the same branch name pattern already exists |
+|
+404
+ | Not Found or
+deployment_branch_policy.custom_branch_policies
+ property for the environment is set to false |
+
+Code samples for "Create a deployment branch policy"
+
+Request examples
+
+Select the example typeExample of a wildcard name patternExample of a single branch name patternExample of a single tag name pattern
+
+post/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies
+
+cURL
+
+JavaScript
+
+GitHub CLI
+
+Copy to clipboard curl request example
+
+curl -L \ -X POST \ -H "Accept: application/vnd.github+json" \ -H "Authorization: Bearer <YOUR-TOKEN>" \ -H "X-GitHub-Api-Version: 2022-11-28" \ https://api.github.com/repos/OWNER/REPO/environments/ENVIRONMENT_NAME/deployment-branch-policies \ -d '{"name":"release/*"}'
+
+Response
+
+Example response
+
+Response schema
+
+Status: 200
+
+{ "id": 364662, "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjQ2NjI=", "name": "release/*" }
+
+Get a deployment branch policy
+
+Gets a deployment branch or tag policy for an environment.
+
+Anyone with read access to the repository can use this endpoint.
+
+OAuth app tokens and personal access tokens (classic) need the
+repo
+ scope to use this endpoint with a private repository.
+
+Fine-grained access tokens for "Get a deployment branch policy"
+
+This endpoint works with the following fine-grained token types:
+
+GitHub App user access tokens
+
+GitHub App installation access tokens
+
+Fine-grained personal access tokens
+
+The fine-grained token must have the following permission set:
+
+"Actions" repository permissions (read)
+
+This endpoint can be used without authentication or the aforementioned permissions if only public resources are requested.
+
+Parameters for "Get a deployment branch policy"
+
+Headers
+
+| Name, Type, Description |
+| --- |
+|
+accept
+ string Setting to
+application/vnd.github+json
+ is recommended. |
+
+Path parameters
+
+| Name, Type, Description |
+| --- |
+|
+owner
+ string Required The account owner of the repository. The name is not case sensitive. |
+|
+repo
+ string Required The name of the repository without the
+.git
+ extension. The name is not case sensitive. |
+|
+environment_name
+ string Required The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with
+%2F
+. |
+|
+branch_policy_id
+ integer Required The unique identifier of the branch policy. |
+
+HTTP response status codes for "Get a deployment branch policy"
+
+| Status code | Description |
+| --- | --- |
+|
+200
+ | OK |
+
+Code samples for "Get a deployment branch policy"
+
+Request example
+
+get/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}
+
+cURL
+
+JavaScript
+
+GitHub CLI
+
+Copy to clipboard curl request example
+
+curl -L \ -H "Accept: application/vnd.github+json" \ -H "Authorization: Bearer <YOUR-TOKEN>" \ -H "X-GitHub-Api-Version: 2022-11-28" \ https://api.github.com/repos/OWNER/REPO/environments/ENVIRONMENT_NAME/deployment-branch-policies/BRANCH_POLICY_ID
+
+Response
+
+Example response
+
+Response schema
+
+Status: 200
+
+{ "id": 364662, "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjQ2NjI=", "name": "release/*" }
+
+Update a deployment branch policy
+
+Updates a deployment branch or tag policy for an environment.
+
+OAuth app tokens and personal access tokens (classic) need the
+repo
+ scope to use this endpoint.
+
+Fine-grained access tokens for "Update a deployment branch policy"
+
+This endpoint works with the following fine-grained token types:
+
+GitHub App user access tokens
+
+GitHub App installation access tokens
+
+Fine-grained personal access tokens
+
+The fine-grained token must have the following permission set:
+
+"Administration" repository permissions (write)
+
+Parameters for "Update a deployment branch policy"
+
+Headers
+
+| Name, Type, Description |
+| --- |
+|
+accept
+ string Setting to
+application/vnd.github+json
+ is recommended. |
+
+Path parameters
+
+| Name, Type, Description |
+| --- |
+|
+owner
+ string Required The account owner of the repository. The name is not case sensitive. |
+|
+repo
+ string Required The name of the repository without the
+.git
+ extension. The name is not case sensitive. |
+|
+environment_name
+ string Required The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with
+%2F
+. |
+|
+branch_policy_id
+ integer Required The unique identifier of the branch policy. |
+
+Body parameters
+
+| Name, Type, Description |
+| --- |
+|
+name
+ string Required The name pattern that branches must match in order to deploy to the environment. Wildcard characters will not match
+/
+. For example, to match branches that begin with
+release/
+ and contain an additional single slash, use
+release/*/*
+. For more information about pattern matching syntax, see the
+Ruby File.fnmatch documentation
+. |
+
+HTTP response status codes for "Update a deployment branch policy"
+
+| Status code | Description |
+| --- | --- |
+|
+200
+ | OK |
+
+Code samples for "Update a deployment branch policy"
+
+Request example
+
+put/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}
+
+cURL
+
+JavaScript
+
+GitHub CLI
+
+Copy to clipboard curl request example
+
+curl -L \ -X PUT \ -H "Accept: application/vnd.github+json" \ -H "Authorization: Bearer <YOUR-TOKEN>" \ -H "X-GitHub-Api-Version: 2022-11-28" \ https://api.github.com/repos/OWNER/REPO/environments/ENVIRONMENT_NAME/deployment-branch-policies/BRANCH_POLICY_ID \ -d '{"name":"release/*"}'
+
+Response
+
+Example response
+
+Response schema
+
+Status: 200
+
+{ "id": 364662, "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3kzNjQ2NjI=", "name": "release/*" }
+
+Delete a deployment branch policy
+
+Deletes a deployment branch or tag policy for an environment.
+
+OAuth app tokens and personal access tokens (classic) need the
+repo
+ scope to use this endpoint.
+
+Fine-grained access tokens for "Delete a deployment branch policy"
+
+This endpoint works with the following fine-grained token types:
+
+GitHub App user access tokens
+
+GitHub App installation access tokens
+
+Fine-grained personal access tokens
+
+The fine-grained token must have the following permission set:
+
+"Administration" repository permissions (write)
+
+Parameters for "Delete a deployment branch policy"
+
+Headers
+
+| Name, Type, Description |
+| --- |
+|
+accept
+ string Setting to
+application/vnd.github+json
+ is recommended. |
+
+Path parameters
+
+| Name, Type, Description |
+| --- |
+|
+owner
+ string Required The account owner of the repository. The name is not case sensitive. |
+|
+repo
+ string Required The name of the repository without the
+.git
+ extension. The name is not case sensitive. |
+|
+environment_name
+ string Required The name of the environment. The name must be URL encoded. For example, any slashes in the name must be replaced with
+%2F
+. |
+|
+branch_policy_id
+ integer Required The unique identifier of the branch policy. |
+
+HTTP response status codes for "Delete a deployment branch policy"
+
+| Status code | Description |
+| --- | --- |
+|
+204
+ | No Content |
+
+Code samples for "Delete a deployment branch policy"
+
+Request example
+
+delete/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}
+
+cURL
+
+JavaScript
+
+GitHub CLI
+
+Copy to clipboard curl request example
+
+curl -L \ -X DELETE \ -H "Accept: application/vnd.github+json" \ -H "Authorization: Bearer <YOUR-TOKEN>" \ -H "X-GitHub-Api-Version: 2022-11-28" \ https://api.github.com/repos/OWNER/REPO/environments/ENVIRONMENT_NAME/deployment-branch-policies/BRANCH_POLICY_ID
+
+Response
+
+Status: 204

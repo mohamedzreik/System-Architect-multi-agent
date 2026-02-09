@@ -1,0 +1,78 @@
+Config and Storage Resources
+
+ConfigMap
+
+ConfigMap holds configuration data for pods to consume.
+
+Secret
+
+Secret holds secret data of a certain type.
+
+CSIDriver
+
+CSIDriver captures information about a Container Storage Interface (CSI) volume driver deployed on the cluster.
+
+CSINode
+
+CSINode holds information about all CSI drivers installed on a node.
+
+CSIStorageCapacity
+
+CSIStorageCapacity stores the result of one CSI GetCapacity call.
+
+PersistentVolumeClaim
+
+PersistentVolumeClaim is a user's request for and claim to a persistent volume.
+
+PersistentVolume
+
+PersistentVolume (PV) is a storage resource provisioned by an administrator.
+
+StorageClass
+
+StorageClass describes the parameters for a class of storage for which PersistentVolumes can be dynamically provisioned.
+
+StorageVersionMigration v1beta1
+
+StorageVersionMigration represents a migration of stored data to the latest storage version.
+
+Volume
+
+Volume represents a named volume in a pod that may be accessed by any container in the pod.
+
+VolumeAttachment
+
+VolumeAttachment captures the intent to attach or detach the specified volume to/from the specified node.
+
+VolumeAttributesClass
+
+VolumeAttributesClass represents a specification of mutable volume attributes defined by the CSI driver.
+
+This page is automatically generated.
+
+If you plan to report an issue with this page, mention that the page is auto-generated in your issue description. The fix may need to happen elsewhere in the Kubernetes project.
+
+Feedback
+
+Was this page helpful?
+
+Yes
+No
+
+Thanks for the feedback. If you have a specific, answerable question about how to use Kubernetes, ask it on
+
+Stack Overflow
+.
+Open an issue in the
+GitHub Repository
+ if you want to
+
+report a problem
+
+or
+
+suggest an improvement
+.
+
+Last modified April 18, 2021 at 5:30 PM PST:
+Add auto_gerated metadata (21a2715031)

@@ -1,0 +1,330 @@
+linkedin-logo-full
+
+linkedin-logo-icon
+
+logo-404-frontlogo-404-back
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+Skip to main content
+
+Close jump menu
+
+[LinkedIn Logo
+
+LinkedIn Logo
+
+LinkedIn
+Engineering](/india-engineering)
+
+Teams
+
+Blog
+
+Join us
+
+LinkedIn India Engineering is the largest R&D center outside the US for LinkedIn. We have over 700 top engineers who contribute towards the platform's growth and member engagement globally. Our team works all across the depth and breadth of the stack; envisioning, strategizing and running a number of platform-critical charters in the Consumer, Enterprise Customer, Member and Customer Trust, Data and Infra domains.
+
+We have over a decade old presence in India, and established ourselves as a thought leader. With Talent as a top priority, we are very proud of our contribution towards the growth of Technology/Engineering talent.
+
+Teams
+
+Site Engineering
+
+Data
+
+Core & Platform Engineering
+
+Productivity Engineering
+
+Consumer Engineering
+
+Trust Engineering
+
+LinkedIn Marketing Solutions Engineering
+
+LinkedIn Talent Solutions Engineering
+
+Site Reliability Engineering (SRE)
+
+Infrastructure Business Engineering (IBE)
+
+Production Infrastructure Engineering (PIE)
+
+Infrastructure Performance and Applications
+
+Artificial Intelligence (AI)
+
+Data Science
+
+Partner Engineering (PE)
+
+Machine Learning Infra
+
+Big Data
+
+Productivity Engineering (PE)
+
+The PE team has a vision to empower our global employees to be productive with world class products and services. Working towards our vision, we create innovative and frictionless solutions that enable employees to "get possibly anything done" anywhere. Our value proposition is to provide a highly productive environment to our employees, that yields greater employee and customer satisfaction.
+
+Our charters as below:
+
+Sales Systems Engineering:
+ Empower every employee of LinkedIn Sales Organization to be as productive as possible with products and services that they love to use​. Build products and tools that are critical to our customer journey and deliver value to our members, ecosystem, and employees
+
+GCO Engineering:
+ Empower global support team, to be productive by building cloud native applications and omni channel support services, make a direct impact on the agents who support our 700+ mil customers on a daily basis
+
+Software Engineering:
+ Build scalable platforms and products that power the productivity of Linkedin's Enterprise
+
+Enterprise Applications and Systems Engineering (EASE):
+
+Network:
+ We engineer the LinkedIn BIZ network. In partnership with other PE groups and NEO (Network Engineering and Operations), GNS designs, specifies, procures/provisions, deploys and operates all aspects of worldwide office and internal network connectivity including the corporate WAN, office LANs, BIZ Data Center environments, Azure regions, BIZ ISP, Network Security and Remote access VPN
+
+Unified Communications and Collaboration (UCC):
+ Responsible for engineering all voice and video services within LinkedIn along with various other technologies associated with conference rooms, company communications (digital signage), and is expanding into additional collaboration spaces like SharePoint.
+
+Infrastructure Software Solutions:
+ Engineers "Compute Infrastructure and Platforms solutions",  that enable our internal customers and partners to be more productive and successful. Our team develops, builds and supports services on Windows and Linux server platforms and the ecosystem around it. This includes the tooling to improve engineering productivity, enabling our partner teams and customers to build robust products, thereby increasing the entire organization's efficiency. We are a solid DevOps-focused Systems Engineering team with well-rounded Azure, Linux and Windows Platform skills. We manage Servers and developer workstations in our On-Premise Data Center, Remote Offices, and Azure cloud
+
+Foundation Automation, Standards, and Tooling (FAST):
+ Develop and support scalable methods to manage and deploy Azure Infra and Applications with Confidential and Highly Confidential security controls. We partner with PE-Software and Infrastructure Engineering teams to build solutions, automate, and streamline our processes, maintain tools for development and deployment. FAST team has focused CI/CD solutions that deliver custom in-house applications in Azure at scale. Our solutions also power our on-premises to cloud migrations. The team is driving next-gen compute initiatives heavily leveraging containers and Kubernetes. Our mission is empowering service and application owners to go from idea to MVP ASAP
+
+Talent Platform Engineering:
+ TPE supports processes and products that enable the employee lifecycle from hire to retire.
+
+Developer Productivity and Happiness (DPH):
+ The DevX (Developer Experience) Discoverability team builds high-quality services, infrastructure and tools to improve developer productivity by ensuring developers find the right things at the right time. We own powerful products like Sceptre, an API discovery portal, and CodeSearch, our most popular service, which crawls and indexes millions of source files and lets you execute complex searches and navigate code from the browser
+
+End User Support:
+ First point of contact support team for users within LinkedIn. This is the team which is responsible for keeping end users productive
+
+Consumer Engineering R&D
+
+Consumer Flagship's mission is to connect professionals across the world and make them productive and successful. The focus is on growing a global "community of creators" that powers all of LinkedIn's marketplaces.
+
+Create a community of creators:
+ We create opportunity (for example, meaningful relationships, getting a job) through content (for example, videos, profile updates, jobs, courses) that sparks conversation (for example, comments, messages, off-platform) so we can help everyone become a creator and ensure they are heard when they create
+
+Connect members to what they care about:
+ Stay informed, be connected, get help etc. Members must be connected to related people (for example, colleagues, creators), companies, communities (for example, groups and events) and content (for example, posts, jobs, courses, products)
+
+Grow globally:
+ Create economic opportunity for every member of the global workforce. We intend to help every professional in the world discover LinkedIn and recognize its value; an increasingly large percentage of these professionals will live outside NAMER
+
+Enable community powered marketplaces:
+ The magic of LinkedIn is truly realized when our knowledge marketplace enables our talent, product and services marketplaces in ways that no other product can achieve (and vice versa)
+
+Strengthen foundations:
+ We deliver on our mission by providing valuable, simple and trustworthy products but this is only possible when we have strong technical foundations that enable fast developer velocity, reliability, low latency, etc
+
+Drive Customer Value:
+ In partnership with BUs, we enable customers to become part of the community to hire, market and sell
+
+Our teams in Bangalore play a critical role in advancing our vision to create economic opportunity for every member of the global workforce by enabling everyone to access LinkedIn from anywhere, and engendering professional interest communities.
+
+Consumer Engineering R&D Charters - Bangalore
+
+Professional Interest Graph powered by Groups:
+ Our vision is to bring together every member of the global workforce in interest based communities where they feel a sense of belonging. Our mission is to empower professionals to build and participate in such communities through groups.
+
+Successful groups enable members of LinkedIn to engage with each other over common interests in a trusted space. Groups is visioned to be a daily use case for our members where they come to discuss topics of their interest and give/get help from other professionals to advance their professional career.
+
+Enabling access to everyone in the global workforce through LinkedIn Lite - Mobile Web -
+ LinkedIn Lite is the platform that run's LinkedIn's mobile web worldwide which is designed from the ground up with performance as one of its key tenets. Mobile Web is lightweight and accessible irrespective of network, device or technology constraints.Our vision is to make LinkedIn accessible to every member on this planet through our mWeb product.
+
+Trust Engineering R&D
+
+Trust is an operating priority for Linkedin and the Trust Engineering team's vision is to create the world's most trusted professional community so individuals and organizations can realize economic opportunity.
+
+We are entrusted with the responsibility of creating safe, authentic and transparent experiences so individuals and organizations can be productive and successful. Our members place their trust in us and expect a safe and trusted community where they can maintain their professional identity and express their views. We are constantly investing in systems which maintain the safety and security of our platforms and automatically detect and remediate behaviour that violate our ToS such as spam, harassment, scams and account takeovers.
+
+Account Access:
+ This team provides all key product features that allow a user to access their LinkedIn Account. Some of the responsibilities include managing the Member credentials, email/phone number information, securing consumer and enterprise login, preventing abusive members, creation and validation of authentication cookies, increasing macro sessions and so on
+
+Trust Tools:
+ This team leads the following areas: LinkedIn Content-moderation platform for reviewing various user-generated content like Ads, Jobs, Posts, Articles, etc. CSTool/Inspector helps our Customer Support to investigate Member complaints, issues and escalations like Account Takeover (ATO) recovery etc.
+
+Social Listening, Analytics & Moderation Platform constantly listens to public UGC on predefined criteria and auto-creates analytics and content moderation views on top of it.
+
+Public Content Abuse:
+ This team is primarily responsible for maintaining the quality of content in the linkedin domain. Its basic aim is to enhance the experience of the members by showing them quality content and stop the content which can harm them like malwares, phishing, scams, etc.
+
+LinkedIn Marketing Solutions (LMS)
+
+LinkedIn Marketing Solutions (LMS) mission to connect professionals and enable businesses to reach their potential customers.  LMS provides various Ad formats (SU, Video, Stories, Inmail and so on), targeting and controls that help reach various stages of customers journey.
+
+LMS Bangalore is responsible for keeping this marketplace trustworthy for Members and Advertisers. Charters driven out of Bangalore try to keep Members' trust by having checks to only allow Ads that adhere to LinkedIn Ads quality and policy standards. It also provides members with transparency and control over Ads, and enables Brand Safety and bot protection to advertisers on both internal and external publishers.
+
+Our vision is to become the world's most trusted and efficient ads marketplace.
+
+Our major projects are:
+
+Ads Member Trust -
+ Vision is to create a trustworthy Ads Experience for members and organizations worldwide. Team does that by improving member trust on LinkedIn Ads by providing quality, control & transparency and preventing Ads Fraud
+
+Ads Quality:
+ Moderate and filter Ads using a combination of ML/AI automation and manual review process to allow those Ads as prescribed by LinkedIn Ads Policies. Guide the Advertisers in creating quality Ads
+
+Control and Transparency:
+ Empowering members to influence their ads experience and improve the relevance by providing reasons for Ad being shown, provide mechanism to report Ads and change Ad Settings
+
+Ads Fraud:
+ Strengthen our defenses against potential abuse on our Ads platform by detecting and preventing malicious and spammy Ads
+
+Ads Advertiser Trust -
+ Build a more trusted and transparent ads ecosystem for advertisers.
+
+IVT (Invalid Traffic):
+ Identify and clean all Sophisticated IVT - SIVT and General IVT - GIVT from LinkedIn Feed
+
+BSC (Brand Safety Score):
+ Aims at measuring the current BSC and reporting it to advertisers
+
+Industry Relationship:
+ Be advocates of the above two values and represent LinkedIn in various industry forums like MRC, GARM and IAB
+
+LAN - LinkedIn Audience Network:
+ LAN is Ads created in LMS systems being shown in external publishers. As being a professional network, LMS is choosy on which mobile Apps and desktop websites we show (and bid on). This team is working on initiatives to ensure advertisers consider LAN as the most trusted and safe platform
+
+Publisher Quality:
+ Ensure the LAN supply is trusted by integrating with multiple 3rd party partners like IAS/DoubleVerify/Pixalate and leveraging signals like IVT/Fraud/BrandSafety from these partners
+
+Measurement and optimize -
+ Measure Brand Safety and IVT across LAN and minimize the risks across the LAN ecosystem
+
+Advertiser Controls -
+ Provide necessary controls like Brand Suitability, Keyword Blocking, IVT for advertisers to control their ad targeting on LAN
+
+Advertiser Transparency -
+ Being more transparent to advertisers by reporting relevant metrics like Brand Safety error rate on the Campaign Manager
+
+Ads Marketplace Health -
+ Pioneer incident response practices to enable a healthy Ads Marketplace. Monitor Business Health, Build tools & Empower best practices to achieve operational excellence in LMS
+
+Collect:
+ Collect realtime and offline tracking signals in the advertising ecosystem (performance, supply & demand) - building consolidated dashboards, real-time monitoring tools, drive data quality & availability across the LMS using tools like DHM, DSS
+
+Detect:
+ Detect anomalies in key health metrics deviating from existing trends and forecasts - anomaly detection models to improve the accuracy of alerts, improve alert coverage across various business areas
+
+Respond:
+ Respond early and mitigate fast with appropriate RCA tools and processes - building tools like Graph of graphs to help in causal analysis of variou key metrics, collaborate with others tools like meeseeks/ION to improve the RCA capabilities
+
+Other health initiatives:
+ Own the ASP oncall governance by setting up the process, monitor the effectiveness and make improvements as required
+
+LinkedIn Talent Solutions (LTS)
+
+The LinkedIn Talent Solutions (LTS) organization is aligned around Hiring, Learning and Employee marketplaces. Our team plays a key role in achieving the LTS's hiring marketplace vision. The hiring marketplace is made up of job seekers interacting with hirers. We organize ourselves as completely owned charters on three large initiatives:
+
+Job Ingestion platform
+
+TalentHub - ATS Data Migration Pipelines
+
+Hiring Platform - Integrations
+
+Job Ingestion Platform
+
+Job Ingestion is a system which was built to bring jobs from anywhere on the internet on to LinkedIn. It is also the Job Ingestion system's duty to normalize that data as much as possible. Once that data is standardized to a certain quality threshold, Job Ingestion sends the job out to the rest of LinkedIn to get published.
+
+Our vision is to connect the global workforce to opportunity by becoming the world leader in quality jobs. Our strategy has three pillars:
+
+Reduce low quality jobs
+
+Grow quality jobs
+
+Build efficient support tools
+
+TalentHub Team - ATS Data Migration Pipeline
+
+TalentHub:
+ LinkedIn is building an Applicant Tracking System (ATS), which is a product that helps companies to manage candidates and move them through the hiring process. This first version of a LinkedIn ATS is aimed at mid-market (companies in the 200-1000 employee range).
+
+Our team focuses on the buildout of ATS Migration pipelines from most important ATS's in the market.
+
+ATS  data migration is a one time activity per customer, where we lift and shift their data from their previous ATS provider to LinkedIn TalentHub. It's a standard Extract-Transform-Load (ETS) process that involves movement of metadata and attachments from 3rd party ATS to TalentHub datastore.
+
+As we accelerate TalentHub sales, we anticipate a huge inflow of customer signups. To achieve this we are planning to build the next version of ATS Data Migration system. This new system will be highly secure, scales well and provides self service capabilities to Implementation Consultants (ICs).
+
+Hiring Platform - Integrations Team
+
+The Hiring Platform Integrations team builds connectors to 3rd party systems to enhance LinkedIn's Enterprise product capabilities to collaborate and extend the functionality. Our key charters as follows:
+
+Build an end to end hiring platform to support all Linkedin talent solution products
+
+Enable Customers to manage hiring lifecycle and candidates in a single application
+
+Use Linkedin unique data and technologies to simplify the hiring process, and help customers make smarter decisions
+
+Learn More about LinkedIn India
+
+Learn more
+
+About
+
+Cookie Policy
+
+Privacy Policy
+
+Your California Privacy Choices
+
+User Agreement
+
+Accessibility
+
+LinkedIn logo
+
+© LinkedIn Corporation 2026
+
+dismiss
+
+Cancel

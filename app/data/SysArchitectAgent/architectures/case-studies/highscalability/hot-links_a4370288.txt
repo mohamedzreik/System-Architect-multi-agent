@@ -1,0 +1,149 @@
+hot links
+
+[hot links
+
+Stuff The Internet Says On Scalability For December 2nd, 2022
+
+Never fear, HighScalability is here!
+1958: An engineer wiring an early IBM computer 2021: An engineer wiring an early IBM quantum computer. @enclanglement
+My Stuff:
+* I'm proud to announce a completely updated and expanded version of Explain the Cloud Like I'm 10! This version adds 2x
+
+By High Scalability
+02 Dec 2022](/stuff-the-internet-says-on-scalability-for-december-2nd-2022/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For July 11th, 2022
+
+Never fear, HighScalability is here!
+Every cell a universe. Most detailed image of a human cell to date. @microscopicture
+Other images considered: one byte of RAM in 1946; visual guide on troubleshooting Kubernetes; Cloudflare using lava lamps to generate cryptographic keys; 5MB of data looked like in 1966
+My Stuff:
+
+By High Scalability
+11 Jul 2022](/stuff-the-internet-says-on-scalability-for-july-11th-2022/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For January 28th, 2022
+
+Never fear, HighScalability is here!
+Think your software diagram is complex? This is a single cell modeled using X-ray, nuclear magnetic resonance (NMR), and cryo-electron microscopy datasets. Gael McGill
+My Stuff:
+* Love this Stuff? I need your support on Patreon to keep this stuff going.
+* Know anyone who needs to
+
+By High Scalability
+28 Jan 2022](/stuff-the-internet-says-on-scalability-for-january-28th-2022/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For October 4th, 2021
+
+Hey, HighScalability is here again!
+The circulatory system of the internet. @tylermorganwall
+Love this Stuff? I need your support on Patreon to keep this stuff going.
+Sorry for the long gap in posting, but I've been building a new app. I'm looking for testers for my new iOS
+
+By High Scalability
+04 Oct 2021](/stuff-the-internet-says-on-scalability-for-october-4th-2021/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For June 25th, 2021
+
+Hey, it's HighScalability time!
+Only listen if you want a quantum earworm for the rest of the day.
+Not your style? This is completely different. No, it's even more different than that.
+Today in things that nobody stopped me from doing:
+The AWS Elastic Load Balancer Yodel
+
+By High Scalability
+25 Jun 2021](/stuff-the-internet-says-on-scalability-for-june-25th-2021/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For April 30th, 2021
+
+Hey, HighScalability is back!
+This channel is the perfect blend of programming, hardware, engineering, and crazy. After watching you'll feel inadequate, but in an entertained sort of way.
+
+Love this Stuff? I need your support on Patreon to keep this stuff going.
+
+Do employees at your company need to
+
+By High Scalability
+30 Apr 2021](/stuff-the-internet-says-on-scalability-for-april-30th-2021/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For March 17th, 2021
+
+Hey, HighScalability is here again!
+Reverse engineering an ancient analog computer is a detective story worth reading. A Model of the Cosmos in the ancient Greek Antikythera Mechanism.
+Do you love this Stuff? Without your encouragement on Patreon this Stuff won't stuffin' stuff.
+Know someone who needs to
+
+By High Scalability
+17 Mar 2021](/stuff-the-internet-says-on-scalability-for-march-17th-2021/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For February 1st, 2021
+
+Hey, it's HighScalability time once again!
+Amazon converts expenses into revenue by transforming needs into products. Take a look at a fulfillment center and you can see the need for Outpost, machine learning, IoT, etc, all dogfooded. Willy Wonka would be proud.
+Do you like this sort of
+
+By High Scalability
+01 Feb 2021](/stuff-the-internet-says-on-scalability-for-february-1st-2021/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For December 19th, 2020
+
+Hey, it's HighScalability time once again!
+NASA
+Do you like this sort of Stuff? Without your support on Patreon this Stuff won't happen.
+Know someone who could benefit from becoming one with the cloud? I wrote Explain the Cloud Like I'm 10 just for
+
+By High Scalability
+19 Dec 2020](/stuff-the-internet-says-on-scalability-for-december-19th-202/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For November 6th, 2020
+
+Hey, no power outages this week, so it's finally HighScalability time!
+Stunning: Tycho Crater Region with Colours by Alain Paillou
+Do you like this sort of Stuff? Without your support on Patreon this Stuff won't happen.
+Know someone who could benefit from becoming one with the
+
+By High Scalability
+06 Nov 2020](/stuff-the-internet-says-on-scalability-for-november-6th-2020/)
+
+[hot links
+
+Stuff The Internet Says On Scalability For Sep 18th, 2020
+
+Hey, it's HighScalability time!
+I can't wait for the duel. Just don't shoot into the air.
+Do you like this sort of Stuff? Without your support on Patreon this kind of Stuff won't happen.
+Know someone who could benefit from becoming one
+
+By High Scalability
+18 Sep 2020](/stuff-the-internet-says-on-scalability-for-sep-18th-2020/)
+
+[hot links
+
+Sponsored Post: Ipdata, StackHawk, InterviewCamp.io, Educative, Triplebyte, Stream, Fauna
+
+Who's Hiring?
+* InterviewCamp.io has hours of system design content. They also do live system design discussions every week. They break down interview prep into fundamental building blocks. Try out their platform.
+* Triplebyte lets exceptional software engineers skip screening steps at hundreds of top tech companies like Apple,
+
+By High Scalability
+03 Sep 2020](/sponsored-post-ipdata-stackhawk-interviewcampio-educative-tr-65bcda83ffae163275932632/)
+
+See all

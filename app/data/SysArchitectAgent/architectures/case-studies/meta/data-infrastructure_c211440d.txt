@@ -1,0 +1,77 @@
+Data Infrastructure
+
+DrP: Meta's Root Cause Analysis Platform at Scale
+
+Data Center Engineering
+
+NOV 21, 2025
+
+Zoomer: Powering AI Performance at Meta's Scale Through Intelligent Debugging and Optimization
+
+Data Center Engineering
+
+OCT 13, 2025
+
+OCP Summit 2025: The Open Future of Networking Hardware for AI
+
+Articles
+
+Videos
+
+Publications
+
+The Latest
+
+AI Research
+
+SEP 29, 2025
+
+Meta's Infrastructure Evolution and the Advent of AI
+
+Data Infrastructure
+
+AUG 13, 2025
+
+Creating AI agent solutions for warehouse data access and security
+
+Data Infrastructure
+
+JUL 22, 2025
+
+How Meta keeps its AI hardware reliable
+
+Data Infrastructure
+
+MAY 20, 2025
+
+Meta's Full-stack HHVM optimizations for GenAI
+
+AI Research
+
+MAY 8, 2025
+
+Accelerating GPU indexes in Faiss with NVIDIA cuVS
+
+Data Infrastructure
+
+MAR 31, 2025
+
+Mobile GraphQL at Meta in 2025
+
+Data Infrastructure
+
+NOV 19, 2024
+
+Sequence learning: A paradigm shift for personalized ads recommendations
+
+Data Center Engineering
+
+OCT 15, 2024
+
+OCP Summit 2024: The open future of networking hardware for AI
+
+Data Center Engineering
+
+OCT 15, 2024
+
+Meta's open AI hardware vision

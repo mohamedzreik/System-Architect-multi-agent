@@ -1,0 +1,449 @@
+In today's interconnected software ecosystem, REST APIs enable communication between different systems and applications by offering modular, scalable, and maintainable interfaces. However, poorly designed APIs can cause inefficient communication, inconsistent behavior, and frustration to the API users. This article discusses key best practices for designing timeless and robust REST APIs.
+
+The some of best practices discussed in this article are not direct recommendations from Roy Fielding (or his dissertation). Instead, they represent a collection of practical strategies learned through personal experience and validated by authoritative sources.
+
+Use Consistent Naming Conventions and URL Structure
+
+RFC 3986
+ outlines the syntax and semantics for uniform resource identifiers (URIs) to maximize consistency, clarity, and interoperability across the web. From the RFC, we can extract the following best practices:
+
+The structure of a URI should reflect the logical relationships among the resources it represents. Hierarchically arranged paths (e.g.,
+/users/{userId}/orders
+) help convey meaningful context about the resource and its dependencies. Avoid arbitrary or flat structures, which dilute semantic clarity.
+
+For example, the following URI expresses a hierarchy and implies that
+orderId
+ belongs to a specific user.
+
+GET /users/{userId}/orders/{orderId} // Recommended
+
+GET /orders/{orderId}?userId=123 // Do not use this
+
+The reserved characters such as
+/
+,
+?
+, and
+#
+ must be used only in accordance with their defined roles. For example, the (
+/
+) character should separate hierarchical components, while query parameters (
+?
+) are intended for non-hierarchical data filtering and sorting purposes.
+
+// Correct use of '/' to denote hierarchical relationships:
+GET /users/123/orders/456
+POST /books/789/reviews
+
+// Correct use of '?' to specify query parameters:
+GET /products?category=electronics&sort=price_desc
+
+// Correct use of '#' for fragment identifiers:
+GET /documentation#section2
+
+Consistent lowercase URIs are preferred to ensure compatibility across systems as some environments treat URIs as case-sensitive. Mixing uppercase and lowercase characters introduces the possibility of errors.
+
+GET /categories/technology // Use this
+
+GET /Categories/Technology // DO NOT use this
+
+URIs should represent resources, not actions. Use nouns for endpoints and avoid verbs. This structure aligns with the HTTP specification, which emphasizes resource-oriented design.
+
+GET /books // Use this
+
+GET /getBooks // DO NOT use this
+
+Use HTTP Methods Correctly
+
+RFC 7231
+ and
+RFC 9110
+ define and discuss the use of HTTP methods to represent different types of actions that can be requested over HTTP. These RFCs also discuss their intended purposes and properties like safety, idempotency, and cacheability.
+
+A method is
+idempotent
+ if multiple identical requests yield the same effect as a single request (e.g.,
+PUT
+,
+DELETE
+).
+
+A method is
+safe
+ if it does not modify resources on the server (e.g.,
+GET
+,
+HEAD
+).
+
+A method is
+cacheable
+ if its responses can be stored for reuse in future requests (e.g.,
+GET
+,
+HEAD
+).
+
+| HTTP Method | Behavior | Idempotent | Safe | Cacheable |
+| --- | --- | --- | --- | --- |
+|
+GET
+ | Retrieves a resource. | Yes | Yes | Yes |
+|
+POST
+ | Sends data to create/update a resource. | No | No | No |
+|
+PUT
+ | Replaces or updates a resource. | Yes | No | No |
+|
+DELETE
+ | Deletes a resource. | Yes | No | No |
+|
+HEAD
+ | Retrieves headers only, without body. | Yes | Yes | Yes |
+|
+OPTIONS
+ | Describes communication options for a resource. | Yes | Yes | No |
+|
+TRACE
+ | Echoes received request for diagnostic purposes. | Yes | Yes | No |
+|
+CONNECT
+ | Establishes a tunnel, often used for HTTPS. | Yes | No | No |
+
+Statelessness is the Key
+
+Statelessness fundamentally originates from the REST architectural principles outlined by
+Roy Fielding in his doctoral dissertation
+ and is one of the
+guiding principles of REST
+. A stateless API means that each request from a client to a server must contain all the necessary information for the server to understand and process the request. The server does not store client context between requests, enhancing scalability and reliability. The client is responsible for managing its state.
+
+For example, suppose a client wants to perform an operation that requires multiple requests. In that case, it must include all necessary information in each request, such as authentication credentials and other relevant data.
+
+The statelessness greatly simplifies server design and allows for infinite scalability and enhanced security. In contrast, a stateful design might require the server to remember the client's session, possibly using cookies to track user interactions, potentially leading to scalability issues.
+
+Use Standard HTTP Response Codes Consistently
+
+HTTP status codes indicate whether a request was successful, failed, or resulted in some other condition that requires the client's attention. The use of standard HTTP status codes suggests that clients handle responses appropriately based on their meaning. For example, a successful operation should always return a
+200 OK
+, while a request for a non-existent resource should return a
+404 Not Found
+.
+
+The following table summarizes the categories of HTTP status codes based on
+RFC 7231
+ and other
+authoritative sources
+:
+
+| Category | Range | Description | Examples |
+| --- | --- | --- | --- |
+|
+Informational
+ | 1xx | Indicates that the request has been received and is being processed. |
+100 Continue
+
+101 Switching Protocols
+ |
+|
+Successful
+ | 2xx | Indicates that the request was successfully received, understood, and accepted. |
+200 OK
+
+201 Created
+
+204 No Content
+ |
+|
+Redirection
+ | 3xx | Indicates that further action is needed to fulfill the request. |
+301 Moved Permanently
+
+302 Found
+
+304 Not Modified
+ |
+|
+Client Error
+ | 4xx | Indicates that there was an error with the request. |
+400 Bad Request
+
+401 Unauthorized
+
+404 Not Found
+ |
+|
+Server Error
+ | 5xx | Indicates that the server failed to fulfill a valid request. |
+500 Internal Server Error
+
+502 Bad Gateway
+
+503 Service Unavailable
+ |
+
+Handle API Versioning Gracefully
+
+When a REST API evolves over time, it is crucial to maintain backward compatibility to avoid breaking existing client applications. APIs should be designed to allow clients to continue functioning without modification, even when new features or changes are introduced.
+
+There are several ways to version a REST API. Each versioning approach has its strengths and challenges that affect how clients interact with the API. The most common versioning approaches are:
+
+| Versioning Approach | Description | Example |
+| --- | --- | --- |
+|
+URI Versioning
+ | Include the version number in the URI. This approach provides clear and explicit versioning and simplifies client requests. However, it can lead to URI bloat and may require changes to existing URIs for new versions. |
+/api/v1/resources
+ |
+|
+Header Versioning
+ | Utilizing a custom header to indicate the desired version. This approach requires clients to manage headers and can be less intuitive for those unfamiliar with header manipulation. |
+X-API-Version: v1
+ |
+|
+Content Negotiation
+ | Allowing clients to specify the version in the
+Accept
+ header. In this approach, clients must understand how to use content negotiation effectively. |
+Accept: application/vnd.example.v1+json
+ |
+
+Ensure Backward Compatability
+
+Backward compatibility is a related concept to API versioning. We version an API when we need to change it, which is when the API can break the client integrations. Backward compatibility ensures that existing client integrations will keep working while new changes are deployed to the server.
+
+According to [Semantic Versioning 2.0.0](http://Semantic Versioning 2.0.0),
+a poorly designed versioning strategy can cause either version lock and/or version promiscuity
+.
+
+Version Lock
+ occurs when an API's versioning is too strict such that the clients must use a specific version of the API without the flexibility to upgrade to newer versions easily.
+
+Version Promiscuity
+, in contrast, refers to a situation where the API allows too much flexibility in terms of versioning, often by not clearly specifying which versions are compatible with one another.
+
+To avoid such issues, we must follow these guidelines:
+
+When introducing new versions, provide a clear deprecation timeline for older versions. Communicate these changes through proper documentation and responses to API calls.
+
+Maintain backward compatibility such that old endpoints remain functional alongside the new versions.
+
+Maintain comprehensive API documentation that outlines changes between versions, including deprecated features and migration paths. Resources like the
+Microsoft REST API Guidelines
+ emphasize the importance of clear communication.
+
+Implement Rate Limiting to Prevent Abuse
+
+The rate limiting ensures fair usage of API by managing how often a client can make requests within a specified time frame. Rate Limiting protects APIs from various forms of abuse, including:
+
+Denial of Service (DoS) Attacks
+: By limiting the number of requests a client can make.
+
+Resource Exhaustion
+: Rate limiting helps ensure that all clients have equitable access to the server's limited resources. This prevents any single client from monopolizing them.
+
+Rate limiting can be done using various strategies such as:
+
+| Rate Limiting Strategy | Description | Example |
+| --- | --- | --- |
+|
+Fixed Window
+ | Only a fixed number of requests are allowed within a given timeframe. After that period, the count resets. | Allowing 100 requests per minute. If a client exceeds this limit, further requests are rejected until the next minute begins. |
+|
+Sliding Window
+ | Managing API requests by continuously monitoring the last N seconds/minutes of requests, rather than resetting at fixed intervals. | Allowing users to make 15 requests every 10 minutes. Instead of a hard reset at the 10-minute mark, the API tracks requests in the last 10-minute window. |
+|
+Token Bucket
+ | Clients are given tokens that represent the number of allowed requests. Each request consumes a token, and tokens are replenished at a set rate. | A client starts with 10 tokens and can request additional tokens at a rate of 1 token every second. |
+|
+Limit Concurrency
+ | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Allowing a client to execute only 2 requests at any time. The additional requests may be queued or denied as per the usage agreement. |
+
+Monitor and Log API Usage for Observability and Troubleshooting
+
+Monitoring and tracking API requests and responses is crucial for gaining valuable insights into API performance, usage patterns, and potential issues. Several tools are available in the market for this purpose, and it is highly advisable to use a solution built for this particular purpose. Some of the API monitoring tools are:
+
+New Relic
+
+Datadog
+
+Prometheus and Grafana (
+open-source
+)
+
+AWS CloudWatch
+
+Elastic APM
+
+Apigee
+
+While these tools help in monitoring and visualizing the information, it is essential to feed the correct information into these systems. Follow these best practices for generating logs/events that these systems can use for better monitoring:
+
+Use structured logging formats
+ (e.g., JSON) to ensure logs are easily searchable and can be parsed by monitoring tools.
+
+Implement different log levels
+ (e.g., INFO, WARN, ERROR) to categorize log entries by severity.
+
+Use centralized logging solutions
+ (e.g., ELK Stack, Splunk) to aggregate logs from multiple sources.
+
+Employ real-time monitoring solutions
+ to track API health and metrics and alert teams of potential issues as they occur.
+
+Establish clear log retention policies
+ to manage storage costs while ensuring that logs are available for sufficient time to analyze trends and diagnose issues.
+
+Cache Responses to Optimize Performance
+
+Caching in APIs helps reduce latency, decrease server load, and improve response times by storing a copy of frequently requested data. Caching makes sense in APIs serving rarely updated data, such as user profile information, the list of countries, the list of states in a country, supported locales, etc.
+
+Caching can occur at different levels, including client-side, server-side, and intermediary caches (e.g., CDN). In the context of a REST API, generally, caching refers to server-side caching with a dynamic mechanism to invalidate the stale caches. Managing server-side cache becomes more complex when we plan to deploy the applications in multiple nodes.
+
+As specified in
+RFC-9111
+, caching in REST APIs relies on HTTP headers like
+Cache-Control
+,
+ETag
+, and
+Last-Modified
+. These headers provide instructions on how and when to store a response in the client or intermediary caches. Let's discuss some of these headers and how they affect the caching behavior:
+
+| Header | Description | Example | Usage in REST APIs |
+| --- | --- | --- | --- |
+|
+Cache-Control
+ | Specifies caching policies such as how long resources can be cached or if caching is allowed. |
+Cache-Control: max-age=3600, must-revalidate
+ | Instructs clients and intermediaries to cache the resource for 3600 seconds. The
+must-revalidate
+ ensures freshness. |
+|
+ETag
+ | Provides a unique identifier (hash) for a specific version of the resource. |
+ETag: "34e2-49a7-abc123"
+ | Clients use it to check if the resource has changed before making a new request. |
+|
+Last-Modified
+ | Indicates the last time the resource was modified. |
+Last-Modified: Tue, 20 Oct 2023 15:00:00 GMT
+ | Helps clients send conditional requests using
+If-Modified-Since
+. Saves bandwidth by returning 304 if unchanged. |
+|
+Expires
+ | Sets an expiration date and time for the cached resource. |
+Expires: Fri, 22 Oct 2024 20:00:00 GMT
+ | Specifies the date when the cached resource becomes stale. Often replaced with
+Cache-Control
+. |
+|
+Vary
+ | Informs caches about which headers influence the response content. |
+Vary: Accept-Encoding, User-Agent
+ | Ensures different cached versions based on specific request headers like
+Accept-Encoding
+. |
+|
+If-None-Match
+ | A conditional request header sent with an
+ETag
+ to check if the resource has changed. |
+If-None-Match: "34e2-49a7-abc123"
+ | If the
+ETag
+ matches, the server returns 304 (Not Modified). Reduces unnecessary data transfer. |
+|
+If-Modified-Since
+ | A conditional request header to check if the resource has been modified since a specific date. |
+If-Modified-Since: Tue, 20 Oct 2023 15:00:00 GMT
+ | If the resource is unchanged, the server responds with 304, preventing the full response. |
+
+Implement Filtering, Sorting, and Pagination
+
+Some APIs can return very large data, specially GET APIs. Implementing filtering, sorting, and pagination becomes essential to enhance performance and improve user experience.
+
+Filtering allows clients to narrow down results by specifying query parameters, such as
+?status=active
+ or
+?category=electronics
+ etc.
+
+// fetches only Apple products from the electronics category
+GET /products?category=electronics&brand=apple
+
+Sorting enables users to retrieve ordered results by fields, like
+name
+ or
+created_at
+. We can implement the ascending and descending sorting with parameters like
+?sort=name
+ or
+?sort=-name
+ (where the
+-
+ indicates descending order).
+
+// sorts products by their price in ascending order
+GET /products?sort=price
+
+Pagination controls how much data is returned at once, often by specifying
+limit
+ and
+offset
+ (or
+page
+ and
+size
+). This breaks a large dataset into smaller, manageable chunks and thus prevents overwhelming the client or the server.
+
+// fetches the third page of results, assuming each page contains 10 items.
+GET /products?page=3&size=10
+
+We get the best results when we combine these practices to serve a large dataset and enhance the user experience. Nordic's
+article
+ on RESTful API pagination is a good resource for exploring the topic further.
+
+API Security is Not an Afterthought
+
+The security of an API is a non-negotiable aspect. We must use the latest security practices with proper authentication mechanisms like OAuth2, API keys, or JWT (JSON Web Tokens). Based on the requirements, we may implement role-based access control (RBAC) to restrict access to specific resources based on the user's role.
+
+Limit access and permissions granted to users or applications to only what is strictly necessary. Avoid providing excessive permissions to API clients.
+
+Use HTTPS to encrypt data in transit and avoid exposure to man-in-the-middle attacks. To reduce exposure risks, consider encrypting sensitive data and masking personal data.
+
+Validate and sanitize user inputs to protect against SQL injection and other attacks. Define clear data types and limits for every query parameter.
+
+Apart from the above checklist, follow these practices as well:
+
+Always use SSL. No exceptions.
+
+Set up alerts to respond quickly to unusual patterns.
+
+Include security headers like
+Content-Security-Policy
+,
+Strict-Transport-Security
+, and
+X-Content-Type-Options
+ to prevent certain types of attacks.
+
+Monitor old versions of APIs closely for vulnerabilities. Ensure all active versions receive regular updates and security patches.
+
+Complement the API with Great Documentation
+
+In simple words, an API is only as good as its documentation.
+As a rule, if you do not find enough internal documentation about how to use an API, it is a good enough reason for not using that API
+.
+
+API documentation should be well formatted, and it is easier to locate the necessary information. This is a good suggestion to follow a well-known documentation plugin or tool that most developers are already aware of. This will reduce or eliminate the learning curve when navigating the information in the documentation.
+
+Good documentation is always full of examples for requests and responses. Always use request samples that a user can directly post to the API, and it will work as expected, except failing for authentication/authorization reasons.
+
+Conclusion
+
+REST API design best practices guide us in building APIs that are scalable, efficient, secure, and easy to use. Following these practices will ensure that your API can meet consumers' evolving demands and integrate seamlessly with other systems.
+
+Happy Learning !!

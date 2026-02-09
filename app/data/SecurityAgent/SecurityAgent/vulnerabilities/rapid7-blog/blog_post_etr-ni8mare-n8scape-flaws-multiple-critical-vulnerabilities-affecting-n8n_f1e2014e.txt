@@ -1,0 +1,135 @@
+Overview
+
+On November 18, 2025, a patched release was
+published
+ for a critical unauthenticated file read vulnerability in
+n8n
+, a popular piece of automation software. The advisory for this vulnerability, CVE-2026-21858, was subsequently
+published
+ on January 7, 2026; the vulnerability holds a CVSS score of 10.0. If a server has a custom configured web form that implements file uploads with no validation of content type, an attacker can overwrite an internal JSON object to read arbitrary files and, in some cases, establish remote code execution. This vulnerability has been dubbed "Ni8mare" by the finders.
+
+The finders, Cyera, published a
+technical blog post
+ about the vulnerability on January 7, 2026, and a separate technical analysis and proof-of-concept (PoC) exploit were
+published
+ by third-party security researcher Valentin Lobstein the same day. The Cyera writeup demonstrates
+CVE-2026-21858
+, while the third-party exploit also leverages
+CVE-2025-68613
+, an authenticated expression language injection vulnerability in n8n, for remote code execution. Additional authenticated vulnerabilities, tracked as
+CVE-2025-68613
+,
+CVE-2025-68668
+,
+CVE-2025-68697
+, and
+CVE-2026-21877
+ can be chained with the unauthenticated vulnerability CVE-2026-21858 for code execution or arbitrary file write on specific affected versions of n8n.
+
+In total there are five CVEs that n8n users should be aware of:
+
+| | | | | |
+| --- | --- | --- | --- | --- |
+|
+CVE Number
+ |
+Published Date
+ |
+CVSS
+ |
+Description
+ |
+Leveraged in PoC?
+ |
+| CVE-2026-21858 (Ni8mare) | 01/07/2026 |
+10.0
+ (NVD score) | Certain form-based workflows are vulnerable to improper file handling that can result in arbitrary file read. When exploited, attackers can establish administrator-level access to n8n. | Yes |
+| CVE-2026-21877 | 01/07/2026 |
+9.9
+ (NVD score) | Under certain conditions, authenticated n8n users may be able to cause untrusted code to be executed by the n8n service. | No |
+| CVE-2025-68613 | 12/19/2025 |
+8.8
+ (NVD score) | A vulnerability in n8n's expression evaluation system allows authenticated users to execute arbitrary system commands through crafted expressions in workflow parameters. | Yes |
+| CVE-2025-68668 (N8scape) | 12/26/2025 |
+9.9
+ (NVD score) | A sandbox bypass vulnerability exists in the n8n Python Code node that uses Pyodide. An authenticated user with permission to create or modify workflows can exploit this vulnerability to execute arbitrary commands on the host system running n8n in the context of the service user. | No |
+| CVE-2025-68697 | 12/26/2025 |
+5.4
+ (NVD score) | In self-hosted n8n instances where the Code node runs in legacy (non-task-runner) JavaScript execution mode, authenticated users with workflow editing access can invoke internal helper functions from within the Code node. This permits reading and writing files on the host. | No |
+
+Technical overview
+
+CVE-2026-21858: "Unauthenticated File Access via Improper Webhook Request Handling"
+
+This is the primary access vector for the n8n exploit chain and holds a maximum CVSS score of 10.0. It is a critical unauthenticated file read vulnerability that occurs when custom web forms implement file uploads without validating the content type. By exploiting this flaw, an attacker can overwrite an internal JSON object to read arbitrary files from the server. This capability may be leveraged to forge an administrator session token and exploit subsequent authenticated vulnerabilities for code execution.
+
+CVE-2025-68613: "Remote Code Execution via Expression Injection"
+
+This vulnerability is characterized as an authenticated expression language injection flaw. While it requires an established session to exploit, it can be chained with CVE-2026-21858 to achieve remote code execution. It affects n8n versions starting at 0.211.0 and below 1.20.4. Attackers can leverage this flaw by injecting malicious expression language commands once they have gained a foothold as an administrator.
+
+CVE-2025-68668: "Arbitrary Command Execution in Pyodide based Python Code node"
+
+Affecting n8n versions between 1.0.0 and 2.0.0, this is an authenticated vulnerability used for secondary exploitation. Depending on the specific configuration of the affected version, it allows an attacker to execute arbitrary OS commands. Because it requires authentication, it is used on a case-by-case basis after an initial breach has compromised the management interface.
+
+CVE-2025-68697: "Legacy Code node enables file read/write in self-hosted n8n"
+
+CVE-2025-68697 is an authenticated vulnerability that facilitates arbitrary file read/write in the context of the n8n process when exploited. Per the advisory, systems are vulnerable when the Code node runs in legacy (non-task-runner) JavaScript execution mode. CVE-2025-68697 specifically impacts n8n versions ranging from 1.2.1 up to 2.0.0, though n8n version 1.2.1 and higher automatically prevents read/write access to the
+.n8n
+ directory by default. As a result, exploitation of CVE-2025-68697 is likely to require a more bespoke strategy for each specific target, making it a less likely vulnerability to be exploited as a secondary chained bug with CVE-2026-21858.
+
+CVE-2026-21877: "RCE via Arbitrary File Write"
+
+This vulnerability has a CVSS score of 9.9 and affects both self-hosted and cloud versions of n8n. It allows for remote code execution within n8n versions 0.123.0 through 1.121.3. Although it is an authenticated vulnerability, its high severity stems from its ability to grant an attacker full system control once they have bypassed initial authentication using the CVE-2026-21858 file read flaw.
+
+Mitigation guidance
+
+Organizations running self-hosted instances of n8n should prioritize upgrading to a version at or above 1.121.0 immediately to remediate the unauthenticated initial access vulnerability CVE-2026-21858.
+
+According to the
+vendor
+, the following versions are affected:
+
+CVE-2026-21858:
+ Versions at or above 1.65.0 and below 1.121.0.
+
+CVE-2025-68613:
+ Versions at or above 0.211.0 and below 1.20.4.
+
+CVE-2025-68668:
+ Versions at or above 1.0.0 and below 2.0.0.
+
+CVE-2025-68697:
+ Versions at or above 1.2.1 and below 2.0.0.
+
+CVE-2026-21877:
+ Versions at or above 0.123.0 and below 1.121.3.
+
+For the latest mitigation guidance, please refer to the vendor's security advisories.
+
+Rapid7 customers
+
+Exposure Command, InsightVM, and Nexpose
+
+Exposure Command, InsightVM and Nexpose customers can assess exposure to CVE-2026-21858, CVE-2025-68613, CVE-2025-68668, CVE-2025-68697, CVE-2026-21877 with vulnerability checks available in the January 9th content release.
+
+Updates
+
+January 8, 2026:
+ Initial publication.
+
+January 12, 2026:
+ Updated Rapid7 customers section to confirm checks shipped on January 9, 2026.
+
+Article Tags
+
+Emerging Threats
+
+Emergent Threat Response
+
+[
+
+Rapid7
+
+Author Posts](/blog/author/rapid7/)
+
+Related blog posts

@@ -1,0 +1,480 @@
+[
+
+](/)
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+App Store
+
+discord social sdk
+
+Give players a great experience both in and out of your game to keep them playing longer.
+
+READY TO BOOST YOUR GAME'S ENGAGEMENT?
+
+Start your integration with our "getting started" guides, design guidelines, and code samples, or reach out to our Biz Dev team to work directly with Discord on your next project.
+
+Get Started
+Contact Biz Dev
+
+THE POWER OF DISCORD
+
+48%
+
+Longer Playtimes For Linked Players
+
+Source: ⓘ
+
+Discord Internal Data as of August 2025
+
+100%
+
+of Games with Social SDK Integration Saw a DAU Increase
+
+Source: ⓘ
+
+Discord Internal Data as of August 2025
+
+8.5%
+
+Estimated Average DAU Driven by SDK with 24% Account Link Rate
+
+Source: ⓘ
+
+Discord Internal Data as of August 2025
+
+YOUR GAME'S SOCIAL, SUPERCHARGED
+
+The Discord Social SDK streamlines the way players connect so they can sign in, share, and play your game with friends – even without a Discord account.
+
+unleash discord in your game
+
+Seamlessly integrate Discord-powered social features directly in your game, giving players easy access to the people they play with most.
+
+SPREAD THE WORD ON DISCORD
+
+Boost your game's visibility within massive gaming communities already on Discord, and bring players back for more with one-click game invites between friends.
+
+No Discord account? No problem.
+
+Take advantage of flexible account requirements, keeping players connected inside and out of Discord.
+
+GIVE PLAYERS POWERFUL COMMS
+
+Already have the SDK implemented? Keep players connected across desktop, mobile, and console with Discord's voice and text chat at no cost. Submit your game to fully unlock these powerful communication features after confirming access criteria.
+
+Read More
+
+Devs on Discord
+
+Developers share a deep dive on their Discord Social SDK integrations, key learnings, and advice for game developers of the future.
+
+Devs on Discord with Theorycraft Games | SUPERVIVE
+
+Devs on Discord with Mainframe Industries | Pax Dei
+
+Devs on Discord with Facepunch Studios | Rust
+
+"
+
+Adding the Discord Social SDK to Predecessor has been a huge win for both our players and the business. When Discord first walked us through what the SDK could do, it was an easy yes. It solved a bunch of things we were missing like built-in voice and text chat and gave us a chance to offer something our players already love and use daily, right inside our game
+
+Robbie Singh
+
+CEO, Omeda Studios
+
+"
+
+Pax Dei is at heart a social sandbox. Our collaboration to put Discord at the heart of our MMO makes that deep social vision a reality, offering a world where you can find your friends and deepen those connections both in and outside our game.
+
+Thor Gunnarsson
+
+Co-founder & CEO, Mainframe Industries
+
+"
+
+The Discord Social SDK has added a dimension to communication in Rust. Players often rely on communication and we're seeing a growing number of friends teaming up and getting together to play as squads.
+
+Ashley Cook
+
+Marketing Manager, Facepunch Studios
+
+"
+
+The Discord SDK makes social features like direct messaging, lobbies, and session invites easy. Provisional accounts help us deliver this value to all of our players.
+
+Andrew Johnston
+
+Staff Software Engineer, Theorycraft Games
+
+see it in action
+
+PredecessorRustPax DeiTencent Delta Force
+
+Omeda Studios Drives Immersion and Growth by Integrating Discord as its Social Layer
+
+To enhance Predecessor's social mechanics, Omeda integrated the Discord Social SDK, freeing engineers for core gameplay. The resulting in-game text chat, voice chat, and account linking provided players with robust social features, driving organic referrals, boosting retention, and creating lasting community bonds.
+
+Read the Case Study
+
+Facepunch Leverages Discord Social SDK to Supercharge In-Game Communication in Rust
+
+Facepunch enhanced the core survival loop of Rust by enabling direct in-game Discord communications. Discover how they used the Unity build of the Discord Social SDK for a seamless integration, providing players with low-friction voice chat that boosted player focus, and rich presence that helps players within their massive community find more ways to play together.
+
+Read the Case Study
+
+Pax Dei x Discord: Integrating Voice and Community
+
+Mainframe Industries integrated the Discord Social SDK to bring high-quality in-game voice and social functionality into their ambitious MMO, Pax Dei. This strategic move successfully cultivated a highly engaged player segment: users who linked their accounts logged 39% more gameplay days than non-linked players, and the integration drove an estimated 19% overall increase in gameplay days across the player base.
+
+Read the Case Study
+
+Delta Force x Discord: A Case Study in Community Engagement
+
+Tencent Games leveraged Discord as a central hub for genuine developer-to-player communication - starting early in the development cycle. By creating a culture of authenticity, implementing a robust feedback loop, and strategically using Discord's features, Delta Force successfully cultivated a loyal community integral to its long-term success.
+
+Read the Case Study
+
+Questions?
+
+General Product
+
+What are the costs associated with using Discord Social SDK?
+
+The Discord Social SDK is currently available to download from our Developer Portal at no cost.
+
+Which platforms are supported by the Discord Social SDK?
+
+The Discord Social SDK is compatible with both Unreal Engine and Unity. It is available for production for PC, with mobile (iOS and Android), as well as console support for PlayStation and Xbox available for experimental use. The Discord Social SDK does not formally support HTML5/Web or Linux platforms. Read more about platform support in our
+documentation
+.
+
+Can we use Discord Voice Chat without the full SDK integration?
+
+No. Discord Voice Chat is not available as a standalone service.
+
+Can I customize how my invites and rich presence look in Discord?
+
+Yes! The Social SDK provides a variety of configuration options to tailor how rich presence and invites show up to players within Discord. See the
+Setting Rich Presence
+ and
+Managing Game Invites
+ guides to see how it's done.
+
+What are the current rate limits for the Social SDK communication features?
+
+To learn more about the rate limits for the Social SDK communication features, please see our
+rate limits documentation
+.
+
+How do I remove rate limits for the Social SDK communication features?
+
+To learn how to remove the rate limits for the Social SDK communication features, please see our
+documentation on application requirements
+.
+
+Player Experience
+
+If I implement this SDK, will players need a Discord account to play my game?
+
+Players will not be required to connect a Discord account to play your game. However, for players to take full advantage of the Discord Social SDK features, players will need to connect a Discord account. Non-Discord users will have more limited access.
+
+Will this integration affect my game performance?
+
+The Discord Social SDK is written in performant C++ to be as fast as possible. It offloads all work to a separate thread as the game, while loading and processing data that is relevant to minimize cost. Additionally, the voice engine is already in use within the Discord client, known for stability and quality.
+
+Are players required to use the in-game features that enable them to send/receive Discord messages and view their Discord friends from within a game?
+
+No, the social features that enable players to send/receive Discord messages and view their Discord friends from within a game are optional. Players will choose whether or not to connect their Discord account to enable them.
+
+If a player is messaging a friend on Discord, how can the friend on Discord know that they're receiving messages from within a game?
+
+When a player has sent a message from within a game, a controller icon will appear next to their name on Discord as a visual indicator.
+
+Security and Privacy
+
+Who is responsible for moderation? If issues happen through a Discord DM that shows in-game, is it our job to moderate or Discord's?
+
+Developers are responsible for moderation of all messages or other content within their game. See
+Moderation with the Discord Social SDK
+ for more information.
+
+What will Discord do with player messages from the game that appear in Discord?
+
+Messages sent from the game that appear on Discord are treated like any other message on Discord, consistent with Discord's Terms of Service and Privacy Policy. You can also find more information here. If you have further questions, please reach out to Discord directly.
+
+Can we create provisional accounts programmatically without requiring user credentials or manual input?
+
+Yes, you will be able to create provisional accounts programmatically for every player, without the need for user credentials or manual input. These accounts are not visible to players and are replaced by linked accounts once the player connects their Discord account. This functionality is a core requirement of the SDK, as provisional accounts enable full SDK capabilities for both linked and unlinked players.
+
+What kind of user authentication is used?
+
+The Discord Social SDK operates under normal OAuth2 principles.
+
+Are provisional accounts full Discord accounts that players can interact with?
+
+Provisional accounts are accounts that can be used to access SDK features in a game, but they cannot be used to log into the Discord client. They allow a player to have access to in-game functionality powered by the SDK such as game invites, friends list, DMs, lobby chat, even if they don't have a Discord account or haven't linked their Discord account. However, because the player can't log into a provisional account using the Discord app, they cannot do the following:
+
+Receive DMs from players when they aren't playing
+
+Respond to messages when they aren't playing
+
+See friends status when they aren't playing
+
+Access a unified friends list between different games
+
+STAY INFORMED
+
+Want to keep up to date with all the latest news and updates Discord has for game developers?
+
+Language
+
+English (US)
+
+Čeština
+
+Dansk
+
+Deutsch
+
+English
+
+English (UK)
+
+Español
+
+Español (América Latina)
+
+Français
+
+Hrvatski
+
+Italiano
+
+lietuvių kalba
+
+Magyar
+
+Nederlands
+
+Norsk
+
+Polski
+
+Português (Brasil)
+
+Română
+
+Suomi
+
+Svenska
+
+Tiếng Việt
+
+Türkçe
+
+Ελληνικά
+
+български
+
+Русский
+
+Українська
+
+हिंदी
+
+ไทย
+
+한국어
+
+中文
+
+中文(繁體)
+
+日本語
+
+Social
+
+Menu
+
+Product
+
+Download
+Nitro
+Status
+App Directory
+
+Company
+
+About
+Jobs
+Brand
+Newsroom
+
+Resources
+
+Support
+Safety
+Blog
+Creators
+Community
+Developers
+Quests
+Official 3rd Party Merch
+Feedback
+
+Policies
+
+Terms
+Privacy
+Cookie Settings
+Guidelines
+Acknowledgements
+Licenses
+Company Information
+
+Social

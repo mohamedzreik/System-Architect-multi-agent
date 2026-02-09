@@ -1,0 +1,107 @@
+General Usage
+
+Positive FeedbackNegative Feedback
+
+This documentation helps you interact with the REST API to manage your accounts. It also shows you how to set up your development environment for building Twilio apps. You can use your trial account to test your work and protect your Twilio accounts, applications, and users against fraud.
+
+If you're not a developer, explore the Twilio
+product portfolio
+ to see what you can do with Twilio.
+
+Get started with Twilio
+
+get-started-with-twilio page anchor
+
+Positive FeedbackNegative Feedback
+
+If you're just getting started with Twilio, you may want to jump straight into one of our quickstarts. Choose the product you're most interested in:
+Programmable SMS
+,
+Programmable Voice
+, or 2FA with
+Verify
+.
+
+For detailed guidance on the basics of getting started with Twilio, complete the following steps:
+
+Start with a
+Twilio trial account
+
+Set up your development environment for
+C# and ASP.NET
+,
+Java and Servlets
+,
+Node.js and Express
+,
+PHP
+,
+Python and Flask
+,
+Ruby and Sinatra
+, or
+Go and Gin
+.
+
+Understand
+requests to Twilio
+ and
+Twilio responses
+
+Debug your
+Twilio application
+
+Manage your Twilio account and applications with the API
+
+manage-your-twilio-account-and-applications-with-the-api page anchor
+
+Positive FeedbackNegative Feedback
+
+Whether you're using Programmable Voice or building two-factor authentication with Verify, the
+Twilio REST API
+ can give you insight into your usage, accounts, applications, and more:
+
+Get your account details
+,
+fetch all active accounts
+, or create
+subaccounts
+ with the REST API.
+
+Provision or revoke
+API keys
+ through the REST API.
+
+Use the REST API to
+provision, update, or delete an application
+ on your Twilio account
+
+Create access tokens
+ to authenticate Twilio client-side SDKs such as Voice, Chat, and Video.
+
+Keep your applications and users secure
+
+keep-your-applications-and-users-secure page anchor
+
+Positive FeedbackNegative Feedback
+
+Protect your Twilio applications and your users by following our best practices for security and availability:
+
+Read best practices for
+protecting your accounts and applications from fraud
+
+Secure your applications by validating incoming requests in
+Python
+,
+C#
+,
+Node.js
+,
+Java
+,
+PHP
+,
+Ruby(link takes you to an external page)
+, and
+Go
+.

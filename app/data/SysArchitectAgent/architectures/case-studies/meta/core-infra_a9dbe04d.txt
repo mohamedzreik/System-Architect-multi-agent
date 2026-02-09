@@ -1,0 +1,77 @@
+Core Infra
+
+Unlocking the power of mixed reality devices with MobileConfig
+
+Core Infra
+
+MAY 14, 2024
+
+Behind the scenes of Threads for web
+
+Core Infra
+
+DEC 19, 2023
+
+How Meta built the infrastructure for Threads
+
+Articles
+
+Videos
+
+Publications
+
+The Latest
+
+Core Infra
+
+SEP 7, 2022
+
+Open-sourcing TAOBench: An end-to-end social network benchmark
+
+Core Infra
+
+JUN 8, 2022
+
+Cache made consistent
+
+Core Infra
+
+MAR 7, 2022
+
+Augmenting Flexible Paxos in LogDevice to improve read availability
+
+Core Infra
+
+OCT 26, 2021
+
+Kangaroo: A new flash cache optimized for tiny objects
+
+Android
+
+SEP 13, 2021
+
+Superpack: Pushing the limits of compression in Facebook's mobile apps
+
+Core Infra
+
+SEP 2, 2021
+
+CacheLib, Facebook's open source caching engine for web-scale services
+
+Core Infra
+
+AUG 18, 2021
+
+RAMP-TAO: Layering atomic transactions on Facebook's online graph store
+
+Core Infra
+
+AUG 6, 2021
+
+How we built a general purpose key value store for Facebook with ZippyDB
+
+Core Infra
+
+JUL 22, 2021
+
+Migrating Facebook to MySQL 8.0

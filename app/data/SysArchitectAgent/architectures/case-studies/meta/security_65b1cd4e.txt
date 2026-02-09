@@ -1,0 +1,77 @@
+Security & Privacy
+
+Rust at Scale: An Added Layer of Security for WhatsApp
+
+Android
+
+DEC 15, 2025
+
+How AI Is Transforming the Adoption of Secure-by-Default Mobile Frameworks
+
+Security & Privacy
+
+NOV 20, 2025
+
+Key Transparency Comes to Messenger
+
+Articles
+
+Videos
+
+Publications
+
+The Latest
+
+Security & Privacy
+
+OCT 23, 2025
+
+Scaling Privacy Infrastructure for GenAI Product Innovation
+
+AI Research
+
+SEP 30, 2025
+
+LLMs Are the Key to Mutation Testing and Better Compliance
+
+DevInfra
+
+AUG 11, 2025
+
+Federation Platform and Privacy Waves: How Meta distributes compliance-related tasks at scale
+
+Security & Privacy
+
+JUL 23, 2025
+
+Policy Zones: How Meta enforces purpose limitation at scale in batch processing systems
+
+Security & Privacy
+
+APR 29, 2025
+
+Building Private Processing for AI tools on WhatsApp
+
+Security & Privacy
+
+APR 28, 2025
+
+How Meta understands data at scale
+
+Security & Privacy
+
+FEB 18, 2025
+
+Protecting user data through source code analysis at scale
+
+Security & Privacy
+
+FEB 13, 2025
+
+Looking back at our Bug Bounty program in 2024
+
+ML Applications
+
+FEB 5, 2025
+
+Revolutionizing software testing: Introducing LLM-powered bug catchers

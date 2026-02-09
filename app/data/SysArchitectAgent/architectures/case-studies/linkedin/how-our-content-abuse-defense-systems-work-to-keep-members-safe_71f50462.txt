@@ -1,0 +1,96 @@
+How our content abuse defense systems work to keep members safe
+
+Authored bySanket Modi
+
+Sr Manager, Data Science at Linkedin
+
+January 31, 2022
+
+To create a
+safe and trusted experience
+ for our members, our Trust & Safety (TnS) team strives to keep content that violates our
+Professional Community Policies
+ off of LinkedIn. In this blog post, we'll provide insight into how we try to ensure conversations remain respectful and professional on our platform.
+
+Content is created and shared on LinkedIn in large volumes every minute, from articles and messages, to images and videos. We have a multidimensional approach with three layers of protection within our ecosystem to help us filter out content that violates our
+policies
+ to keep it from impacting members, whether in the feed or in private messages.
+
+LinkedIn's content violation defense system
+
+First layer of protection: Automatic prevention
+ The first layer of our system is automatic prevention. When a member attempts to create a piece of content on LinkedIn, various calls are made to our machine learning services. These services are aimed at automatically filtering out certain bad content within 300 milliseconds of creation, which means that the content is visible only to the author and is not shown to anyone else on the platform.
+
+Artificial Intelligence
+ plays a key role in helping us proactively filter out bad content and deliver relevant experiences for our members. We use content (like certain key words or images) that has previously been identified as violating our content policies to help inform our AI models so that we can better identify and restrict similar content from being posted in the future.
+
+Quantifying the above process to monitor how many content violations are successfully prevented and how much is still left on the platform is another important task that our Data Science team prioritizes. Content that is proactively taken down at creation is tracked through a data pipeline, and we measure our preventive defense services regularly to improve accuracy in the filtering process. This is done by sending some positive samples for human review to measure the precision of our automated defense system. This means that good content doesn't end up bearing the brunt of the auto-filtering.
+
+Key metrics for preventing violative content:
+
+# Prevented =
+ violative content automatically removed at creation.
+
+Precision =
+ content removed accurately divided by content automatically removed at creation.
+
+% Prevented =
+ violative content automatically removed at creation divided by total violative content attempted on site. Total violative content is calculated by adding the prevented, the detected and the estimated undetected content.
+
+Second layer of protection: Combination of automatic and human-led detection
+ The second layer detects content that is likely to be violative but the algorithm is not confident enough about it to warrant automatic removal. Such content is flagged by our AI systems for further human review. If the human review team determines that the content violates our policies, it is removed from the platform.
+
+Third layer of protection: Human-led detection
+ The third and final layer of our system is member-led, and involves our members reporting the content on the platform. The content is then sent to our team of reviewers for further evaluation and is removed if found to be in violation of our policies.
+
+The second and third layers of our protection system both fall under the detection category. This means that the violative content was detected, and it may have caused some member impact, as a few members may have been exposed to it before it was taken down or hidden.
+
+In the detection layers, content labelled through human review is tracked through a data pipeline which captures the actions taken by reviewers. We also conduct audits (re-reviews) of a subset of the content that is already labelled in order to measure the accuracy of our human review. By comparing the decisions of original and audited reviews we derive a metric called Quality Score. That score compares the labels and sub-labels of the audited content, so that we can measure accuracy of our content detection at a more granular level.
+
+Key metrics for detecting violative content:
+
+# Detected =
+ violative content filtered via human review
+
+Quality score =
+ content labelled accurately divided by total content labelled via human review
+
+% Detected =
+ violative content filtered via human review divided by total violative content attempted on site
+
+Besides the prevented and detected content, there is also the category of undetected content violations. Since this data cannot be tracked, we estimate undetected bad content by sampling the entire content base and sending the sample for human review.  Then, we extrapolate to get the estimate of undetected content. Using random samples would require a very high sample size for this estimation, so we use the stratified sampling technique: leveraging the scores given by our machine learning classifiers to increase the likelihood of capturing violative content in our samples. This helps us reduce the sample size while attempting to maintain the same levels of accuracy in our estimation.
+
+Key metrics for undetected violative content:
+
+# Undetected =
+ estimated violative content distributed on site
+
+% Undetected =
+ estimated violative content distributed on site divided by total violative content attempted on site
+
+% Undetected views =
+ estimated views of undetected violative content divided by total views on platform
+
+Moving content from "undetected" to "prevented"
+
+This multidimensional approach with three layers of protection—prevented, detected, and undetected content—forms part of our content violations funnel. We define success based on the percentage of content violations prevented and detected. A lot of our work consists of trying to get more and more content from the undetected to the detected and prevented parts of the funnel.
+
+Looking ahead
+
+With a mission to connect the world's professionals to make them more productive and successful, it's very important that we can quickly detect and take action on content that violates our policies to create safe member and customer experiences. While this is an ongoing journey that we continue to refine, we're pleased that the metrics in our most recent
+Transparency Report
+ show that, in the first half of 2021, close to 66.3 million violative pieces of content were removed from the site. Of these, 99.6% were removed through our automated defenses.
+
+Whether it's
+creating a secure Jobs ecosystem,
+
+removing inappropriate profiles
+, or removing abusive or violative content, it's our responsibility to foster a safe and trusted community on LinkedIn. To learn more about these initiatives, see our latest Transparency report
+here
+.
+
+Acknowledgements
+
+Multiple teams across LinkedIn come together to make the platform a safe and trusted place for our members. Teams including Trust AI, Trust Infrastructure, Multimedia AI, Trust and Safety, Trust Product, Legal, Public Policy, Content Policy, Trust Data Science, Content Experience, and Feed AI all contribute to keeping LinkedIn safe. And also, our ever so vigilant member base whose valuable inputs aid us in keeping the platform safe.
+
+Related articles

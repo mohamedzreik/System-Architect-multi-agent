@@ -1,0 +1,15 @@
+The REST API is now versioned. For more information, see "
+About API versioning
+."
+
+REST API endpoints for licenses
+
+Use the REST API to retrieve popular open source licenses and information about a particular project's license file.
+
+REST API endpoints for licenses
+
+Get all commonly used licenses
+
+Get a license
+
+Get the license for a repository

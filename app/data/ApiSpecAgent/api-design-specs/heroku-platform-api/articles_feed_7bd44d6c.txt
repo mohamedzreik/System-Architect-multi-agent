@@ -1,0 +1,1405 @@
+xml version="1.0" encoding="UTF-8"?
+
+tag:devcenter.heroku.com,2005:/articles/feed
+
+Heroku Dev Center Articles
+
+Heroku
+2026-01-26T21:05:00Z
+
+tag:devcenter.heroku.com,2005:Article/9231
+2026-01-26T21:05:00Z
+2026-01-26T21:05:00Z
+
+MobiLoud
+
+MobiLoud converts your existing website into native iOS and Android applications. After installing the add-on, you configure your app's appearance and functionality through a web-based dashboard, preview your configuration in real-time, and submit your specifications for app generation.
+
+The service works through a configuration dashboard where you define your app's navigation menu, color scheme, push notification categories, and settings. Changes are saved to a JSON configuration that you can preview in a live iOS simulator before submission. When you're satisfied with your configuration, you submit an application form on paid plans, and the MobiLoud team coordinates the app build and store submission process.
+
+Your website continues to operate independently. The mobile apps load your website's content within a native application shell configured through the dashboard.
+
+Provisioning the Add-on
+
+Install MobiLoud with your chosen plan via Heroku CLI:
+
+$ heroku addons:create mobiloud:starter
+-----> Adding mobiloud to sharp-mountain-4005... done, v18 ($999/month)
+
+View all available plans at
+Heroku Elements
+.
+
+Accessing the Add-on
+
+After installation, access the MobiLoud dashboard through your Heroku dashboard using Single Sign-On (SSO) authentication. The
+MOBILOUD\_URL
+ config variable is set automatically for reference:
+
+$ heroku config:get MOBILOUD\_URL
+
+To access the dashboard:
+1. Navigate to your app in the
+Heroku Dashboard
+
+2. Select the
+Resources
+ tab
+3. Select the MobiLoud add-on
+4. You get securely authenticated and redirected to the configuration dashboard
+
+Always access the dashboard through your Heroku Resources tab. Direct URL access requires SSO authentication and is not recommended for regular use.
+
+Getting Started
+
+After installing the MobiLoud add-on:
+
+Access the Dashboard
+
+Navigate to your app in the
+Heroku Dashboard
+
+Select the
+Resources
+ tab
+
+Select on the MobiLoud add-on entry
+
+You get authenticated via Heroku SSO and redirected to the MobiLoud dashboard
+
+Set Your Website URL
+
+On first access, you're prompted to enter your publicly accessible website URL. The URL can be a custom domain or any other production URL.
+
+This site is what gets converted into mobile apps
+
+Select
+Save
+ to continue to the configuration dashboard
+
+Configure Your App
+
+Use the navigation sidebar to access configuration sections:
+
+Menu
+: Configure navigation and tab menu
+
+Colors
+: Set app theme colors
+
+Notifications
+: Define push notification categories
+
+Settings
+: Customize settings menu
+
+Advanced
+: Edit raw JSON configuration (optional)
+
+Changes save when you select
+Save
+ in each section
+
+Preview Your Configuration
+
+The right panel displays a live iOS preview of your app (no Android preview is available)
+
+The preview updates when you save configuration changes
+
+Use this to verify your app's appearance before publishing
+
+Submit for Publishing
+ (Paid plans only)
+
+Navigate to the
+Publish
+ section
+
+Complete the app submission form with your requirements
+
+Submit the form to begin the app generation process
+
+The MobiLoud team will contact you with next steps
+
+For security, always access the add-on through your Heroku Dashboard. Direct URL access requires authentication via Heroku SSO.
+
+Configuring Your Mobile App
+
+The MobiLoud dashboard provides several configuration sections to customize your app:
+
+Menu Configuration
+
+Define your app's navigation structure and bottom tab menu. Set the main page URL and add up to 5 tab menu items with custom icons, labels, and URLs. You can reorder tabs by dragging.
+
+Colors Configuration
+
+Customize your app's color scheme including status bar color, tab bar background, and active/inactive tab colors. All colors use standard hexadecimal format (#RRGGBB).
+
+Push Notifications Configuration
+
+Create notification categories (tags) that users can subscribe to. Each tag has an ID and label. Examples: "News", "Promotions", "Updates".
+
+Settings Menu Configuration
+
+Customize the settings screen by defining a menu label and adding links such as Privacy Policy, Terms of Service, Help, and Contact pages.
+
+Advanced Configuration
+
+For complex configurations not exposed in the standard UI, use the JSON editor to directly edit your app's configuration structure. The editor validates JSON syntax before saving.
+
+Live Preview
+
+The right panel displays a live iOS preview of your configured app via Appetize.io. The preview updates each time you save configuration changes, allowing you to verify your app's appearance before publishing.
+
+Save your changes in each section using the
+Save
+ button at the bottom of the configuration form.
+
+Publishing Your App
+
+Plan Requirements
+
+App publishing is available on paid plans. Free plan users can configure and preview their apps but must upgrade to submit for app generation.
+
+To upgrade your plan:
+
+term
+$ heroku addons:upgrade mobiloud:starter
+
+Or visit
+Heroku Elements
+ to select a plan.
+
+Submission Process
+
+Navigate to the
+Publish
+ section in the dashboard
+
+Select
+Start App Submission
+
+Complete the multi-section form with:
+
+Contact information
+
+Website and platform details
+
+Admin access credentials, if applicable
+
+Apple and Google developer account information
+
+Analytics and Firebase configuration
+
+App graphics, for example, logos
+
+Push notification provider details
+
+App Store listing information
+
+Legal agreements and digital signature
+
+The form auto-saves every 5 seconds as you work
+
+Submit when complete
+
+After Submission
+
+When you submit your app:
+- The MobiLoud team receives your configuration and requirements
+- Your submission includes your dashboard configuration and form responses
+- The team reviews your submission and contacts you to coordinate next steps
+- You can schedule a follow-up call to discuss the process
+
+You can't edit submitted forms. Contact
+support@mobiloud.com
+ if you need to update submitted information.
+
+Available Plans
+
+MobiLoud offers a free plan for testing and ten paid plans for production use:
+
+Free Plan
+
+Test
+ (
+test
+): Free
+
+Full access to configuration dashboard
+
+Live iOS preview
+
+Configuration persistence
+
+Publishing features require upgrade to paid plan
+
+Paid Plans
+
+All paid plans include full dashboard access plus app publishing and submission features:
+
+Starter
+ (
+starter
+): $999/month
+
+Essential
+ (
+essential
+): $1999/month
+
+Basic
+ (
+basic
+): $2999/month
+
+Standard
+ (
+standard
+): $3999/month
+
+Professional
+ (
+professional
+): $4999/month
+
+Advanced
+ (
+advanced
+): $5999/month
+
+Premium
+ (
+premium
+): $6999/month
+
+Superior
+ (
+superior
+): $7999/month
+
+Elite
+ (
+elite
+): $8999/month
+
+Executive
+ (
+executive
+): $9999/month
+
+Refer to
+Heroku Elements
+ for complete plan details and features.
+
+Plan Management
+
+Upgrade or downgrade your plan using Heroku CLI:
+
+$ heroku addons:upgrade mobiloud:starter
+-----> Upgrading mobiloud:starter to mobiloud:essential... done, v18 ($1999/mo)
+Your plan has been updated to: mobiloud:essential
+
+Downgrading from a paid plan to the free
+test
+ plan, the mobile app stops functioning. Instead of displaying the website content, the app shows an error message indicating that the service is no longer active.
+
+Your current plan determines which features are available in the dashboard. Plan information is automatically included with your app submission.
+
+Removing the Add-on
+
+Remove MobiLoud via CLI:
+
+$ heroku addons:destroy mobiloud
+-----> Removing mobiloud from sharp-mountain-4005... done, v20 (free)
+
+The app binaries are generated and hosted within your own Apple and Google developer accounts, so you retain full access to those binaries at all times.
+
+Support
+
+Log all MobiLoud support and runtime issues with Heroku Support at
+support.heroku.com
+. Any non-support related issues or product feedback is welcome at
+support@mobiloud.com
+.
+
+tag:devcenter.heroku.com,2005:Article/17225
+2026-01-22T02:32:00Z
+2026-01-22T02:32:00Z
+
+KafkaCluster
+
+The
+KafkaCluster
+ add-on provides a high-performance, fully managed Apache Kafka environment designed to handle massive data streams with zero operational overhead. Whether you're building a modern microservices architecture or a real-time analytics engine, this add-on removes the complexity of managing distributed systems so you can focus on writing code.
+
+About KafkaCluster
+
+Kafka serves as the central data backbone for your entire infrastructure. With this add-on, you can implement:
+
+Queue and Task Processing
+: Use Kafka as a highly scalable message queue to distribute tasks across a pool of worker processes. Distributing workloads ensures you're reliably processing background jobs like email delivery, image resizing, or order fulfillment.
+
+Microservices Orchestration
+: Use Kafka as a reliable message broker to decouple services, allowing them to communicate asynchronously and scale independently.
+
+Real-Time Analytics
+: Build pipelines that process events, such as user activity, financial transactions, or IoT sensor data, the moment they occur.
+
+Log Aggregation
+: Centralize logs from across your entire infrastructure to gain a unified view of system health and performance.
+
+Event Sourcing
+: Store a complete, immutable history of application state changes useful for auditing or replaying events.
+
+Key Benefits
+
+Fully Managed
+: We handle the provisioning, patching, and infrastructure maintenance for you.
+
+Developer Friendly
+: The add-on automatically injects all necessary connection details directly into your app's environment so you can get started in seconds.
+
+Enterprise-Grade Security
+: Built-in support for SASL authentication ensures that your data streams are protected and accessible only by authorized services.
+
+High Availability
+: Designed for reliability, ensuring your data remains durable and your streams stay online even during heavy traffic spikes.
+
+Provisioning the Add-on
+
+Reference the
+KafkaCluster Elements Page
+ for a list of available plans and regions.
+
+Use the CLI to attach KafkaCluster to a Heroku application:
+
+$ heroku addons:create kafkacluster
+Creating kafkacluster on kafkacluster-acute-62240... free
+Your add-on has been provisioned successfully
+
+After provisioning, the add-on sets extra environment variables for your app that you can use to connect to the cluster. The config variables
+KAFKACLUSTER\_USERNAME
+,
+KAFKACLUSTER\_PASSWORD
+,
+KAFKACLUSTER\_SASL\_METHOD
+ and
+KAFKACLUSTER\_BROKERS
+ contain a list of brokers separated by a comma.
+
+​​You can see a config var via the
+heroku config:get
+ command:
+
+$ heroku config:get KAFKACLUSTER\_USERNAME
+
+Rate Limits
+
+All Starter and Basic plans enforce strict produce and consume quotas, or rate limits, determined by the subscribed plan level.
+
+Plan
+
+Produce quota (kB/s)
+
+Consume quota (kB/s)
+
+Free
+
+6
+
+6
+
+Starter
+
+8
+
+8
+
+Basic-0
+
+64
+
+256
+
+Basic-1
+
+512
+
+2048
+
+Dashboard and Management
+
+The KafkaCluster dashboard provides an easy-to-use interface to manage your data infrastructure without using the command line. From the dashboard, you can:
+
+Manage Resources
+: Create and configure Topics and Consumer Groups.
+
+Check Quotas and Replication Details
+: Track your real-time throughput quotas (kB/s) and resource quotas to ensure your application stays within its performance limits.
+
+Access Credentials
+: Retrieve all connection details and security credentials needed for your client applications.
+
+See Getting Started Guides
+: Use our code examples to get started quickly with producing and consuming messages.
+
+Access the dashboard via the CLI:
+
+$ heroku addons:open kafkacluster
+Opening kafkacluster for kafkacluster-acute-62240
+
+or by visiting the
+Heroku Dashboard
+ and selecting the application in question. Select
+KafkaCluster
+ from the
+Add-ons
+ menu.
+
+Migrating Between Plans
+
+Basic plans don't require any extra migration steps.
+
+Use the
+heroku addons:upgrade
+ command to migrate to a new plan.
+
+$ heroku addons:upgrade kafkacluster:newplan
+-----> Upgrading kafkacluster:newplan to kafkacluster-acute-62240.. done, v18 ($20/mo)
+Your plan has been updated to: kafkacluster:newplan
+
+Removing the Add-on
+
+It's recommended to back up all the topics data before deprovisioning the add-on.
+
+Remove KafkaCluster via the CLI:
+
+This action destroys all associated data and you can't undo it!
+
+$ heroku addons:destroy kafkacluster
+-----> Removing kafkacluster from kafkacluster-acute-62240... done, v20 (free)
+
+Support
+
+Submit all KafkaCluster support and runtime issues via one of the
+Heroku Support channels
+. Any non-support-related issues or product feedback is welcome at
+hello@streamabyss.com
+.
+
+tag:devcenter.heroku.com,2005:Article/26321
+2026-01-21T17:53:21Z
+2026-01-21T17:54:34Z
+
+Add-on Security Requirements
+
+Add-on partners must follow these requirements before offering their services with Heroku.
+
+Security Guidelines
+
+For guidelines on how to build a secure add-on service, refer to the
+Salesforce documentation for AppExchange partners
+. Some of this documentation is specific to AppExchange and not relevant to Heroku, but they are the guidelines for maintaining a
+Security Policy
+ and how to
+Prevent Secure Coding Violations
+ are relevant for Heroku add-ons.
+
+Reporting Security Vulnerabilities to Heroku
+
+Add-on providers can report suspected Heroku security vulnerabilities as outlined out in the
+Heroku Security Policy
+.
+
+For less urgent matters, reach out to the Heroku team at
+heroku-ecosystem-partners@salesforce.com
+ for assistance.
+
+Reporting Security Vulnerabilities to Customers
+
+Add-on partners must provide timely, clear, and actionable notifications to affected customers about any identified security vulnerability, including necessary steps for customers to assess and mitigate risks.
+
+Add-on partners must also respond to triaged support requests from customers about potential security vulnerabilities.
+
+tag:devcenter.heroku.com,2005:Article/26316
+2026-01-15T00:50:13Z
+2026-01-15T00:50:33Z
+
+Managed Inference and Agents API /v1/rerank
+
+The
+/v1/rerank
+ endpoint ranks documents on their semantic relevance to a query. You can use this endpoint to improve response quality in retrieval-augmented generation (RAG) systems, semantic search, and question-answering applications.
+
+View our
+available rerank models
+.
+
+Request Body Parameters
+
+Use parameters to control how documents are ranked.
+
+Required Parameters
+
+Field
+
+Type
+
+Description
+
+Example
+
+model
+
+string
+
+ID of the rerank model to use
+
+"cohere-rerank-3-5"
+
+query
+
+string
+
+search query or question used to rank documents
+
+"How do you create a Heroku App?"
+
+documents
+
+array of strings
+
+list of text documents to rank
+max strings in array:
+ 1000 documents
+
+["doc1", "doc2", "doc3"]
+
+Optional Parameters
+
+Field
+
+Type
+
+Description
+
+Default
+
+Example
+
+top\_n
+
+integer
+
+number of top-ranked results to return
+
+all documents
+
+10
+
+Request Headers
+
+In the following example, we assume your model resource has an alias of "
+RERANK
+" (meaning you created the model resource with an
+--as RERANK
+ flag).
+
+Header
+
+Type
+
+Description
+
+Authorization
+
+string
+
+your AI add-on's 'RERANK' value (API bearer token)
+
+All inference
+curl
+ requests must include an
+Authorization
+ header containing your
+Heroku Inference key
+.
+
+Response Format
+
+When a request is successful, the API returns a JSON object with the following structure:
+
+Field
+
+Type
+
+Description
+
+id
+
+string
+
+unique identifier for this response (UUID format)
+
+results
+
+array of objects
+
+ranked documents, ordered by relevance (highest first)
+
+meta
+
+object
+
+response metadata including API version and billing information
+
+Results Object
+
+Each object inside the results array includes:
+
+Field
+
+Type
+
+Description
+
+index
+
+integer
+
+original position of the document in the input array (0-indexed)
+
+relevance\_score
+
+float
+
+semantic relevance score (higher value = more relevant to query)
+
+Meta Object
+
+The meta object includes:
+
+Field
+
+Type
+
+Description
+
+api\_version
+
+object
+
+API version information
+always:
+
+2
+
+billed\_units
+
+object
+
+billing information for request
+
+billed\_units.search\_units
+
+integer
+
+number of search units consumed by request
+
+Error Responses
+
+Status Code
+
+Description
+
+Example Message
+
+400
+
+validation errors
+
+"model is required"
+
+"query is required"
+"documents array is required and cannot be empty"
+"documents array exceeds maximum of 1000 items (received X). Please reduce the number of documents per request"
+
+401
+
+missing or invalid authorization token
+
+authentication errors
+
+403
+
+you don't have access to the requested model
+
+authorization errors
+
+404
+
+invalid model ID
+
+model not found errors
+
+429
+
+rate limit exceeded
+
+exceeded 250 RPM (Cohere) or 200 RPM (Amazon)
+
+500
+
+internal server error
+
+backend service errors
+
+Example Request
+
+Let's walk through an example
+/v1/rerank
+
+curl
+ request.
+
+First, use this command to set your Heroku environment variables as local variables.
+
+export RERANK\_MODEL\_ID=$(heroku config:get -a $APP\_NAME RERANK\_MODEL\_ID)
+export RERANK\_KEY=$(heroku config:get -a $APP\_NAME RERANK\_KEY)
+export RERANK\_URL=$(heroku config:get -a $APP\_NAME RERANK\_URL)
+
+Next, send the
+curl
+ request:
+
+curl $RERANK\_URL/v1/rerank \
+-H "Authorization: Bearer $RERANK\_KEY" \
+-d @- <<EOF
+{
+"model": "$RERANK\_MODEL\_ID",
+"query": "How do I optimize database connection pooling?",
+"documents": [
+"Connection pooling reduces overhead by reusing existing database connections instead of creating new ones for each request.",
+"You can monitor application performance using built-in metrics and logging tools.",
+"Set max pool size based on your dyno count and expected concurrent queries to prevent connection exhaustion.",
+"Regular database backups are essential for disaster recovery planning."
+],
+"top\_n": 2
+}
+EOF
+
+Example Response
+
+{
+"id": "f844c7c3-c357-4476-9a9d-d2de06f2106f",
+"results": [
+{
+"index": 0,
+"relevance\_score": 0.6740
+},
+{
+"index": 2,
+"relevance\_score": 0.5308
+}
+],
+"meta": {
+"api\_version": {
+"version": "2",
+"is\_experimental": false
+},
+"billed\_units": {
+"search\_units": 1
+}
+}
+}
+
+tag:devcenter.heroku.com,2005:Article/26312
+2026-01-15T00:48:10Z
+2026-01-15T00:50:40Z
+
+Managed Inference and Agents API with Cohere Rerank 3.5
+
+Cohere Rerank 3.5
+ is a reranking model that scores documents based on their semantic relevance to a query. It offers enhanced reasoning, broad data compatibility, and multilingual support for over 100 languages while maintaining industry-leading accuracy.
+
+Model ID:
+
+cohere-rerank-3-5
+
+Region:
+
+us
+,
+eu
+
+When to Use This Model
+
+Cohere Rerank 3.5 is ideal for enhancing retrieval-augmented generation (RAG) systems and semantic search applications. You can use this model after retrieving results to identify the most relevant documents for your query. It offers multilingual support for over 100 languages.
+
+Usage
+
+Cohere Rerank 3.5 is available on our
+/v1/rerank
+ API endpoint.
+
+To provision access to the model, attach
+cohere-rerank-3-5
+ to your app
+$APP\_NAME
+:
+
+heroku ai:models:create -a $APP\_NAME cohere-rerank-3-5 --as RERANK
+
+Using config variables, you can invoke
+cohere-rerank-3-5
+ in a variety of ways:
+
+Heroku CLI
+ai
+ plugin
+ (
+heroku ai:models:call
+)
+
+curl
+
+Rate Limits
+
+Maximum requests per minute: 250
+
+Example curl Request
+
+Get started quickly with an example request:
+
+export RERANK\_MODEL\_ID=$(heroku config:get -a $APP\_NAME RERANK\_MODEL\_ID)
+export RERANK\_KEY=$(heroku config:get -a $APP\_NAME RERANK\_KEY)
+export RERANK\_URL=$(heroku config:get -a $APP\_NAME RERANK\_URL)
+curl $RERANK\_URL/v1/rerank \
+-H "Authorization: Bearer $RERANK\_KEY" \
+-d @- <<EOF
+{
+"model": "$RERANK\_MODEL\_ID",
+"query": "How do I scale my application dynos?",
+"documents": [
+"Use the heroku ps:scale command to adjust the number of dynos running your application.",
+"Environment variables can be configured through the Heroku dashboard or CLI.",
+"Scaling dynos horizontally improves throughput by distributing load across multiple instances.",
+"Database connection limits should be considered when scaling to avoid exhausting connections."
+],
+"top\_n": 2
+}
+EOF
+
+tag:devcenter.heroku.com,2005:Article/26310
+2026-01-15T00:47:42Z
+2026-01-15T00:50:44Z
+
+Managed Inference and Agents API with Amazon Rerank 1.0
+
+Amazon Rerank 1.0
+ is a reranking model that scores documents based on their semantic relevance to a query. It offers a reliable, high-performing solution that's backed by AWS infrastructure.
+
+Model ID:
+
+amazon-rerank-1-0
+
+Region:
+
+us
+,
+eu
+
+When to Use This Model
+
+Amazon Rerank 1.0 is ideal for enhancing retrieval-augmented generation (RAG) systems and semantic search applications. You can use this model after retrieving results to identify the most relevant documents for your query.
+
+Usage
+
+Amazon Rerank 1.0 is available on our
+/v1/rerank
+ API endpoint.
+
+To provision access to the model, attach
+amazon-rerank-1-0
+ to your app
+$APP\_NAME
+:
+
+heroku ai:models:create -a $APP\_NAME amazon-rerank-1-0 --as RERANK
+
+Using config variables, you can invoke
+amazon-rerank-1-0
+ in a variety of ways:
+
+Heroku CLI
+ai
+ plugin
+ (
+heroku ai:models:call
+)
+
+curl
+
+Rate Limits
+
+Maximum requests per minute: 200
+
+Example curl Request
+
+Get started quickly with an example request:
+
+export RERANK\_MODEL\_ID=$(heroku config:get -a $APP\_NAME RERANK\_MODEL\_ID)
+export RERANK\_KEY=$(heroku config:get -a $APP\_NAME RERANK\_KEY)
+export RERANK\_URL=$(heroku config:get -a $APP\_NAME RERANK\_URL)
+curl $RERANK\_URL/v1/rerank \
+-H "Authorization: Bearer $RERANK\_KEY" \
+-d @- <<EOF
+{
+"model": "$RERANK\_MODEL\_ID",
+"query": "How do I configure SSL certificates for my domain?",
+"documents": [
+"Heroku automatically manages SSL certificates for applications using Automated Certificate Management.",
+"You can view application logs in real-time using the heroku logs --tail command.",
+"Custom domains require DNS configuration to point to your Heroku application.",
+"SSL certificates encrypt traffic between clients and your application for secure communication."
+],
+"top\_n": 2
+}
+EOF
+
+tag:devcenter.heroku.com,2005:Article/17304
+2025-12-17T21:41:18Z
+2025-12-18T17:26:04Z
+
+Managed Inference and Agents API with Qwen3-235B
+
+Qwen3-235B
+ is a large language model (LLM) from Qwen that supports conversational chat, tool-calling, complex reasoning, and agentic coding. It offers an open-weight solution that runs on AWS compute in the US and EU regions.
+
+Model ID:
+
+qwen3-235b
+
+Region:
+
+us
+
+When to Use This Model
+
+Qwen3-235B supports a variety of common use cases, including coding, translation, creative generation, and role-playing. It supports over 100 languages and dialects, and can follow multilingual instruction.
+
+Usage
+
+Qwen3-235B follows our Claude
+/v1/chat/completions API schema
+.
+
+To provision access to the model, attach
+qwen3-235b
+ to your app
+$APP\_NAME
+:
+
+heroku ai:models:create -a $APP\_NAME qwen3-235b
+
+Using config variables, you can invoke
+qwen3-235b
+ in a variety of ways:
+
+Heroku CLI
+ai
+ plugin
+ (
+heroku ai:models:call
+)
+
+curl
+
+Python
+
+Ruby
+
+Javascript
+
+Rate Limits
+
+Maximum requests per minute: 150
+
+Maximum tokens per minute: 800,000
+
+Prompt Caching
+
+Prompt caching
+ isn't supported for Qwen3-235B.
+
+Example curl Request
+
+Get started quickly with an example request:
+
+export INFERENCE\_MODEL\_ID=$(heroku config:get -a $APP\_NAME INFERENCE\_MODEL\_ID)
+export INFERENCE\_KEY=$(heroku config:get -a $APP\_NAME INFERENCE\_KEY)
+export INFERENCE\_URL=$(heroku config:get -a $APP\_NAME INFERENCE\_URL)
+curl $INFERENCE\_URL/v1/chat/completions \
+-H "Authorization: Bearer $INFERENCE\_KEY" \
+-d @- <<EOF
+{
+"model": "$INFERENCE\_MODEL\_ID",
+"messages": [
+{ "role": "user", "content": "Hello!" },
+{ "role": "assistant", "content": "Hi there! How can I assist you today?" },
+{ "role": "user", "content": "What's the weather like in Portland, Oregon right now?" }
+],
+"temperature": 0.5,
+"max\_tokens": 100,
+"stream": false,
+"tools": [
+{
+"type": "function",
+"function": {
+"name": "get\_weather",
+"description": "Fetches the current weather for a given city.",
+"parameters": {
+"type": "object",
+"properties": {
+"city": {
+"type": "string",
+"description": "The name of the city to get weather for."
+}
+},
+"required": ["city"]
+}
+}
+}
+],
+"tool\_choice": "auto",
+"top\_p": 0.9
+}
+EOF
+
+tag:devcenter.heroku.com,2005:Article/17302
+2025-12-17T21:40:55Z
+2025-12-17T21:40:55Z
+
+Managed Inference and Agents API with Qwen3-Coder-480B
+
+Qwen3-Coder-480B
+ is a large language model (LLM) from Qwen that supports conversational chat, tool-calling, and agentic coding. It offers an open-weight solution that runs on AWS compute in the US region.
+
+Model ID:
+
+qwen3-coder-480b
+
+Region:
+
+us
+
+When to Use This Model
+
+Qwen3-Coder-480B is an agentic code model. It's optimized for foundational coding tasks, including agentic coding, browser-use, and tool-use.
+
+Usage
+
+Qwen3-Coder-480B follows our Claude
+/v1/chat/completions API schema
+.
+
+To provision access to the model, attach
+qwen3-coder-480b
+ to your app
+$APP\_NAME
+:
+
+heroku ai:models:create -a $APP\_NAME qwen3-coder-480b
+
+Using config variables, you can invoke
+qwen3-coder-480b
+ in a variety of ways:
+
+Heroku CLI
+ai
+ plugin
+ (
+heroku ai:models:call
+)
+
+curl
+
+Python
+
+Ruby
+
+Javascript
+
+Rate Limits
+
+Maximum requests per minute: 150
+
+Maximum tokens per minute: 800,000
+
+Prompt Caching
+
+Prompt caching
+ isn't supported for Qwen3-Coder-480B.
+
+Example curl Request
+
+Get started quickly with an example request:
+
+export INFERENCE\_MODEL\_ID=$(heroku config:get -a $APP\_NAME INFERENCE\_MODEL\_ID)
+export INFERENCE\_KEY=$(heroku config:get -a $APP\_NAME INFERENCE\_KEY)
+export INFERENCE\_URL=$(heroku config:get -a $APP\_NAME INFERENCE\_URL)
+curl $INFERENCE\_URL/v1/chat/completions \
+-H "Authorization: Bearer $INFERENCE\_KEY" \
+-d @- <<EOF
+{
+"model": "$INFERENCE\_MODEL\_ID",
+"messages": [
+{ "role": "user", "content": "Hello!" },
+{ "role": "assistant", "content": "Hi there! How can I assist you today?" },
+{ "role": "user", "content": "What's the weather like in Portland, Oregon right now?" }
+],
+"temperature": 0.5,
+"max\_tokens": 100,
+"stream": false,
+"tools": [
+{
+"type": "function",
+"function": {
+"name": "get\_weather",
+"description": "Fetches the current weather for a given city.",
+"parameters": {
+"type": "object",
+"properties": {
+"city": {
+"type": "string",
+"description": "The name of the city to get weather for."
+}
+},
+"required": ["city"]
+}
+}
+}
+],
+"tool\_choice": "auto",
+"top\_p": 0.9
+}
+EOF
+
+tag:devcenter.heroku.com,2005:Article/17301
+2025-12-17T21:40:25Z
+2025-12-17T21:40:25Z
+
+Managed Inference and Agents API with MiniMax M2
+
+MiniMax M2
+ is a large language model (LLM) from MiniMax that supports conversational chat, tool-calling, and programming tasks. It offers an open-weight solution that runs on AWS compute in the US region and balances intelligence, speed, and cost.
+
+Model ID:
+
+minimax-m2
+
+Region:
+
+us
+
+When to Use This Model
+
+MiniMax M2 supports a variety of common use cases, including full-stack development, conversation, research, and report creation. It's optimized for creative generation, role-playing, and coding.
+
+Usage
+
+MiniMax M2 follows our Claude
+/v1/chat/completions API schema
+.
+
+To provision access to the model, attach
+minimax-m2
+ to your app
+$APP\_NAME
+:
+
+heroku ai:models:create -a $APP\_NAME minimax-m2
+
+Using config variables, you can invoke
+minimax-m2
+ in a variety of ways:
+
+Heroku CLI
+ai
+ plugin
+ (
+heroku ai:models:call
+)
+
+curl
+
+Python
+
+Ruby
+
+Javascript
+
+Rate Limits
+
+Maximum requests per minute: 150
+
+Maximum tokens per minute: 800,000
+
+Prompt Caching
+
+Prompt caching
+ isn't supported for MiniMax M2.
+
+Example curl Request
+
+Get started quickly with an example request:
+
+export INFERENCE\_MODEL\_ID=$(heroku config:get -a $APP\_NAME INFERENCE\_MODEL\_ID)
+export INFERENCE\_KEY=$(heroku config:get -a $APP\_NAME INFERENCE\_KEY)
+export INFERENCE\_URL=$(heroku config:get -a $APP\_NAME INFERENCE\_URL)
+curl $INFERENCE\_URL/v1/chat/completions \
+-H "Authorization: Bearer $INFERENCE\_KEY" \
+-d @- <<EOF
+{
+"model": "$INFERENCE\_MODEL\_ID",
+"messages": [
+{ "role": "user", "content": "Hello!" },
+{ "role": "assistant", "content": "Hi there! How can I assist you today?" },
+{ "role": "user", "content": "What's the weather like in Portland, Oregon right now?" }
+],
+"temperature": 0.5,
+"max\_tokens": 100,
+"stream": false,
+"tools": [
+{
+"type": "function",
+"function": {
+"name": "get\_weather",
+"description": "Fetches the current weather for a given city.",
+"parameters": {
+"type": "object",
+"properties": {
+"city": {
+"type": "string",
+"description": "The name of the city to get weather for."
+}
+},
+"required": ["city"]
+}
+}
+}
+],
+"tool\_choice": "auto",
+"top\_p": 0.9
+}
+EOF
+
+tag:devcenter.heroku.com,2005:Article/17300
+2025-12-17T21:39:04Z
+2025-12-17T21:39:04Z
+
+Managed Inference and Agents API with Kimi K2 Thinking
+
+Kimi K2 Thinking
+ is a large language model (LLM) from Moonshot AI that supports conversational chat, tool-calling, and chain-of-thought processing. It offers an open-weight solution that runs on AWS compute in the US region.
+
+Model ID:
+
+kimi-k2-thinking
+
+Region:
+
+us
+
+When to Use This Model
+
+Kimi K2 Thinking is a general-purpose, agentic reasoning model with advanced reasoning and deep thinking capabilities. It supports a variety of common use cases, including coding projects, mathematical problem-solving with extended reasoning, agentic research, and tool-orchestrated task execution.
+
+Usage
+
+Kimi K2 Thinking follows our Claude
+/v1/chat/completions API schema
+.
+
+To provision access to the model, attach
+kimi-k2-thinking
+ to your app
+$APP\_NAME
+:
+
+heroku ai:models:create -a $APP\_NAME kimi-k2-thinking
+
+Using config variables, you can invoke
+kimi-k2-thinking
+ in a variety of ways:
+
+Heroku CLI
+ai
+ plugin
+ (
+heroku ai:models:call
+)
+
+curl
+
+Python
+
+Ruby
+
+Javascript
+
+Rate Limits
+
+Maximum requests per minute: 150
+
+Maximum tokens per minute: 800,000
+
+Prompt Caching
+
+Prompt caching
+ isn't supported for Kimi K2 Thinking.
+
+Example curl Request
+
+Get started quickly with an example request:
+
+export INFERENCE\_MODEL\_ID=$(heroku config:get -a $APP\_NAME INFERENCE\_MODEL\_ID)
+export INFERENCE\_KEY=$(heroku config:get -a $APP\_NAME INFERENCE\_KEY)
+export INFERENCE\_URL=$(heroku config:get -a $APP\_NAME INFERENCE\_URL)
+curl $INFERENCE\_URL/v1/chat/completions \
+-H "Authorization: Bearer $INFERENCE\_KEY" \
+-d @- <<EOF
+{
+"model": "$INFERENCE\_MODEL\_ID",
+"messages": [
+{ "role": "user", "content": "Hello!" },
+{ "role": "assistant", "content": "Hi there! How can I assist you today?" },
+{ "role": "user", "content": "What's the weather like in Portland, Oregon right now?" }
+],
+"temperature": 0.5,
+"max\_tokens": 100,
+"stream": false,
+"tools": [
+{
+"type": "function",
+"function": {
+"name": "get\_weather",
+"description": "Fetches the current weather for a given city.",
+"parameters": {
+"type": "object",
+"properties": {
+"city": {
+"type": "string",
+"description": "The name of the city to get weather for."
+}
+},
+"required": ["city"]
+}
+}
+}
+],
+"tool\_choice": "auto",
+"top\_p": 0.9
+}
+EOF

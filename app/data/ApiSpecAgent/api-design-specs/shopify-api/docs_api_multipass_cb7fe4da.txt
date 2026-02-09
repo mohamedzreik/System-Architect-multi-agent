@@ -1,0 +1,724 @@
+You're the owner of a successful website forum. All of your users must log in to the forum to contribute. Members of your forum can then purchase a forum t-shirt through your Shopify store. Unfortunately, your users have to log in to the forum first and then log in to your Shopify store before they can purchase a t-shirt.
+
+Multipass login is for store owners who have a separate website and a Shopify store. It redirects users from the website to the Shopify store and seamlessly logs them in with the same email address they used to sign up for the original website. If no account with that email address exists yet, one is created. There is no need to synchronize any customer databases.
+
+Anchor to Requirements
+Requirements
+
+Your store must be on a
+Shopify Plus
+ plan.
+
+Anchor to Step 1: Enable Multipass
+Step 1: Enable Multipass
+
+You can enable Multipass functionality on a store from the Shopify admin.
+
+From your Shopify admin, go to
+Settings > Customer accounts
+.
+
+In the
+Multipass
+ section, select
+Turn on
+ to enable Multipass.
+
+After you enable Multipass, a secret is shared with you. You need the secret to generate tokens to log your customers into your Shopify store.
+
+Caution
+
+Make sure you keep your secret private to reduce security risks.
+
+Caution:
+
+Make sure you keep your secret private to reduce security risks.
+
+Anchor to Step 2: Encode your customer information using JSON
+Step 2: Encode your customer information using JSON
+
+The customer information is represented as a hash which must contain at least the email address of the customer and a current timestamp (in ISO8601 encoding). You can also include the customer's first name, last name or several
+shipping addresses
+.
+
+A minimal example, containing all required fields, might look like this:
+
+9
+
+1
+
+2
+
+3
+
+4
+
+{
+
+"email": "nicpotts@example.com",
+
+"created_at": "2013-04-11T15:16:23-04:00",
+
+}
+
+An example containing some optional fields might look like this:
+
+99
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+{
+
+"email": "nicpotts@example.com",
+
+"created_at": "2013-04-11T15:16:23-04:00",
+
+"first_name": "Nic",
+
+"last_name": "Potts",
+
+"tag_string": "canadian, premium",
+
+"identifier": "nic123",
+
+"return_to": "http://yourstore.com/some_specific_site",
+
+"addresses": [{
+
+"address1": "123 Oak St",
+
+"city": "Ottawa",
+
+"country": "Canada",
+
+"first_name": "Nic",
+
+"last_name": "Potts",
+
+"phone": "555-1212",
+
+"province": "Ontario",
+
+"zip": "123 ABC",
+
+"province_code": "ON",
+
+"country_code": "CA",
+
+"default": true
+
+}]
+
+}
+
+You can attribute tags to your customer by setting "tag_string" to a list of comma separated one-word values. These tags will override any tags that you may have already attributed to this customer.
+
+If you want your users to see a specific page of your Shopify store, you can use the
+return_to
+ field for that.
+
+Note
+
+Shopify uses email addresses as unique identifiers for customers of a shop. When registering customers in Shopify, the user must set the unique identifier in the "identifier" field in the following cases:
+
+The site uses other identifiers (such as usernames)
+
+Two different users of the site might be registered with the same email address
+If the email address is always unique, setting the "identifier" field isn't required.
+Only one Shopify account can use a specific email address. Registering a second customer with the same email address (even with a different "identifier") will result in an error.
+
+Note:
+
+Shopify uses email addresses as unique identifiers for customers of a shop. When registering customers in Shopify, the user must set the unique identifier in the "identifier" field in the following cases:
+
+The site uses other identifiers (such as usernames)
+
+Two different users of the site might be registered with the same email address
+If the email address is always unique, setting the "identifier" field isn't required.
+Only one Shopify account can use a specific email address. Registering a second customer with the same email address (even with a different "identifier") will result in an error.
+
+Anchor to Step 3: Encrypt the JSON data using AES
+Step 3: Encrypt the JSON data using AES
+
+To generate a valid multipass login token, you need the secret given to you in your Shopify admin. The secret is used to derive two cryptographic keys—one for encryption and one for signing. This key derivation is done through the use of the
+SHA-256 hash
+ function (the first 128 bit are used as encryption key and the last 128 bit are used as signature key).
+
+The encryption provides confidentiality. It makes sure that no one can read the customer data. As encryption cipher, we use the
+AES algorithm
+ (128 bit key length, CBC mode of operation, random initialization vector).
+
+Anchor to Step 4: Sign the encrypted data using HMAC
+Step 4: Sign the encrypted data using HMAC
+
+The signature (also called message authentication code) provides authenticity. It makes sure that the multipass token is authentic and hasn't been tampered with. We use the
+HMAC algorithm
+ with a SHA-256 hash function and we sign the encrypted JSON data from
+step 3
+ (not the plaintext JSON data from
+step 2
+).
+
+Anchor to Step 5: Base64 encode the binary data
+Step 5: Base64 encode the binary data
+
+The multipass login token now consists of the 128 bit initialization vector, a variable length ciphertext, and a 256 bit signature (in this order). This data is encoded using base64 (URL-safe variant, RFC 4648).
+
+Anchor to Step 6: Redirect your customer to your Shopify store
+Step 6: Redirect your customer to your Shopify store
+
+Once you have the token, you should trigger a redirect to your Shopify store.
+
+9
+
+1
+
+/account/login/multipass/insert_token_here
+
+When the redirect is successful (for example, the token is valid and not expired), the customer will be logged in to your Shopify store.
+
+The multipass token is only valid for 15 minutes and each token can only be used once. For those reasons, you shouldn't generate tokens in advance for rendering them into your HTML sites. You should create a redirect URL which generates tokens on-the-fly when needed and then automatically redirects the browser.
+
+Anchor to Example implementation
+Example implementation
+
+The following shows a basic example implementation of the token generation in the Ruby and PHP languages. You can also view a Node.js module for Shopify Multipass, called
+Multipassify
+.
+
+99
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+34
+
+35
+
+36
+
+37
+
+38
+
+39
+
+40
+
+41
+
+42
+
+43
+
+44
+
+45
+
+46
+
+47
+
+48
+
+49
+
+50
+
+51
+
+require "openssl"
+
+require "base64"
+
+require "time"
+
+require "json"
+
+class ShopifyMultipass
+
+def initialize(multipass_secret)
+
+Use the Multipass secret to derive two cryptographic keys,
+
+one for encryption, one for signing
+
+key_material = OpenSSL::Digest.new("sha256").digest(multipass_secret)
+
+@encryption_key = key_material[ 0,16]
+
+@signature_key = key_material[16,16]
+
+end
+
+def generate_token(customer_data_hash)
+
+Store the current time in ISO8601 format.
+
+The token will only be valid for a small timeframe around this timestamp.
+
+customer_data_hash["created_at"] = Time.now.iso8601
+
+Serialize the customer data to JSON and encrypt it
+
+ciphertext = encrypt(customer_data_hash.to_json)
+
+Create a signature (message authentication code) of the ciphertext
+
+and encode everything using URL-safe Base64 (RFC 4648)
+
+Base64.urlsafe_encode64(ciphertext + sign(ciphertext))
+
+end
+
+private
+
+def encrypt(plaintext)
+
+cipher = OpenSSL::Cipher.new("aes-128-cbc")
+
+cipher.encrypt
+
+cipher.key = @encryption_key
+
+Use a random IV
+
+cipher.iv = iv = cipher.random_iv
+
+Use IV as first block of ciphertext
+
+iv + cipher.update(plaintext) + cipher.final
+
+end
+
+def sign(data)
+
+OpenSSL::HMAC.digest("sha256", @signature_key, data)
+
+end
+
+end
+
+customer_data = {
+
+email: "nicpotts@example.com"
+
+}
+
+token = ShopifyMultipass.new("multipass secret from shop admin").generate_token(customer_data)
+
+99
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+16
+
+17
+
+18
+
+19
+
+20
+
+21
+
+22
+
+23
+
+24
+
+25
+
+26
+
+27
+
+28
+
+29
+
+30
+
+31
+
+32
+
+33
+
+34
+
+35
+
+36
+
+37
+
+38
+
+39
+
+40
+
+41
+
+42
+
+43
+
+44
+
+45
+
+46
+
+47
+
+48
+
+encryption\_key = substr($key\_material, 0, 16);
+
+$this->signature\_key = substr($key\_material, 16, 16);
+
+}
+
+public function generate\_token($customer\_data\_hash) {
+
+// Store the current time in ISO8601 format.
+
+// The token will only be valid for a small timeframe around this timestamp.
+
+$customer\_data\_hash["created\_at"] = date("c");
+
+// Serialize the customer data to JSON and encrypt it
+
+$ciphertext = $this->encrypt(json\_encode($customer\_data\_hash));
+
+// Create a signature (message authentication code) of the ciphertext
+
+// and encode everything using URL-safe Base64 (RFC 4648)
+
+return strtr(base64\_encode($ciphertext . $this->sign($ciphertext)), '+/', '-\_');
+
+}
+
+private function encrypt($plaintext) {
+
+// Use a random IV
+
+$iv = openssl\_random\_pseudo\_bytes(16);
+
+// Use IV as first block of ciphertext
+
+return $iv . openssl\_encrypt($plaintext, "AES-128-CBC", $this->encryption\_key, OPENSSL\_RAW\_DATA, $iv);
+
+}
+
+private function sign($data) {
+
+return hash\_hmac("sha256", $data, $this->signature\_key, true);
+
+}
+
+}
+
+$customer\_data = array(
+
+"email" => "nicpotts@example.com"
+
+);
+
+$multipass = new ShopifyMultipass("multipass secret from shop admin");
+
+$token = $multipass->generate\_token($customer\_data);
+
+?>
+
+Ruby
+
+require "openssl"
+ require "base64"
+ require "time"
+ require "json"
+
+ class ShopifyMultipass
+ def initialize(multipass_secret)
+ ### Use the Multipass secret to derive two cryptographic keys,
+ ### one for encryption, one for signing
+ key_material = OpenSSL::Digest.new("sha256").digest(multipass_secret)
+ @encryption_key = key_material[ 0,16]
+ @signature_key = key_material[16,16]
+ end
+
+ def generate_token(customer_data_hash)
+ ### Store the current time in ISO8601 format.
+ ### The token will only be valid for a small timeframe around this timestamp.
+ customer_data_hash["created_at"] = Time.now.iso8601
+
+ ### Serialize the customer data to JSON and encrypt it
+ ciphertext = encrypt(customer_data_hash.to_json)
+
+ ### Create a signature (message authentication code) of the ciphertext
+ ### and encode everything using URL-safe Base64 (RFC 4648)
+ Base64.urlsafe_encode64(ciphertext + sign(ciphertext))
+ end
+
+ private
+
+ def encrypt(plaintext)
+ cipher = OpenSSL::Cipher.new("aes-128-cbc")
+ cipher.encrypt
+ cipher.key = @encryption_key
+
+ ### Use a random IV
+ cipher.iv = iv = cipher.random_iv
+
+ ### Use IV as first block of ciphertext
+ iv + cipher.update(plaintext) + cipher.final
+ end
+
+ def sign(data)
+ OpenSSL::HMAC.digest("sha256", @signature_key, data)
+ end
+ end
+
+ customer_data = {
+ email: "nicpotts@example.com"
+ }
+
+ token = ShopifyMultipass.new("multipass secret from shop admin").generate_token(customer_data)
+
+PHP
+
+<?php
+date_default_timezone_set("UTC");
+
+class ShopifyMultipass {
+ private $encryption_key;
+ private $signature_key;
+
+ public function __construct($multipass_secret) {
+ // Use the Multipass secret to derive two cryptographic keys,
+ // one for encryption, one for signing
+ $key_material = hash("sha256", $multipass_secret, true);
+ $this->encryption_key = substr($key_material, 0, 16);
+ $this->signature_key = substr($key_material, 16, 16);
+ }
+
+ public function generate_token($customer_data_hash) {
+ // Store the current time in ISO8601 format.
+ // The token will only be valid for a small timeframe around this timestamp.
+ $customer_data_hash["created_at"] = date("c");
+
+ // Serialize the customer data to JSON and encrypt it
+ $ciphertext = $this->encrypt(json_encode($customer_data_hash));
+
+ // Create a signature (message authentication code) of the ciphertext
+ // and encode everything using URL-safe Base64 (RFC 4648)
+ return strtr(base64_encode($ciphertext . $this->sign($ciphertext)), '+/', '-_');
+ }
+
+ private function encrypt($plaintext) {
+ // Use a random IV
+ $iv = openssl_random_pseudo_bytes(16);
+
+ // Use IV as first block of ciphertext
+ return $iv . openssl_encrypt($plaintext, "AES-128-CBC", $this->encryption_key, OPENSSL_RAW_DATA, $iv);
+ }
+
+ private function sign($data) {
+ return hash_hmac("sha256", $data, $this->signature_key, true);
+ }
+}
+
+$customer_data = array(
+ "email" => "nicpotts@example.com"
+);
+
+$multipass = new ShopifyMultipass("multipass secret from shop admin");
+$token = $multipass->generate_token($customer_data);
+?>
+
+Anchor to Security considerations
+Security considerations
+
+It is critical to maintain secure communication when sending tokens to the browser. Always use HTTPS connections to transmit tokens. The HTTPS method prevents potential interception and keeps the transaction secure.
+
+You should make sure that registering new accounts at your main website requires validation of the email address which is used. Otherwise, someone could sign up to your main site using somebody else's email address, thus getting access to his customer account in your Shopify store.
+
+Anchor to FAQ
+FAQ
+
+I have a huge customer database. How do I synchronize this with Shopify so that I can use multipass login?
+
+You don't need to synchronize anything. As soon as you redirect a customer using multipass, we will automatically create a customer account for them in your Shopify store (if one doesn't exist yet).
+
+Some of my customers have already placed orders on Shopify. How do I update those customers so they can login through multipass?
+
+You can use the
+Customer API
+ to set the
+multipass_identifier
+ for the customer. You will need to use the identifier with all your multipass requests for those customer accounts
+
+My secret was leaked. What do I do now?
+
+If your secret ever leaks, it can be revoked in your shop admin and a new one can be generated. This will make all of the old URLs invalid. You should do this as quickly as possible since everybody who knows the secret can potentially access every customer account!
+
+Can I use Multipass login between multiple Shopify stores?
+
+No, Multipass cannot be used to log in between multiple Shopify stores without redirection to an external site.
+
+Does Multipass login work with the wholesale channel?
+
+No, Multipass cannot be used with the wholesale channel.
+
+Can I restrict Multipass token usage to a customer's IP address?
+
+No. As part of improving our infrastructure and support for IPv6, Shopify no longer supports the use of the
+remote_ip
+ field in the customer data hash. This field is now deprecated as it primarily focused on IPv4 addresses and isn't compatible in IPv6 environments. Make sure you continue to use secure methods for managing sessions and authenticating user data.
+
+Was this page helpful?
+
+YesNo

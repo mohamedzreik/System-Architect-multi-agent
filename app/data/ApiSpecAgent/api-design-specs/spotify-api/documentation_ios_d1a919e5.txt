@@ -1,0 +1,96 @@
+This SDK lets you offload complexity to the main Spotify application
+such as: playback, authentication, networking, and offline caching. This means that
+you can focus on making your own user experience delightful.
+
+Getting started
+
+We have a friendly
+Getting Started
+ guide
+which walks you through configuring your Xcode project, as well as
+authenticating users, connecting to the Spotify main application, and
+subscribing to player state changes.
+
+To use the Spotify iOS SDK, your application will need to get the user's
+permission to control playback remotely first. We provide built-in support for
+this (as seen in the
+User Authentication section of the Getting Started
+), and
+
+additional scopes can be requested
+
+for making calls to the Spotify Web API.
+
+In the
+iOS SDK GitHub
+, you will
+find a
+Demo Projects
+ folder containing numerous demo applications with full
+source provided to help you build your first application with the iOS SDK.
+
+Key features
+
+Lightweight SDK
+
+Authentication
+
+Always-in-sync Playback (via the Spotify main application)
+
+Offline support *
+
+Built-in networking, track relinking, and caching support
+
+*Excludes calls to the Web API. User must initially authenticate your
+application, which requires an internet connection.
+
+Download
+
+The latest stable version of the iOS SDK can be downloaded from
+GitHub
+.
+
+Requirements
+
+The framework requires a deployment target of iOS 12 or higher. The following architectures are supported in the SDK:
+
+device: arm64
+
+simulator: arm64 x86_64
+
+A physical iOS device is needed to install the Spotify app.
+Learn more about building to devices
+.
+
+Documentation
+
+The documentation is organized as follows:
+
+Concepts that clarify key topics
+
+Tutorials, which serve as an introduction to important topics when using iOS SDK
+
+Reference, the API specification
+
+API documentation
+
+The download packages include comprehensive documentation of all API classes
+in the
+/docs
+ folder. You can also read the documentation
+
+online
+.
+
+Support
+
+Please report problems with this SDK through the
+public issue tracker
+ on GitHub.
+
+Legal
+
+Note that by using Spotify iOS SDK, you accept our
+Developer Terms of
+Service
+.

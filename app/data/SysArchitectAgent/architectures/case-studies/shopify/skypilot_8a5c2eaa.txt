@@ -1,0 +1,171 @@
+blog
+|
+AI & Machine Learning
+
+SkyPilot at Shopify: Multi-cloud GPUs without the pain
+
+GPUs are annoying. Shopify uses SkyPilot to make them less so: one YAML file, multiple clouds, clean development ergonomics.
+
+Published on Jan 26, 2026
+
+Running ML workloads at scale means dealing with GPUs. And GPUs are annoying. They're scarce, they're fragmented across clouds, and every provider has its own way of doing things. H200s here, L4s there, different APIs, different configurations. When you just want to train a model, the last thing you need is to become an expert in three different cloud consoles.
+
+At Shopify,
+ML work touches almost everything
+. Training all this machinery needs a lot of GPUs.
+
+We use
+SkyPilot
+ for all our training workloads. It's an open-source framework that lets you define jobs in YAML and run them on whatever cloud has capacity. You say what you need (GPUs, memory, disk) and the system figures out where to put it.
+
+SkyPilot comes equipped with many wonderful features, but we needed to make it work for an organization like ours. This required some expansions to support multi-team management, cost tracking, fair scheduling, the whole thing.
+
+The architecture
+
+We run persistent Kubernetes clusters on multiple clouds. Shopify uses SkyPilot as a launcher; it doesn't provision infrastructure (although it could). It schedules jobs onto clusters we already manage. Think of it as a smart scheduler that knows which cluster to target based on what you're asking for.
+
+Our data never leaves our control. Training datasets live in storage we own, replicated across clouds. When we train on Nebius, for instance, data comes from volumes within that environment. When we run on GCP, same story. Jobs run where the data already is.
+
+We built a SkyPilot plugin to address our company-specific needs, and hooked it into SkyPilot's policy engine. The core insight is that you can intercept every request before it gets to a cluster and do whatever you want with it. Validate labels. Route to different providers. Inject configurations. The user writes a YAML file, runs sky launch, and our plugin makes decisions they don't have to think about.
+
+Routing
+
+This is the part I find most satisfying. We run clusters on Nebius and GCP. Nebius gives us H200s with InfiniBand interconnect, serious hardware for distributed training at reasonable cost. GCP we use for special workloads: L4s for development, CPU-only data processing jobs.
+
+Our plugin looks at your request and decides where it goes:
+
+H200s? Nebius.
+
+L4s or CPU-only? GCP.
+
+You explicitly set
+force_provider_selection
+? Fine, we'll respect that.
+
+Engineers don't think about which cloud. They write
+accelerators: H200:8
+ and the platform handles the rest. The abstraction is in the routing, not in the interface. You still write YAML, you still understand what you're asking for. You just don't care where it runs.
+
+Why does this matter? The cloud landscape keeps shifting: pricing changes, new GPU generations appear, availability fluctuates. Our abstraction lets us shift with it. If tomorrow we add a third provider, most users won't notice. Their YAMLs stay the same.
+
+The interface
+
+Here's what a job looks like:
+
+The interesting bits are the labels. These are ours; SkyPilot just passes them through to the Kubernetes pods, and we handle the logic on the backend.
+
+showback_cost_owner_ref
+ tells us who to charge. Every job needs one, and if you forget, the system rejects you. This sounds annoying but it means we actually know where our GPU spend goes. Teams see their costs in dashboards and self-correct. No finance person chasing people down.
+
+ml.shopify.io/quota-group
+ maps to a
+Kueue
+ queue that we configure. Kueue is a Kubernetes job scheduler that handles fair-share scheduling (
+here
+ is the Kueue pattern that SkyPilot recommends). Your team gets a quota, and when the cluster is full, Kueue makes sure everyone gets their fair slice. No manual intervention, no paging someone to bump your job.
+
+ml.shopify.io/priority-class
+ determines preemption; again, something we configure in Kueue. Emergency jobs can kick out batch work. Interactive sessions get scheduled faster than automated pipelines. The hierarchy is: emergency, interactive, automated-low-priority, lowest. Most things are automated-low-priority.
+
+Nebius
+
+The Nebius integration required some work. H200 nodes use InfiniBand for GPU-to-GPU communication. This is fast. You bypass the CPU entirely, GPUs talk directly to each other over RDMA. But it needs specific configuration: you have to mount
+/dev/infiniband
+, add the
+IPC_LOCK
+ capability for memory locking, and make sure your Docker image has
+libibverbs1
+.
+
+We decided engineers shouldn't configure this manually. Our plugin detects H200 workloads and injects the right pod configuration automatically:
+
+We also mount shared caches automatically.
+/mnt/uv-cache
+ for Python packages,
+/mnt/huggingface-cache
+ for model weights. The first time someone downloads
+llama-70b
+, it's cached. The next job that needs it starts instantly. These little things add up when you're running hundreds of jobs.
+
+The storage architecture on Nebius is generous and configurable. The pay-as-we-grow model allows us to scale from 200TB to 2PB easily if ever needed. It also comes with 80 GiB/s read bandwidth. Jobs request disk space in their YAML, storage appears, volumes get cleaned up automatically after seven days of disuse. No provisioning tickets, no orphaned volumes eating money.
+
+Development environments
+
+Training jobs are one thing. But sometimes you just need a GPU to poke at something. Debug why your model isn't converging. Test a new library. Run a Jupyter notebook against real hardware
+
+We have a pattern for this: development environments. Add one label to your YAML,
+ml.shopify.io/dev: "true"
+, and the system treats it differently:
+
+Dev environments get the
+interactive
+ priority class automatically, so they schedule quickly. They're exempt from our GPU reaper, a service that terminates jobs running below 20% GPU utilization for extended periods. Useful for catching runaway training jobs, less useful when you're actively debugging. They're limited to one GPU, because if you need eight, you're probably not debugging anymore.
+
+The workflow is
+simple. sky launch -c devbox dev.yaml
+ gives you a machine.
+ssh devbox
+ gets you a shell. You do your thing, maybe run Jupyter with port forwarding, maybe just iterate in a terminal. When you're done,
+sky down devbox
+ cleans up. Or set
+autostop
+ and let it clean itself up when you inevitably forget.
+
+Philosophy
+
+We like this setup because engineers stay close to the metal. They write declarative configs, they understand the resources they're requesting, they can debug their jobs when things go wrong. The abstraction layer doesn't hide complexity. It handles the boring decisions so humans can focus on the interesting ones.
+
+The alternative would have been some elaborate UI or API that abstracts everything away. Those always feel good at first and then become prisons. It bounds your ceiling. You can't do the thing you need because the abstraction didn't anticipate it. With YAML and a policy plugin, the escape hatch is always there: just add a label, override a default, or ask us to add a new policy.
+
+If you need to run GPU workloads across multiple clouds, want a declarative interface instead of a heavy platform, and already have Kubernetes clusters, SkyPilot is worth a look. The policy system gives you a clean hook to inject organizational logic. Kueue solves fair scheduling better than anything we could have built ourselves. The combination took us from "each team figures out their own cloud setup" to "everyone uses the same interface and the platform handles the rest."
+
+Multi-cloud doesn't have to mean insane complexity.
+
+Come and play
+
+The ML Platform team builds the systems that make machine learning at Shopify possible. We're the ones behind the SkyPilot integration.
+
+We want engineers who care about other engineers. People who get satisfaction from watching a colleague launch a training job in minutes instead of days. Who think about abstractions, failure modes, and developer ergonomics. Who can debug a Kubernetes pod stuck in pending and also design a system that prevents it from happening again.
+
+You'll work on GPU clusters, job orchestration, multi-cloud routing, cost systems, and whatever else our ML teams need to move faster. The problems are real, the scale is significant, and the users are internal, which means fast feedback and no ambiguity about impact.
+
+If building platforms that accelerate others sounds like your kind of work,
+come play with us
+.
+
+SkyPilot
+ and
+Kueue
+ are both open source. Go explore.
+
+JM
+
+by
+Javier Moreno
+
+Published on Jan 26, 2026
+
+Share article
+
+Facebook
+
+Twitter
+
+LinkedIn
+
+by
+Javier Moreno
+
+Published on Jan 26, 2026
+
+• 6 minute read
+
+Development
+Introducing Ruvy
+Developer Tooling
+Building a ShopifyQL Code Editor
+
+Apps
+Shopify's platform is the Web platform
+Development
+The Engineering Story Behind Flex Comp

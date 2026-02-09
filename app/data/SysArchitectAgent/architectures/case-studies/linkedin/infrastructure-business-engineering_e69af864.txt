@@ -1,0 +1,129 @@
+linkedin-logo-full
+
+linkedin-logo-icon
+
+logo-404-frontlogo-404-back
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+Skip to main content
+
+Close jump menu
+
+[LinkedIn Logo
+
+LinkedIn Logo
+
+LinkedIn
+Engineering](/india-engineering)
+
+Teams
+
+Blog
+
+Join us
+
+Infrastructure Business Engineering (IBE)
+
+IBE brings the infrastructure closer to engineering teams per requirement and transforms the engineering projects to accounting language thereby taking away the financial worries from engineers.
+
+We support the IT (enterprise) as well as DC (production) requirements and work with engineers to understand their project needs, plan capacity, prepare demand forecasting, plan budgets and manage, spend, source and negotiate from the best in the industry to procure and maintain the asset through its life cycle. Finally, we decommission and dispose of the assets while managing every step according to legal policies and applying accounting principles.
+
+With a vision to build, manage and scale business processes to provide infrastructure consistently and reliability to our customers, our mission is to supply infrastructure that powers the economic graph and employee productivity through insights and process efficiency.
+
+Our goal is to build scalable org and systems to deliver infrastructure with flexibility and operational efficiency.
+
+IBE contributes to:
+
+Demand Forecasting:
+ Predict and align on demand forecast from business groups
+
+Infrastructure Planning:
+ Work with the business to translate roadmaps into capacity and financial plans
+
+Budget & Spend Management:
+ We are the Trusted Business Advisor to LinkedIn's Engineering and IT Organizations to Plan and Manage Our On-Prem and Cloud Infrastructure in a Cost-Efficient Manner and we Work with business to generate budget plans and optimize spend management.
+
+Sourcing:
+  Work with vendors on contract negotiations and pricing, including right-sizing business needs. We manage LinkedIn Engineering's technology sourcing and contractual needs. Specifically, this includes responsibilities for SiteUp (Site Engineering), IT (Enterprise Productivity Engineering) and all Software development tools/infrastructure to develop/maintain LinkedIn's app stack.
+
+Supply Chain Engineering:
+
+**Procurement through PO:**Execute procurement  through Purchase Orders an official offer issued by LinkedIn to a supplier that acts as a contract under LinkedIn's PO terms and conditions when the supplier performs against it, unless a signed Contract overrides those terms. Team ensures  infrastructure is delivered to stakeholders  on time. Technology procurements like Data Center Servers, Switches, SSDs, Network equipment, studio equipment, IT end user laptops, mobile devices, monitors and cloud/desktop software are some of the categories covered here
+
+**PO-Less transactions:**Involves invoice review and payments management for more than 34k+ inventory items every month for services such as Data Center/PoP rent, power, network, voice, mobile, etc. that LinkedIn procures from suppliers globally to support production and corporate environments. We keep the lights on for 'linkedIn.com' by meeting the contractual obligation with our suppliers globally to ensure payments are made within 30 days and this involves collaboration with suppliers to secure an accurate and acceptable invoice on time, validate, submit to Accounts Payable and then ensure payment is made and received by supplier. This is done on a monthly rinse and repeat cycle
+
+Asset Life-Cycle Management:
+ Responsible for asset management from the time it is procured until decommissioned for both IT and DC assets. Our purpose is to optimize management of the datacenter hardware assets throughout their life cycle, through utilization of thorough processes and best practices, our goal is to align available data center resources with business objectives through proper inventory management and re-allocation to increase return on investment
+
+Azure Subscription Management:
+ Azure subscription forecasting, procurement and provisioning
+
+Reporting & Insights:
+ Power BI dashboards for internal controls and data analysis helping business to make better decisions with insights and improve efficiency
+
+Back
+
+About
+
+Cookie Policy
+
+Privacy Policy
+
+Your California Privacy Choices
+
+User Agreement
+
+Accessibility
+
+LinkedIn logo
+
+© LinkedIn Corporation 2026
+
+dismiss

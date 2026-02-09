@@ -1,0 +1,94 @@
+Heroku CLI Authentication
+
+API Token Storage
+
+Retrieving the API Token
+
+Netrc File Format
+
+Last updated January 31, 2025
+
+Authentication on Heroku uses one of these mechanisms, depending on the situation.
+
+Web-based authentication
+
+Email and password
+
+API token
+
+SSH key
+
+The
+heroku
+ command uses the email address and password to obtain an API token. All other Heroku API requests use this token for authentication. A user can regenerate the token at will in the heroku.com web interface. Regenerating an API token invalidates the current token and creates a new one. If a user changes their password, their API token regenerates.
+
+The SSH key is used for Git push authentication when using SSH Git transport. You can use
+heroku keys
+ to
+manage your SSH keys on Heroku
+.
+
+API Token Storage
+
+The Heroku command-line tool stores API tokens in the standard Unix file
+~/.netrc
+ (
+$HOME\_netrc
+ on Windows).
+
+The netrc format is well established and well supported by various network tools on unix. With Heroku credentials stored in this file, other tools such as
+curl -n
+ can access the Heroku API with little or no extra work. When using the default HTTP transport, Git uses cURL and cURL uses the API key stored in
+.netrc
+ to authenticate with the Heroku HTTP Git service.
+
+Setting the
+HEROKU_API_KEY
+ environment variable on your machine overrides any token set in the netrc file.
+
+Usage Examples
+
+Running
+heroku login
+, or any other
+heroku
+ command that requires authentication, creates or updates your
+~/.netrc
+ file.
+
+$ heroku login
+heroku: Press any key to open up the browser to login or q to exit
+ › Warning: If browser does not open, visit
+ › https://cli-auth.heroku.com/auth/browser/***
+heroku: Waiting for login...
+Logging in... done
+Logged in as me@example.com
+$ cat ~/.netrc
+machine api.heroku.com
+ login me@example.com
+ password c4cd94da15ea0544802c2cfd5ec4ead324327430
+machine git.heroku.com
+ login me@example.com
+ password c4cd94da15ea0544802c2cfd5ec4ead324327430
+
+Retrieving the API Token
+
+You can display the token via the CLI.
+
+$ heroku auth:token
+c4cd94da15ea0544802c2cfd5ec4ead324327430
+
+Netrc File Format
+
+The file contains a list of free-form records and comments. Comments start with a
+#
+ (hash) symbol and continue to the end of the line.
+Each record is of the form:
+
+machine api.heroku.com
+ login me@example.com
+ password ABC123
+
+The password field is actually an OAuth token. Using the account's password is invalid and doesn't work.
+
+Feedback

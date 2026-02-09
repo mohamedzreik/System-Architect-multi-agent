@@ -1,0 +1,3547 @@
+Stripe logo
+
+Products
+
+Solutions
+
+Developers
+
+Resources
+
+Pricing
+
+Dashboard
+
+Sign in
+
+Sign in
+
+Contact sales
+
+Stripe logo
+
+Back
+
+Products
+
+Solutions
+
+Developers
+
+Resources
+
+Pricing
+
+Sign in
+
+Payments
+
+[Payments
+
+Online payments](/payments)
+
+[Payment Links
+
+No-code payments](/payments/payment-links)
+
+[Checkout
+
+Prebuilt payment form](/payments/checkout)
+
+[Elements
+
+Flexible UI components](/payments/elements)
+
+[Payment methods
+
+Access to 100+](/payments/payment-methods)
+
+[Terminal
+
+In-person payments](/terminal)
+
+[Radar
+
+Fraud prevention](/radar)
+
+[Authorization Boost
+
+Acceptance optimizations](/authorization-boost)
+
+[Link
+
+Accelerated checkout](/payments/link)
+
+Revenue
+
+[Billing
+
+Subscriptions and usage-based](/billing)
+
+[Usage-based billing
+
+Metered billing](/billing/usage-based-billing)
+
+[Invoicing
+
+One-time or recurring](/invoicing)
+
+[Tax
+
+Sales tax & VAT automation](/tax)
+
+[Revenue Recognition
+
+Accounting automation](/revenue-recognition)
+
+[Stripe Sigma
+
+Custom reports](/sigma)
+
+[Data Pipeline
+
+Data sync](/data-pipeline)
+
+Money Management
+
+[Financial Accounts
+
+Business finances](/financial-accounts)
+
+[Global Payouts
+
+Payouts to third parties](/payouts)
+
+[Capital
+
+Business financing](/capital)
+
+[Crypto
+
+Wallet, stablecoin issuing and card infrastructure](/crypto)
+
+Platforms and marketplaces
+
+[Connect
+
+Multiparty payments](/connect)
+
+[Capital for platforms
+
+Customer financing](/capital/platforms)
+
+[Financial Accounts for platforms
+
+Embedded financial services](/financial-accounts/platforms)
+
+[Issuing
+
+Physical and virtual cards](/issuing)
+
+More
+
+[Atlas
+
+Startup incorporation](/atlas)
+
+[Climate
+
+Carbon removal](/climate)
+
+[Identity
+
+Online identity verification](/identity)
+
+[Financial Connections
+
+Linked financial account data](/financial-connections)
+
+Join us at Sessions
+
+Register to attend our annual conference in San Francisco April 29–30.
+
+Register now
+
+By stage
+
+Enterprises
+
+Startups
+
+By use case
+
+Agentic commerce
+
+Ecommerce
+
+Embedded finance
+
+Finance automation
+
+Global businesses
+
+In-app payments
+
+Marketplaces
+
+Platforms
+
+SaaS
+
+By industry
+
+AI companies
+
+Creator economy
+
+Hospitality, travel, and leisure
+
+Insurance
+
+Media and entertainment
+
+Nonprofits
+
+Retail
+
+Ecosystem
+
+Partners
+
+Stripe App Marketplace
+
+Documentation
+
+Stripe docs
+
+API reference
+
+Libraries and SDKs
+
+Stripe Apps
+
+Guides
+
+Accept online payments
+
+Implement a prebuilt checkout
+
+Build a platform or marketplace
+
+Manage subscriptions
+
+Offer usage-based billing
+
+Issue stablecoin-backed cards
+
+Resources
+
+App integrations
+
+Code samples
+
+Developers blog
+
+API status
+
+Learn
+
+Blog
+
+Customer stories
+
+Guides
+
+Support
+
+Get support
+
+Managed support plans
+
+Professional services
+
+Company
+
+Sessions annual conference
+
+Jobs
+
+Newsroom
+
+Stripe Press
+
+Contact
+
+Contact sales
+
+Become a partner
+
+Start now
+
+Contact sales
+
+Payments
+
+[Payments
+
+Online payments](/payments)
+
+[Payment Links
+
+No-code payments](/payments/payment-links)
+
+[Checkout
+
+Prebuilt payment form](/payments/checkout)
+
+[Elements
+
+Flexible UI components](/payments/elements)
+
+[Payment methods
+
+Access to 100+](/payments/payment-methods)
+
+[Terminal
+
+In-person payments](/terminal)
+
+[Radar
+
+Fraud prevention](/radar)
+
+[Authorization Boost
+
+Acceptance optimizations](/authorization-boost)
+
+[Link
+
+Accelerated checkout](/payments/link)
+
+Revenue
+
+[Billing
+
+Subscriptions and usage-based](/billing)
+
+[Usage-based billing
+
+Metered billing](/billing/usage-based-billing)
+
+[Invoicing
+
+One-time or recurring](/invoicing)
+
+[Tax
+
+Sales tax & VAT automation](/tax)
+
+[Revenue Recognition
+
+Accounting automation](/revenue-recognition)
+
+[Stripe Sigma
+
+Custom reports](/sigma)
+
+[Data Pipeline
+
+Data sync](/data-pipeline)
+
+Money Management
+
+[Financial Accounts
+
+Business finances](/financial-accounts)
+
+[Global Payouts
+
+Payouts to third parties](/payouts)
+
+[Capital
+
+Business financing](/capital)
+
+[Crypto
+
+Wallet, stablecoin issuing and card infrastructure](/crypto)
+
+Platforms and marketplaces
+
+[Connect
+
+Multiparty payments](/connect)
+
+[Capital for platforms
+
+Customer financing](/capital/platforms)
+
+[Financial Accounts for platforms
+
+Embedded financial services](/financial-accounts/platforms)
+
+[Issuing
+
+Physical and virtual cards](/issuing)
+
+More
+
+[Atlas
+
+Startup incorporation](/atlas)
+
+[Climate
+
+Carbon removal](/climate)
+
+[Identity
+
+Online identity verification](/identity)
+
+[Financial Connections
+
+Linked financial account data](/financial-connections)
+
+Join us at Sessions
+
+Register to attend our annual conference in San Francisco April 29–30.
+
+Register now
+
+By stage
+
+Enterprises
+
+Startups
+
+By use case
+
+Agentic commerce
+
+Ecommerce
+
+Embedded finance
+
+Finance automation
+
+Global businesses
+
+In-app payments
+
+Marketplaces
+
+Platforms
+
+SaaS
+
+By industry
+
+AI companies
+
+Creator economy
+
+Hospitality, travel, and leisure
+
+Insurance
+
+Media and entertainment
+
+Nonprofits
+
+Retail
+
+Ecosystem
+
+Partners
+
+Stripe App Marketplace
+
+Documentation
+
+Stripe docs
+
+API reference
+
+Libraries and SDKs
+
+Stripe Apps
+
+Guides
+
+Accept online payments
+
+Implement a prebuilt checkout
+
+Build a platform or marketplace
+
+Manage subscriptions
+
+Offer usage-based billing
+
+Issue stablecoin-backed cards
+
+Resources
+
+App integrations
+
+Code samples
+
+Developers blog
+
+API status
+
+Learn
+
+Blog
+
+Customer stories
+
+Guides
+
+Support
+
+Get support
+
+Managed support plans
+
+Professional services
+
+Company
+
+Sessions annual conference
+
+Jobs
+
+Newsroom
+
+Stripe Press
+
+Contact
+
+Contact sales
+
+Become a partner
+
+Payments
+
+Payments
+
+Overview
+
+Features
+
+Payment methods
+
+Authentication
+
+AI
+
+Convert more customers with the most relevant payment methods
+
+Acquire more customers and improve conversion by offering the most popular payment methods around the world. Join millions of global businesses like Amazon, Atlassian, and WooCommerce that launch and manage payment methods through Stripe.
+
+Start now
+
+Contact sales
+
+Github logo
+
+Card
+
+Card Number
+
+Expiration Date
+
+Security Code
+
+Country
+United States
+
+Zip Code
+
+Italic logo
+
+Cart
+·
+Shipping
+·
+Payment
+
+Contact info
+
+micaela@email.com
+
+Micaela Patel
+920 5th Ave #1900, Seattle, WA 98104
+Change
+
+Payment
+
+•••• 4242
+
+ApartmentsDotCom logo
+
+Select a payment method
+
+US bank account
+
+Card
+
+Search for your bank
+
+OrchardMile logo
+
+Pick a payment plan with Affirm
+
+$166.67/month
+
+3 months
+
+APR
+0.00%
+
+Interest
+$0.00
+
+Total
+$500.00
+
+$85.82/month
+
+6 months
+
+APR
+10.00%
+
+Interest
+$14.92
+
+Total
+$512.92
+
+Glossier logo
+
+Installments by
+
+Your order
+$240.84
+
+4 x payments of
+$60.21
+
+Down payment due today
+$60.21
+
+Debit or credit card
+
+•••• 4242
+07/2023
+
+Change
+
+Provide global coverage
+
+Adapt to customer preferences and expand into new markets with access to 125+ payment methods used by buyers around the world.
+
+Boost revenue and lower costs
+
+Boost revenue by up to 14% with buy now, pay later, and lower transaction costs with bank debits and real-time payments.
+
+Optimize for conversion
+
+Dynamically surface the most relevant payment methods for each customer using AI, increasing conversion by 3% and transaction value by 7% on average.
+
+Launch faster
+
+Launch payment methods with a single integration—no additional engineering work required.
+
+All popular ways to pay
+
+Offer the right payment methods for your business
+
+Stripe takes the guesswork out of payment methods. Whether you're looking to reach new customers with alternative payment methods, increase the average order value with buy now, pay later, or lower transaction costs with bank debits, Stripe enables you to offer the relevant payment methods for your business model and region. Stripe now directly supports 125+ payment methods, as well as any custom payment method you'd like to add.
+
+Opens the multi-select filter menu
+
+Use case
+
+label
+
+label
+
+Opens the multi-select filter menu
+
+Payment family
+
+label
+
+label
+
+Opens the multi-select filter menu
+
+Business location
+
+label
+
+label
+
+Showing payment methods supported on Stripe.
+
+Clear all filters
+
+ApplePay
+
+Apple Pay
+
+Offer Apple Pay out of the box to customers who have set it up on their device or browser, enabling faster checkout.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+Affirm
+
+Affirm
+
+Let US and CA customers pay in 4 interest-free payments every 2 weeks or monthly installments up to 36 months depending on location. Affirm has over 31 million addressable customers in the US and CA.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Afterpay
+
+Afterpay/Clearpay
+
+Let your customers break their payment into 3 or 4 interest-free installments using Afterpay/Clearpay, with 25 million active global customers.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country (or in the European Union) where you are offering the payment method.
+
+Klarna
+
+Klarna
+
+Offer flexible payment options that give customers more freedom to choose when and how to pay for a purchase, with 150 million consumers across 27 markets.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country (or in the European Union) where you are offering the payment method.
+
+CashAppPay
+
+Cash App Pay
+
+Accept payments with Cash App Pay, allowing customers to pay using their Cash App balance or linked debit card.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Link
+
+Link
+
+Deliver a frictionless and seamless checkout experience with Link, a 1-click checkout that autofills your customer's payment and shipping details.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+PayPal
+
+PayPal
+
+PayPal is a trusted payment option used by hundreds of millions of global customers in more than 200 countries to pay safely and securely.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you have a legal entity registered in European Union, UK or Switzerland.
+
+Bank
+
+SEPA bank transfers
+
+Keep transaction costs low with bank transfers—ideal for large, one-off transactions like B2B payments.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PayNow
+
+PayNow
+
+Offer customers the option to pay using PayNow, Singapore's national payment scheme and the fastest growing major payment method in the country.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+WeChat Pay
+
+WeChat Pay
+
+Let your customers pay with WeChat Pay—the wallet inside the popular messaging app WeChat that has more than 900 million active monthly users.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+SPEI
+
+Mexico bank transfers (SPEI)
+
+Keep transaction costs low with bank transfers—ideal for large, one-off transactions like B2B payments.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Konbini
+
+Konbini
+
+Offer customers the option to pay at over 34,000 convenience stores in Japan through a unified Stripe integration.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Show all payment methods
+
+Bank
+
+USD bank transfers
+
+Keep transaction costs low and reduce operational burden with bank transfers—ideal for large, one-off transactions like B2B payments.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+iDEAL | Wero
+
+iDEAL
+
+Increase conversion with Dutch customers by enabling iDEAL—the most popular payment method in the Netherlands, with more than 60% share of online payments.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+Affirm
+
+Affirm
+
+Let US and CA customers pay in 4 interest-free payments every 2 weeks or monthly installments up to 36 months depending on location. Affirm has over 31 million addressable customers in the US and CA.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Afterpay
+
+Afterpay/Clearpay
+
+Let your customers break their payment into 3 or 4 interest-free installments using Afterpay/Clearpay, with 25 million active global customers.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country (or in the European Union) where you are offering the payment method.
+
+Card
+
+Meses Sin Intereses
+
+Offer your customers in Mexico the option to split their purchases into fixed monthly payments to increase conversions.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PayNow
+
+PayNow
+
+Offer customers the option to pay using PayNow, Singapore's national payment scheme and the fastest growing major payment method in the country.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PayPal
+
+PayPal
+
+PayPal is a trusted payment option used by hundreds of millions of global customers in more than 200 countries to pay safely and securely.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you have a legal entity registered in European Union, UK or Switzerland.
+
+OXXO
+
+OXXO
+
+Let your Mexican customers pay with OXXO—a voucher-based payment method that represents more than 30% of transactions in Mexico.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Bank
+
+Pre-authorized debits
+
+Let your customers pay with pre-authorized debits (PADs), a popular direct debit payment method in Canada.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Konbini
+
+Konbini
+
+Offer customers the option to pay at over 34,000 convenience stores in Japan through a unified Stripe integration.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PromptPay
+
+PromptPay
+
+Let customers in Thailand pay using PromptPay, the national payment scheme supported by the Thai government.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Przelewy24
+
+Przelewy24
+
+Let your Polish customers pay with multiple local polish payment methods, from the P24 portal.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+Mastercard
+
+Mastercard
+
+Accept the dominant payment method globally with one of the largest card networks in the world.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+SEPA
+
+SEPA Direct Debit
+
+Minimize involuntary churn for subscriptions or recurring payments by debiting your customers' bank accounts in 36 European countries.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+Visa
+
+Visa
+
+Accept the dominant payment method globally with one of the largest card networks in the world.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+DinersClub
+
+Diners Club
+
+Accept the popular credit card supported in more than 185 countries.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+Discover
+
+Discover
+
+Accept a popular US card with high authorization rates.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+EPS
+
+EPS
+
+Let your Austrian customers pay with EPS—an online transfer payment method with over 18% market share in Austria.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+FPX
+
+FPX
+
+Let your Malaysian customers pay with FPX, one of the most popular payment methods in Malaysia, using their bank credentials.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+GrabPay
+
+GrabPay
+
+Let your Singapore and Malaysia customers pay with GrabPay wallets.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+GooglePay
+
+Google Pay
+
+Offer Google Pay out of the box to customers who have set it up on their device or browser.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+Interac
+
+Interac (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Accept the dominant payment method globally with Canada's leading debit card.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+JCB
+
+JCB
+
+Support more than 150 million cardholders worldwide with the only Japan-based international card brand.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+JCB
+
+JCBI
+
+Support 140 million cardholders shopping worldwide with JCBI, the one and only international payment brand from Japan.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+Klarna
+
+Klarna
+
+Offer flexible payment options that give customers more freedom to choose when and how to pay for a purchase, with 150 million consumers across 27 markets.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country (or in the European Union) where you are offering the payment method.
+
+Link
+
+Link
+
+Deliver a frictionless and seamless checkout experience with Link, a 1-click checkout that autofills your customer's payment and shipping details.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+CartesBancaires
+
+Cartes Bancaires
+
+Expand your reach and increase your conversion rate with France's largest card network.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+ApplePay
+
+Apple Pay
+
+Offer Apple Pay out of the box to customers who have set it up on their device or browser, enabling faster checkout.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+AmericanExpress
+
+American Express
+
+Accept the dominant payment method globally with a popular credit card used in more than 130 countries.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+Boleto
+
+Boleto
+
+Let your Brazilian customers pay with Boleto—a voucher-based payment method that represents more than 20% of transactions in Brazil.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+BLIK
+
+BLIK
+
+Let your Polish customers pay with BLIK, Poland's largest payment method with more than 65% share of e-commerce payments.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+This payment method requires you to have a legal entity registered in the European Union to offer the payment method.
+
+Bank
+
+Australian BECS Direct Debit
+
+Accept Bulk Electronic Clearing System (BECS) Direct Debit payments from customers with an Australian bank account.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Bank
+
+Bacs Direct Debit
+
+Let your UK customers set up one-off or recurring payments through Bacs Direct Debit.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Bancontact
+
+Bancontact
+
+Let your Belgian customers pay with Bancontact—Belgium's most popular payment method offered by over 80% of online businesses.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+Alipay
+
+Alipay
+
+Allow customers in China as well as Chinese travelers to pay with Alipay in 11 major currencies.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+Bank
+
+UK bank transfers
+
+Keep transaction costs low with bank transfers—ideal for large, one-off transactions like B2B payments.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Bank
+
+SEPA bank transfers
+
+Keep transaction costs low with bank transfers—ideal for large, one-off transactions like B2B payments.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Bank
+
+Bank Transfers (Furikomi)
+
+Keep transaction costs low with bank transfers—ideal for large, one-off transactions like B2B payments.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+WeChat Pay
+
+WeChat Pay
+
+Let your customers pay with WeChat Pay—the wallet inside the popular messaging app WeChat that has more than 900 million active monthly users.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+SPEI
+
+Mexico bank transfers (SPEI)
+
+Keep transaction costs low with bank transfers—ideal for large, one-off transactions like B2B payments.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+UnionPay
+
+China UnionPay
+
+Support nearly 9 billion UnionPay cards in circulation worldwide when you integrate with Stripe.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+Eftpos
+
+eftpos Australia
+
+Accept payments through eftpos, Australia's local debit payment system with more than 50 million cards.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Zip
+
+Zip
+
+Give customers a more flexible way with Zip. Customers can pay with flexible weekly, biweekly, or monthly payment schedules.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+CashAppPay
+
+Cash App Pay
+
+Accept payments with Cash App Pay, allowing customers to pay using their Cash App balance or linked debit card.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+RevolutPay
+
+Revolut Pay
+
+Offer your customers in the UK and the EEA the convenience of Revolut Pay, allowing them to pay directly through their Revolut account or to check out as a guest.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country (or in the European Union) where you are offering the payment method.
+
+MobilePay
+
+MobilePay
+
+Offer customers the option to pay with MobilePay, a single-use card wallet payment method used in Denmark and Finland.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country (or in the European Union) where you are offering the payment method.
+
+Swish
+
+Swish (Preview)
+
+Let your Swedish customers pay with Swish, an app-based payment method used by more than 8 million users.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+This payment method requires you to have a legal entity registered in the country (or in the European Union) where you are offering the payment method.
+
+Scalapay
+
+Scalapay (Preview)
+
+Let your customers in 10 different European countries split their purchase into 3 interest-free installments.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PayPo (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Give your customers in Poland the flexibility to pay up to 30 days later or in convenient installment plans to increase conversion.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Kriya
+
+Kriya (Preview)
+
+Get paid up front and give your B2B customers the option to pay in 30 days.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Oney
+
+Oney (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Give your customers in Spain and France flexible payment options for a hassle-free shopping experience.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Mondu
+
+Mondu (Preview)
+
+Boost sales by giving B2B customers the option to pay over time while you're paid in full up front.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+IwocaPay
+
+iwocaPay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow businesses in the UK to choose between paying now or paying later.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+GrabPay
+
+Grab PayLater (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers in Singapore to make interest-free installment payments instead of paying in full up front.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Divido
+
+Divido (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers in the UK to make interest-free installment payments instead of paying in full up front.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Sofinco
+
+Sofinco (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Offer your customers in France the flexibility to complete payment in 3 or 4 times to boost conversion rates and increase average spending.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Billie
+
+Billie
+
+Increase revenue by offering 30-day payment terms for B2B transactions while you receive full payment upfront.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+PlanPay
+
+PlanPay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Provide your Australian customers with the freedom to choose installment plans of up to 24 months.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Younited
+
+YounitedPay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Offer your customers the ability to pay in installments over 10 to 84 months.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Walley
+
+Walley (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers to pay in installments or extend the payment period on your invoices.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Tabby (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers in the UAE to split purchases into 4 interest-free payments. Shariah-compliant.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Sezzle (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Give your customers the flexibility to choose from diverse options to split their payments over time.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+TouchNGo
+
+Touch'n Go (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Increase your conversion rates with customers in Malaysia by leveraging Touch'n Go, one of the most popular wallets in the country.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+PostFinance
+
+PostFinance (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Give your customers in Switzerland the option to pay easily and securely with PostFinance.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+PicPay
+
+PicPay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers in Brazil to check out faster through PicPay.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+LinePay
+
+LINE Pay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow customers on the LINE app to shop online, pay utility bills, and send money to friends.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Azupay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Let your customers in Australia pay securely and faster with Azupay.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Postepay
+
+Postepay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers in Italy to securely pay with PostePay, a popular prepaid card in Italy.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+KBC (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Offer your customers in Belgium the option to pay directly with their KBC bank account.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Payconiq
+
+Payconiq (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow customers in Belgium to securely make payments directly from their Belgian bank accounts.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+TrueLayer
+
+TrueLayer (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Increase conversion rates in the UK via Europe's leading open banking network while ensuring smarter, faster and safer payments both online and in-app.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+Paidy
+
+Paidy (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Empower your customers in Japan, allowing them to conveniently pay in 3, 6, or 12 installments.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PayPay
+
+PayPay
+
+Allow your customers in Japan to make payments with the largest mobile wallet in Japan.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Rakuten Pay
+
+楽天ペイ (Rakuten Pay) (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe. (Preview)
+
+Boost your conversion rates in Japan by providing payment options through Rakuten Pay, a widely used wallet.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PayEasy
+
+ペイジー (PayEasy) (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Cater to your Japanese customers with convenient options to pay online with cash vouchers.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+MerPay
+
+メルペイ (Merpay) (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Increase conversion in Japan by offering payments with Merpay, a popular wallet in the country.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Atone
+
+atone (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow customers to pay with their phones at convenience stores without a credit card, bank account, or advance payment.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+AllPay
+
+au PAY (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow customers to pay with their phones at convenience stores and supermarkets so they can earn points to receive money off their purchases.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Dapp (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Provide your customers in Mexico the chance to pay directly with their bank, using a QR code or in a convenience store.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Nexi
+
+Nexi Pay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Enable convenient and secure payments for your Italian customers using Nexi Pay, one of Italy's most popular payment methods.
+
+Learn more
+
+Bank redirect
+
+Increase conversion by offering customers a more convenient and secure way to pay from their bank account. By authorizing payment using the customer's online banking credentials, bank redirects are the preferred method of paying online in many countries.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+PaySafeCard
+
+PaySafeCard (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your global customers to pay with cash online by prepaid vouchers available at over 600,000 outlets worldwide.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+Fonix
+
+Fonix (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Increase your conversion rates with customers in the UK through frictionless digital payments charged to their mobile phone bill.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+GCash
+
+GCash (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers in the Philippines to send money online, top up mobile phone credits, and pay bills.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+FamiPay
+
+FamiPay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Enhance conversion rates by providing the flexibility and convenience your Japanese customers seek through this widely adopted local wallet.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Toss Pay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Let your customers link credit cards and bank accounts in South Korea to make online payments.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Bank Pay (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Let your customers in Japan make payments and recharge directly from their financial institution account.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+BitCash (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow customers in Japan to pay with a popular prepaid card operator for digital content, downloads, and games.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+auかんたん決済 (au carrier payments) (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Let your customers in Japan pay from their au mobile phone account.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Fawry (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow your customers in Egypt to make purchases online and pay for them in cash at a Fawry terminal.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+WebMoney (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Empower your customers in Japan to make payments and recharge funds directly from their bank accounts.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+ソフトバンクまとめて支払い (SoftBank carrier payments) (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Let your customers in Japan pay with their SoftBank mobile phone account.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Benefit (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Provide your customers in Bahrain with a convenient way to pay through Benefit, Bahrain's National Electronic Wallet Payment System.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+MoMo (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Allow customers to pay with Vietnam's most popular digital wallet.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+d払い (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Let your customers in Japan pay with their Docomo wallet.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+NET CASH (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Accept payments for digital content, downloads, and games by offering the convenience of using NetCash, a popular prepaid card in Japan
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Aplazame (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Boost your conversion rates in Spain by offering customers the convenience of paying in installments, with options for up to 36 months.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Sequra
+
+seQura (Preview)
+
+Grow sales by giving customers in Spain the option to pay over 3, 6, 9, or 12 installments.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+AlmaPay
+
+Alma
+
+Provide flexible payment options and a streamlined experience for your shoppers in Europe.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+test
+
+Amazon Pay
+
+Amazon Pay
+
+Allow your customers to pay using the same checkout experience that millions of Amazon customers know and trust.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+Twint
+
+TWINT
+
+Let Swiss customers pay with TWINT, a popular bank redirect method in Switzerland.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+Octopus
+
+Octopus (External) External payment methods require a separate direct integration and agreement with the payment method provider and are not supported on Stripe.
+
+Facilitate seamless payments for your Hong Kong customers through their Octopus wallets.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Satispay
+
+Satispay
+
+Offer your customers in Italy a seamless shopping experience by accepting payments through Satispay.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+Sunbit
+
+Sunbit (Preview)
+
+Provide flexible payment options and a streamlined experience for your shoppers.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+CapChase
+
+Capchase Pay (Preview)
+
+Offer flexible payment terms for B2B SaaS contracts while getting paid instantly.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Bank
+
+Pay by Bank
+
+Accept payments in real time and reduce payment costs with Stripe's Open Banking–powered payment method.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+Multibanco
+
+Multibanco
+
+Allow your customers in Portugal to pay with Multibanco, a voucher-based payment method.
+
+Learn more
+
+Cash-based voucher
+
+Allow customers to pay bills and online purchases in-store with cash.
+
+Payto
+
+PayTo
+
+PayTo is a real-time payment method in Australia for accepting one-time and recurring payments.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+KoreanCards
+
+Korean cards
+
+Let your customers pay with all local cards in South Korea—a country with dozens of card issuers—without needing to set up a Korean business entity.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+NaverPay
+
+Naver Pay
+
+Let your South Korean customers pay with Naver Pay, one of the most popular mobile wallets in Korea.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+KakaoPay
+
+Kakao
+
+Let your South Korean customers pay with Kakao Pay, the wallet inside the popular messaging app KakaoTalk, which enables a more seamless checkout experience.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+Payco
+
+PayCo
+
+Let your South Korean customers pay with PayCo, a mobile wallet that enables customers to pay online easier with cards, bank accounts, carrier billing, gift certificates, and even ATMs.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+SamsungPay
+
+Samsung Pay
+
+Let your customers pay with all local cards in South Korea—a country with dozens of card issuers—without needing to set up a Korean business entity.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+NigerianCards
+
+Nigerian cards (Preview)
+
+Localize your customer experience and accept payments from the most popular payment methods available in Nigeria without a local Nigerian entity.
+
+Learn more
+
+Cards
+
+Accept all major debit and credit cards from customers in every country.
+
+NigerianCards
+
+Nigerian bank transfers (Preview)
+
+Localize your customer experience and accept payments from the most popular payment methods available in Nigeria without a local Nigerian entity.
+
+Learn more
+
+Bank transfer
+
+For large transactions, Stripe makes it possible to accept credit transfers or wires with automated reconciliation, lowering the chance of payment failure without adding operational complexity.
+
+PaymentOnInvoice
+
+Payment on invoice (Preview)
+
+Allow your customers to pay by invoice, a popular local payment method in Germany giving them the flexibility to pay over time while you get paid up front.
+
+Learn more
+
+Buy now, pay later
+
+Offer flexible buy now, pay later payment options that increase your customers' purchasing power, leading to higher conversion and order value.
+
+Bank
+
+Instant Bank Payments
+
+Reduce transaction costs while maintaining the confirmation speed of cards. Instant Bank Payments are built into Link to deliver a frictionless customer experience.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you have a legal entity registered in the US and is valid for US bank accounts.
+
+Bank
+
+ACH Direct Debit
+
+Lower transaction costs and minimize payment failure rates with ACH bank debits, popular in the US.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Bank
+
+New Zealand BECS Direct Debit
+
+Accept Bulk Electronic Clearing System (BECS) Direct Debit payments from customers with a New Zealand bank account.
+
+Learn more
+
+Bank debit
+
+By debiting your customer's bank account directly, you can capture cost savings on transaction fees when compared to cards.
+
+This payment method requires you to have a legal entity registered in the country where you are offering the payment method.
+
+Pix
+
+Pix
+
+Increase conversion with Brazilian customers by enabling Pix, Brazil's leading payment method used by over 150 million people.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+UPI
+
+UPI (Preview)
+
+Provide Indian customers the option to pay with Unified Payments Interface (UPI)—India's most popular payment method used by more than 350 million customers.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+Stablecoins
+
+Stablecoins (Preview)
+
+Reach more global customers, reduce costs, and minimize cross-border exchange fees by offering stablecoins as a payment method directly in your checkout.
+
+Learn more
+
+Crypto
+
+Increase revenue by accepting payments from more customers around the world with stablecoins. You can accept USDC payments on Ethereum, Solana, and Polygon, and Stripe will automatically settle it in fiat currency in your account.
+
+MBWay
+
+MB WAY
+
+Increase conversion with Portuguese customers by enabling MB WAY—a popular digital wallet payment method in Portugal, with more than 45% share of online payments.
+
+Learn more
+
+Wallets
+
+Enable your customers to check out faster with wallet payment methods that digitally store credit and debit cards. Wallets eliminate the need for customers to manually enter their card and billing information, offering a quick and convenient way to pay.
+
+Wero
+
+Wero (Preview)
+
+Let your German customers pay with Wero—the instant account-to-account payment method with bank-backed security and built to expand across Europe.
+
+Learn more
+
+Real-time payments
+
+Enable your customers to pay almost instantly, 24/7 directly from their bank accounts, wallets, or other funding source, which helps increase speed and conversion—all at a low cost to your business.
+
+Built-in optimization
+
+Increase conversion with a frictionless checkout experience
+
+Optimize your checkout experience with the
+Payment Element
+ or
+Checkout
+, a single integration that unlocks payment methods without requiring custom logic or expert knowledge.
+
+Businesses using Stripe's Optimized Checkout Suite saw 11.9% more revenue on average.
+
+Surface the highest-converting payment methods
+
+Payment methods are dynamically selected using AI that incorporates signals like your customer's device, location, and local currency.
+
+Deliver a localized payment experience
+
+Get out-of-the-box support for localized error messages, right-to-left languages, and automatic adjustment of input fields based on payment method and country.
+
+United States
+
+Germany
+
+United Kingdom
+
+China
+
+Mexico
+
+Card
+
+Afterpay
+
+Buy now pay later
+
+Affirm
+
+Buy now pay later
+
+4 interest-free payments of $56
+. Learn more.
+
+After submission, you will be redirected to securely complete next steps.
+
+Pay $168.00
+
+Klarna
+
+Jetzt kaufen, später bezahlen
+
+E-Mail
+
+Vor- und Nachname
+
+Land
+Deutschland
+
+Nach dem Absenden werden Sie weitergeleitet, um die nächsten Schritte sicher abzuschließen.
+
+SEPA-Lastschrift
+
+Paypal
+
+Card
+
+Card Number
+
+Expiry Date
+
+CVC
+
+Klarna
+
+Buy now pay later
+
+Clearpay
+
+Buy now pay later
+
+Pay £235.00
+
+银行卡
+
+卡号
+
+有效期
+
+CVC
+
+支付宝
+
+微信支付
+
+支付 ¥450.00
+
+Tarjeta
+
+Número de tarjeta
+
+Caducidad
+
+CVC
+
+Transferencias bancarias
+
+OXXO
+
+Pagar MXN 3,500.00
+
+We saw a gap in the market and we were looking to launch our business as fast as possible. Stripe was the best partner for us to launch in the Netherlands, but also to help us scale to other countries and easily add preferred local payment methods when we needed to.
+
+Maarten Poot, CPO
+
+Felyx logo
+
+Reduce time and effort
+
+Launch and expand faster with a single integration
+
+1
+
+Get started in minutes
+
+Accept payments on your site with select payment methods enabled based on your business location.
+
+2
+
+Test and manage with no code
+
+Add payment methods, launch A/B tests to understand impact, and set custom rules for most payment methods directly in the Stripe Dashboard.
+
+3
+
+Access unified monitoring and reporting
+
+Payments made with payment methods appear in the Stripe Dashboard, reducing operational complexity and simplifying financial reconciliation.
+
+Explore countries
+
+Global payments, local expertise
+
+See how consumer payment method preferences vary across the world.
+
+Australia
+Canada
+France
+Germany
+Italy
+Japan
+Malaysia
+Mexico
+Netherlands
+New Zealand
+Poland
+Singapore
+Spain
+Sweden
+United Kingdom
+United States
+
+Credit cards remain the dominant payment method, with digital wallets gaining popularity.
+
+Popular payment methods
+
+Visa
+
+Mastercard
+
+American Express
+
+ACH Direct Debit
+
+Apple Pay
+
+USD bank transfers
+
+Klarna
+
+Google Pay
+
+Discover
+
+Affirm
+
+Cash App Afterpay
+
+Amazon Pay
+
+Payment method share
+
+Card:
+64
+%
+
+Wallets:
+22
+%
+
+Bank debits:
+2
+%
+
+Bank redirects:
+0
+%
+
+Bank transfers:
+4
+%
+
+Buy now, pay later:
+4
+%
+
+Cash based vouchers:
+1
+%
+
+Other:
+3
+%
+
+Credit card penetration
+
+64%
+
+Banked population
+
+93%
+
+83% of point-of-sale payments in Australia were contactless in 2019, making Australia the world's largest contactless payments country. Digital wallets have since gained traction with roughly 25% of card payments being done through a digitial wallet in 2022.
+
+Popular payment methods
+
+Visa
+
+Australian BECS Direct Debit
+
+Afterpay/Clearpay
+
+American Express
+
+Mastercard
+
+eftpos Australia
+
+Apple Pay
+
+Google Pay
+
+Click to Pay
+
+Zip
+
+Consumers in Canada primarily use credit cards or debit cards, with digital wallets gaining popularity.
+
+Popular payment methods
+
+Visa
+
+Mastercard
+
+Interac
+
+American Express
+
+Pre-authorized debits
+
+Affirm
+
+Cartes Bancaires (CB) is the largest domestic card network in France, accounting for approximately 80% of in-person payments and 60% of online payments.
+
+Popular payment methods
+
+Cartes Bancaires
+
+PayPal
+
+SEPA bank transfers
+
+SEPA Direct Debit
+
+Visa
+
+Mastercard
+
+Apple Pay
+
+Google Pay
+
+Klarna
+
+Alma
+
+Wallets like PayPal are the preferred way to pay online, with buy now, pay later increasing in popularity.
+
+Popular payment methods
+
+PayPal
+
+Visa
+
+Mastercard
+
+SEPA Direct Debit
+
+SEPA bank transfers
+
+Klarna
+
+Apple Pay
+
+Google Pay
+
+A more mature population that favors cash purchases in-store has resulted in slower growth in the ecommerce market than in other European countries. However, 37% of the population made their first online purchases due to the
+pandemic.
+
+Popular payment methods
+
+PayPal
+
+Visa
+
+Mastercard
+
+Apple Pay
+
+SEPA Direct Debit
+
+SEPA bank transfers
+
+Google Pay
+
+American Express
+
+Klarna
+
+Satispay
+
+Roughly 70% of ecommerce payments are made with credit cards. Japan has a unique mix of local payment methods such as Konbini and bank transfers, which remain popular.
+
+Popular payment methods
+
+Visa
+
+Mastercard
+
+JCB
+
+American Express
+
+Konbini
+
+Bank Transfers (Furikomi)
+
+PayPay
+
+Roughly 50% of consumer payments for online purchases are made via FPX and digital wallets in Malaysia. Cash on delivery remains a popular form of payment, representing about 11% of online purchases.
+
+Popular payment methods
+
+FPX
+
+Visa
+
+Mastercard
+
+GrabPay
+
+Google Pay
+
+American Express
+
+Alipay
+
+WeChat Pay
+
+Touch'n Go
+
+With a low banked population, most prefer making payments using cash at convenience stores in Mexico. Additionally, 30–40% of all ecommerce spend is made using an installment plan.
+
+Popular payment methods
+
+Visa
+
+Mastercard
+
+Mexico bank transfers (SPEI)
+
+OXXO
+
+American Express
+
+Meses Sin Intereses
+
+iDEAL, a local payment method that provides bank transfers for online payments, serves all Dutch consumer banks. It dominates the online payments landscape and accounts for 69% of digital purchases. More than 90% of local sellers now accept iDEAL.
+
+Popular payment methods
+
+iDEAL
+
+Mastercard
+
+SEPA Direct Debit
+
+Klarna
+
+PayPal
+
+SEPA bank transfers
+
+Visa
+
+Apple Pay
+
+Buy now, pay later as a payment method is rapidly growing in New Zealand, and expected to account for 17% of all ecommerce transactions by 2025.
+
+Popular payment methods
+
+Visa
+
+Mastercard
+
+Afterpay/Clearpay
+
+American Express
+
+Apple Pay
+
+Google Pay
+
+New Zealand BECS Direct Debit
+
+BLIK, a bank redirect method, is the most popular mobile payment method, representing 54% of ecommerce mix in 2021.
+
+Popular payment methods
+
+BLIK
+
+Przelewy24
+
+Visa
+
+Mastercard
+
+Apple Pay
+
+Google Pay
+
+PayPal
+
+While card penetration in Singapore is the highest in the region, local payment methods including digital wallets and real-time payments are popular. PayNow is the fastest-growing payment method.
+
+Popular payment methods
+
+Visa
+
+Mastercard
+
+PayNow
+
+Apple Pay
+
+GrabPay
+
+American Express
+
+China UnionPay
+
+Google Pay
+
+Alipay
+
+WeChat Pay
+
+Spain has traditionally been a cash-centric market, although that is changing. Digital wallets have increased in popularity, accounting for a significant portion of online purchases.
+
+Popular payment methods
+
+Visa
+
+PayPal
+
+Mastercard
+
+SEPA Direct Debit
+
+SEPA bank transfers
+
+Klarna
+
+Apple Pay
+
+Google Pay
+
+Sweden has the highest rate of decline for cash use worldwide. Digital payment methods such as buy now, pay later and mobile wallets are the standard.
+
+Popular payment methods
+
+Klarna
+
+Swish
+
+Mastercard
+
+Visa
+
+Apple Pay
+
+Click to Pay
+
+Google Pay
+
+PayPal
+
+The UK is the most card-centric market in Europe, with an average of more than two cards per person.
+
+Popular payment methods
+
+Visa
+
+PayPal
+
+Mastercard
+
+Bacs Direct Debit
+
+Klarna
+
+UK bank transfers
+
+Apple Pay
+
+Google Pay
+
+American Express
+
+Revolut Pay
+
+Credit cards remain the dominant payment method, with digital wallets gaining popularity.
+
+Popular payment methods
+
+Visa
+
+Mastercard
+
+American Express
+
+ACH Direct Debit
+
+Apple Pay
+
+USD bank transfers
+
+Klarna
+
+Google Pay
+
+Discover
+
+Affirm
+
+Cash App Afterpay
+
+Amazon Pay
+
+A guide to payment methods
+
+Understand the importance of payment methods and how to decide which ones to offer based on your business model and customer preferences.
+
+Read the guide
+
+[GuidesCard_10
+
+Product resources
+
+A guide to payment methods](/guides/payment-methods-guide)
+
+Case studies
+
+Amazon simplifies cross-border payments with Stripe
+
+Amazon set out to build a payments infrastructure that not only delivers an innovative and personalized checkout experience, but also a set of payments services that power Amazon's portfolio of products and businesses around the world.
+
+Challenge
+
+As Amazon expanded into new geographies, it sought to bring a new level of simplicity to international payments.
+
+Solution
+
+Amazon partnered with Stripe to streamline global payments experiences, particularly as the company looked to launch in new countries quickly. For example, when Amazon expanded into Poland, the team worked with Stripe to optimize the checkout experience with BLIK, a popular local payment method in the region.
+
+Products
+
+Connect
+
+Payments
+
+6 payment methods
+
+One of the things we really valued about Stripe is it got us into a lot of different countries quickly and helped lower the barrier of entry for us.
+
+Ben Volk, Director, Global Payment Acceptance & Customer Experience
+
+Amazon logo
+
+WooCommerce partners with Stripe to launch in 17 new countries in 3 months
+
+WooCommerce is one of the most popular ecommerce platforms in the world, enabling WordPress businesses to sell and manage orders directly from their websites.
+
+Challenge
+
+WooCommerce already had a longtime partnership with Stripe for core payment processing capabilities, but realized it could further leverage Stripe to empower its merchants to offer local payment methods.
+
+Solution
+
+WooCommerce set out to expand its platform offering to match the rapidly evolving needs of its merchants. To do this, it decided to launch a brand new platform, WooCommerce Payments, by integrating several different Stripe products—including Connect, Instant Payouts, Terminal, and Billing.
+
+Products
+
+Terminal
+
+Billing
+
+Connect
+
+Payments
+
+23 payment methods
+
+Stripe enabled us to get WooCommerce Payments to market fast. In three months, we were live in 17 additional countries. The fact that we were able to support merchants in so many markets that quickly is huge.
+
+Britni McCotter, Head of Payment Business Operations
+
+WooCommerce logo
+
+INDOCHINO increases conversion by offering a new way to pay with Klarna via Stripe
+
+Believing perfectly tailored clothing should be available to everyone, INDOCHINO crafts high-quality, made to measure apparel at an accessible price INDOCHINO shoppers can browse and buy online from the comfort of home or visit one of the brand's 70+ showrooms across North America.
+
+Challenge
+
+INDOCHINO wanted to reach more Gen Z and Millennial customers. The brand also wanted to lift its average order value (AOV), and, in the long term, attract and convert new customers, increase brand loyalty and lifetime value, and set its business up for future growth.
+
+Solution
+
+By offering more flexible ways to pay with Klarna at checkout, INDOCHINO saw a lift in sales volume across the board and a 16% lift in its AOV. Of INDOCHINO customers using Klarna, 67% are young Millennials and Gen Zers—the key demographic the brand was aiming to target.
+
+Products
+
+Payments
+
+2 payment methods
+
+Through the Klarna and Stripe partnership, we were able to get up and running quickly with a tailored service that met our needs perfectly.
+
+Alex Nazarevich, Ecommerce Director
+
+Indochino logo
+
+Bodum expands globally by leveraging local payment methods with Stripe
+
+Bodum is a kitchenware manufacturer producing high-quality coffee and tea solutions and household accessories. It creates functional designs at affordable prices with a strong focus on sustainability and environmental responsibility.
+
+Challenge
+
+With the majority of customers ordering from a mobile device, Bodum was looking to build a seamless online customer experience for both desktop and mobile.
+
+Solution
+
+Bodum localized its checkout experience to scale its online business to 23 countries across Europe, America, Australia, and Asia. Implementing Stripe Elements took less than a month initially, and Bodum can now turn on any new payment methods that become available, directly from the Dashboard with no additional engineering required.
+
+Products
+
+Elements
+
+20+ payment methods
+
+Mobile checkout is the future, but the distraction rate is very high. If a customer is buying something through a mobile site and they get another notification, the risk of losing that purchase is high. Local payment methods are really important to help customers complete their purchase as quickly as possible.
+
+Peter Bodum, Ecommerce Manager
+
+Bodum logo
+
+Amazon logo
+
+WooCommerce logo
+
+Indochino logo
+
+Bodum logo
+
+Ready to get started? Get in touch or create an account.
+
+Access a complete payments platform with simple, pay-as-you-go pricing or contact us to design a custom package specifically for your business.
+
+Start now
+
+Contact sales
+
+Design your payments page
+
+Create your own payments page using Stripe Elements, our suite of prebuilt embeddable UI components.
+
+Stripe Elements
+
+Prebuilt payment form
+
+Accept payments on your website by integrating Stripe Checkout, our prebuilt payment form optimized for conversion.
+
+Stripe Checkout
+
+Stripe logo
+
+United States (English)
+
+Australia
+
+English
+
+Austria
+
+Deutsch
+
+English
+
+Belgium
+
+Nederlands
+
+Français
+
+Deutsch
+
+English
+
+Brazil
+
+Português
+
+English
+
+Bulgaria
+
+English
+
+Canada
+
+English
+
+Français
+
+Croatia
+
+English
+
+Italiano
+
+Cyprus
+
+English
+
+Czech Republic
+
+English
+
+Denmark
+
+English
+
+Estonia
+
+English
+
+Finland
+
+English
+
+Svenska
+
+France
+
+Français
+
+English
+
+Germany
+
+Deutsch
+
+English
+
+Gibraltar
+
+English
+
+Greece
+
+English
+
+Hong Kong
+
+English
+
+简体中文
+
+Hungary
+
+English
+
+India
+
+English
+
+Ireland
+
+English
+
+Italy
+
+Italiano
+
+English
+
+Japan
+
+日本語
+
+English
+
+Latvia
+
+English
+
+Liechtenstein
+
+Deutsch
+
+English
+
+Lithuania
+
+English
+
+Luxembourg
+
+Français
+
+Deutsch
+
+English
+
+Malaysia
+
+English
+
+简体中文
+
+Malta
+
+English
+
+Mexico
+
+Español
+
+English
+
+Netherlands
+
+Nederlands
+
+English
+
+New Zealand
+
+English
+
+Norway
+
+English
+
+Poland
+
+English
+
+Portugal
+
+Português
+
+English
+
+Romania
+
+English
+
+Singapore
+
+English
+
+简体中文
+
+Slovakia
+
+English
+
+Slovenia
+
+English
+
+Italiano
+
+Spain
+
+Español
+
+English
+
+Sweden
+
+Svenska
+
+English
+
+Switzerland
+
+Deutsch
+
+Français
+
+Italiano
+
+English
+
+Thailand
+
+ไทย
+
+English
+
+United Arab Emirates
+
+English
+
+United Kingdom
+
+English
+
+United States
+
+English
+
+Español
+
+简体中文
+
+Products & pricing
+
+Pricing
+
+Atlas
+
+Authorization Boost
+
+Billing
+
+Capital
+
+Checkout
+
+Climate
+
+Connect
+
+Data Pipeline
+
+Elements
+
+Financial Accounts
+
+Financial Connections
+
+Identity
+
+Invoicing
+
+Issuing
+
+Link
+
+Payments
+
+Payment Links
+
+Payouts
+
+Radar
+
+Revenue Recognition
+
+Stripe Sigma
+
+Tax
+
+Terminal
+
+Solutions
+
+Enterprises
+
+Startups
+
+Agentic commerce
+
+Crypto
+
+Ecommerce
+
+Embedded finance
+
+Finance automation
+
+Global businesses
+
+In-app payments
+
+Marketplaces
+
+Platforms
+
+SaaS
+
+AI companies
+
+Creator economy
+
+Hospitality, travel, and leisure
+
+Insurance
+
+Media and entertainment
+
+Nonprofits
+
+Retail
+
+Integrations & custom solutions
+
+Stripe App Marketplace
+
+Stripe Partner ecosystem
+
+Professional services
+
+Developers
+
+Documentation
+
+API reference
+
+API status
+
+API changelog
+
+Libraries and SDKs
+
+Developer blog
+
+Resources
+
+Guides
+
+Customer stories
+
+Blog
+
+Sessions annual conference
+
+Privacy & terms
+
+Prohibited & restricted businesses
+
+Licenses
+
+Sitemap
+
+Cookie settings
+
+Your privacy choices
+
+More resources
+
+Company
+
+Jobs
+
+Newsroom
+
+Stripe Press
+
+Contact sales
+
+Support
+
+Get support
+
+Managed support plans
+
+CA residents:
++1 888 926 2289
+
+Sign in
+
+© 2026 Stripe, LLC
+
+Start now
+
+Contact sales

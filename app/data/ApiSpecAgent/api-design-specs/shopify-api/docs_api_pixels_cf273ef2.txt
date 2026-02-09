@@ -1,0 +1,45 @@
+You can use a web pixel app extension to collect behavioral data for marketing campaign optimization and analytics. This guide provides the reference documentation for the web pixel app extension.
+
+Anchor to Reference documentation
+Reference documentation
+
+[
+
+Web pixel extension API
+
+Learn about the sandboxing modes for web pixels, and the API references that are available for the sandbox.
+
+Web pixel extension API
+
+Learn about the sandboxing modes for web pixels, and the API references that are available for the sandbox.](/docs/api/web-pixels-api)
+
+[Web pixel extension API
+
+Learn about the sandboxing modes for web pixels, and the API references that are available for the sandbox.](/docs/api/web-pixels-api)
+
+[
+
+Standard Events Reference
+
+Learn about the ways of tracking and sending events with web pixels.
+
+Standard Events Reference
+
+Learn about the ways of tracking and sending events with web pixels.](/docs/api/web-pixels-api/standard-events)
+
+[Standard Events Reference
+
+Learn about the ways of tracking and sending events with web pixels.](/docs/api/web-pixels-api/standard-events)
+
+Anchor to Next steps
+
+Learn how you can
+use web pixels
+ on an online store to collect behavioral data for marketing campaign optimization and analytics.
+
+Create a web pixel app extension
+ and subscribe to all events emitted by Shopify.
+
+Was this page helpful?
+
+YesNo

@@ -1,0 +1,97 @@
+Executive
+ / CISO Perspectives
+
+Tackling Technical Debt before It Owns Your Roadmap
+
+January 12, 2026
+
+### Nabil Hannan
+
+TL;DR
+
+To keep your security roadmap on track in Q1, prioritize fixing high-impact pentest findings and technical debt before tackling compliance tasks like access reviews. Addressing these issues early prevents them from compounding into bigger, costlier problems. Compliance work is essential but doesn't significantly reduce risk, so automate and streamline it where possible. Only take on new security initiatives once the fundamentals are stable, ensuring your team isn't overwhelmed and your organization's security posture remains strong.
+
+Balancing Priorities
+
+Every Q1, security teams face the same challenge: how do you balance compliance-driven work, like access reviews, with remediating
+pentest findings
+ and battling the ever-present mountain of technical debt? In my role, through ongoing conversations with customers and peers, I see this tension play out across the industry year after year.
+
+The Compounding Cost of Deferred Pentest Findings
+
+The biggest takeaway I've observed is this: technical debt, especially unresolved pentest findings (or security findings in general), compounds far faster than most teams expect. When those issues get deferred for later, they don't just quietly sit in your backlog; they evolve. Dependencies grow, business logic changes, and teams shift. Suddenly, a minor finding from last year might require a major architectural overhaul to address.
+
+What starts as a simple patch or logic fix can rapidly become a multi-team, multi-sprint project. At scale, this snowball effect quietly erodes your organization's security posture, expands the
+attack surface
+, and makes future remediation exponentially harder and costlier.
+
+Why Prioritization Matters
+
+Because of that, I recommend prioritizing remediation of pentest findings tied to systemic technical debt above almost everything else, even access reviews for compliance. Access reviews are important. They're predictable, process-driven, and essential for compliance. But they don't meaningfully shrink your attack surface.
+
+Deferring pentest remediation to Q2 doesn't buy more time; it simply guarantees you'll be facing a larger, more expensive problem come July.
+
+How to Prioritize Security Efforts in Q1
+
+Here's how my prioritization typically shapes up:
+
+**1. High-Impact Pentest Findings & Technical Debt:**Address these while context is fresh and the remediation scope is manageable.
+
+The first priority is always addressing high-impact penetration test findings and tackling technical debt. These issues are often the most pressing because they pose immediate risk to the organization. By addressing them early in the quarter, while the context is still fresh and the scope of remediation is clear, you can prevent vulnerabilities from escalating. I focus on collaborating with engineering teams to ensure fixes are implemented efficiently and thoroughly. Resolving these items early also clears the way for smoother progress on other initiatives.
+
+**2. Access Reviews & Compliance Cycles:**Mandatory, but they rarely move the needle on real risk reduction.
+
+Access reviews and compliance cycles, though routine, are critical to maintaining a baseline level of security and meeting regulatory requirements. While these tasks rarely result in significant risk reduction, they are non-negotiable for ensuring accountability and preventing access-related mishaps. I dedicate specific time blocks to streamline this process, leveraging automation tools as much as possible to reduce friction and ensure accuracy. The goal here is to meet compliance obligations without diverting too much time from higher-value initiatives.
+
+**3. Net New Initiatives:**Tackle these only when the security foundations are stable.
+
+New projects, such as rolling out new security tools or launching strategic programs, come last in the prioritization list. Only tackle these when the fundamentals, like addressing technical debt and maintaining compliance, are stable and under control. Introducing new initiatives requires careful planning to ensure they integrate seamlessly with existing processes. I focus on initiatives that align with long-term business goals, deliver measurable security improvements, and support the scalability of the organization's security posture.
+
+Finding the Right Balance
+
+In my experience, the longer technical debt tied to security findings is deferred, the more it quietly takes over your roadmap. Striking the right balance is essential to maintaining progress while addressing these challenges, ensuring a more secure and sustainable path forward.
+
+Navigating these layers of security prioritization is undeniably challenging, as every task feels urgent. However, by categorizing efforts into technical debt, compliance, and new initiatives, you can transform an overwhelming backlog into a manageable, strategic workflow. This structured approach ensures that you aren't just reacting to fires, but proactively building a resilient foundation.
+
+Authors:
+
+[
+
+Nabil Hannan
+
+Field CISO](/authors/nabilhannan)
+
+Explore More Blog Posts
+
+[
+
+Adversary Simulation
+
+Pipe Dreams: Remote Code Execution via Quest Desktop Authority Named Pipe
+
+February 1, 2026
+
+Discover the risks of the CVE-2025-67813 vulnerability in Quest Desktop Authority. Learn how this RCE flaw impacts your organization and how to mitigate it.
+
+Learn More](https://www.netspi.com/blog/technical-blog/adversary-simulation/pipe-dreams-remote-code-execution-via-quest-desktop-authority-named-pipe/)[
+
+Vulnerability Management
+
+Ivanti Endpoint Manager Mobile (EPMM) [CVE-2026-1281 & CVE-2026-1340]: Overview & Takeaways
+
+January 30, 2026
+
+Ivanti has disclosed two critical zero‑day vulnerabilities affecting Ivanti Endpoint Manager Mobile (EPMM), tracked as CVE‑2026‑1281 and CVE‑2026‑1340.
+Both vulnerabilities have been exploited in active attacks and allow unauthenticated remote threat actors to compromise EPMM appliances.
+
+Learn More](https://www.netspi.com/blog/executive-blog/vulnerability-management/ivanti-endpoint-manager-mobile-epmm-cve-2026-1281-cve-2026-1340-overview-takeaways/)[
+
+Attack Surface Management
+
+Why Your Security Program Needs Domain Monitoring
+
+January 26, 2026
+
+NetSPI Domain Monitoring continuously discovers and assesses look-alike domains related to your organization, providing deep contextual intelligence including risk profiles, WHOIS records, IP details, DNS records, and certificate data. The NetSPI Platform streamlines response, enabling rapid action against high-risk domains.
+
+Learn More](https://www.netspi.com/blog/executive-blog/attack-surface-management/why-your-security-program-needs-domain-monitoring/)

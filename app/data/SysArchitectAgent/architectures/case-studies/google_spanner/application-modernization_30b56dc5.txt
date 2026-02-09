@@ -1,0 +1,81 @@
+Application Modernization
+
+Faster and more secure software development through proven DevOps practices and an open-source-based application platform.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Customers
+
+Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more
+
+By Google Cloud Content & Editorial • 10-minute read
+
+](https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up)
+
+[AI & Machine Learning
+
+How we built a multi-agent system for superior business forecasting
+
+By Brian Mills • 8-minute read
+
+](https://cloud.google.com/blog/products/ai-machine-learning/how-we-built-a-multi-agent-system-for-superior-business-forecasting)
+
+[DevOps & SRE
+
+Is your DR plan just wishful thinking? Prove your resilience with chaos engineering
+
+By Deepanshu Kalra • 6-minute read](https://cloud.google.com/blog/products/devops-sre/using-chaos-engineering-to-test-dr-plans)
+
+[Application Development
+
+Streamline the design and deployment of application infrastructure with Application Design Center, now GA
+
+By Vijay Potharla • 6-minute read](https://cloud.google.com/blog/products/application-development/application-design-center-now-ga)
+
+[AI & Machine Learning
+
+Replit is delivering enterprise-grade vibe coding with Google Cloud
+
+By Matt Renner • 3-minute read
+
+](https://cloud.google.com/blog/products/ai-machine-learning/bringing-vibe-coding-to-the-enterprise-with-replit)
+
+[DevOps & SRE
+
+Chaos engineering on Google Cloud: Principles, practices, and getting started
+
+By Parag Doshi • 6-minute read](https://cloud.google.com/blog/products/devops-sre/getting-started-with-chaos-engineering)
+
+[Healthcare & Life Sciences
+
+Inside the AI-powered assistant helping doctors work faster and better at Seattle Children's Hospital
+
+By Dr. Darren Migita • 4-minute read
+
+](https://cloud.google.com/blog/topics/healthcare-life-sciences/child-care-how-ai-is-transforming-pediatric-medicine-at-seattle-childrens)
+
+[Databases
+
+How Rent the Runway supercharges developer speed and insights with Cloud SQL
+
+By Marcus Creavin • 5-minute read](https://cloud.google.com/blog/products/databases/how-rent-the-runway-supercharges-developer-speed-and-insights-with-cloud-sql)
+
+[Manufacturing
+
+Driving for the Horizon: New Android Automotive solution on cloud offers faster builds
+
+By Florian Haubner • 7-minute read
+
+](https://cloud.google.com/blog/topics/manufacturing/slash-android-automotive-os-build-times-and-get-to-market-faster-with-horizon-on-google-cloud)
+
+[Application Modernization
+
+Simplify complex eventing at Scale with Eventarc Advanced
+
+By Vidya Nagarajan Raman • 6-minute read](https://cloud.google.com/blog/products/application-modernization/eventarc-advanced-orchestrates-complex-microservices-environments)
+
+Load more stories

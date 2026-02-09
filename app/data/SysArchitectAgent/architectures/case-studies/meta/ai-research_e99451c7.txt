@@ -1,0 +1,77 @@
+AI Research
+
+Scaling LLM Inference: Innovations in Tensor Parallelism, Context Parallelism, and Expert Parallelism
+
+AI Research
+
+SEP 30, 2025
+
+LLMs Are the Key to Mutation Testing and Better Compliance
+
+AI Research
+
+SEP 29, 2025
+
+Meta 3D AssetGen: Generating 3D Worlds With AI
+
+Articles
+
+Videos
+
+Publications
+
+The Latest
+
+AI Research
+
+SEP 29, 2025
+
+Meta's Infrastructure Evolution and the Advent of AI
+
+AI Research
+
+AUG 6, 2025
+
+Diff Risk Score: AI-driven risk-aware software development
+
+AI Research
+
+AUG 4, 2025
+
+Building a human-computer interface for everyone
+
+AI Research
+
+JUL 16, 2025
+
+Using AI to make lower-carbon, faster-curing concrete
+
+AI Research
+
+MAY 8, 2025
+
+Accelerating GPU indexes in Faiss with NVIDIA cuVS
+
+AI Research
+
+APR 29, 2025
+
+Introducing AutoPatchBench: A Benchmark for AI-Powered Security Fixes
+
+AI Research
+
+MAR 4, 2025
+
+Building multimodal AI for Ray-Ban Meta glasses
+
+AI Research
+
+OCT 3, 2024
+
+How open source AI can improve population estimates, sustainable energy, and the delivery of climate change interventions
+
+AI Research
+
+AUG 23, 2024
+
+How PyTorch powers AI training and inference

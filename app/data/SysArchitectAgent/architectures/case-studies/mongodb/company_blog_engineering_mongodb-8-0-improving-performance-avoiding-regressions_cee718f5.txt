@@ -1,0 +1,79 @@
+MongoDB 8.0 is the most secure, durable, available and performant version of MongoDB yet: it's 36% faster in read workloads and 32% faster in mixed read and write workloads than MongoDB 7.0 In addition to benefitting customers, MongoDB 8.0's performance has also brought significant benefits to our own internal applications, as my colleague Jonathan Brill recently noted in
+his own blog post
+.
+
+To achieve these improvements, we created an 8.0 multi-disciplinary tiger team focused on performance, and eventually expanded this team into a broad "performance army." The work by these engineers led to new ideas on how to process simple queries and how writes are replicated. Combined with a new way of measuring performance, we also added a new way to catch the gradual performance loss over time due to many miniscule regressions.
+
+Figure 1. MongoDB 8.0 benchmark results.
+
+Benchmarking at MongoDB
+
+The MongoDB Engineering team runs a set of benchmarks internally to measure MongoDB's performance. Industry standard benchmarks like YCSB, Linkbench, TPCC, and TPCH are run periodically on a variety of configurations and architectures, and these benchmarks are augmented by custom benchmarks based on customer workloads. By running these benchmarks in our continuous integration system, we ensure that developers do not make commits that are detrimental to performance. For instance, if any commit would regress a benchmark by more than 5% for our most important workloads, we would revert the commit. However, this threshold does not detect regressions of 0.1%, and there are thousands of commits per release (e.g., more than 9000 in MongoDB 8.0).
+
+During the release of MongoDB 7.0, we started to take this gradual accumulation of performance loss by tiny regressions of release over release regressions seriously, so we changed the rules of the game. We decided we could not ship MongoDB 7.0 unless it at least matched MongoDB 6.0's performance on the most important benchmarks.
+
+We began investigating regressions and made changes to get performance back. Typically, we use tools like Intel VTune and Linux perf to find regressions across releases. With the release of MongoDB 7.0 approaching, engineers limited the scope of these fixes to reduce their risk to the release. Some proposed fixes were considered too risky. Other fixes didn't deliver statistically significant performance improvements (Z-score > 1). Unfortunately, MongoDB lost performance with many tiny cuts at a time, and our team realized that it would take many tiny steps to improve it. We got performance back to MongoDB 6.0's levels, but we weren't quite satisfied. We knew that what we started with MongoDB 7.0 would need to continue into MongoDB 8.0 as a first-tier concern from the start.
+
+The MongoDB 8.0 performance push
+
+For the release of MongoDB 8.0, we increased the priority of performance over other work and set the goal of matching MongoDB 4.4's performance at the start. This release was chosen because it switched the default to Write Concern Majority for replica sets. This change in write concern improved MongoDB's default durability guarantees but came with a loss in performance since the primary needs to wait for a second write on a second machine to be performed.
+
+Before the release of MongoDB 5.0, the default write concern was w:1; when a client inserted a document, the response was returned to the client as soon as the write was journaled to the local disk. With write concern majority, the MongoDB server waits for a majority of the nodes to write the document to disk before returning a response. On the primary, MongoDB server inserts the document in the collection, journals this change to disk, sends the change to the secondary where it also journals the document to disk and then inserts the document into its collection. Applying the change immediately to collection on the secondary minimizes the latency for the secondary reads.
+
+Figure 2. MongoDB replication writes in MongoDB 7.0.
+
+To start our journey to improving the performance of MongoDB 8.0, we created a multi-disciplinary tiger team of 10 people in August 2023, with myself as the leader. The team comprised two performance engineers, three staff engineers, two senior staff engineers, a senior lead, and one technical program manager. Our team of ten worked together to generate ideas, proofs of concept, and experiments.
+
+The team's process was different from our normal process, as we focused on idea experimentation, versus making ideas production-ready. I gave the team free reign to make any changes they thought could help, and I encouraged experimentation—the MongoDB 8.0 performance tiger team was a safe space. This spirit of experimentation was both important and successful, as it led to new ideas that delivered several big improvements (which are highlighted below). We were able to try quick hacks and measure their performance without having to worry about making our work production quality.
+
+The big improvements
+
+Two of the big improvements we made to MongoDB 8.0 came out of this team: simple finds and replication latency.
+
+MongoDB supports a rich query language, but a lot of queries are simple ones to look up a document by a single _id field; the _id field always has a unique index. MongoDB optimized this with a special query plan stage called IDHACK—a query stage optimized to retrieve a single document with a minimal code path. When the tiger team looked at this code, we realized that it was spending a lot of time going through the general purpose query planning code paths before choosing the IDHACK plan.
+
+So, a tiger team member did an experiment to bypass the entire query planner and hard code reading from the storage engine. When this delivered significant improvements to the YCSB 100% read, we knew we had a winner. While we knew it could not be committed as-is, it did serve as motivation to improve the IDHACK code path in the server in a new code path called ExpressPlan. The query team took this idea and ran with it by expanding it further for updates, deletes, and other unique index lookups.
+
+Here are traces for MongoDB from
+LLVM XRay
+ and
+Perfetto
+. The highlighted red areas show the difference between 7.0 and 8.0 for query planning for a db.coll.find({_id:1}).
+
+Figure 3. Comparing MongoDB 7.0 and MongoDB 8.0.
+
+The second big change was how we viewed replicating changes in a cloud database. As explained above, on secondaries, MongoDB journals the writes and then applies it to the collection before acknowledging it back to the primary.
+
+During a team brainstorming session, a tiger team member asked, "what if we acknowledge the write as soon as it is journaled, but before we applied it to the collection in-memory?" This reduces the latency of the primary and speeds up writes in a replica set while still maintaining our durability guarantees. A second engineer ran with this idea, prototyped it quickly, and proved that it provided a significant performance boost in a week.
+
+Now that the idea was proven to be beneficial, we handed it to the replication team to ship this work. Shipping this change took three months because we had to prove it was correct in the TLA+ models for our replication system and all corner cases before we could ship it.
+
+Catching very small regressions
+
+To detect small regressions, it is important to have benchmarks with no or low noise. But if the threshold is too small, this creates needless noise and creates a very noisy or flakey test that developers will learn to ignore.
+
+Given the noisiness of various metrics such as latency and throughput, a tiger team member came up with the idea of simply counting instructions via Linux perf_event_open syscall. In this test, the code exercises the request processing code to do a simple MongoDB ping command. We run the ping command in a loop on a CI machine a few times and report the average instruction count. This test has a 0.2% tolerance and uses a hard code number. Developers can adjust the threshold up or down as needed, but this test has been a huge success as it allows us to detect regressions without spurious noise. Check out the
+benchmark on GitHub
+.
+
+From tiger team to (tiger) army
+
+A small tiger team can only do so much, and we didn't want to create a situation in which one team ships features only for another team to clean up their work later. For example, the MongoDB 8.0 performance tiger team focused on a subset of benchmarks, but MongoDB's performance is measured with dozens of benchmarks. From November 2023 to January 2024, we started implementing all the performance ideas that the tiger team implemented, but more work remained to improve performance.
+
+This was when we built a performance "army"—we enlisted 75 people from across the 11 MongoDB server teams to work on performance. In this phase of the project, engineers were charged with idea generation, and fixing performance issues allowed us to accomplish even more than the tiger team; the larger team finished eight performance projects and 140 additional tickets as part of this work.
+
+By bringing in additional team members, we were able to draw on ideas from a larger pool of database experts. This led to improvements in a wide variety of areas—like parsing of large $in queries, improvements to query yielding, making config.transactions a clustered collection, reworking locking in count less places, micro optimizations in authorization checks, and a change to a new TCMalloc memory allocator with lower fragmentation. Engineers also looked at improving common code such as namespace string handling, our custom code generation (we found tries helped speed up generated parsers), reducing memory usage, and choosing better data structures in some cases.
+
+To give people the time and space they needed to succeed, we gave them dedicated weeks of time to focus on this work in lieu of adding new features. We encouraged both experimentation and for people to go with their gut feelings for small improvements that didn't appear to move the needle on performance. Because not every experiment succeeded, it was important to encourage each other to keep experimenting and trying in the face of failure.
+
+For example, in one failed experiment two engineers tried to use restartable sequences on Linux, but the change failed to deliver the improvements we wanted given their cost and complexity. On the other hand, custom containers and reader writer mutexes did deliver. For my part, the most impactful thing I did during this phase was to be a cheerleader and to support the team's efforts in our performance push. Being positive and optimistic helped people push forward in their performance work even when ideas didn't work out.
+
+Performance improvements take a village
+
+Overall, MongoDB 8.0 was our most successful release ever in terms of performance. Concerted, innovative work by a passionate team—and later an army—of engineers led to new ideas for performance and new ways of thinking. Performance work is neither easy nor straightforward. But by building a sense of community around our performance push, we supported each other and encouraged each other to deliver great performance improvements for MongoDB 8.0.
+
+To read more about how MongoDB raised the bar with the release of MongoDB 8.0, check out our Chief Technology Officer
+Jim Scharf's blog post
+. And please visit the
+MongoDB 8.0 page
+ to learn more about all of its features and upgrades.

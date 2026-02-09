@@ -1,0 +1,502 @@
+blog
+|
+Development
+
+Horizontally scaling the Rails backend of Shop app with Vitess
+
+Shop app horizontally scaled a Ruby on Rails app with Vitess. This blog describes Vitess and our detailed approach for introducing Vitess to a Rails app.
+
+Published on Jan 17, 2024
+
+Good problems
+
+We experienced hockey stick growth after we launched
+the Shop app
+. We were glued to our dashboards and saw millions of users onboard onto the app. This was gratifying, but we were becoming more nervous as our backend was pushed closer to its limit.
+
+We wrote the backend in Ruby on Rails, and used a MySQL database (Shopify managed system called
+KateSQL
+). The first order of business was to identify the bottlenecks. We iterated, horizontally scaling our background job system, caching system, and used a horizontally scaled Message bus where appropriate. We then invested into detecting the usual suspects: slow queries, limited connections etc. We also dropped the "The" from "The Shop app" because it was cleaner.
+
+As MySQL is the primary datastore, this would become the main bottleneck as well. To deal with this, we started off by splitting the primary database into separate parts – Rails makes it easy to interact
+with multiple databases
+. We identified groups of large tables that could exist on separate databases, and used
+GhostFerry
+ to move a few tables onto a new database. We also created new databases for tables in separate domains – this had the added benefit of limiting the blast radius of issues with one domain impacting others.
+
+As the app further grew, we were starting to hit the limit of a single MySQL. We started planning for the next phase of our growth. We were holding off on sharding the primary database as we were weary of the complexity it would add. As time went on, the disk size grew to many Terabytes, schema migrations would take weeks, and we were throttling more background jobs when the database was too busy. We couldn't further split the primary database, as that would add more complexity in the application layer, and require cross database transactions. We had reached a point where incremental enhancements were no longer sufficient. It was time to overhaul our approach to scaling.
+
+Preparing for Vitess
+
+There are many different approaches to scaling your system, and each one has tradeoffs. Below are some examples:
+
+Multi-tenant architecture
+: When Shopify horizontally scaled, the whole system was divided with a "Pod Architecture" (
+Blog post with details
+). Each "Pod" has its own dedicated resources including MySQL. This allowed Shopify to horizontally scale, and gain the benefits of a system where issues with one merchant do not impact the others. Shop app has different properties than the rest of Shopify. While Shopify has millions of merchants, Shop app has an order of magnitude more users. The impact of one user is small compared to the impact of a large merchant.
+
+Move frequent writes to Key-value stores
+: Another approach is to move everything that's frequently updated over to a horizontally scaled key-value store and use MySQL for the core data that's rarely updated. The downside of this approach is that we lose out on the ability to define custom indexes, as key-value stores are typically only fetched by the primary key. We also want to stick with SQL as the primary query language for datastores. There are exceptions to this, where we store some data in memory-stores, but they do not provide the durability guarantees that we need.
+
+Store data in separate MySQLs
+: This scaling approach is referred to as "federation" where tables are stored in different MySQLs. This was our initial approach, and it took us quite far. Rails makes it really easy to work with multiple databases at the same time (
+). The downsides of this approach are: 1) Schema migrations take a really long time on larger tables, 2) Joining tables efficiently across different databases is challenging, 3) The application layer becomes more complicated as developers have to consider where each table is stored.
+
+Horizontally scaled systems provided by Cloud providers
+: We opted not to go with this approach, as we prefer to run our own primary datastores at Shopify. Since our use-case was a mature Rails app, It was also important for us to stick to a system that was SQL compatible.
+
+After exploring various options, we found that Vitess stood out significantly compared to the others.
+
+Why Vitess?
+
+Vitess is
+an open source
+ database system abstraction on top of MySQL that provides many benefits (
+docs with details)
+:
+
+It allows you to shard and re-shard MySQL (
+)
+
+It makes it easy to coordinate schema migrations across many shards (
+)
+
+It provides connection pooling for queries, as well as some protection from bad queries.
+
+It is mostly compatible with the SQL query language (
+).
+
+See full list of of
+features here
+ and the
+philosophy behind it here
+.
+
+We picked Vitess as it provided many of the features we needed. Before we dive into our approach to Vitess, let's look at the basic terminology used in this post.
+
+Terminology
+
+Shard
+
+A shard is a subset of a database. In our case, it is composed of a single writer and multiple replicas.
+
+Keyspace
+
+A keyspace is a logical database that represents a set of tables stored on one or more shards. A keyspace can be sharded (multiple shards) or unsharded (single shard). Sharded keyspaces require a sharding key to be defined for each table which determines what shard a row will be stored on.
+
+VSchema
+
+A VSchema, or Vitess Schema, describes how keyspaces and shards are organized. It helps Vitess route queries to appropriate shards, and coordinate the more advanced features (
+).
+
+VTGate
+
+With Vitess, the query path looks like
+App → VTGate → VTTablet → MySQL
+ . VTGate is a proxy that performs query planning, transaction coordination, and query routing to the VTTablet(s). VTGate also keeps track of all VSchemas.
+
+VTTablet
+
+VTTablet is deployed on the same machine as the MySQL server and it's responsible for many features including connection pooling.
+
+Choosing our sharding key
+
+The first thing before any other consideration was choosing our sharding key. Most of the tables in our database are associated with a user, so naturally user_id was chosen as the sharding key. All the data would move to Vitess, but only the user-owned-data was to be sharded. This data would become the "users" keyspace and the rest would become the unsharded "global" keyspace. Note that while Vitess allows tables in a keyspace to be sharded by multiple sharding keys, we opted to enforce that the "users" keyspace only contains user-owned-tables. This makes it easier to test, and reason about, the system.
+
+Re-organizing the data model
+
+Before starting the work to migrate the Vitess, we had to ensure all the tables associated with user data actually had a user_id column. Unfortunately our data was modeled in a way where a lot of the data belonged to an Account (which belonged to a User) and many of the tables did not have a user_id column, only an account_id.
+
+We had to run a number of migrations to add the user_id column and backfill the data. Both the migration and the backfill were time consuming processes since these tables were very large (with billions of rows) and the database was operating at capacity during peak hours. Takeaway: do this early, it may take longer than expected.
+
+Setting up query verifiers
+
+We built query verifiers in the application layer that helped us find queries that would not be compatible with Vitess. These query verifiers were critical for migrating to a sharded database in Vitess. They validated query correctness, routing, and data distribution, preventing query errors, performance issues caused by cross shard queries and data inconsistencies caused by partially committed transactions. If we could credit any single thing to a successful move to Vitess, it would be the correctness of the verifiers.
+
+We had set up the verifiers in a way, where we could represent the future state of the system. For example, we could represent that some tables would exist in a keyspace that did not exist at the time. We could also represent that a keyspace would be sharded in the future.
+
+Types of Verifiers
+
+Missing Sharding Key
+: This verifier was essential in making sure that queries against sharded tables incorporated the sharding key in the WHERE clause. By including the sharding key, Vitess could route the query to the correct shards.
+
+Cross Database Transaction
+: This verifier ensured that all write queries executed within a transaction were performed on the same database, irrespective of whether it was in Vitess or not. It achieved this by examining the connections used for the write queries within the transaction.
+
+Cross Shard Transaction
+: This verifier ensured that all write queries executed within a transaction, focusing on the sharded keyspace in Vitess, were performed on the same shard with the matching sharding key. The goal was to prevent partial commits on shards in case of a transaction rollback. We limited transactions to update only a single user's data, ensuring consistency and averting potential complications with distributed updates across multiple shards. The default atomicity model of Vitess allows cross shard transactions (
+). Consider the case where a cross-shard transaction makes changes to SHARD_1 and SHARD_2. If the change is committed to SHARD_1, but errors out on SHARD_2, the change on SHARD_1 will not be rolled back. We opted to remove all cross shard transactions to avoid any issues.
+
+Cross Shard Write
+: This verifier served a similar role as the Cross Shard Transaction Verifier but concentrated on queries that were not explicitly within a transaction. It specifically inspected calls such as update_all() or delete_all() that operated outside of a transaction.
+
+Cross Keyspace Query
+: This verifier identified queries that would include tables in multiple keyspaces. It identified violations that took place when a table from one keyspace was joined with a table from another keyspace. For example, if a table in KEYSPACE_1 was joined with a table in KEYSPACE_2, this verifier would flag it as a violation.
+
+Applying verifiers to production code
+
+We implemented the rollout of verifiers in separate steps to ensure their correctness. This involved multiple rounds of thorough testing, including unit tests and manual tests covering various query types and edge cases. Additionally, we created a list of offending queries, allowing us to enable the verifiers early for newly added code while gradually addressing existing violations.
+
+Initially, we enabled the verifiers in the development and test environments. This meant that any newly added code would fail in these environments if there were any verifier violations. We also ran a copy of the CI pipeline with Vitess as the backend in parallel with the MySQL database, enabling us to catch new query violations during the CI process.
+
+To address the violations, we first worked through our list of offending queries. The main changes made to the queries included ensuring the inclusion of the sharding key wherever possible. We also rewrote many queries to be Vitess compliant, adding patches to automatically inject the sharding key into queries when appropriate.
+
+For transactions that crossed between the sharded and unsharded keyspaces, we carefully split them up and analyzed their atomicity to ensure partial failures could self-heal. Similarly, we reworked complicated flows with transactions that crossed between shards, by rewriting them to avoid unsupported operations on Vitess. For example,
+UPDATE <table_name> SET <sharding_key>= ? WHERE id = ?
+ would fail once we sharded, as this required moving the row to a different shard. We turned this into a two step process, where we first inserted a new row in the destination shard, and then removed the old row from the source shard.
+
+To allow certain queries to skip verifiers under specific conditions, we implemented some "Danger" helper methods. These methods were useful for scenarios like running maintenance tasks across different users or performing cross-shard queries when user information was not available.
+
+Finally, we enabled the verifiers in production but with only log level instead of raising exceptions to avoid unexpected disruptions. To gain better visibility into possible violations, we generated a weekly report that highlighted the total violations occurring in production and their corresponding callsites. This allowed us to investigate any potential violations missed during testing or any edge cases that were not covered by the verifiers.
+
+Ensuring that sharding key is included in all queries
+
+Normally, MySQL uses the SQL query to plan how to search through the tables and indexes. Specifically, it uses columns in the WHERE clause to figure out the optimal indexes. With sharding, and Vitess specifically, there comes another layer to this, where Vitess (the VTGate proxy) must first inspect the query and route it to the appropriate shards. Some queries work on Vitess, like
+SELECT * FROM orders WHERE id = ?
+, but forces Vitess to send the query to all shards (scatter query), and then combine the result. If we slightly adjust the query to
+SELECT * FROM orders WHERE user_id = ? AND id = ?
+, Vitess can determine that this data can only be present on a specific shard, the one that houses the data for that user.
+
+Using the verifiers described above, we could ensure all queries that target tables in the sharded keyspace also include the sharding key. For some queries this is simple, but it's harder for queries with complex joins and table renames. With the verifiers and the log of violating queries, we found a few common query patterns that we needed to fix:
+
+The initial load of some set of data.
+
+Load of additional association data.
+
+Mutations of data.
+
+We were working with Rails 7.0 at the time. We had realized that we would need to add patches to ActiveRecord (a core abstraction component in Rails that handles objects whose data requires persistent storage). We wanted to avoid patches as that makes it really difficult to maintain Rails over the long term. Alas, these would be temporary as in a future version of Rails, the Composite keys (
+) would make this a lot easier.
+
+We started off by creating an abstraction that allowed us to identify the sharding key for any given ActiveRecord object. After that, we created an ActiveRecord patch so the sharding key from an object would then be passed down to
+update, delete, lock/reload
+ statements. By default rails
+has_many
+,
+belongs_to
+, and
+has_one
+ relationships produce queries that Vitess cannot scope to a single shard. We created a
+join_condition
+ option, which with some patches, passed the sharding key down to the association.
+
+Schema migrations
+
+Being able to run database migrations quickly was one of the reasons for sharding the database - some of our largest tables would take many weeks to migrate. This was becoming a major pain point and slowed down product development and introduced tech debt.
+
+Vitess supports different migration strategies including
+vitess
+ (native) and
+gh-ost
+ (from Github). The vitess migration strategy seemed solid at first and comes with a number of advantages, for example the migration can survive database failovers and be reverted instantly. During our initial experimentation we were running Vitess V14, where the vitess strategy was still experimental. Testing with larger tables we started to experience some issues. When migration was throttled for longer than 10 minutes (due to replication lag for example), migrations would get terminated. We raised this issue on the Vitess Community slack, the community was responsive and helpful. They confirmed the bug and submitted
+a bugfix.
+ Today,
+vitess
+ is the recommended strategy and this is what we use in production with V15 (
+editor's note
+: An unrelated lesson is that if you are in a restaurant that has the word 'Pizza' in their name, you should probably order their Pizza).
+
+To manage the migrations we built a custom UI. Vitess comes with a number of SQL commands to
+view/manage
+ migration, which we leveraged for this.
+
+Schema caches
+
+We rely on the
+schema cache
+ feature in Rails to prevent the database from being overloaded when loading schema on boot during deployments. Previously, we had a hook that would be called when the migration was completed, to dump the newly updated schema - which would then be picked up on the next deployment. Vitess does not have an easy way to hook into migrations from the application code. We built a background job to do that in the application layer. The job would queue when the migration is submitted to Vitess and periodically check the status of migrations. When the migration is complete on all shards and there are no other active migrations running, it would dump the new schema. This was necessary as Rails could connect to any of the shards when querying the table schema, potentially leading to an inconsistent schema being returned if migration is completed on some shards but not all.
+
+Phase 1: "Vitessifying"
+
+Start state:
+ The main database of Shop app was running a regular MySQL database (Shopify managed system called
+KateSQL
+), and all connections went through a proxy called ProxySQL.
+
+End state:
+ Shop app was running a Vitessified MySQL with a single unsharded users keyspace, that contains all of the tables, and all connections go through
+VTGate
+.
+
+Vitessifying is, our internal terminology for, the process of transforming an existing MySQL into a keyspace in a Vitess cluster. This allows us to start using core Vitess functionality without explicitly moving data. The core changes were:
+
+Add a VTTablet process alongside each mysqld process (
+). The VTTablet is configured to serve as the sole shard of a new keyspace. We run these on the same host, communicating over a socket, but technically they can be run on separate hosts communicating over a network connection. Note that you'll need to allocate fairly significant resources to the VTTablet. Vitess' rule of thumb is an equal number of CPUs for VTTablet and mysqld (
+source
+) though memory consumption for VTTablet is generally quite low.
+
+Ensure that the new keyspace is accessible via VTGates(
+).
+
+This process required no downtime and was completely transparent to the application.
+
+Safely switching connections
+
+After Vitessifying our main database, we proceeded to add the capability in our application code to establish a connection to the underlying database through VTGate.
+
+Since this was Shopify's initial deployment of Vitess in a production environment, we adopted a cautious approach during the rollout. Our main objective was to guarantee that the implementation would not cause any irreversible or substantial impact on the system. We implemented a dynamic connection switcher that granted us control over throughout during the rollout procedure. This switcher was integrated at the application layer, leveraging a staged rollout primitive that we had previously developed.
+
+The dynamic connection switcher allowed us to modify the routing of requests, giving us the ability to choose whether they would be directed through our original SQL connections (ProxySQL) or via VTGate. This level of control enabled us to carefully manage the percentage of requests that would be routed through Vitess. By gradually increasing the traffic going through Vitess, we were able to closely monitor its performance and promptly address any issues or unexpected behaviors that arose.
+
+To minimize risks, we initially started the connection switch with components in production that posed the least risk. For example, we targeted background jobs that had built-in mechanisms for automatic retries in case of any errors during job processing. This approach ensured that we could safely test and validate the new VTGate connection without the risk of data loss or disruption to critical processes. Once fully rolled out, the ProxySQLs were removed.
+
+Phase 2: Splitting into multiple keyspaces
+
+Start state:
+ Shop app was running a Vitessified MySQL with a single unsharded keyspace.
+
+End state:
+ Shop app had three unsharded keyspaces:
+global
+,
+users
+, and
+configuration
+.
+
+After Vitessifying in Phase 1, all of our tables were stored in the same keyspace as a preliminary step. Now it was time to split these tables into their appropriate future keyspaces. We decided on the following split:
+
+Users
+: This is the keyspace with all user related data.
+
+Global
+: This is the keyspace for data that's not owned by a user.
+
+Configuration
+: This keyspace is tables that are rarely written to. It would also be used for Sequence tables in Phase 3.
+
+Moving tables between keyspaces.
+
+Vitess provides a MoveTables workflow (
+) which makes it easy to move tables between keyspaces. Before we kicked this off in production, we practiced every step in a staging environment. Practicing thoroughly in staging is a lesson we learned early on, and this consistently turned out to be correct as we discovered some bugs with Vitess and issues with our setup. We prepared a big checklist, and this list included commands to bail out of the process if we ran into issues.
+
+Getting ready to do the same in production, we blocked schema migrations to avoid any issues during the operation. We also disabled schema caches to be safe and to prevent issues where Rails could raise errors if we query tables that are not present in the schema cache. After that, we created the two new global and configuration keyspaces. We had previously made a list of tables that we knew needed to be moved over to other keyspaces. We had also previously created a "Cross Keyspace Query" verifier which allowed us to identify and remove any future cross-keyspace queries. We had a separate entry for each keyspace in Rails's database.yml file, treating each keyspace as a separate database.
+
+During our practice in staging, we discovered and worked through a few issues. We found that erroneous or canceled operations could leave behind journal entries and artifacts which could interfere with future operations. We had to clean those up before attempting a second round. Once we gained more confidence, we started moving tables in production.
+
+Once all table data had been moved over, we performed
+Vdiffs
+ to verify the integrity of the move (
+). In addition, we performed manual checks including verifying that the collation and character_set remained the same. We then switched traffic, and completed the operation using the
+--keep_data --keep_routing_rules
+ options. We didn't want to remove the tables from the source keyspace, as dropping large tables could stall the database (this is an issue with MySQL 5.7). We renamed the tables in the old keyspace to include a "_old" suffix to their names, and then removed the routing rules.
+
+Phase 3: Sharding the "Users" keyspace.
+
+Start state:
+ Shop app had three unsharded keyspaces:
+global
+,
+users
+, and
+configuration
+.
+
+**End state:**Shop app has one sharded
+users
+ keyspace, two unsharded
+global
+ and
+configuration
+ keyspaces, and one sharded
+lookup
+ keyspace for
+Lookup Vindexes
+.
+
+Vitess is very similar to a regular MySQL if you stick with unsharded keyspaces. You don't really need to manage a VSchema which defines how your keyspace is sharded (
+). Once you shard, this is where the real complexity is introduced. Before we begin sharding, we have two major prerequisites to take care of: Sequences and Vindexes.
+
+Sequences for Auto-incrementing primary IDs
+
+Rails apps default to creating tables with an integer primary ID that's auto incremented. That does not work in a sharded system, where the primary ID needs to be unique across the shards. Sequences in Vitess play the role of auto_increment, ensuring monotonically incrementing IDs that are unique across shards.
+
+Sequences in Vitess are themselves backed by a regular MySQL table in an unsharded keyspace (
+). This is a mandatory requirement as we want a single entity to be responsible for coordinating incrementing the primary ID, and a distributed solution would introduce issues when there are network issues.
+
+The VTTablet is responsible for reserving and caching a block of ids from the Sequences table, and this reduces the writes required to the underlying table by the magnitude of the cache. In our production environment, we've set this cache value to 1000. The cache value is a critical parameter that needs careful consideration. It needs to be large enough to ensure that MySQL doesn't become a bottleneck during a spike of writes and can handle small periods of downtime of the underlying MySQL. At the same time, it needs to be small enough to ensure that no large block of IDs are "lost" anytime the VTTablet process is restarted or stopped.
+
+Getting existing tables to start using Sequences was tricky. Before using Sequence tables, we needed to update the next_id column in the Sequence tables to be bigger than the current max id of each table. We did this with application layer code that was thoroughly tested and more defensive than normal. The three steps were: 1) Identifying the current max id of a table, 2) Updating the related Sequence table with max_id plus a large buffer, 3) Updating the VSchema so Vitess would start using the Sequence table for auto-incrementing.
+
+Vindexes for maintaining global uniqueness and reducing cross shard queries
+
+Once a keyspace is sharded, there are two extra considerations:
+Row uniqueness
+ and
+cross-shard queries
+. If you want to ensure that a row is unique, adding a unique MySQL index is not enough anymore, as that only guarantees uniqueness per shard. Moreover, if the sharding key is not passed to a SQL query, a cross-shard query will be performed. Cross-shard queries are not bad if done infrequently, but they can cause issues at higher scale.
+
+Lookup Vindexes
+ are used to solve both of these problems. Lookup Vindexes are backed by MySQL tables that are maintained by Vitess. When a row is inserted, updated or deleted, Vitess also makes the corresponding changes in the lookup table. This allows Vitess to perform a lookup in the Lookup Vindex table to determine if a row is unique across shards. There are many different types of Vindex (
+) which one can pick from.
+
+For our purposes, we had to pick between
+consistent_lookup_unique
+ and the older
+lookup_unique
+ Vindex which is slower and requires a two-phase commit. We opted to only use
+consistent_lookup_unique
+ Vindexes to enforce global uniqueness across shards. We created these Lookup Vindexes before sharding, as sharding without them would break the uniqueness guarantees. As we gained more experience, we landed on the philosophy of avoiding Lookup Vindexes unless necessary.
+
+Other than the complexity there are two major downsides: 1) Writes are slower, because Vitess does extra work to maintain the Lookup Vindex table, 2) The test suite becomes slower, as we have to run non-transactional tests when updating a column that's backed by a
+consistent_lookup
+ Vindex. This is due to a limitation with
+consistent_lookup
+ Vindexes, where an insert followed by an update or delete in the same transaction for the same consistent lookup column value is not supported (
+). To avoid this issue, we considered an approach where we would use the slower
+lookup_unique
+ Vindex in the development and test environments. We opted not to do that, because we wanted parity between the development and production environments – there was a risk where code that would fail in production would not fail CI. Running a few non-transactional tests is not ideal so we are going to revisit this approach.
+
+Luckily, Lookup Vindexes are not required for enforcing cross shard uniqueness for two cases: 1) The key is a randomly generated collision safe key (e.g., UUID), or 2) One column in a unique MySQL index only exists in a single shard. To illustrate, consider the example where all tables are sharded by the user_id. A unique MySQL index like ["user_id", "name"] will be globally unique, as a single shard will contain all of the rows for a distinct user_id, and the uniqueness of the "name" column will be guaranteed within that shard. Likewise if a "Product" table is also sharded by a user_id, then a distinct product_id could only exist in the shard that contains the user. In this case, a unique MySQL index like ["product_id", "line_item_id"] will be globally unique as well. This works because all of the data for a user is kept in the same shard, and the MySQL unique index enforces uniqueness within that shard. Lookup Vindexes won't be needed here. See the example below.
+
+Lookup Vindexes can be created in any keyspace. We opted to create a separate sharded keyspace for the
+consistent_lookup_unique
+ Vindexes because of the following reasons: 1) We wanted to gain more experience with a sharded keyspace, before actually sharding the users keyspace, 2) We wanted to enforce that all tables in the users keyspace had the correct sharding id, 3) We wanted to improve our observability and tooling, 4) We didn't want a single unsharded database to become a bottleneck for inserts into the sharded keyspace.
+
+Adding more shards
+
+We now had the required pieces to add more shards. This last step was also the riskiest one. There were going to be many moving parts, and everything needed to go perfectly when switching from a single database to multiple shards. From our previous experience moving tables, we realized that this was not going to be easy. We were the first ones at Shopify so we would have to pay some early adopter tax.
+
+We started off by organizing a week-long hackathon between all members of the project. The goal was to properly understand Vindexes, Sequences, and actually sharding the users keyspace. We went through the gauntlet but pushed through. All in all, we ran into around 25 bugs. Some of these were bugs in Vitess itself (e.g,
+1
+,
+2
+,
+3
+,
+4
+,
+5
+,
+6
+) while others were bugs at the application and internal-infrastructure layers. One gains a healthy skepticism for moving parts after an exercise like this.
+
+As we gained more confidence we were prepared to shard the production database. Similar to the MoveTables operation, we disabled schema caches and migrations before getting started. We had disabled Vitess tablet throttler (
+) as it caused some issues while switching traffic in our tests. We then created new shards that matched the specs as the source shard. We kicked off the Reshard workflow (
+). The whole process took about a week of time. It is worth noting that we saw a lot of pauses while the data was being copied over, as the replication flow would throttle when MySQL history list length (HLL) was too high. The replication flow would resume as the HLL came back down.
+
+After copying the data we ran VDiffs to verify the integrity of the move. When executing VDiff, we saw HLL grow to over 1 million over about a 15 minute period. We also saw that VDiff would run into transient connection errors, however it typically recovers from them automatically. VDiff uses a series of single long running queries on the source and target tablets. When we ran VDiff on a larger table we ran into an error where it actually stopped the workflow. The workflow resumed after we stopped the VDiff. On a positive note, we found the workflow to be very resilient to failure (
+VReplication
+). It was able to survive an unplanned failover, and a configuration change which required replacing the instance.
+
+After completing the VDiffs, we switched replica reads to point to the new shards and looked for issues. Given our intense focus on the query verifiers, we didn't see major issues after switching reads. We waited a few hours and then finally switched primary reads and writes. At this point, writes were going to the new shards, and replication back to the original source shard. Roughly an hour later, the reverse replication stopped with the following error:
+
+Duplicate entry REDACTED for key 'index_name_on_table' (errno 1062) (sqlstate 23000) during query: insert into table_name(<REDACTED>) values (REDACTED)
+
+This issue happened because of a complex flow, which requires updating, inserting, and deleting a record in short succession:
+UPDATE row_1 → INSERT row_2 → DELETE row_1.
+This worked on on the single source shard, but broke when row_1 and row_2 were on separate shards. There are no guarantees about the ordering of events from different shards, so the insert could appear before the update, which violates the uniqueness constraint. Vitess has a feature to minimize the skew but that only mitigates the issue and does not eliminate it (
+). We were replicating from replica tablets and this might have reduced the skew by eliminating MySQL replication lag as a factor, but we don't know if it would have been enough to prevent the race condition entirely. Given that we were not seeing any issues with the new shards, we decided to move forward with completing the reshard operation.
+
+Cleanup
+
+Now that we had sharded the users keyspace, we spent some time on cleaning up. First, we realized that running schema migrations on a sharded system has a few more edge cases that we needed to consider. Each shard would complete the schema migration at different times. To reduce the impact of this, we require that all added or removed columns are included in the ignored_columns list in Rails (
+). This ensures that these columns are not references in SQL queries. We also run schema migrations with the
+--singleton
+ flag, so we only run one schema migration at a time per keyspace.
+
+Another cleanup task was to remove the MySQL auto-increment from all tables. Now that Sequences are responsible for auto-increment, we did not need or want MySQL to be responsible for auto-increment. So we ran schema migrations on all tables. This reduces the chance of a very-low-probability but high-impact failure mode, where shards use the MySQL auto-increment instead of the Sequence tables for any reason.
+
+Parting thoughts
+
+Horizontally scaling our primary datastore has unlocked unrestricted growth. It has also pulled us out of a loop of constant marginal optimizations to make the previous setup work. Overall, we are very happy with how Vitess has impacted our system. Schema migrations take hours instead of weeks. We no longer hit capacity issues, where background jobs would throttle when the database was pushed to its limits (replica lag, mysql threads running etc). Best of all, we now simply add more shards to further scale.
+
+The cost of this is added complexity. For developers to effectively use Vitess, they do have to learn a few more abstractions. We compare Vitess abstraction to MySQL indexes. A developer building on top of MySQL should know about setting up indexes. Let's consider some of the major considerations if you are switching over to Vitess.
+
+Major considerations for Vitess
+
+Vitess has many different features (
+). If we just stick to the features that most Rails-like applications would need, that leaves us with Sequences, and Vindexes and VSchemas. These are concepts that your team would need a basic understanding of.
+
+Sequences
+ are required to coordinate auto-incrementing primary IDs across shards. Rails applications default to auto-incrementing primary IDs, so you'll most likely need these. Luckily, they are fairly simple.
+
+Primary Vindexes
+ define how data is distributed to shards (i.e., the sharding key). Developers will need to understand this in order to avoid cross-shard transactions.
+
+Lookup Vindexes
+ enforce uniqueness across shards and reduce cross-shard queries.
+
+VSchemas
+ describe how each keyspace is organized. VSchemas are required for sharded keyspaces.
+
+Lessons from migrating to Vitess
+
+If you read through this whole article, you may be considering switching over to Vitess. Here are the core lessons that might help you along the way:
+
+Pick a sharding strategy earlier than you think. After we picked ours, re-organizing the data model, and then backfilling huge tables was really tedious and time consuming. Ideally, you should set up linters in advance to enforce that all new tables must have this non-nullable sharding key.
+
+You must practice important steps in a staging environment. Vitess is powerful but the failure modes are scary. Set up a great staging environment and practice every single step before attempting it in production (we had two staging environments). We discovered some bugs along the way, and it's likely that you will too. You should also have an approach for creating dummy data in the staging environment at high volumes, as this would help you identify potential issues.
+
+You should heavily invest in query verifiers. Remove cross keyspace/shard transactions. Reduce cross keyspace/shard queries. Maintain a list of queries and reduce them as much as possible. Triple check the validity of your verifiers.
+
+What's next
+
+Our next steps are to stabilize and simplify. We found a few issues while switching over to Vitess. Some of these were bugs with Vitess, while the others are related to our specific setup. We are planning on ironing these out. Once we upgrade to Rails v7.1, which introduces composite keys (
+), we'll remove most of our custom patches and align our approach with the future of Rails.
+
+This blog was co-authored by:
+
+Hammad Khalid
+,Senior Staff Developer (
+LinkedIn
+,
+X
+),
+
+Vahe Khachikyan
+, Senior Developer (
+LinkedIn
+),
+
+Hanying (Elsa) Huang
+, Staff Developer (
+LinkedIn
+),
+
+Thibault Gautriaud
+, Staff Developer (
+LinkedIn
+),
+
+Adam Renberg Tamm
+, Principal Engineer (
+LinkedIn
+), and
+
+Brendan Dougherty
+,Staff Production Engineer (
+LinkedIn
+).
+
+HK
+
+by
+Hammad Khalid
+
+Published on Jan 17, 2024
+
+Share article
+
+Facebook
+
+Twitter
+
+LinkedIn
+
+by
+Hammad Khalid
+
+Published on Jan 17, 2024
+
+• 30 minute read
+
+Development
+Introducing Ruvy
+Developer Tooling
+Building a ShopifyQL Code Editor
+
+Apps
+Shopify's platform is the Web platform
+Development
+The Engineering Story Behind Flex Comp

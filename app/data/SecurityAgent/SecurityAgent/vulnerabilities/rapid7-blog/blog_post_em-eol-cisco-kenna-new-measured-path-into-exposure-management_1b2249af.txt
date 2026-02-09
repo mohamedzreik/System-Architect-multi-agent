@@ -1,0 +1,112 @@
+Cisco's announcement that it will sunset Cisco Vulnerability Management (Kenna) marks a clear inflection point for many security teams. With
+end-of-sale and end-of-life timelines
+ now defined, and no replacement offering on the roadmap, Kenna customers face an unavoidable decision window.
+
+Beyond the practical need to replace a tool, Kenna's exit raises a bigger question for security leaders:
+what should vulnerability management look like moving forward?
+
+Not just a tool change
+
+For many organizations, Kenna wasn't "just another scanner". Before their acquisition by Cisco in 2021, Kenna Security helped pioneer a shift away from chasing raw CVSS scores and toward prioritization based on real-world risk, influencing how many teams approach risk-based vulnerability management. Security teams invested years building workflows, reporting, and executive trust around that model.
+
+That's why this moment feels different. Replacing Kenna isn't about checking a feature box, it's about protecting the integrity of the progress teams have already made while using this moment to elevate programs past traditional vulnerability management.
+
+Security leaders are rightly cautious. No one wants to:
+
+Rush into a short-term replacement vs. a platform that suits current and future needs
+
+Trade proven prioritization for untested promises
+
+Disrupt remediation workflows that engineering teams finally trust
+
+At the same time, few teams believe traditional vulnerability management – isolated scanners, static scoring, endless ticket queues – is sufficient on its own anymore.
+
+So where does that leave you?
+
+"Risk-based vulnerability management is dead" doesn't tell the full story
+
+In response to Kenna's end-of-life, much of the market has rushed to frame this as the end of risk-based vulnerability management (RBVM) altogether. The message is often loud and binary:
+RBVM is outdated, jump straight to
+
+exposure management
+.
+
+In practice, that framing doesn't match how security programs actually evolve.
+
+Most organizations are not abandoning vulnerability management. They are
+expanding it:
+
+From on-prem to hybrid and cloud
+
+From isolated findings to broader attack surface context
+
+From vulnerability lists to exposure-driven decisions
+
+From static to continuous
+
+The mistake is assuming this evolution requires a hard reset, or that exposure management is completely separate and not part of that evolution.
+
+For CISOs and hands-on leaders alike, the smarter question is:
+how do we preserve what works today, while building toward what we know we'll need tomorrow?
+
+What Kenna customers should prioritize next
+
+As you evaluate what comes after Kenna, the right decision comes down to which platform can consistently deliver security outcomes and measurable risk reduction:
+
+Continuity without disruption
+
+Your team already understands risk-based prioritization. The next platform should strengthen that muscle, not force you back to severity-only thinking or one-dimensional scoring models that ignore business context and threat intelligence.
+
+See risk clearly across on-prem, cloud, and external environments
+
+Risk doesn't live exclusively on-prem or in the cloud. Vulnerability data needs to reflect the reality of modern environments – endpoints, cloud workloads, external-facing assets – without fragmenting visibility. It needs to build on what teams already have by supporting findings from a broad range of existing tools and services, so risk can be understood in one place instead of scattered across platforms.
+
+Customizable remediation workflows
+
+Prioritization only matters if it leads to action. Look for platforms that help security and IT teams collaborate, track ownership, and measure progress without creating more friction.
+
+A credible path forward
+
+Exposure management is valuable only when it's grounded in accurate data, operational context, and day-to-day usability. Security teams are already drowning in findings across tools, and without context that explains what matters and why, exposure management adds more noise instead of helping teams make decisions and reduce risk. That noise shows up in familiar ways: duplicate findings aren't reconciled, conflicting risk scores between tools, unclear ownership for remediation, and long lists of issues with no clear path to action.
+
+Why this moment favors steady platforms, not big bets
+
+Kenna's exit creates pressure, but pressure shouldn't drive risky or forced decisions. Security leaders are accountable not just for vision, but for outcomes, such as:
+
+Are we reducing real risk this quarter?
+
+Can we explain prioritization decisions to the board?
+
+Will this platform still support us two or three years from now?
+
+This is where vendor stability, roadmap clarity, and operational proof start to matter more than bold claims.
+
+The strongest next steps are coming from
+platforms that already deliver
+ visibility across hybrid environments, mature, threat-informed vulnerability prioritization, and integrated remediation workflows that teams actually use. From there, exposure management becomes an evolution, not a leap of faith.
+
+A measured path forward
+
+Kenna's EOL doesn't signal the end of risk-based vulnerability management. It signals that security programs are ready to expect more from it. For security leaders this is an opportunity to reaffirm what has worked in your program, close real visibility and workflow gaps, and choose a platform that supports both near-term continuity and long-term growth.
+
+The goal isn't to chase the next trend. It's to make a confident, practical decision – one that protects today's outcomes while positioning your team for what's next.
+
+Looking ahead
+
+If you're navigating what comes after Cisco Kenna, the most important step is understanding your options early, before timelines force rushed decisions. Explore what a confident transition can look like and how teams are approaching continuity today while preparing for exposure management tomorrow.
+
+Explore a confident path forward.
+
+Article Tags
+
+Exposure Command
+
+Vulnerability Management
+
+[
+
+Michael Chroney
+
+Author Posts](/blog/author/michael-chroney/)
+
+Related blog posts

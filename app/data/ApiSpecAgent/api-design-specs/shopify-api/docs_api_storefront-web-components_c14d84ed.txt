@@ -1,0 +1,77 @@
+Storefront Web Components
+
+Storefront Web Components let you bring Shopify-powered commerce capabilities to any website. Display products, showcase collections, and offer a checkout, all with a few lines of embedded HTML.
+
+Ask assistant
+
+Anchor to How Storefront Web Components work
+How Storefront Web Components work
+
+Storefront Web Components are a set of HTML components that handle the complexity of querying Shopify's Storefront API, letting you display products, collections, and shopping cart functionality on your website without having to write complex JavaScript code.
+
+After you add the
+<shopify-store>
+ and
+<shopify-context>
+ components to your markup and configure their attributes, you can access your store's data and then style it using CSS or HTML to create tailored shopping experiences.
+
+Storefront Web Components are built for a wide range of use cases, from embedding your products and collections within existing content to building new pages for your site.
+
+[
+
+Full pageCollection page
+
+Full page
+
+Collection page](https://webcomponents.shopify.dev/playground?view=editor&preset=product-cards-discover)
+
+Full page - Collection page
+
+[
+
+Full pageBlog post
+
+Full page
+
+Blog post](https://webcomponents.shopify.dev/playground?view=editor&preset=blog-post)
+
+Full page - Blog post
+
+[
+
+EmbeddedProduct card
+
+Embedded
+
+Product card](https://webcomponents.shopify.dev/playground?view=editor&preset=ready-product-card-first)
+
+Embedded - Product card
+
+Anchor to Resources
+Resources
+
+Follow the step-by-step guide to add Storefront Web Components to your project or browse sample code with live previews in the playground.
+
+[
+
+Learn moreGetting started guide
+
+Learn more
+
+Getting started guide](/docs/api/storefront-web-components/getting-started/)
+
+Learn more - Getting started guide
+
+[
+
+ExploreStorefront Web Components playground
+
+Explore
+
+Storefront Web Components playground](https://webcomponents.shopify.dev/playground)
+
+Explore - Storefront Web Components playground
+
+Was this page helpful?
+
+YesNo

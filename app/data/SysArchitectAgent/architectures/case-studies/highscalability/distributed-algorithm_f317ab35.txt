@@ -1,0 +1,24 @@
+distributed algorithm
+
+[distributed algorithm
+
+Gossip Protocol Explained
+
+You can subscribe to the system design newsletter to excel in system design interviews and software architecture. The original article was published on systemdesign.one website.
+What Is Gossip Protocol?
+The typical problems in a distributed system are the following [1], [11]:
+* maintaining the system state (liveness of nodes)
+* communication
+
+By NK
+16 Jul 2023](/gossip-protocol-explained/)
+
+[Map Reduce
+
+Google: Introduction to Distributed System Design
+
+Update: Google added videos on Cluster Computing and MapReduce. There are five lectures:  Introduction, MapReduce, Distributed File Systems, Clustering Algorithms, and Graph Algorithms.
+Advanced website design depends on deep distributed system design knowledge. Where do you get this knowledge? Try Google. They have a a whole Code for Educators program
+
+By Todd Hoff
+25 Jan 2008](/google-introduction-to-distributed-system-design/)

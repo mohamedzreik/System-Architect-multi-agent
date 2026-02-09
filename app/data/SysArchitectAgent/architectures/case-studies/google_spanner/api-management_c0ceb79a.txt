@@ -1,0 +1,75 @@
+API Management
+
+News, updates, and best practices for managing APIs on Google Cloud.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[AI & Machine Learning
+
+Announcing advanced governance capabilities for Vertex AI Agent Builder
+
+By Michael Vakoc • 11-minute read
+
+](https://cloud.google.com/blog/products/ai-machine-learning/new-enhanced-tool-governance-in-vertex-ai-agent-builder)
+
+[AI & Machine Learning
+
+Announcing MCP support in Apigee: Turn existing APIs into secure and governed agentic tools
+
+By Megan Bruce • 5-minute read](https://cloud.google.com/blog/products/ai-machine-learning/mcp-support-for-apigee)
+
+[API Management
+
+Google Cloud Apigee Named a Leader for the 10th Consecutive Time in the Gartner® Magic Quadrant™ for API Management
+
+By Geir Sjurseth • 4-minute read](https://cloud.google.com/blog/products/ai-machine-learning/apigee-a-leader-in-2025-gartner-api-management-magic-quadrant)
+
+[Security & Identity
+
+Protecting your APIs from OWASP's top 10 security threats
+
+By Megan Bruce • 11-minute read](https://cloud.google.com/blog/products/identity-security/protecting-your-apis-from-owasps-top-10-security-threats)
+
+[API Management
+
+Operationalizing generative AI apps with Apigee
+
+By Michael Vakoc • 7-minute read](https://cloud.google.com/blog/products/api-management/using-apigee-api-management-for-ai)
+
+[API Management
+
+Google Cloud Apigee named a Leader in the 2024 Gartner® Magic Quadrant™ for API Management
+
+By Roderick Griner • 4-minute read](https://cloud.google.com/blog/products/api-management/apigee-a-leader-in-2024-gartner-api-management-magic-quadrant)
+
+[API Management
+
+From gRPC to RESTful APIs: Expose your gRPC services to the REST of the world
+
+By Daniel Strebel • 6-minute read](https://cloud.google.com/blog/products/api-management/bridge-the-gap-between-grpc-and-rest-http-apis)
+
+[API Management
+
+Apigee and the Interoperability Model (ModI) for the Italian Public Administration
+
+By Filippo Lambiente • 8-minute read](https://cloud.google.com/blog/products/api-management/apigee-and-modi-for-the-italian-public-administration)
+
+[Application Development
+
+Faster API development with the Cloud Code plugin for API management
+
+By Emanuel Burgess • 4-minute read
+
+](https://cloud.google.com/blog/products/application-development/using-the-cloud-code-plugin-to-develop-api)
+
+[API Management
+
+How Altice Labs enhanced API management with Google's Application Integration
+
+By Bruno Cabral • 3-minute read](https://cloud.google.com/blog/products/api-management/altice-labs-enhances-api-management-with-application-integration)
+
+Load more stories

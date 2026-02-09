@@ -1,0 +1,77 @@
+Productivity & Collaboration
+
+News and updates on Google Cloud solutions for productivity and collaboration in the workplace.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[AI & Machine Learning
+
+Companies achieve stronger results with Customer Engagement Suite, plus new AI-enabled capabilities
+
+By Antony Passemard • 8-minute read](https://cloud.google.com/blog/products/ai-machine-learning/customer-engagement-suite-stronger-results-and-new-ai-features)
+
+[Data Analytics
+
+Empower data-driven insights with new Google Workspace Analytics Block for Looker
+
+By David Tamaki Szajngarten • 4-minute read](https://cloud.google.com/blog/products/data-analytics/bringing-google-workspace-analytics-block-to-looker-marketplace)
+
+[Security & Identity
+
+Expanding our data processing commitments for Google Cloud and Google Workspace
+
+By Marc Crandall • 2-minute read
+
+](https://cloud.google.com/blog/products/identity-security/cdpa-2-0)
+
+[Security & Identity
+
+Google Workspace earns Dutch government's stamp of approval
+
+By Phil Venables • 3-minute read
+
+](https://cloud.google.com/blog/products/identity-security/dutch-government-affirms-workspace)
+
+[Training and Certifications
+
+Google Workspace Training Now Available on LinkedIn Learning
+
+By Carl Tanner • 2-minute read](https://cloud.google.com/blog/topics/training-certifications/google-workspace-training-courses-on-linkedin-learning)
+
+[Security & Identity
+
+Google is named a Leader in Forrester Data Security Platforms Wave
+
+By Sunil Potti • 2-minute read](https://cloud.google.com/blog/products/identity-security/google-named-leader-in-forrester-data-security-platforms-wave)
+
+[Productivity & Collaboration
+
+Google Workspace expands data privacy controls to Gmail and Calendar with client-side encryption
+
+By Andy Wen • 4-minute read
+
+](https://cloud.google.com/blog/products/productivity-collaboration/client-side-encryption-expanding-to-gmail-and-calendar)
+
+[Data Analytics
+
+Getting started with Terraform and Datastream: Replicating Postgres data to BigQuery
+
+By Ido Peretz • 4-minute read](https://cloud.google.com/blog/products/data-analytics/replicating-postgres-data-to-bigquery)
+
+[Data Analytics
+
+Connected Sheets for Looker is now generally available
+
+By Maire Newton • 2-minute read](https://cloud.google.com/blog/products/data-analytics/connected-sheets-for-looker-now-generally-available)
+
+[Public Sector
+
+Building bridges (and ships!): Google Public Sector helps the U.S. Navy better collaborate
+
+By Lynn Martin • 3-minute read](https://cloud.google.com/blog/topics/public-sector/building-bridges-and-ships-google-public-sector-helps-us-navy-better-collaborate)
+
+Load more stories

@@ -1,0 +1,75 @@
+DevOps & SRE
+
+News, updates, and best practices for Cloud Operations, DevOps and SRE at Google
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Financial Services
+
+A smart investment: FINRA builds a culture of improvement with DORA
+
+By Eric Maxwell • 2-minute read](https://cloud.google.com/blog/topics/financial-services/finra-builds-a-culture-of-improvement-with-dora-and-devops)
+
+[AI & Machine Learning
+
+From adoption to impact: Putting the DORA AI Capabilities Model to work
+
+By Nathen Harvey • 3-minute read
+
+](https://cloud.google.com/blog/products/ai-machine-learning/from-adoption-to-impact-putting-the-dora-ai-capabilities-model-to-work)
+
+[DevOps & SRE
+
+Is your DR plan just wishful thinking? Prove your resilience with chaos engineering
+
+By Deepanshu Kalra • 6-minute read](https://cloud.google.com/blog/products/devops-sre/using-chaos-engineering-to-test-dr-plans)
+
+[Application Development
+
+Streamline the design and deployment of application infrastructure with Application Design Center, now GA
+
+By Vijay Potharla • 6-minute read](https://cloud.google.com/blog/products/application-development/application-design-center-now-ga)
+
+[Security & Identity
+
+Responding to CVE-2025-55182: Secure your React and Next.js workloads
+
+By Tim April • 9-minute read](https://cloud.google.com/blog/products/identity-security/responding-to-cve-2025-55182)
+
+[DevOps & SRE
+
+Chaos engineering on Google Cloud: Principles, practices, and getting started
+
+By Parag Doshi • 6-minute read](https://cloud.google.com/blog/products/devops-sre/getting-started-with-chaos-engineering)
+
+[AI & Machine Learning
+
+Announcing the 2025 DORA Report: State of AI-Assisted Software Development
+
+By Nathen Harvey • 4-minute read
+
+](https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report)
+
+[Application Modernization
+
+How Google does it: Your guide to platform engineering
+
+By Leah Rivers • 4-minute read](https://cloud.google.com/blog/products/application-modernization/a-guide-to-platform-engineering)
+
+[Management Tools
+
+Optimize your cloud costs using Cloud Hub Optimization and Cost Explorer
+
+By Gobind Johar • 3-minute read](https://cloud.google.com/blog/products/management-tools/announcing-cloud-hub-optimization-and-cost-explorer-for-developers)
+
+[DevOps & SRE
+
+Introducing Google Cloud Setup: Your guided pathway to a secure cloud foundation
+
+By Stacie Buckingham • 4-minute read](https://cloud.google.com/blog/products/devops-sre/introducing-google-cloud-setup)
+
+Load more stories

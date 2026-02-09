@@ -1,0 +1,83 @@
+Authentication
+
+Positive FeedbackNegative Feedback
+
+Twilio supported SDKs
+
+The Twilio SendGrid Web REST API v3 provides SDKs for seven different languages.
+
+C#(link takes you to an external page)
+Go(link takes you to an external page)
+Java(link takes you to an external page)
+Node.js(link takes you to an external page)
+PHP(link takes you to an external page)
+Python(link takes you to an external page)
+Ruby(link takes you to an external page)
+
+Authorization header
+
+authorization-header page anchor
+
+Positive FeedbackNegative Feedback
+
+To authenticate, add an HTTP
+Authorization
+ header to your API request that contains an
+API Key
+.
+
+API keys
+
+api-keys page anchor
+
+Positive FeedbackNegative Feedback
+
+The Twilio SendGrid Web API v3 supports API keys, which add an additional layer of security to your account. Using API keys, you can:
+
+Use another method of authentication separate from your account username and password.
+
+Assign
+specific permissions
+ to API keys that limit which areas of your account the key can access.
+
+You can create
+API keys in your account(link takes you to an external page)
+. To use an API key, include an
+Authorization
+ header with the value
+Bearer <YOUR_API_KEY_HERE>
+ in your request. Replace
+<YOUR_API_KEY_HERE>
+ with your API secret key.
+
+Example API request header
+
+example-api-request-header page anchor
+
+Copy code block
+
+1
+
+GET https://api.sendgrid.com/v3/resource HTTP/1.1
+
+2
+
+Authorization: Bearer <YOUR_API_KEY_HERE>
+
+Example API request using bash
+
+example-api-request-using-bash page anchor
+
+Copy code block
+
+1
+
+curl -X "GET" "https://api.sendgrid.com/v3/templates" \
+
+2
+
+-H "Authorization: Bearer <YOUR_API_KEY_HERE>" \
+
+3
+
+-H "Content-Type: application/json"

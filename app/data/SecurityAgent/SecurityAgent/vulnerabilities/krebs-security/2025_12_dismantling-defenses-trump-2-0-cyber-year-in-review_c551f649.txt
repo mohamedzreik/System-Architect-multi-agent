@@ -1,0 +1,376 @@
+The Trump administration has pursued a staggering range of policy pivots this past year that threaten to weaken the nation's ability and willingness to address a broad spectrum of technology challenges, from cybersecurity and privacy to countering disinformation, fraud and corruption. These shifts, along with the president's efforts to restrict free speech and freedom of the press, have come at such a rapid clip that many readers probably aren't even aware of them all.
+
+FREE SPEECH
+
+President Trump has repeatedly claimed that a primary reason he lost the 2020 election was that social media and Big Tech companies had conspired to silence conservative voices and stifle free speech. Naturally, the president's impulse in his second term has been to use the levers of the federal government in an effort to limit the speech of everyday Americans, as well as foreigners wishing to visit the United States.
+
+In September, Donald Trump signed a national security directive known as
+NSPM-7
+, which directs federal law enforcement officers and intelligence analysts to target "anti-American" activity, including any "tax crimes" involving extremist groups who defrauded the IRS. According to
+extensive reporting
+ by journalist
+Ken Klippenstein
+, the focus of the order is on those expressing "opposition to law and immigration enforcement; extreme views in favor of mass migration and open borders; adherence to radical gender ideology," as well as "anti-Americanism," "anti-capitalism," and "anti-Christianity."
+
+Earlier this month,
+Attorney General Pam Bondi
+
+issued a memo
+ advising the FBI to compile a list of Americans whose activities "may constitute domestic terrorism." Bondi also ordered the FBI to establish a "
+cash reward system
+" to encourage the public to report suspected domestic terrorist activity. The memo states that domestic terrorism could include "opposition to law and immigration enforcement" or support for "radical gender ideology."
+
+The Trump administration also is planning to
+impose social media restrictions
+ on tourists as the president continues to ramp up travel restrictions for foreign visitors. According to
+a notice
+ from
+U.S. Customs and Border Protection
+ (CBP), tourists — including those from Britain, Australia, France, and Japan — will soon be required to provide five years of their social media history.
+
+The CBP said it will also collect "several high value data fields," including applicants' email addresses from the past 10 years, their telephone numbers used in the past five years, and names and details of family members. Wired
+reported
+ in October that the US CBP executed more device searches at the border in the first three months of the year than any other previous quarter.
+
+The new requirements from CBP add meat to the bones of
+Executive Order 14161
+, which in the name of combating "foreign terrorist and public safety threats" granted broad new authority that civil rights groups warn could enable a renewed travel ban and expanded visa denials or deportations based on perceived ideology. Critics alleged the order's vague language around "public safety threats," creates latitude for targeting individuals based on political views, national origin, or religion. At least 35 nations are now
+under some form of U.S. travel restrictions
+.
+
+CRIME AND CORRUPTION
+
+In February, Trump
+ordered
+ executive branch agencies to stop enforcing the
+U.S. Foreign Corrupt Practices Act
+, which froze foreign bribery investigations, and even allows for "remedial actions" of past enforcement actions deemed "inappropriate."
+
+The White House also disbanded the
+Kleptocracy Asset Recovery Initiative
+ and
+KleptoCapture Task Force
+ — units which proved their value in corruption cases and in seizing the assets of sanctioned Russian oligarchs — and diverted resources away from investigating white-collar crime.
+
+Also in February, Attorney General Pam Bondi
+dissolved
+ the FBI's
+Foreign Influence Task Force
+, an entity created during Trump's first term designed to counter the influence of foreign governments on American politics.
+
+In March 2025, Reuters
+reported
+ that several U.S. national security agencies had halted work on a coordinated effort to counter Russian sabotage, disinformation and cyberattacks. Former President Joe Biden had ordered his national security team to establish working groups to monitor the issue amid warnings from U.S. intelligence that Russia was escalating a shadow war against Western nations.
+
+In a test of prosecutorial independence, Trump's Justice Department ordered prosecutors to drop the corruption case against New York Mayor
+Eric Adams
+. The fallout was immediate: Multiple senior officials resigned in protest, the case was reassigned, and chaos engulfed the Southern District of New York (SDNY) – historically one of the nation's most aggressive offices for pursuing public corruption, white-collar crime, and cybercrime cases.
+
+When it comes to cryptocurrency, the administration has shifted regulators at the
+U.S. Securities and Exchange Commission
+ (SEC) away from enforcement to cheerleading an industry that has consistently been plagued by scams, fraud and rug-pulls. The SEC in 2025 systematically retreated from enforcement against cryptocurrency operators, dropping major cases against
+Coinbase
+,
+Binance
+, and others.
+
+Perhaps the most troubling example involves
+Justin Sun
+, the Chinese-born founder of crypto currency company
+Tron
+. In 2023, the SEC charged Sun with fraud and market manipulation. Sun subsequently invested $75 million in the Trump family's
+World Liberty Financial
+ (WLF) tokens, became the top holder of the $TRUMP memecoin, and secured a seat at an exclusive dinner with the president.
+
+In late February 2025, the SEC dropped its lawsuit. Sun promptly took Tron public through a reverse merger arranged by Dominari Securities, a firm with Trump family ties. Democratic lawmakers have urged the SEC to investigate what they call "concerning ties to President Trump and his family" as potential conflicts of interest and foreign influence.
+
+In October, President Trump pardoned
+Changpeng Zhao
+, the founder of the world's largest cryptocurrency exchange
+Binance
+. In 2023, Zhao and his company pled guilty to failing to prevent money laundering on the platform. Binance paid a $4 billion fine, and Zhao served a four-month sentence. As
+CBS News
+ observed last month, shortly after Zhao's pardon application, he was at the center of a blockbuster deal that put the Trump's family's WLF on the map.
+
+"Zhao is a citizen of the United Arab Emirates in the Persian Gulf and in May, an Emirati fund put $2 billion in Zhao's Binance," 60 Minutes
+reported
+. "Of all the currencies in the world, the deal was done in World Liberty crypto."
+
+SEC Chairman
+
+Paul Atkins
+ has made the agency's new posture towards crypto explicit, stating "most crypto tokens are not securities." At the same time, President Trump has directed the
+Department of Labor
+ and the SEC
+to expand 401(k) access to private equity and crypto
+ — assets that regulators have historically restricted for retail investors due to high risk, fees, opacity, and illiquidity. The executive order explicitly prioritizes "curbing ERISA litigation," and reducing accountability for fiduciaries while shifting risk onto ordinary workers' retirement savings.
+
+At the White House's behest, the U.S. Treasury in March
+suspended
+ the
+Corporate Transparency Act
+, a law that required companies to reveal their real owners. Finance experts warned the suspension would bring back shell companies and "
+open the flood gates of dirty money
+" through the US, such as funds from drug gangs, human traffickers, and fraud groups.
+
+Trump's clemency decisions have created a pattern of freed criminals committing new offenses, including
+Jonathan Braun
+, whose sentence for drug trafficking was commuted during Trump's first term, was found guilty in 2025 of violating supervised release and faces new charges.
+
+Eliyahu Weinstein
+, who received a commutation in January 2021 for running a Ponzi scheme, was sentenced in November 2025 to 37 years for running a new Ponzi scheme. The administration has also granted clemency to a growing list of white-collar criminals:
+David Gentile
+, a private equity executive sentenced to seven years for securities and wire fraud (functionally a ponzi-like scheme), and
+Trevor Milton
+, the Nikola founder sentenced to four years for defrauding investors over electric vehicle technology. The message: Financial crimes against ordinary investors are no big deal.
+
+At least 10 of the January 6 insurrectionists pardoned by President Trump
+have already been rearrested, charged or sentenced for other crimes
+, including plotting the murder of FBI agents, child sexual assault, possession of child sexual abuse material and reckless homicide while driving drunk.
+
+The administration also
+imposed sanctions
+ against the
+International Criminal Court
+ (ICC). On February 6, 2025, Executive Order 14203 authorized asset freezes and visa restrictions against ICC officials investigating U.S. citizens or allies, primarily in response to the ICC's arrest warrants for Israeli Prime Minister Benjamin Netanyahu over alleged war crimes in Gaza.
+
+Earlier this month the president launched the "
+Gold Card
+," a visa scheme established by an executive order in September that offers wealthy individuals and corporations expedited paths to U.S. residency and citizenship
+in exchange for $1 million for individuals and $2 million for companies
+, plus ongoing fees. The administration says it is also planning to offer a "platinum" version of the card that offers special tax breaks — for a cool $5 million.
+
+FEDERAL CYBERSECURITY
+
+President Trump campaigned for a second term insisting that the previous election was riddled with fraud and had been stolen from him. Shortly after Mr. Trump took the oath of office for a second time, he fired the head of the
+Cybersecurity and Infrastructure Security Agency
+ (CISA) —
+Chris Krebs
+ (no relation) — for having the audacity to state publicly that the 2020 election was the most secure in U.S. history.
+
+Mr. Trump revoked Krebs's security clearances, ordered a Justice Department investigation into his election security work, and suspended the security clearances of employees at
+SentinelOne
+, the cybersecurity firm where Krebs worked as chief intelligence and public policy officer. The executive order was the first direct presidential action against any US cybersecurity company. Krebs subsequently resigned from SentinelOne, telling The Wall Street Journal he was leaving to push back on Trump's efforts "to go after corporate interests and corporate relationships."
+
+The president also dismissed all 15 members of the
+Cyber Safety Review Board
+ (CSRB), a nonpartisan government entity established in 2022 with a mandate to investigate the security failures behind major cybersecurity events — likely because those advisors included Chris Krebs.
+
+At the time, the CSRB was in the middle of compiling a much-anticipated report on the root causes of Chinese government-backed digital intrusions into at least nine U.S. telecommunications providers. Not to be outdone, the
+Federal Communication Commission
+ quickly moved to
+roll back a previous ruling
+ that required U.S. telecom carriers to implement stricter cybersecurity measures.
+
+Meanwhile, CISA has lost roughly a third of its workforce this year amid mass layoffs and deferred resignations. When the government shutdown began in October, CISA laid off even more employees and furloughed 65 percent of the remaining staff, leaving
+only 900 employees
+ working without pay.
+
+Additionally, the Department of Homeland Security has reassigned CISA cyber specialists to jobs supporting the president's deportation agenda. As
+Bloomberg
+
+reported
+ earlier this year, CISA employees were given a week to accept the new roles or resign, and some of the reassignments included relocations to new geographic areas.
+
+The White House has signaled that it plans to
+cut an additional $491 million from CISA's budget next year
+, cuts that primarily target CISA programs focused on international affairs and countering misinformation and foreign propaganda. The president's budget proposal justified the cuts by repeating debunked claims about CISA engaging in censorship.
+
+The Trump administration has pursued a similar reorganization at the FBI:
+The Washington Post
+
+reported in October
+ that a quarter of all FBI agents have now been reassigned from national security threats to immigration enforcement. Reuters reported last week that the replacement of seasoned leaders at the FBI and Justice Department with Trump loyalists has led to an unprecedented number of prosecutorial missteps, resulting in a
+21 percent dismissal rate
+ of the D.C. U.S. attorney's office criminal complaints over eight weeks, compared to a mere .5% dismissal rate over the prior 10 years.
+
+"These mistakes are causing department attorneys to lose credibility with federal courts, with some judges quashing subpoenas, threatening criminal contempt and issuing opinions that raise questions about their conduct," Reuters reported. "Grand juries have also in some cases started rejecting indictments, a highly unusual event since prosecutors control what evidence gets presented."
+
+In August, the DHS
+banned state and local governments from using cyber grants
+ on services provided by the
+Multi-State Information Sharing and Analysis Center
+ (MS-ISAC), a group that for more than 20 years has shared critical cybersecurity intelligence across state lines and provided software and other resources at free or heavily discounted rates. Specifically, DHS barred states from spending funds on services offered by the
+Elections Infrastructure ISAC
+, which was
+effectively shuttered
+ after DHS pulled its funding in February.
+
+Cybersecurity Dive
+
+reports
+ that the Trump administration's massive workforce cuts, along with widespread mission uncertainty and a persistent leadership void, have interrupted federal agencies' efforts to collaborate with the businesses and local utilities that run and protect healthcare facilities, water treatment plans, energy companies and telecommunications networks. The publication said the changes came after the US government eliminated
+CIPAC
+ — a framework that allowed private companies to share cyber and threat intel without legal penalties.
+
+"Government leaders have canceled meetings with infrastructure operators, forced out their longtime points of contact, stopped attending key industry events and scrapped a coordination program that made companies feel comfortable holding sensitive talks about cyberattacks and other threats with federal agencies," Cybersecurity Dive's
+Eric Geller
+ wrote.
+
+Both the
+National Security Agency
+ (NSA) and
+U.S. Cyber Command
+ have been without a leader since Trump dismissed
+Air Force General Timothy Haugh
+ in April, allegedly for disloyalty to the president and at the suggestion of far-right conspiracy theorist Laura Loomer. The nomination of Army Lt. Gen. William Hartman for the same position fell through in October. The White House has
+ordered the NSA to cut 8 percent of its civilian workforce
+ (between 1,500 and 2,000 employees).
+
+As
+The Associated Press
+
+reported
+ in August, the
+Office of the Director of National Intelligence
+ plans to dramatically reduce its workforce and cut its budget by more than $700 million annually. Director of National Intelligence
+Tulsi Gabbard
+ said the cuts were warranted because ODNI had become "bloated and inefficient, and the intelligence community is rife with abuse of power, unauthorized leaks of classified intelligence, and politicized weaponization of intelligence."
+
+The firing or forced retirements of so many federal employees has been a boon to foreign intelligence agencies. Chinese intelligence agencies, for example,
+reportedly
+ moved quickly to take advantage of the mass layoffs, using a network of front companies to recruit laid-off U.S. government employees for "consulting work." Former workers with the Defense Department's
+Defense Digital Service
+ who resigned en-masse earlier this year thanks to DOGE encroaching on their mission
+have been approached
+ by the United Arab Emirates to work on artificial intelligence for the oil kingdom's armed forces, albeit reportedly with the blessing of the Trump administration.
+
+PRESS FREEDOM
+
+President Trump has filed multibillion-dollar lawsuits
+against a number of major news outlets
+ over news segments or interviews that allegedly portrayed him in a negative light, suing the networks
+ABC
+, the
+BBC
+, the
+CBS
+ parent company
+Paramount
+,
+The Wall Street Journal
+, and
+The New York Times
+, among others.
+
+The president signed an executive order aimed at slashing public subsidies to
+PBS
+ and
+NPR
+, alleging "bias" in the broadcasters' reporting. In July, Congress approved a request from Trump to cut $1.1 billion in federal funding for the
+Corporation for Public Broadcasting
+, the nonprofit entity that funds PBS and NPR.
+
+Brendan Carr
+, the president's pick to run the
+Federal Communications Commission
+ (FCC), initially pledged to "dismantle the censorship cartel and restore free speech rights for everyday Americans." But on January 22, 2025, the FCC reopened complaints against ABC, CBS and
+NBC
+ over their coverage of the 2024 election. The previous FCC chair had dismissed the complaints as attacks on the First Amendment and an attempt to weaponize the agency for political purposes.
+
+President Trump in February
+seized control
+ of the
+White House Correspondents' Association
+, the nonprofit entity that decides which media outlets should have access to the White House and the press pool that follows the president. The president invited an additional 32 media outlets, mostly conservative or right-wing organizations.
+
+According to the journalism group
+Poynter.org
+, there are three religious networks, all of which lean conservative, as well as a mix of outlets that includes a legacy paper, television networks, and a digital outlet powered by artificial intelligence.  Trump also barred
+The Associated Press
+ from the White House over their refusal to refer to the Gulf of Mexico as the Gulf of America.
+
+Under Trump appointee
+Kari Lake
+, the
+U.S. Agency for Global Media
+ moved to dismantle
+Voice of America
+,
+Radio Free Europe/Radio Liberty
+, and other networks that for decades served as credible news sources behind authoritarian lines. Courts blocked shutdown orders, but the damage continues through administrative leave, contract terminations, and funding disputes.
+
+President Trump this term has
+fired most of the people
+ involved in processing
+Freedom of Information Act
+ (FOIA) requests for government agencies. FOIA is an indispensable tool used by journalists and the public to request government records, and to hold leaders accountable.
+
+Petitioning the government, particularly when it ignores your requests, often requires challenging federal agencies in court. But that becomes far more difficult if the most competent law firms start to shy away from cases that may involve crossing the president and his administration. On March 22, the president issued
+a memorandum
+ that directs heads of the Justice and Homeland Security Departments to "seek sanctions against attorneys and law firms who engage in frivolous, unreasonable and vexatious litigation against the United States," or in matters that come before federal agencies.
+
+The Trump administration announced
+increased vetting of applicants for H-1B visas
+ for highly skilled workers, with an internal State Department memo saying that anyone involved in "censorship" of free speech should be considered for rejection.
+
+Executive Order 14161
+, issued in 2025 on "foreign terrorist and public safety threats," granted broad new authority that civil rights groups warn could enable a renewed travel ban and expanded visa denials or deportations based on perceived ideology. Critics charged that the order's vague language around "public safety threats" creates latitude for targeting individuals based on political views, national origin, or religion.
+
+CONSUMER PROTECTION, PRIVACY
+
+At the beginning of this year, President Trump ordered staffers at the
+Consumer Financial Protection Bureau
+ (CFPB) to stop most work. Created by Congress in 2011 to be a clearinghouse of consumer complaints, the CFPB has sued some of the nation's largest financial institutions for violating consumer protection laws. The CFPB says its actions have put nearly $18 billion back in Americans' pockets in the form of monetary compensation or canceled debts, and imposed $4 billion in civil money penalties against violators.
+
+The Trump administration said it planned to fire up to 90 percent of all CFPB staff, but a recent federal appeals court ruling in Washington tossed out an earlier decision that would have allowed the firings to proceed. Reuters
+reported this week
+ that an employee union and others have battled against it in court for ten months, during which the agency has been almost completely idled.
+
+The CFPB's acting director is
+Russell Vought
+, a key architect of the GOP policy framework Project 2025. Under Vought's direction, the CFPB in May
+quietly withdrew a data broker protection rule
+ intended to limit the ability of U.S. data brokers to sell personal information on Americans.
+
+Despite the Federal Reserve's own post-mortem
+explicitly blaming Trump-era deregulation
+ for the 2023 Silicon Valley Bank collapse, which triggered a fast-moving crisis requiring emergency weekend bailouts of banks, Trump's banking regulators in 2025 doubled down. They loosened capital requirements, narrowed definitions of "unsafe" banking practices, and stripped specific risk categories from supervisory frameworks. The setup for another banking crisis requiring taxpayer intervention is now in place.
+
+The Privacy Act of 1974, one of the few meaningful federal privacy laws, was built on the principles of consent and separation in response to the abuses of power that came to light during the Watergate era. The law states that when an individual provides personal information to a federal agency to receive a particular service, that data must be used
+solely for its original purpose
+.
+
+Nevertheless, it emerged in June that the Trump administration has built a central database of all US citizens. According to
+NPR
+, the White House plans to use the new platform during upcoming elections to verify the identity and citizenship status of US voters. The database was built by the Department of Homeland Security and the Department of Governmental Efficiency and is being rolled out in phases to US states.
+
+DOGE
+
+Probably the biggest ungotten scoop of 2025 is the inside story of what happened to all of the personal, financial and other sensitive data that was accessed by workers at the so-called
+Department of Government Efficiency
+ (DOGE). President Trump tapped
+Elon Musk
+ to lead the newly created department, which was mostly populated by current and former employees of Musk's various technology companies (including
+a former denizen of the cybercrime community known as the "Com"
+). It soon emerged that the DOGE team was using artificial intelligence
+to surveil at least one federal agency's communications
+ for hostility to Mr. Trump and his agenda.
+
+DOGE employees were able to access and synthesize data taken from a large number of
+previously separate
+ and highly guarded federal databases, including those at the Social Security Administration, the Department of Homeland Security, the Office of Personnel Management, and the U.S. Department of the Treasury. DOGE staffers did so largely by circumventing or dismantling security measures designed to detect and prevent misuse of federal databases, including standard incident response protocols, auditing, and change-tracking mechanisms.
+
+For example, an IT expert with the
+National Labor Relations Board
+ (NLRB)
+alleges
+ that DOGE employees likely downloaded gigabytes of data from agency case files in early March, using short-lived accounts that were configured to leave few traces of network activity. The NLRB whistleblower said the large data outflows coincided with multiple blocked login attempts from addresses in Russia, which attempted to use valid credentials for a newly-created DOGE user account.
+
+The stated goal of DOGE was to reduce bureaucracy and to massively cut costs — mainly by eliminating funding for a raft of federal initiatives that had already been approved by Congress. The DOGE website claimed those efforts reduced "wasteful" and "fraudulent" federal spending by more than $200 billion. However, multiple independent reviews by news organizations determined the true "savings" DOGE achieved was off by a couple of orders of magnitude, and was likely closer to $2 billion.
+
+At the same time DOGE was slashing federal programs, President Trump
+fired at least 17 inspectors general
+ at federal agencies — the very people tasked with actually identifying and stopping waste, fraud and abuse at the federal level. Those included several agencies (such as the NLRB) that had open investigations into one or more of Mr. Musk's companies for allegedly failing to comply with protocols aimed at protecting state secrets. In September, a federal judge found the president
+unlawfully fired the agency watchdogs
+, but none of them have been reinstated.
+
+Where is DOGE now?
+Reuters
+ reported last month that as far as the White House is concerned,
+DOGE no longer exists
+, even though it technically has more than half a year left to its charter. Meanwhile, who exactly retains access to federal agency data that was fed by DOGE into AI tools is anyone's guess.
+
+KrebsOnSecurity would like to thank the anonymous researcher
+NatInfoSec
+ for assisting with the research on this story.

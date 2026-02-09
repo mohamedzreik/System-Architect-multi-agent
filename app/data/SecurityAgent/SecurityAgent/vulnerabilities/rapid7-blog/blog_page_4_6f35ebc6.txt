@@ -1,0 +1,173 @@
+The Rapid7 Blog: Your Signal in the Security Noise
+
+Insights, stories, and guidance from our global security and research teams.
+
+Subscribe
+
+Weekly security updates — no spam.
+Privacy Policy
+.
+
+Featured posts
+
+[
+
+Introducing Rapid7 MDR for Microsoft
+
+Read post](/blog/post/dr-microsoft-defender-to-tangible-security-outcomes-with-rapid7-mdr/)[
+
+The End of Legacy SIEM as we Know it
+
+Read post](/blog/post/dr-the-end-of-legacy-siem-time-to-take-command/)[
+
+What's New in Rapid7 Products & Services?
+
+Read post](/blog/post/pt-whats-new-rapid7-products-services-h2-2025-review-mdr-siem-eap/)
+
+[
+
+Introducing Rapid7 MDR for Microsoft
+
+Read post](/blog/post/dr-microsoft-defender-to-tangible-security-outcomes-with-rapid7-mdr/)[
+
+The End of Legacy SIEM as we Know it
+
+Read post](/blog/post/dr-the-end-of-legacy-siem-time-to-take-command/)[
+
+What's New in Rapid7 Products & Services?
+
+Read post](/blog/post/pt-whats-new-rapid7-products-services-h2-2025-review-mdr-siem-eap/)
+
+3612 Results
+
+Categories
+
+Popular Tags
+
+[
+
+Industry Trends
+
+Key Emerging Cybersecurity Threats and Challenges for 2025 and Beyond
+
+Jeremy Makowski](/blog/post/it-key-emerging-cybersecurity-threats-challenges-ai-ransomware-quantum/)[
+
+Products and Tools
+
+Metasploit Wrap-Up 10/24/2025
+
+Martin Sutovsky](/blog/post/metasploit-wrap-up-10-24-2025/)[
+
+Vulnerabilities and Exploits
+
+Rapid7 at Pwn2Own: Raising the Bar in Vuln Intel
+
+Stephen Fewer](/blog/post/ve-rapid7-labs-at-pwn2own-vuln-intel/)[
+
+Detection and Response
+
+The business value of MDR: Why organizations are achieving 422% ROI with Rapid7
+
+Rapid7](/blog/post/dr-organizations-achieving-422-percent-roi-with-rapid7-mdr/)[
+
+Products and Tools
+
+Independent Results Confirm Rapid7's NGAV Delivers Strong, Reliable Protection
+
+Avi Ashkenazi](/blog/post/pt-independent-results-confirm-rapid7s-ngav-delivers-strong-reliable-protection/)[
+
+Products and Tools
+
+Metasploit Wrap-Up 10/17/2025
+
+Jacquie Harris](/blog/post/pt-metasploit-wrap-up-10-17-2025/)[
+
+Industry Trends
+
+Pen, Paper, and Preparedness: What the UK's Latest Cyber Guidance Really Means
+
+Emma Burdett](/blog/post/it-pen-paper-and-preparedness-what-the-uks-latest-cyber-guidance-really-means/)[
+
+Vulnerabilities and Exploits
+
+Inside the F5 Breach: What We Know and Recommended Actions
+
+Rapid7](/blog/post/ve-inside-the-f5-breach-what-we-know-and-recommended-actions/)[
+
+Industry Trends
+
+When the Call Comes from Inside: The Rising Threat of Insider Recruitment in Ransomware Campaigns
+
+Rapid7](/blog/post/it-when-the-call-comes-from-inside-the-rising-threat-of-insider-recruitment-in-ransomware-campaigns/)[
+
+Detection and Response
+
+Rapid7: 7 years of recognition in Gartner® Magic Quadrant™ for SIEM
+
+Cindy Stanton](/blog/post/dr-rapid7-7-years-of-recognition-in-gartner-magic-quadrant-for-siem/)[
+
+Exposure Management
+
+Patch Tuesday - October 2025
+
+Adam Barnett](/blog/post/em-patch-tuesday-october-2025/)[
+
+Culture
+
+Cybersecurity Awareness Month 2025: Building a Cybersecurity Culture That Lasts
+
+Emma Burdett](/blog/post/c-cybersecurity-awareness-month-2025-building-a-cybersecurity-culture-that-lasts/)[
+
+Products and Tools
+
+Metasploit Wrap Up 10/09/2025
+
+Diego Ledda](/blog/post/pt-metasploit-wrap-up-10-09-2025/)[
+
+Products and Tools
+
+Identifying and Mitigating Potential Velociraptor Abuse
+
+Christiaan Beek](/blog/post/pt-identifying-and-mitigating-potential-velociraptor-abuse/)[
+
+Threat Research
+
+Inside Russian Market: Uncovering the Botnet Empire
+
+Alexandra Blia, Maor Weinberger](/blog/post/tr-inside-russian-market-uncovering-the-botnet-empire/)[
+
+Threat Research
+
+Crimson Collective: A New Threat Group Observed Operating in the Cloud
+
+Jakub Zvarik](/blog/post/tr-crimson-collective-a-new-threat-group-observed-operating-in-the-cloud/)[
+
+Industry Trends
+
+The Business of Cybercrime: Raj Samani on Access, Ransomware, and What Comes Next
+
+Rapid7](/blog/post/it-the-business-of-cybercrime-raj-samani-on-access-ransomware-and-what-comes-next/)[
+
+Industry Trends
+
+What Recent Cyber Attacks Reveal About Readiness in 2025
+
+Emma Burdett](/blog/post/it-what-recent-cyber-attacks-reveal-about-readiness-in-2025/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-61882: Critical 0day in Oracle E-Business Suite exploited in-the-wild
+
+Stephen Fewer, Christiaan Beek](/blog/post/etr-cve-2025-61882-critical-0day-in-oracle-e-business-suite-exploited-in-the-wild/)[
+
+Products and Tools
+
+Metasploit Wrap-Up 10/03/2025
+
+Christophe De La Fuente](/blog/post/pt-metasploit-wrap-up-10-03-2025/)[
+
+Detection and Response
+
+Microsoft 365 Direct Send Abuse
+
+Rapid7](/blog/post/dr-microsoft-365-direct-send-abuse/)

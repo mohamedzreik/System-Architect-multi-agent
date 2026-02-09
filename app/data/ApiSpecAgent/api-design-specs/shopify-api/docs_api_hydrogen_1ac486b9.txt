@@ -1,0 +1,154 @@
+Hydrogen
+
+Hydrogen is Shopify's opinionated stack for headless commerce, built on
+React Router
+. It provides a set of tools, utilities, and best-in-class examples for building dynamic and performant commerce applications.
+
+Ask assistant
+
+Choose a version:
+
+2025-07 latest2025-05 2025-04 2025-01 2024-10 2024-07 2024-04 2024-01 2023-10 2023-07 2023-04
+
+2025-07latest
+
+Anchor to Setup
+Setup
+
+Create a new Hydrogen project with your preferred package manager.
+
+Import components, hooks, or utilities that you want to use in your app. For more, see the
+getting started guide
+.
+
+[
+
+TutorialGetting started with Hydrogen and Oxygen
+
+Tutorial
+
+Getting started with Hydrogen and Oxygen](/docs/custom-storefronts/hydrogen/getting-started)
+
+Tutorial - Getting started with Hydrogen and Oxygen
+
+Anchor to Authentication
+Authentication
+
+To make full use of Hydrogen, you need to authenticate with and make requests to the
+Storefront API
+ and the
+Customer Account API
+. Hydrogen includes full-featured API clients to securely handle API queries and mutations.
+
+You can create access tokens for your own Shopify store by
+installing the Hydrogen sales channel
+, which includes built-in support for Oxygen, Shopify's global edge hosting platform. Or install the
+Headless sales channel
+ to host your Hydrogen app anywhere.
+
+Both the Storefront API and Customer Account API offer public credentials for client-side applications.
+
+[
+
+InstallHydrogen sales channel
+
+Install
+
+Hydrogen sales channel](https://apps.shopify.com/hydrogen)
+
+Install - Hydrogen sales channel
+
+[
+
+InstallHeadless sales channel
+
+Install
+
+Headless sales channel](https://apps.shopify.com/headless)
+
+Install - Headless sales channel
+
+Anchor to Versioning
+Versioning
+
+Hydrogen is tied to specific versions of the
+Storefront API
+, which is versioned quarterly. For example, if you're using Storefront API version
+2023-10
+, then Hydrogen versions
+2023.10.x
+ are fully compatible.
+
+Caution
+
+If a Storefront API version includes breaking changes, then the corresponding Hydrogen version will include the same breaking changes.
+
+Caution:
+
+If a Storefront API version includes breaking changes, then the corresponding Hydrogen version will include the same breaking changes.
+
+[
+
+Learn moreShopify API versioning
+
+Learn more
+
+Shopify API versioning](/docs/api/usage/versioning)
+
+Learn more - Shopify API versioning
+
+[
+
+Learn moreAPI release notes
+
+Learn more
+
+API release notes](/docs/api/release-notes)
+
+Learn more - API release notes
+
+Anchor to How Hydrogen works with Hydrogen React
+How Hydrogen works with Hydrogen React
+
+Hydrogen is
+built on React Router
+. But many of the components, hooks and utilities built into Hydrogen come from
+Hydrogen React
+, an underlying package that's framework-agnostic. For convenience, the Hydrogen package re-exports those resources. This means that if you're building a Hydrogen app, then you should import modules from the
+@shopify/hydrogen
+ package.
+
+Anchor to Resources
+Resources
+
+[
+
+Custom storefronts on Shopify
+
+Learn more about how to design, build, and manage custom storefronts on Shopify.
+
+Custom storefronts on Shopify
+
+Learn more about how to design, build, and manage custom storefronts on Shopify.](/custom-storefronts)
+
+[Custom storefronts on Shopify
+
+Learn more about how to design, build, and manage custom storefronts on Shopify.](/custom-storefronts)
+
+[
+
+Hydrogen on GitHub
+
+Follow the Hydrogen project, file bugs and feature requests, preview upcoming features, and more
+
+Hydrogen on GitHub
+
+Follow the Hydrogen project, file bugs and feature requests, preview upcoming features, and more](https://github.com/Shopify/hydrogen)
+
+[Hydrogen on GitHub
+
+Follow the Hydrogen project, file bugs and feature requests, preview upcoming features, and more](https://github.com/Shopify/hydrogen)
+
+Was this page helpful?
+
+YesNo

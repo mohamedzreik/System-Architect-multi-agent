@@ -1,0 +1,77 @@
+Infrastructure Modernization
+
+Learn about Google Cloud's approach to infrastructure and implementing, deploying, migrating, and maintaining applications.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Infrastructure Modernization
+
+Accelerate migrations with new incentives from the Rapid Migration and Modernization Program (RaMP)
+
+By Lindsay Myers • 2-minute read
+
+](https://cloud.google.com/blog/products/infrastructure-modernization/new-ramp-incentives-for-cloud-migration)
+
+[Customers
+
+Cool stuff Google Cloud customers built, Dec. edition: AI for better toys, reliable mapping tech, Gemini stumps an all-star & more
+
+By Google Cloud Content & Editorial • 10-minute read
+
+](https://cloud.google.com/blog/topics/customers/cool-stuff-google-cloud-customers-built-monthly-round-up)
+
+[Financial Services
+
+How CME Group builds a faster, smarter exchange on Cloud SQL
+
+By Kristofer Shane Sikora • 4-minute read
+
+](https://cloud.google.com/blog/topics/financial-services/how-cme-group-builds-a-faster-smarter-exchange-on-cloud-sql)
+
+[Networking
+
+AWS and Google Cloud collaborate to simplify multicloud networking
+
+By Rob Enns • 3-minute read](https://cloud.google.com/blog/products/networking/aws-and-google-cloud-collaborate-on-multicloud-networking)
+
+[Media & Entertainment
+
+How Lightricks trains video diffusion models at scale with JAX on TPU
+
+By Yaki Bitterman • 6-minute read](https://cloud.google.com/blog/products/media-entertainment/how-lightricks-trains-video-diffusion-models-at-scale-with-jax-on-tpu)
+
+[Compute
+
+11 ways to reduce your Google Cloud compute costs today
+
+By Alex Bestavros • 11-minute read](https://cloud.google.com/blog/products/compute/cost-saving-strategies-when-migrating-to-google-cloud-compute)
+
+[AI & Machine Learning
+
+How Baseten achieves 225% better cost-performance for AI inference (and you can too)
+
+By Philip Kiely • 4-minute read](https://cloud.google.com/blog/products/ai-machine-learning/how-baseten-achieves-better-cost-performance-for-ai-inference)
+
+[Security & Identity
+
+From clicks to clusters: Expanding Confidential Computing with Intel TDX
+
+By Joanna Young • 8-minute read](https://cloud.google.com/blog/products/identity-security/from-clicks-to-clusters-confidential-computing-expands-with-intel-tdx)
+
+[Hybrid & Multicloud
+
+Run Gemini anywhere, including on-premises, with Google Distributed Cloud
+
+By Vithal Shirodkar • 5-minute read](https://cloud.google.com/blog/topics/hybrid-cloud/gemini-is-now-available-anywhere)
+
+[Infrastructure Modernization
+
+An efficient path to production AI: Kakao's journey with JAX and Cloud TPUs
+
+By Minho Ryu, Nayeon Kim • 7-minute read](https://cloud.google.com/blog/products/infrastructure-modernization/kakaos-journey-with-jax-and-cloud-tpus)
+
+Load more stories

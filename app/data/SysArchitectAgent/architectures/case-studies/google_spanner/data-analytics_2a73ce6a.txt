@@ -1,0 +1,75 @@
+Data Analytics
+
+Find news, updates, and best practices for building your data cloud on Google Cloud.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Data Analytics
+
+What's new with Google Data Cloud
+
+By The Google Cloud Data Analytics, BI, and Database teams • 3-minute read
+
+](https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud)
+
+[Data Analytics
+
+Introducing Conversational Analytics in BigQuery
+
+By Vasiya Krishnan • 4-minute read](https://cloud.google.com/blog/products/data-analytics/introducing-conversational-analytics-in-bigquery)
+
+[Data Analytics
+
+What's new with ML infrastructure for Dataflow
+
+By Efesa Origbo • 4-minute read](https://cloud.google.com/blog/products/data-analytics/new-dataflow-features-to-enable-streaming-and-ml-workloads)
+
+[Data Analytics
+
+BigQuery AI supports Gemini 3.0, simplified embedding generation and new similarity function
+
+By Tianxiang Gao • 5-minute read](https://cloud.google.com/blog/products/data-analytics/new-bigquery-gen-ai-functions-for-better-data-analysis)
+
+[Data Analytics
+
+Improving workflow orchestration with Apache Airflow 3.1 in Cloud Composer
+
+By Piotr Wieczorek • 5-minute read](https://cloud.google.com/blog/products/data-analytics/cloud-composer-supports-apache-airflow-31)
+
+[Partners
+
+How Palo Alto Networks built a multi tenant scalable Unified Data Platform
+
+By Pavan Paladugu • 5-minute read](https://cloud.google.com/blog/topics/partners/palo-alto-networks-builds-a-multi-tenant-unified-data-platform)
+
+[Data Analytics
+
+Introducing BigQuery managed and SQL-native inference for open models
+
+By Jiashang Liu • 4-minute read](https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-managed-and-sql-native-inference-for-open-models)
+
+[Data Analytics
+
+Vibe querying: Write SQL queries faster with Comments to SQL in BigQuery
+
+By Gautam Gupta • 5-minute read](https://cloud.google.com/blog/products/data-analytics/vibe-querying-with-comments-to-sql-in-bigquery)
+
+[Data Analytics
+
+Build data analytics agents faster with BigQuery's fully managed, remote MCP server
+
+By Vikram Manghnani • 7-minute read](https://cloud.google.com/blog/products/data-analytics/using-the-fully-managed-remote-bigquery-mcp-server-to-build-data-ai-agents)
+
+[Data Analytics
+
+What's new with Google Data Cloud - 2025
+
+By The Google Cloud Data Analytics, BI, and Database teams • 26-minute read
+
+](https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud-2025)
+
+Load more stories

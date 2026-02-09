@@ -1,0 +1,177 @@
+Hydrogen React
+
+Hydrogen React is a performant, framework-agnostic library of React components, reusable functions, and utilities for interacting with Shopify's
+Storefront API
+. It's bundled with
+Hydrogen
+, but can be used by any React-based web app.
+
+Ask assistant
+
+Choose a version:
+
+2025-07 latest2025-05 2025-04 2025-01 2024-10 2024-07 2024-04 2024-01 2023-10 2023-07 2023-04 2023-01
+
+2025-07latest
+
+Anchor to Setup
+Setup
+
+Install Hydrogen React in your project with your preferred package manager.
+
+Import components, hooks, or utilities that you want to use in your app. For more detailed instructions, see the Getting Started guide.
+
+[
+
+TutorialGetting Started with Hydrogen React
+
+Tutorial
+
+Getting Started with Hydrogen React](/docs/custom-storefronts/hydrogen-react)
+
+Tutorial - Getting Started with Hydrogen React
+
+Anchor to Authentication
+Authentication
+
+To use Hydrogen React, you need to authenticate with and make requests to the
+Storefront API
+. Hydrogen React includes an
+API client
+ to securely handle API queries and mutations.
+
+You can create and manage Storefront API access tokens by installing the
+Headless sales channel
+ on your store.
+
+Apps have access to
+two kinds of tokens
+: a public API token, which can be used in client-side code, and a private API token, which should only be used in server-side contexts and never exposed publicly.
+
+[
+
+InstallHeadless sales channel
+
+Install
+
+Headless sales channel](https://apps.shopify.com/headless)
+
+Install - Headless sales channel
+
+Anchor to Versioning
+Versioning
+
+Hydrogen React is tied to specific versions of the
+Storefront API
+, which is versioned quarterly. For example, if you're using Storefront API version
+2023-10
+, then Hydrogen versions
+2023.10.x
+ are fully compatible.
+
+Caution
+
+If a Storefront API version includes breaking changes, then the corresponding Hydrogen React version will include the same breaking changes.
+
+Caution:
+
+If a Storefront API version includes breaking changes, then the corresponding Hydrogen React version will include the same breaking changes.
+
+[
+
+Learn moreShopify API versioning
+
+Learn more
+
+Shopify API versioning](/docs/api/usage/versioning)
+
+Learn more - Shopify API versioning
+
+[
+
+Learn moreAPI release notes
+
+Learn more
+
+API release notes](/docs/api/release-notes)
+
+Learn more - API release notes
+
+Anchor to Components
+Components
+
+Components include all the business logic and data parsing required to produce predictable markup for objects available through the Storefront API. Components provide defaults but can be customized. Hydrogen React components include no visual styles, other than the ones provided natively by browsers.
+
+Anchor to Hooks
+Hooks
+
+Hooks are functions that provide reusable business and/or state logic. They give you additional flexibility to control the behavior and display of Hydrogen React components.
+
+Anchor to Utilities
+Utilities
+
+Utilities are reusable functions for common manipulations performed on data returned from the Storefront API.
+
+Anchor to How Hydrogen React works with Hydrogen
+How Hydrogen React works with Hydrogen
+
+Hydrogen React is bundled as part of Hydrogen, Shopify's opinionated headless commerce stack built on
+Remix
+. Hydrogen React is also published separately as a standalone package so that it can be used by other React-based frameworks.
+
+Hydrogen adds features like standard routes, caching strategies, redirects, and SEO. When using Hydrogen, you can also install the Hydrogen sales channel, which includes built-in support for Oxygen, Shopify's global edge hosting platform. Consider which approach works best for your use case and existing technology stack.
+
+[
+
+Learn moreHydrogen
+
+Learn more
+
+Hydrogen](/docs/custom-storefronts/hydrogen)
+
+Learn more - Hydrogen
+
+[
+
+InstallHydrogen sales channel
+
+Install
+
+Hydrogen sales channel](https://apps.shopify.com/hydrogen)
+
+Install - Hydrogen sales channel
+
+Anchor to Resources
+Resources
+
+[
+
+Custom storefronts on Shopify
+
+Learn more about how to design, build, and manage custom storefronts on Shopify.
+
+Custom storefronts on Shopify
+
+Learn more about how to design, build, and manage custom storefronts on Shopify.](/custom-storefronts)
+
+[Custom storefronts on Shopify
+
+Learn more about how to design, build, and manage custom storefronts on Shopify.](/custom-storefronts)
+
+[
+
+Hydrogen on GitHub
+
+Follow the Hydrogen project, file bugs and feature requests, preview upcoming features, and more.
+
+Hydrogen on GitHub
+
+Follow the Hydrogen project, file bugs and feature requests, preview upcoming features, and more.](https://github.com/Shopify/hydrogen)
+
+[Hydrogen on GitHub
+
+Follow the Hydrogen project, file bugs and feature requests, preview upcoming features, and more.](https://github.com/Shopify/hydrogen)
+
+Was this page helpful?
+
+YesNo

@@ -1,0 +1,112 @@
+KrebsOnSecurity.com celebrates its 16th anniversary today! A huge "thank you" to all of our readers — newcomers, long-timers and drive-by critics alike. Your engagement this past year here has been tremendous and truly a salve on a handful of dark days. Happily, comeuppance was a strong theme running through our coverage in 2025, with a primary focus on entities that enabled complex and globally-dispersed cybercrime services.
+
+Image: Shutterstock, Younes Stiller Kraske.
+
+In May 2024, we scrutinized the history and ownership of
+Stark Industries Solutions Ltd.
+, a "bulletproof hosting" provider that came online just two weeks before Russia invaded Ukraine and served as
+a primary staging ground
+ for repeated Kremlin cyberattacks and disinformation efforts. A year later, Stark and its two co-owners were sanctioned by the European Union, but our analysis showed those penalties have done little to stop the Stark proprietors from
+rebranding and transferring considerable network assets
+ to other entities they control.
+
+In December 2024, KrebsOnSecurity
+profiled Cryptomus,
+ a financial firm registered in Canada that emerged as the payment processor of choice for dozens of Russian cryptocurrency exchanges and websites hawking cybercrime services aimed at Russian-speaking customers. In October 2025, Canadian financial regulators ruled that Cryptomus had grossly violated its anti-money laundering laws, and
+levied a record $176 million fine
+ against the platform.
+
+In September 2023, KrebsOnSecurity
+published findings
+ from researchers who concluded that a series of six-figure cyberheists across dozens of victims resulted from thieves cracking master passwords stolen from the password manager service
+LastPass
+ in 2022. In a court filing in March 2025, U.S. federal agents investigating a spectacular $150 million cryptocurrency heist said
+they had reached the same conclusion
+.
+
+Phishing was a major theme of this year's coverage, which peered inside the day-to-day operations of several
+voice phishing gangs
+ that routinely carried out elaborate, convincing, and financially devastating cryptocurrency thefts.
+A Day in the Life of a Prolific Voice Phishing Crew
+ examined how one cybercrime gang abused legitimate services at Apple and Google to force a variety of outbound communications to their users, including emails, automated phone calls and system-level messages sent to all signed-in devices.
+
+Nearly a half-dozen stories in 2025 dissected the incessant
+SMS phishing or "smishing" coming from China-based phishing kit vendors
+, who make it easy for customers to
+convert phished payment card data into mobile wallets
+ from Apple and Google. In an effort to wrest control over this phishing syndicate's online resources, Google has since filed at
+least two
+
+John Doe lawsuits
+ targeting these groups and dozens of unnamed defendants.
+
+In January, we highlighted research into
+a dodgy and sprawling content delivery network called
+Funnull
+ that specialized in helping China-based gambling and money laundering websites distribute their operations across multiple U.S.-based cloud providers. Five months later, the U.S. government
+sanctioned Funnull
+, identifying it as a top source of investment/romance scams known as "
+pig butchering
+."
+
+Image: Shutterstock, ArtHead.
+
+In May, Pakistan
+arrested 21 people
+ alleged to be working for
+Heartsender
+, a phishing and malware dissemination service that KrebsOnSecurity
+first profiled back in 2015
+. The arrests came shortly after the FBI and the Dutch police
+seized dozens of servers and domains for the group
+. Many of those arrested were first publicly identified in a 2021 story here about how they'd inadvertently infected their computers with malware
+that gave away their real-life identities
+.
+
+In April, the U.S. Department of Justice indicted the proprietors of a Pakistan-based e-commerce company for conspiring to distribute synthetic opioids in the United States. The following month, KrebsOnSecurity detailed how the proprietors of the sanctioned entity are perhaps better known for operating an elaborate and lengthy scheme to
+scam westerners seeking help with trademarks, book writing, mobile app development and logo designs
+.
+
+Earlier this month, we examined an academic cheating empire turbocharged by Google Ads that earned tens of millions of dollars in revenue and has
+curious ties to a Kremlin-connected oligarch whose Russian university builds drones for Russia's war against Ukraine
+.
+
+An attack drone advertised on a website hosted in the same network as Russia's largest private education company — Synergy University.
+
+As ever, KrebsOnSecurity endeavored to keep close tabs on the world's biggest and most disruptive botnets, which pummeled the Internet this year with distributed denial-of-service (DDoS) assaults that were
+two to three times the size and impact of previous record DDoS attacks
+.
+
+In June, KrebsOnSecurity.com was
+hit by the largest DDoS attack
+ that Google had ever mitigated at the time (we are a grateful guest of Google's excellent
+Project Shield
+ offering). Experts blamed that attack on an Internet-of-Things botnet called
+Aisuru
+ that had rapidly grown in size and firepower since its debut in late 2024. Another Aisuru attack on Cloudflare just days later practically doubled the size of the June attack against this website. Not long after that, Aisuru was blamed for a DDoS that again doubled the previous record.
+
+In October, it appeared the cybercriminals in control of Aisuru had shifted the botnet's focus from DDoS to a more sustainable and profitable use: Renting hundreds of thousands of infected Internet of Things (IoT) devices to
+proxy services that help cybercriminals anonymize their traffic
+.
+
+However, it has recently become clear that at least some of the disruptive botnet and residential proxy activity attributed to Aisuru last year likely was the work of people responsible for building and testing a powerful botnet known as
+Kimwolf
+. Chinese security firm
+XLab,
+ which was the first to chronicle Aisuru's rise in 2024,
+recently profiled Kimwolf
+ as easily the world's biggest and most dangerous collection of compromised machines — with approximately 1.83 million devices under its thumb as of December 17.
+
+XLab noted that the Kimwolf author "shows an almost 'obsessive' fixation on the well-known cybersecurity investigative journalist Brian Krebs, leaving easter eggs related to him in multiple places."
+
+Image: XLab, Kimwolf Botnet Exposed: The Massive Android Botnet with 1.8 million infected devices.
+
+I am happy to report that the first KrebsOnSecurity stories of 2026 will go deep into the origins of Kimwolf, and examine the botnet's unique and highly invasive means of spreading digital disease far and wide. The first in that series will include a somewhat sobering and global security notification concerning the devices and residential proxy services that are inadvertently helping to power Kimwolf's rapid growth.
+
+Thank you once again for your continued readership, encouragement and support. If you like the content we publish at KrebsOnSecurity.com, please consider making an exception for our domain in your ad blocker. The ads we run are limited to a handful of static images that are all served in-house and vetted by me (there is no third-party content on this site, period). Doing so would help further support the work you see here almost every week.
+
+And if you haven't done so yet, sign up for our
+email newsletter
+! (62,000 other subscribers can't be wrong, right?). The newsletter is just a plain text email that goes out the moment a new story is published. We send between one and two emails a week, we never share our email list, and we don't run surveys or promotions.
+
+Thanks again, and Happy New Year everyone! Be safe out there.

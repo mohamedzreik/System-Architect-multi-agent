@@ -1,0 +1,201 @@
+POSTED ON JANUARY 14, 2026 TO
+ML Applications
+,
+Video Engineering
+
+Adapting the Facebook Reels RecSys AI Model Based on User Feedback
+
+By
+Senthil Rajagopalan
+,
+Drew Hogg
+,
+Mengxi Lv
+,
+Grace Yang
+,
+Jieli Shen
+,
+Thomas Grubb
+,
+Shashank Bassi
+,
+Jason Song
+,
+Hareesh Nagarajan
+,
+Aya Avishai
+,
+Zellux Wang
+,
+Min Li
+
+We've improved personalized video recommendations on Facebook Reels by moving beyond metrics such as likes and watch time and directly leveraging user feedback.
+
+Our new User True Interest Survey (UTIS) model, now helps surface more niche, high-quality content and boosts engagement, retention, and satisfaction.
+
+We're doubling down on personalization, tackling challenges like sparse user data and bias, and exploring advanced AI to make recommendations even smarter and more diverse.
+
+Our paper, "
+Improve the Personalization of Large-Scale Ranking Systems by Integrating User Survey Feedback
+" shares full details on this work.
+
+Delivering personalized video recommendations is a common challenge for user satisfaction and long-term engagement on large-scale social platforms. At Facebook Reels, we've been working to close this gap by focusing on "interest matching" – ensuring that the content people see truly aligns with their unique preferences. By combining large-scale user surveys with recent advances in machine learning, we are now able to better understand and model what people genuinely care about, which has led to significant improvements in both recommendation quality and overall user satisfaction.
+
+Why True Interest Matters
+
+Traditional recommendation systems often rely on engagement signals – such as likes, shares, and watch time – or heuristics to infer user interests. However, these signals can be noisy and may not fully capture the nuances of what people actually care about or want to see. Models trained only on these signals tend to recommend content that has high short-term user value measured by watch time and engagement but doesn't capture true interests that are important for long-term utility of the product. To bridge this gap, we needed a more direct way to measure user perception of content relevance. Our research shows that effective interest matching goes beyond simple topic alignment; it also encompasses factors like audio, production style, mood, and motivation. By accurately capturing these dimensions, we can deliver recommendations that feel more relevant and personalized, encouraging people to return to the app more frequently.
+
+Recommendation systems are typically optimized based on user interactions on the product, such as watch time, likes, shares, etc. However, by incorporating user perception feedback – like interest match and novelty – we can significantly improve relevance, quality, and the overall ecosystem.
+
+How We Measured User Perception
+
+To validate our approach, we launched large-scale, randomized surveys within the video feed, asking users, "How well does this video match your interests?" These surveys were deployed across Facebook Reels and other video surfaces, enabling us to collect thousands of in-context responses from users every day. The results revealed that previous interest heuristics only achieved a
+48.3% precision in identifying true interests
+, highlighting the need for a more robust measurement framework.
+
+By weighting responses to correct for sampling and nonresponse bias, we built a comprehensive dataset that accurately reflects real user preferences – moving beyond implicit engagement signals to leverage direct, real-time user feedback.
+
+Framework: User True Interest Survey (UTIS) Model
+
+Daily, a certain proportion of users viewing sessions on the platform are randomly chosen to display a single-question survey asking, "To what extent does this video match your interests?" on a 1-5 scale. The survey aims to gather real-time feedback from users about the content they have just viewed.
+
+The main candidate ranking model used by the platform is a large multi-task, multi-label model. We trained a lightweight UTIS
+alignment model
+
+layer
+ on the collected user survey responses using existing predictions of the main model as input features. The survey responses used to train our model were binarized for easy modelling and denoises variance in responses. In addition, new features were engineered to capture user behavior, content attributes, and interest signals with the object function to optimize predicting users' interest-matching extent.
+
+The UTIS model outputs the probability that a user is satisfied with a video, and is designed to be interpretable, allowing us to understand the factors contributing to users' interest matching experience.
+
+User perception feedback collected using surveys are extremely sparse but such feedback can be generalized in large scale recommendation systems using our novel model "Perception Layer" architecture that uses existing event predictions as additional features.
+
+Integrating the UTIS Model in the Main Ranking System
+
+We have experimented with and deployed several use cases of the UTIS model in our ranking funnel, all of which showed successful tier 0 user retention metric improvements:
+
+Late Stage Ranking (LSR)
+: UTIS is deployed in parallel to the LSR model, providing an additional input feature into the final value formula. This allows fine-tuning of the final ranking stage to incorporate true interests while balancing other concerns.
+
+Early Stage Ranking (Retrieval)
+: UTIS is used to reconstruct users' true interest profiles by aggregating survey data to predict affinity for any given user-video pair, allowing us to re-rank the user interest profile and source more candidates relevant to users' true interests. Also, large sequences based on user-to-item retrieval models are aligned using knowledge distillation based objectives trained on UTIS predictions from LSR as labels.
+
+The UTIS model score is now one of the inputs to our ranking system. Videos predicted to be of high interest receive a modest boost, while those with low predicted interest are demoted. This approach has led to:
+
+Increased delivery of high-quality, niche content.
+
+A reduction in low-quality, generic popularity based recommendations.
+
+Improvements in like, share, and follow rates.
+
+Improved user engagement and retention metrics.
+
+Since launching this approach, we've observed robust offline and online performance
+
+Offline Performance:
+
+The UTIS model delivered an improvement in accuracy and reliability over the heuristic rule baseline
+. Accuracy increased from 59.5% to 71.5%, precision improved from 48.3% to 63.2%, and recall increased from 45.4% to 66.1%. These gains demonstrate the model's ability to help in accurately identifying users' interest preferences.
+
+Online Performance:
+ Large-scale A/B testing with over 10 million users confirmed these improvements in real-world settings.
+The UTIS model consistently outperformed the baseline, driving higher user engagement and retention
+. Notably, we saw a +5.4% increase in high survey ratings, a -6.84% reduction in low survey ratings, a +5.2% boost in total user engagement, and a -0.34% decrease in integrity violations. These results highlight the model's effectiveness in improving user experience and matching users with relevant interests.
+
+Future Work for Interest Recommendations
+
+By integrating survey-based measurement with machine learning, we are creating a more engaging and personalized experience – delivering content on Facebook Reels that feels truly tailored to each user and encourages repeat visits. While survey-driven modeling has already improved our recommendations, there remain important opportunities for improvement, such as better serving users with sparse engagement histories, reducing bias in survey sampling and delivery, further personalizing recommendations for diverse user cohorts and improving the diversity of recommendations. To address these challenges and continue advancing relevance and quality, we are also exploring advanced modeling techniques, including large language models and more granular user representations.
+
+Read the Paper
+
+Improve the Personalization of Large-Scale Ranking Systems by Integrating User Survey Feedback
+
+.meta-btn {
+
+background-color: #0064E0; /* Meta Blue */
+
+color: #ffffff !important; /* Force white text */
+
+padding: 10px 20px; /* Button size */
+
+border: none; /* No border */
+
+border-radius: 5px; /* Rounded corners */
+
+cursor: pointer; /* Pointer cursor on hover */
+
+text-decoration: none; /* Remove underline */
+
+display: inline-block; /* Button-like display */
+
+font-weight: bold; /* Optional: bold text */
+
+transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+
+}
+
+.meta-btn:hover {
+
+color: #808080 !important; /* Grey text on hover */
+
+}
+
+Share this:
+
+Click to share on Facebook (Opens in new window)
+Facebook
+
+Click to share on Threads (Opens in new window)
+Threads
+
+Click to share on WhatsApp (Opens in new window)
+WhatsApp
+
+Click to share on LinkedIn (Opens in new window)
+LinkedIn
+
+Click to share on Reddit (Opens in new window)
+Reddit
+
+Click to share on X (Opens in new window)
+X
+
+Click to share on Bluesky (Opens in new window)
+Bluesky
+
+Click to share on Mastodon (Opens in new window)
+Mastodon
+
+Click to share on Hacker News (Opens in new window)
+Hacker News
+
+Click to email a link to a friend (Opens in new window)
+Email
+
+Read More in ML Applications
+
+View All
+
+DEC 19, 2025
+
+DrP: Meta's Root Cause Analysis Platform at Scale
+
+DEC 15, 2025
+
+How AI Is Transforming the Adoption of Secure-by-Default Mobile Frameworks
+
+NOV 21, 2025
+
+Zoomer: Powering AI Performance at Meta's Scale Through Intelligent Debugging and Optimization
+
+NOV 14, 2025
+
+Open Source Is Good for the Environment
+
+NOV 10, 2025
+
+Meta's Generative Ads Model (GEM): The Central Brain Accelerating Ads Recommendation AI Innovation
+
+OCT 14, 2025
+
+How Meta Is Leveraging AI To Improve the Quality of Scope 3 Emission Estimates for IT Hardware

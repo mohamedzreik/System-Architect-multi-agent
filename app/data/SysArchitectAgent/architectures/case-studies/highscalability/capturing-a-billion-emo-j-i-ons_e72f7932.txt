@@ -1,0 +1,146 @@
+Capturing A Billion Emo(j)i-ons
+
+HS Editor
+
+26 Mar 2024
+— 5 min read
+
+This blog post was written by
+Dedeepya Bonthu
+. This is a repost from her Medium article, approved by the author.
+
+In stadiums, sports fans love to express themselves by cheering for their favorite teams, holding up placards and team logos. Emoji's allow fans at home to rapidly express themselves, and when millions of fans do it simultaneously, that's a technical problem that we solved!
+
+At Hotstar, we strive to build features that make the viewing experience more engaging to users with an interactive Social Feed. We discussed the "
+Hotstar Sports Bar
+" from a design and product point of view. Here we talk about how we built this feature from a technical perspective.
+
+Social Feed GIF
+
+Emojis show the real-time changes in the opinions of the audience. When Dhoni bats, people want a boundary shot on every ball but when he is keeping, people want to see the wickets fall. Collecting these user-generated signals in real-time, condensing these opinions to an emoji swarm that shows the mood of the audience and displaying the changing moods in real-time is challenging when you plan to receive billions of such emoji submissions during a tournament.
+
+For a while, we used a third-party service to power this feature. However, we could not achieve the performance and stability we hoped for, while also not being a cost-effective. The time had come to bring this core service, in-house.
+
+In this article, we'll discuss the architecture of
+Emojis
+, key design principles involved in building it, the impact created and how it paved the way for building other features like
+Voting.
+
+High-Level Design
+
+Architecture Diagram
+
+Key Design Principles
+
+Scalability
+
+The system should be horizontally scalable to be able to support the increasing traffic. We achieved horizontal scalability with the help of load balancers and configured auto-scaling to scale the resources up or down.
+
+Decomposition
+
+The system needs to be decomposed into smaller components each being able to carry out the assigned task independent of each other. This also provides us with the ability to scale each component as needed.
+
+Asynchronous
+
+Asynchronous processing enables execution without blocking resources and thus supports higher concurrency. We will talk more about this later.
+
+Implementation
+
+How are client requests handled?
+
+Clients send user's submitted emojis via HTTP API. To prevent hogging the client connection, heavy processing on the API needs to be done offline. We need to write the data somewhere so processing applications can consume it.
+Message Queue
+ is a commonly used mechanism for asynchronous communication between applications.
+
+There are a lot of message queues available out there. A comparison of some of the available Message Queues is reviewed in this
+blog
+. For
+Emojis
+, we needed a technology that offered high throughput, availability, low latency and supports consumer groups.
+Kafka
+ seemed like the best option but managing Kafka on our own takes significant effort. Thankfully, Hotstar has an amazing data platform called
+Knol
+ built on top of Kafka which is flexible for all our use cases.
+
+How do we write messages to the queue?
+
+Synchronous
+: Wait for the acknowledgment that the message is written before sending a success response to clients. In case of a failure, we could have retries configured at both server and client. If your data is transactional or cannot suffer any loss, this approach is preferable.
+
+**Asynchronous:**Write the message to a local buffer and respond with success to clients. Messages from the buffer could be written asynchronously to the queue. The downside is that if not handled properly, this could result in data loss.
+
+For
+Emojis
+, we need very low latency and data loss in rare scenarios is not a big concern (
+although we haven't seen any so far
+). So we chose the Asynchronous approach.
+
+Golang
+ has great support for concurrency. It ships with an implementation called Goroutines. Goroutines are lightweight threads that can execute functions asynchronously. We just need to say
+go do_something()
+. We use
+Goroutines
+ and
+Channels
+ in Golang to write messages to Kafka. Messages to be produced are written to a Channel. A Producer runs in the background as a Goroutine and flushes the data periodically to Kafka. Using client libraries like
+Confluent
+ or
+Sarama
+, we can provide the flush configuration to achieve optimal performance. We configured our flush interval to
+500ms
+ and maximum messages sent to Kafka broker in a single request to
+20000
+.
+
+How does the processing happen?
+
+Goal
+: Consume a stream of data from Kafka and compute aggregates of the data over an interval. Time interval should be small enough to provide a real-time experience to users.
+
+After considering different streaming frameworks like Flink, Spark, Storm, Kafka Streams we decided to go with Spark. Spark has support for micro batching and aggregations which are essential for our use case and better community support compared to competitors like Flink. Check out
+this blog
+for more details about different streaming frameworks.
+
+We wrote a Spark streaming job that computes aggregates over a batch of 2 seconds and writes computed data to another Kafka queue.
+
+What about data delivery?
+
+We use PubSub as our delivery mechanism. PubSub is a real-time messaging infrastructure built at Hotstar to deliver messages to users in our Social Feed. You can dig deeper into the journey of PubSub in
+this article
+.
+
+We wrote a simple Kafka consumer in Python. Consumption rate depends on the batch duration configured in the Spark job. Let's say that it's set to 1 second, this consumer would receive a message per second. We perform normalization over the data and send top (relatively more popular) emojis to PubSub. Clients receive messages from PubSub and show
+Emojis
+animation to users.
+
+Impact
+
+Emojis are a huge hit at Hotstar. We received around 5 Billion Emojis from 55.83 Million users during the ICC Cricket World Cup 2019. This system has captured more than 6.5 Billion Emojis to date. Here's what we achieved from building this in-house.
+
+Voting and more
+
+If we think about it,
+Emojis
+ and
+Voting
+ have a common problem statement
+
+Process quantifiable user responses in near real-time
+
+So we extended this system to build the
+Voting
+ feature. Hotstar is currently the sole voting platform for a few big Indian reality shows like
+Dance Plus
+and
+Bigg Boss
+ (Telugu, Tamil, Malayalam). This infrastructure equipped to power Emojis and Voting for Hotstar, can now also power Polls and Trivia contests out of the box.
+
+We have received around 3 Billion votes to date!
+
+Collection of Emojis on Social Feed
+
+Next time you visit our Social Feed, tap away on these.
+
+Want to work with us? Check out
+https://tech.hotstar.com/
+ for some exciting opportunities.

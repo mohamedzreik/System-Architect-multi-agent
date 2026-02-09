@@ -1,0 +1,191 @@
+Hack Responsibly
+
+Browse Hack Responsibly, a technical blog by The NetSPI Agents. Dive deep into the latest CVEs and vulnerabilities our team uncovers, and how we help NetSPI customers protect against the most important threats today.
+
+Our Favorite Picks
+
+[
+
+Hardware Penetration Testing
+
+Pew Pew, Precisely: The Physics and Practices Behind RayV Lite
+
+NetSPI's Hardware Penetration Testing Team demonstrates that with a limited budget and hacker-and-maker mentality, similar results can be obtained at a fraction of the cost, from the comfort of your home or garage.
+
+Learn More](https://www.netspi.com/blog/technical-blog/hardware-and-embedded-systems-penetration-testing/rayv-lite-open-source-laser-injection-tool/)
+[
+
+Cloud Pentesting
+
+We Know What You Did (in Azure) Last Summer
+
+At DEF CON 33, NetSPI presented a talk about how Azure resources supporting Entra ID authentication expose tenant IDs, enabling attackers to attribute cloud resources to specific organizations at scale.
+
+Learn More](https://www.netspi.com/blog/technical-blog/cloud-pentesting/azure-resource-attribution-via-tenant-id-enumeration/)
+[
+
+Network Pentesting
+
+15 Ways to Bypass the PowerShell Execution Policy
+
+NetSPI security expert Scott Sutherland covers 15 ways to bypass the PowerShell execution policy without having local administrator rights on the system.
+
+Learn More](https://www.netspi.com/blog/technical-blog/network-pentesting/15-ways-to-bypass-the-powershell-execution-policy/)
+
+All Product Categories
+
+All Product Categories
+
+Adversary Simulation
+
+AI/ML Pentesting
+
+Blockchain Pentesting
+
+Cloud Pentesting
+
+Hardware Penetration Testing
+
+Mainframe Penetration Testing
+
+Mobile Application Pentesting
+
+NetSPI Updates
+
+Network Pentesting
+
+Red Teaming
+
+Secure Code Review
+
+Social Engineering
+
+Thick Application Pentesting
+
+Vulnerability Management
+
+Web Application Pentesting
+
+[
+
+Adversary Simulation
+
+Pipe Dreams: Remote Code Execution via Quest Desktop Authority Named Pipe
+
+February 1, 2026
+
+Discover the risks of the CVE-2025-67813 vulnerability in Quest Desktop Authority. Learn how this RCE flaw impacts your organization and how to mitigate it.
+
+Learn More](https://www.netspi.com/blog/technical-blog/adversary-simulation/pipe-dreams-remote-code-execution-via-quest-desktop-authority-named-pipe/)[
+
+Hardware Penetration Testing
+
+Rust's Role in Embedded Security
+
+January 22, 2026
+
+Rust enhances memory safety in embedded systems, but rigorous security testing remains essential to address logic, hardware, and cryptographic vulnerabilities. Explore the benefits and key considerations of using Rust
+
+Learn More](https://www.netspi.com/blog/technical-blog/hardware-and-embedded-systems-penetration-testing/rusts-role-in-embedded-security/)[
+
+Cloud Pentesting
+
+Decrypting VM Extension Settings with Azure WireServer
+
+October 23, 2025
+
+The Azure WireServer service provides configuration data to Azure Virtual Machines. Join us as we walkthrough the process of decrypting that data to find sensitive information.
+
+Learn More](https://www.netspi.com/blog/technical-blog/cloud-pentesting/decrypting-vm-extension-settings-with-azure-wireserver/)[
+
+Cloud Pentesting
+
+We Know What You Did (in Azure) Last Summer
+
+August 13, 2025
+
+At DEF CON 33, NetSPI presented a talk about how Azure resources supporting Entra ID authentication expose tenant IDs, enabling attackers to attribute cloud resources to specific organizations at scale.
+
+Learn More](https://www.netspi.com/blog/technical-blog/cloud-pentesting/azure-resource-attribution-via-tenant-id-enumeration/)[
+
+Cloud Pentesting
+
+Automating Azure App Services Token Decryption
+
+July 23, 2025
+
+Discover how to decrypt Azure App Services authentication tokens automatically using MicroBurst's tooling to extract encrypted tokens for security testing.
+
+Learn More](https://www.netspi.com/blog/technical-blog/cloud-pentesting/automating-azure-app-services-token-decryption/)[
+
+Red Teaming
+
+CVE-2025-4660: Forescout SecureConnector RCE
+
+July 16, 2025
+
+Learn about the high-risk RCE vulnerability in Forescout SecureConnector allows attackers to turn security agents into C2 channels.
+
+Learn More](https://www.netspi.com/blog/technical-blog/red-teaming/cve-2025-4660-forescout-secureconnector-rce/)[
+
+Secure Code Review
+
+Detecting Authorization Flaws in Java Spring via Source Code Review (SCR)
+
+July 9, 2025
+
+Discover how secure code review catches privilege escalation vulnerabilities in Java Spring apps that pentests miss – identify insecure patterns early.
+
+Learn More](https://www.netspi.com/blog/technical-blog/secure-code-review/authorization-flaws-java-spring-via-source-code-review/)[
+
+Network Pentesting
+
+Set Sail: Remote Code Execution in SailPoint IQService via Default Encryption Key
+
+July 8, 2025
+
+NetSPI discovered a remote code execution vulnerability in SailPoint IQService using default encryption keys. Exploit details, discovery methods, and remediation guidance included.
+
+Learn More](https://www.netspi.com/blog/technical-blog/network-pentesting/remote-code-execution-sailpoint-iqservice/)[
+
+Cloud Pentesting
+
+Extracting Sensitive Information from Azure Load Testing
+
+July 1, 2025
+
+Learn how Azure Load Testing's JMeter JMX and Locust support enables code execution, metadata queries, reverse shells, and Key Vault secret extraction vulnerabilities.
+
+Learn More](https://www.netspi.com/blog/technical-blog/cloud-pentesting/extracting-sensitive-information-azure-load-testing/)[
+
+Network Pentesting
+
+CVE-2025-26685 – Spoofing to Elevate Privileges with Microsoft Defender for Identity
+
+June 12, 2025
+
+Discover how NetSPI uncovered and reported a vulnerability in Microsoft Defender for Identity that allowed unauthenticated attackers to perform spoofing and elevate privileges.
+
+Learn More](https://www.netspi.com/blog/technical-blog/network-pentesting/microsoft-defender-for-identity-spoofing-cve-2025-26685/)[
+
+Hardware Penetration Testing
+
+Pew Pew, Precisely: The Physics and Practices Behind RayV Lite
+
+June 4, 2025
+
+We began with a simple question: could laser fault injection be democratized? Our answer is a resounding yes. With back-of-the-envelope physics, modest optics, and basic spare parts, we created a replicable, low-cost method for laser-based hardware attacks.
+
+Learn More](https://www.netspi.com/blog/technical-blog/hardware-and-embedded-systems-penetration-testing/rayv-lite-open-source-laser-injection-tool/)[
+
+Red Teaming
+
+CVE-2025-23009 & CVE-2025-23010: Elevating Privileges with SonicWall NetExtender
+
+May 28, 2025
+
+NetSPI discovered multiple arbitrary SYSTEM file delete vulnerabilities in SonicWall NetExtender for Windows. Learn how NetSPI discovered and leveraged these for local privilege escalation.
+
+Learn More](https://www.netspi.com/blog/technical-blog/red-teaming/elevating-privileges-with-sonicwall-netextender/)
+
+Load More

@@ -1,0 +1,71 @@
+Application Development
+
+News, updates, and best practices for developing apps on Google Cloud Platform.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Management Tools
+
+Monitoring Google ADK agentic applications with Datadog LLM Observability
+
+By Abhi Das • 4-minute read](https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk)
+
+[Networking
+
+A gRPC transport for the Model Context Protocol
+
+By Victor Moreno • 6-minute read](https://cloud.google.com/blog/products/networking/grpc-as-a-native-transport-for-mcp)
+
+[Data Analytics
+
+Connect your enterprise data to Google's new Antigravity IDE
+
+By Rahul Deshmukh • 5-minute read](https://cloud.google.com/blog/products/data-analytics/connect-google-antigravity-ide-to-googles-data-cloud-services)
+
+[Application Development
+
+Streamline the design and deployment of application infrastructure with Application Design Center, now GA
+
+By Vijay Potharla • 6-minute read](https://cloud.google.com/blog/products/application-development/application-design-center-now-ga)
+
+[Security & Identity
+
+Responding to CVE-2025-55182: Secure your React and Next.js workloads
+
+By Tim April • 9-minute read](https://cloud.google.com/blog/products/identity-security/responding-to-cve-2025-55182)
+
+[Data Analytics
+
+From interaction to insight: Announcing BigQuery Agent Analytics for the Google ADK
+
+By Ganesh Kumar Gella • 5-minute read](https://cloud.google.com/blog/products/data-analytics/introducing-bigquery-agent-analytics)
+
+[Containers & Kubernetes
+
+Introducing Agent Sandbox: Strong guardrails for agentic AI on Kubernetes and GKE
+
+By Brandon Royal • 4-minute read](https://cloud.google.com/blog/products/containers-kubernetes/agentic-ai-on-kubernetes-and-gke)
+
+[DevOps & SRE
+
+Chaos engineering on Google Cloud: Principles, practices, and getting started
+
+By Parag Doshi • 6-minute read](https://cloud.google.com/blog/products/devops-sre/getting-started-with-chaos-engineering)
+
+[AI & Machine Learning
+
+Automate app deployment and security analysis with new Gemini CLI extensions
+
+By Prithpal Bhogill • 5-minute read](https://cloud.google.com/blog/products/ai-machine-learning/automate-app-deployment-and-security-analysis-with-new-gemini-cli-extensions)
+
+[Application Modernization
+
+Simplify complex eventing at Scale with Eventarc Advanced
+
+By Vidya Nagarajan Raman • 6-minute read](https://cloud.google.com/blog/products/application-modernization/eventarc-advanced-orchestrates-complex-microservices-environments)
+
+Load more stories

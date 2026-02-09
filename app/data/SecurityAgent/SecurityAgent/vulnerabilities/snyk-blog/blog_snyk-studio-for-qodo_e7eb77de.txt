@@ -1,0 +1,66 @@
+Written by
+
+Sarah Conway
+
+November 21, 2025
+
+0 mins read
+
+The landscape of software development has changed. AI code assistants are no longer a novelty; they are the new standard, driving a revolutionary leap in developer productivity. For software development leads, DevOps managers, and security engineers, the goal is simple: harness the speed of AI without sacrificing code integrity.
+
+However, the future of secure AI development at scale demands that quality, governance, and trust be embedded throughout the lifecycle, not just faster code generation.
+
+While AI coding tools are evolving quickly, to truly unlock the promise of AI in software development, enterprises need solutions that not only generate code but also
+
+automatically detect and fix security vulnerabilities in your backlog, as well as the moment code is written.
+
+That's why the Qodo and Snyk partnership is so important. Snyk Studio for Qodo, Snyk's comprehensive security intelligence, is seamlessly combined with Qodo's Agentic Code Quality Platform to secure modern applications.
+
+Qodo's quality-first coding solution integrates with Snyk's security insights, allowing developers to build securely from the start, in a single, streamlined workflow. Together, we help developers find and fix vulnerabilities as they code and burn down the backlog on existing codebases.
+
+The speed vs. security Dilemma
+
+The rapid adoption of AI has introduced a complex class of risks, creating a critical two-front security challenge for every enterprise.
+
+AI-generated code inevitably introduces security risks, with research showing that nearly half of it is insecure. Developers, accountable for shipping code, require security that is embedded in their workflow and won't slow them down.
+
+Traditional application security approaches and solutions are too slow to keep up with the speed of LLM tools. Additionally, organizations continue to struggle with a massive existing backlog of security debt. This debt drains resources and diverts attention from developers' ability to accelerate development while maintaining enterprise standards for security, compliance, and reliability.
+
+The solution: Snyk Studio for Qodo
+
+Snyk and Qodo address this challenge by extending the Snyk AI security platform to the new age of AI-powered software development. The core principle of this integration is Secure at Inception, which embeds security intelligence directly into the AI development workflow to guide the AI in generating secure code from the very first prompt.
+
+Snyk Studio for Qodo is driven by Snyk's SAST, SCA engines, and in-depth security intelligence, which connects to Qodo's Agentic Code Quality Platform using the Snyk MCP Server.
+
+This connection delivers a unified, real-time security experience directly within the developer's IDE. Developers using Qodo are immediately alerted to any security flaws as they write or generate code. This means developers can catch and fix security issues as they code, eliminating the need for context switching and slowdowns.
+
+Clearing security debt
+
+Snyk Studio for Qodo delivers intelligent remediation capabilities to clear massive, existing security debt. Using the Qodo IDE and CLI, developers can use natural language prompts to understand existing vulnerabilities and trigger fixes. Both Qodo tools support custom agent configurations where you can define reusable workflows.
+
+For example, define a Snyk agent with the Snyk MCP Server and rules to scan code, dependencies, containers, and/or IaC. The scan results create a remediation plan with actionable fixes. Use Kiro to fix issues and then scan again with Snyk to confirm the vulnerabilities are resolved. Follow this up by using Qodo Merge, Qodo's flagship agent, which reviews the changes for quality and safety. This workflow can resolve vulnerabilities in minutes, saving a developer upward of a day's worth of work. For customers, pairing Snyk Studio with an AI assistant has helped
+clear a two-year-old backlog
+ of high-severity issues in just a few weeks.
+
+The impact: scale, velocity, and governance
+
+For DevOps and security leaders, the ability to deploy Snyk Studio at scale provides a single, governable solution for managing AI-driven development.
+With the launch of new, powerful enterprise capabilities
+, organizations can also automatically deploy Snyk Studio across the entire engineering team instantly. This ensures adoption and provides immediate visibility and control as enterprises consistently and proactively embed security into their AI-driven workflow.
+
+Securing the AI-driven future
+
+The combined power of Qodo and Snyk gives developers the tools they love, coupled with proactive security guardrails and automated fixes, ensuring innovation is both rapid and secure
+
+Join Snyk and Qodo insiders to gain actionable strategies on redefining how enterprises ensure code quality and secure AI-native applications at scale.
+
+Excited to learn more?
+Register for our upcoming webinar today.
+
+EBOOK
+
+Securing the MCP Servers Ecosystem
+
+Explore emerging attack paths and unpack real-world incidents to show how to defend against them with practical, flow-aware strategies.
+
+Download Ebook

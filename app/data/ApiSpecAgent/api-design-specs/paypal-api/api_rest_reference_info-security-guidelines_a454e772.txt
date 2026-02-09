@@ -1,0 +1,264 @@
+PayPal security guidelines and best practices
+
+This document provides important security related guidelines and best practices for both development projects and system integrations. The following two main topics are covered:
+
+Security best practices for PayPal integrations
+
+Information security guidelines for developers
+
+Security best practices for PayPal integrations
+
+The following guidelines cover both
+secure communications
+ and development practices for
+secure applications
+.
+
+Secure communications
+
+The
+SSL/TLS protocols
+ are the basis for secure communications on the web. They are also under constant attack. Security experts try to stay one step ahead of cyber attackers by studying the SSL/TLS protocols for vulnerabilities. The
+POODLE
+ and
+Heartbleed
+ vulnerabilities were the results of such studies. To help keep your integration safe from current and future security threats, we recommend that you follow the best practices outlined below.
+
+Discontinue use of the VeriSign G2 Root Certificate
+
+Upgrade to SHA-256 SSL certificates
+
+Use TLS version 1.1 or 1.2
+
+Let the protocol negotiate the highest version
+
+Do not hard code specific ciphers
+
+Allow Perfect Forward Secrecy
+
+Stay vigilant
+
+Important:
+
+What happens if I don't do these things?
+
+Your integration with PayPal may appear to work today, but if PayPal decides to disable certain cipher suites or protocol versions, your integration may be at risk. More importantly, however, is that you may be compromising the integrity of customer data and ultimately your brand, so it's best to revisit your integration with a security lens to ensure you're secure!
+
+Discontinue use of the VeriSign G2 Root Certificate
+
+The public Certificate Authority industry is actively
+phasing out 1024-bit Root Certificates
+ in favor of more secure 2048-bit Root Certificates. As a result, you need to discontinue use of SSL connections that rely on the older 1024-bit certificates, such as the VeriSign G2 Root Certificate.
+
+Upgrade to SHA-256 SSL Certificates
+
+SHA-1 is a 22-year-old cryptographic algorithm that is being threatened by increases in computing power. You need to transition from using SSL certificates that utilize SHA-1 to the stronger SHA-256 signing algorithm.
+
+Use TLS version 1.1 or 1.2
+
+PayPal has updated its services to require TLS 1.1 or 1.2 for all HTTPS connections. PayPal also requires HTTP/1.1 for all connections.
+
+Let the protocol negotiate the highest version
+
+Because Internet protocols change frequently in response to threats, we do not recommend that you hard code your integration to a specific version. Instead, we recommend that you allow the protocol to negotiate the highest version automatically.
+
+Do not hard code specific ciphers
+
+The following are several reasons why you should not hard code specific ciphers in your integrations:
+
+Ciphers such as
+
+RC4
+
+and
+
+DES
+
+are widely used for TLS but have been shown to be insecure and vulnerable to attack.
+
+More advanced ciphers, such as
+
+AES
+
+and
+
+GCM
+
+, while among the strongest available today, may prove to be vulnerable in the future.
+
+Security exploits may cause PayPal to disable certain ciphers in the future.
+
+To minimize your vulnerability to current and future threats, we recommend that you do not specify particular ciphers in your integrations.
+
+Allow Perfect Forward Secrecy
+
+Perfect Forward Secrecy
+ (PFS) is designed to prevent the compromise of a long-term secret key from affecting the confidentiality of past or future conversations. We recommend that you implement PFS in your integration.
+
+With PFS implemented, any secure transmissions you have recorded in the past are still secure and cannot be compromised, even if a current key is compromised. The same holds true for future transmissions. Without PFS, if a single transmission is compromised, then all past and future transmissions could be compromised.
+
+When implementing PFS, you need to allow the protocol to negotiate the highest version of TLS and never use hard coded specific ciphers. When PFS is enabled, the TLS protocol negotiation is taken care of on the PayPal side. Be sure not to restrict Diffie-Hellman Key Exchange (
+DHE
+) or Elliptic Curve Diffie–Hellman (
+ECDHE
+) ciphers in your integration.
+
+A visual representation of PFS can be found here:
+PFS architecture diagram
+.
+
+Stay vigilant
+
+As much as we'd like integration to be a one-time, future-proof activity, the threat of cyber-attacks requires constant vigilance. PayPal is continuously working to protect our merchants and stay ahead of trends in Internet security. To reduce your vulnerability, be sure to check your integration against industry best practices on at least an annual basis. Following the minor steps outlined above can make a major difference to the security of your integration.
+
+Secure applications
+
+To ensure the applications you develop are secure and also optimized for the best possible user experience, follow the best practices outlined in this section.
+
+Do not use a WebView to display PayPal web pages within your application
+
+Your application must not use a WebView or similar custom browser mechanism to display PayPal web pages.
+
+Take one of the following approaches instead:
+
+Use an appropriate PayPal SDK to manage the PayPal experience.
+
+Launch the PayPal web page within the system browser or an approved browser-view mechanism.
+
+For iOS, use
+
+ASWebAuthenticationSession
+
+.
+
+For Android, use Chrome Custom Tabs.
+
+Information security guidelines for developers
+
+The PayPal platform enables developers to create applications that have the ability to make purchases on behalf of third-party customers, without the customers being redirected to paypal.com to complete the payment transactions. Such merchant-initiated billings for non-recurring/non-subscription payments include Adaptive Payments pre-approvals and Express Checkout reference transactions.
+
+Using pre-approvals or reference transactions can provide an elegant and seamless buying experience for the customer (they never leave the application or website where they are making the purchase). However, the developer of such an application must take into account the following
+Information Security Guidelines
+ when they code an application that integrates merchant-initiated billing functionality.
+
+To use the pre-approval capability, applications must get the PayPal user's express consent for this "no login" type of payment. PayPal provides developers with the consent language during the application review process, or earlier (if requested). For details, consult the
+PayPal Developer Agreement
+.
+
+The Information Security Guidelines are specific to the pre-approval capabilities and relate to the following areas:
+
+Authentication
+
+Anti-phishing
+
+Cross Site Scripting/Cross Site Request Forgery Protection
+
+Site Security Process
+
+Upon request, addition of particular content or features in order to help detect fraud
+
+Authentication requirements
+
+Authentication determines who is sending any given request for access to a system or application. For example, a customer can enter a user ID and password during login. Alternatively, authentication credentials can be retrieved by an application from a cookie or FSO provided during a previous session on the website.
+
+Below are PayPal's authentication requirements for applications using the no-login type of pre-approval capability.
+
+Passwords Must Conform to Industry Best Practices for Content
+
+Generally, password length should be at least six characters, and contain at least one alpha and one numeric character, e.g.
+fr1gx9
+. Candidate passwords that meet these requirements should also be validated against a dictionary of common passwords, and a list of rules. For example, a candidate password of
+blink182
+ (the name of a musical group), should be rejected as being too common. Passwords that are the same as the user ID also fail a rules test.
+
+Login passwords must be securely encrypted in transmission and must be stored in a non-reversible fashion
+
+To ensure that no one can capture the password during login, it must be sent over an encrypted channel such as https. This prevents the password from being captured by someone listening on the network.
+
+Additionally, the password must be stored on the server in such a way that even internal employees with access to the database and encryption keys are unable to get the password in a clear text form. This is commonly done by hashing the password with a unique identifier or salt associated with the individual user.
+
+Session tokens such as browser session cookies must be protected against session theft by only transmitting them in secure sessions
+
+As stated earlier, the information stored within session cookies are generally used to authenticate each request to the website. These cookies must be protected from hijacking by anyone able to listen on the same network. This is generally done by marking the cookie as secure so that it is only transmitted when connected to the site using https.
+
+Session tokens must be generated in such a manner as to be cryptographically strong and highly resistant to prediction of session cookie values
+
+Session tokens that have at any time been idle for more than 15 minutes at any time must be re-authenticated with a login before processing PayPal transactions
+
+To ensure that the computer has not been left for 15 minutes since the last time any action was performed and is now being actively used by someone else, it is required that a login be presented before performing a PayPal transaction if the session has ever been idle for 15 minutes.
+
+A control must be implemented that prevents the brute force attack of login credentials
+
+A common attack against websites is to attempt to login with a variety of different commonly used passwords for a given login ID. There must be some method used to ensure that one is unable to perform this sort of attack. A common solution is to lock login attempts on an account for some period of time. In order to ensure that these mechanisms do not generate a means of denial of service attacks against accounts, these lockouts should cancel after a period of time. (A few hours is typical.)
+
+A control must be implemented that prevents brute force guessing of passwords, especially if the attack is originating from a botnet
+
+Typically, this will require collecting metadata about logons, logging them into a central log store, and then performing real-time analytics against that data. If a brute force attack is detected, a strong CAPTCHA (resistant against machine/scripted attacks) would be switched on. There are other implementation techniques, but this is the least invasive from a user experience perspective. Note that this is conceptually and functionally different from A6.
+
+Must be able to support users registered with Security Keys for PayPal transactions
+
+Consideration must be made for users who have signed up for higher levels of authentication on their PayPal account, and these users must still be able to logon properly, if required. An example is the PayPal Security Key that requires the entering of a one-time use password.
+
+All communication of sensitive information (such as passwords, and session cookies), must be protected by use of TLS
+
+All versions of the SSL stack are insecure and should not be used, instead the newer TLS protocols are recommended.
+
+Technical measures should be taken to ensure that the parts of the site that don't need to be able to read, or write, to the session cookies should not be able to do so
+
+This is simply a requirement because of the standard cookie/domain binding rules, which mean that many parts of a large application have visibility into the cookie set, which can cause security risks.
+
+Anti-Phishing Requirements
+
+PayPal has expended significant energy in combating miscreants who send emails to unsuspecting customers claiming to be from PayPal with links to malicious sites that look like PayPal. These sites will trick the customer and capture the login credentials and at times steal financial and personal information.
+
+Login credentials must only be collected on pages that implement https with Extended Validation (EV) certificates
+
+In order to allow customers to verify that they are truly connected to the partner site and to encourage general good practices, login credentials must be collected on pages that are https enabled, and using Extended Validation (EV) certificates.
+
+Must be a process to proactively monitor for and aggressively shutdown spoof sites
+
+PayPal uses multiple techniques for identification of spoof sites being used to support various forms of phishing. Once identified, the sites are proactively shutdown to prevent continued risk exposure to our customers. In order to ensure the end to end security of the model, the partner must also implement monitoring and site takedown activities.
+
+There must be a process whereby customers can report spoof sites
+
+These sites should be verified manually that they are in fact spoof sites; once verified, the URLs should be sent on as rapidly as possible to industry denylists, such as APWG's, MarkMonitor, and so forth.
+
+Cross Site Scripting/Cross Site Request Forgery Protection
+
+An attack to websites can be perpetrated by reflecting information originating from the user's browser back into a web page that contains HTML or JavaScript that can be used to alter the look of the web page while at the same time still indicating via the URL that the customer is connected to the original website. A cross site request forgery attack is performed by presenting a link to a site that the customer may already be authenticated to. The link would contain encoded information that would cause the site to execute some request that the user had not intended.
+
+The primary web application should:
+
+Contain appropriate framework components that ensure the site is not subject to cross site scripting
+
+(XSS)
+
+attacks.
+
+Contain appropriate framework components that ensure the site is not subject to cross site request forgery
+
+(XSRF)
+
+attacks.
+
+Be tested periodically using either a commercially available tool, or a commercially available service, to demonstrate that it is not vulnerable to either XSS or XSRF attacks. In any case, the site should be tested as new code is deployed.
+
+Site Security Process
+
+There must be a vulnerability management process, by which the infrastructure on which the site operates is managed.
+
+There should be a feed of vulnerability information from one or more reliable sources (e.g. IT-ISAC, iDefense, Symantec, etc.); the data from that feed should be reviewed to determine which vulnerabilities are even relevant. Vulnerabilities should be categorized by criticality, and the relevant patches applied based on that criticality designation.
+
+Similarly, there must be a process by which vulnerabilities in application libraries should be managed, and the application rebuild / release process prioritized.
+
+There must be a secure development process, which describes the standards that help make the site secure, and all relevant staff (which need not be all developers) should be trained on secure development techniques.
+
+There must be a way by which the site security process can be demonstrated to be working.
+
+This could occur through the use of industry standard reviews, such as PCI, auditor-driven reviews such as SAS/70, or commercial reviews such as the Cybertrust certification.
+
+Pre-approved Payments Product Enhancements
+
+PayPal may ask that particular content or features be added to specific webpages, in order to help detect fraud. In general, these requests would involve technical changes that would be "lightweight" to achieve. However, we can't determine whether such changes would be needed until the product is in some kind of production deployment and potentially under attack by fraudsters.
+
+As PayPal continues to improve the Pre-approved Payment Product, the partner will implement the enhanced product version in a timely fashion. In the future, PayPal may enhance the Pre-approved Payments Product with a redirect to paypal.com in order to run risk and security checks; this redirect should normally be transparent to the user unless PayPal risk controls are triggered.

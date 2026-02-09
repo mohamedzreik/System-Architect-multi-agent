@@ -1,0 +1,833 @@
+Getting Started on Heroku with PHP | Heroku Dev Center
+
+Getting Started on Heroku with PHP
+
+Complete this tutorial to deploy a sample PHP app to
+Cedar
+, the legacy generation of the Heroku platform. To deploy the app to the
+Fir
+ generation, only available to
+Heroku Private Spaces
+, follow this
+guide
+ instead.
+
+The tutorial assumes that you have:
+
+A
+verified Heroku Account
+
+PHP
+ installed locally.
+
+Composer
+ installed locally.
+
+An
+Eco dynos plan
+ subscription (recommended)
+
+We recommend using our
+low-cost plans
+ to complete this tutorial. Eligible students can apply for platform credits through our new
+Heroku for GitHub Students program
+.
+
+Set Up
+
+Install the
+Heroku Command Line Interface
+ (CLI). Use the CLI to manage and scale your app, provision add-ons, view your logs, and run your app locally.
+
+The Heroku CLI requires
+Git
+, the popular version control system. If you don't already have Git installed, complete the following before proceeding:
+
+Git installation
+
+First-time Git setup
+
+Download and run the installer for your platform:
+
+macOS
+
+Install Homebrew
+ and run:
+
+$ brew install heroku/brew/heroku
+
+Windows
+
+Download the appropriate installer for your Windows installation:
+
+64-bit installer
+
+32-bit installer
+
+You can find more installation options for the Heroku CLI
+here
+.
+
+After installation, you can use the
+heroku
+ command from your command shell.
+
+On Windows, start the Command Prompt (cmd.exe) or Powershell to access the command shell.
+
+To log in to the Heroku CLI, use the
+heroku login
+ command:
+
+$ heroku login
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/cli/browser/***
+heroku: Waiting for login...
+Logging in... done
+Logged in as me@example.com
+
+This command opens your web browser to the Heroku login page. If your browser is already logged in to Heroku, click the
+ button on the page.
+
+This authentication is required for the
+heroku
+ and
+git
+ commands to work correctly.
+
+If you have any problems installing or using the Heroku CLI, see the main
+Heroku CLI
+ article for advice and troubleshooting steps.
+
+If you're behind a firewall that uses a proxy to connect with external HTTP/HTTPS services,
+set the
+HTTP_PROXY
+ or
+HTTPS_PROXY
+ environment variables
+ in your local development environment before running the
+heroku
+ command.
+
+Before you continue, check that you have the prerequisites installed properly. Type each command below and make sure it displays the version you have installed. (Your versions might be different from the example.) If no version is returned, go back to the introduction of this tutorial and install the prerequisites.
+
+All of the following local setup will be required to complete the "Declare app dependencies" and subsequent steps.
+
+This tutorial will work if you have PHP installed - check that it's there:
+
+$ php -v
+PHP 8.2.3 (cli) (built: Feb 15 2023 00:18:01) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.2.3, Copyright (c) Zend Technologies
+
+Now check that you have
+composer
+ installed. If not,
+install it
+ and test again:
+
+$ composer -V
+Composer version 2.5.1 2022-12-22 15:33:54
+
+Now check that you have
+git
+ installed. If not,
+install it
+ and test again.
+
+$ git --version
+git version 2.39.1
+
+Prepare the app
+
+In this step, you will prepare a sample application that's ready to be deployed to Heroku.
+
+If you are new to Heroku, it is recommended that you
+complete this tutorial using the Heroku-provided sample application.
+
+However, if you have your own existing application that you want to deploy
+instead, see
+this article
+
+to learn how to prepare it for Heroku deployment.
+
+To clone the sample application so that you have a local version of the code that you can then deploy to Heroku, execute the following commands in your local command shell or terminal:
+
+$ git clone https://github.com/heroku/php-getting-started.git
+$ cd php-getting-started
+
+You now have a functioning Git repository that contains a simple application as well as a
+composer.json
+ file. Make sure you've installed
+Composer
+. Heroku uses Composer for dependency management in PHP projects, and the
+composer.json
+ file indicates to Heroku that your application is written in PHP.
+
+Deploy the app
+
+In this step you will deploy the app to Heroku.
+
+Using dynos to complete this tutorial counts towards your usage.
+Delete your app
+ as soon as you are done to control costs.
+
+By default, apps use Eco dynos if you are subscribed to Eco. Otherwise, it defaults to Basic dynos. The Eco dynos plan is shared across all Eco dynos in your account and is recommended if you plan on deploying many small apps to Heroku. Learn more
+here
+. Eligible students can apply for platform credits through our
+Heroku for GitHub Students program
+.
+
+Create an app on Heroku, which prepares Heroku to receive your source code:
+
+$ heroku create
+Creating app... done, ⬢ sharp-rain-871
+https://sharp-rain-871.herokuapp.com/ | https://git.heroku.com/sharp-rain-871.git
+
+When you create an app, a Git remote (called
+heroku
+) is also created and associated with your local Git repository.
+
+Heroku generates a random name (in this case
+sharp-rain-871
+) for your app, or you can pass a parameter to specify your own app name.
+
+Now deploy your code:
+
+$ git push heroku main
+…
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-22 stack
+remote: -----> Determining which buildpack to use for this app
+remote: -----> PHP app detected
+remote: -----> Bootstrapping...
+remote: -----> Preparing platform package installation...
+remote: NOTICE: No runtime required in composer.json; requirements
+remote: from dependencies in composer.lock will be used for selection
+remote: -----> Installing platform packages...
+remote: - php (8.2.3)
+remote: - apache (2.4.55)
+remote: - composer (2.5.3)
+remote: - nginx (1.22.1)
+remote: -----> Installing dependencies...
+remote: Composer version 2.5.3 2023-02-10 13:23:52
+remote: Installing dependencies from lock file
+remote: Verifying lock file contents can be installed on current platform.
+remote: Package operations: 22 installs, 0 updates, 0 removals
+remote: - Downloading laravel/serializable-closure (v1.3.0)
+remote: - Downloading psr/log (3.0.0)
+remote: - Downloading monolog/monolog (3.3.1)
+…
+remote: - Installing slim/twig-view (3.3.0): Extracting archive
+remote: Generating optimized autoload files
+remote: -----> Preparing runtime environment...
+remote: -----> Checking for additional extensions to install...
+remote: -----> Discovering process types
+remote: Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote: Done: 16.4M
+remote: -----> Launching...
+remote: Released v3
+remote: https://sharp-rain-871.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/sharp-rain-871.git
+ * [new branch] main -> main
+
+Now visit the app at the URL generated by its app name. As a handy shortcut, you can open the website as follows:
+
+$ heroku open
+
+View logs
+
+Heroku treats logs as streams of time-ordered events aggregated from the output streams of all your app and Heroku components, providing a single channel for all of the events.
+
+View information about your running app using one of the
+logging commands
+,
+heroku logs --tail
+:
+
+$ heroku logs --tail
+2023-02-24T13:53:07.000000+00:00 app[api]: Build succeeded
+2023-02-24T13:53:07.006183+00:00 app[api]: Scaled to web@1:Eco by user me@example.com
+2023-02-24T13:53:08.219766+00:00 heroku[web.1]: Starting process with command `heroku-php-apache2 web/`
+…
+2023-02-24T13:53:12.981285+00:00 heroku[web.1]: State changed from starting to up
+
+Refresh your application in the browser a few times, and you'll see log messages generated by not only the app's web server (Apache HTTPD) and Heroku's router, but also by the app itself:
+
+2023-02-24T13:59:47.313998+00:00 app[web.1]: [2023-02-24T13:59:47.313572+00:00] default.DEBUG: logging output. [] []
+2023-02-24T13:59:47.316389+00:00 app[web.1]: 10.1.46.63 - - [24/Feb/2023:13:59:47 +0000] "GET / HTTP/1.1" 200 6802 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15
+2023-02-24T13:59:47.316226+00:00 heroku[router]: at=info method=GET path="/" host=warm-depths-57683.herokuapp.com request_id=95c5fbfd-5aed-4d06-a7e0-ad64d820c9e3 fwd="85.222.134.4" dyno=web.1 connect=0ms service=6ms status=200 bytes=6974 protocol=https
+
+Logging something from your app is simply a matter of directing output to
+stdout
+ or
+stderr
+ - Heroku does the work of aggregating this across all the app and system components. View the
+web/index.php
+ file to see how the
+Monolog
+ service is configured to write its output to
+stderr
+, which is put to use
+a few lines later
+, when the message "logging output." gets logged.
+
+Press
+Control+C
+ to stop streaming the logs.
+
+Define a Procfile
+
+Use a
+Procfile
+, a text file in the root directory of your application, to explicitly declare what command should be executed to start your app.
+
+The
+Procfile
+ in the example app you deployed looks like this:
+
+web: heroku-php-apache2 web/
+
+This declares a single process type,
+web
+, and the command needed to run it. The name
+web:
+ is important here. It declares that this process type will be attached to the
+HTTP routing
+ stack of Heroku, and receive web traffic when deployed.
+
+Procfiles can contain additional process types. For example, you might declare one for a
+background worker process that processes items off of a job queue
+.
+
+Scale the app
+
+Right now, your app is running on a single web
+dyno
+. Think of a dyno as a lightweight container that runs the command specified in the
+Procfile
+.
+
+You can check how many dynos are running using the
+ps
+ command:
+
+$ heroku ps
+=== web (Eco): heroku-php-apache2 web/ (1)
+web.1: up 2023/02/24 14:53:12 +0100 (~ 21m ago)
+
+By default, your app is deployed on an eco dyno. Eco dynos will sleep after a half hour of inactivity (if they don't receive any traffic). This causes a delay of a few seconds for the first request upon waking. Subsequent requests will perform normally. Eco dynos also consume from a monthly, account-level quota of
+eco dyno hours
+ - as long as the quota is not exhausted, all eco apps can continue to run.
+
+To avoid dyno sleeping, you can upgrade to a Basic or Professional dyno type as described in the
+Dyno Types
+ article. For example, if you migrate your app to a professional dyno, you can easily scale it by running a command telling Heroku to execute a specific number of dynos, each running your web process type.
+
+Scaling an application on Heroku is equivalent to changing the number of dynos that are running. Scale the number of web dynos to zero:
+
+$ heroku ps:scale web=0
+
+Access the app again by hitting refresh on the web tab, or
+heroku open
+ to open it in a web tab. You will get an error message because you no longer have any web dynos available to serve requests.
+
+Scale it up again:
+
+$ heroku ps:scale web=1
+
+Declare app dependencies
+
+Heroku recognizes an app as PHP by the existence of a
+composer.json
+ file in the root directory.
+
+The demo app you deployed already has a
+composer.json
+, and it looks something like this:
+
+{
+ "require" : {
+ "php-di/php-di": "^7.0",
+ "slim/slim": "^4.0",
+ "php-di/slim-bridge": "^3.1.0",
+ "slim/psr7": "^1.3.0",
+ "monolog/monolog": "^3.0",
+ "twig/twig": "^3.0",
+ "slim/twig-view": "^3.0"
+ },
+ "require-dev": {
+ "heroku/heroku-buildpack-php": "*"
+ }
+}
+
+The
+composer.json
+ file specifies the dependencies that should be installed with your application. When an app is deployed, Heroku reads this file and installs the appropriate dependencies into the
+vendor
+ directory.
+
+Your PHP app can then make use of the dependencies after a simple require:
+
+require('../vendor/autoload.php');
+
+Run the following command locally on your computer to install the dependencies, preparing your system for using the app locally:
+
+$ composer install
+Installing dependencies from lock file (including require-dev)
+Verifying lock file contents can be installed on current platform.
+Package operations: 23 installs, 0 updates, 0 removals
+ - Installing heroku/heroku-buildpack-php (v231): Extracting archive
+ - Installing laravel/serializable-closure (v1.3.0): Extracting archive
+ - Installing psr/log (3.0.0): Extracting archive
+ - Installing monolog/monolog (3.3.1): Extracting archive
+…
+
+You should always check
+composer.json
+ and
+composer.lock
+ into your Git repo. The
+vendor
+ directory should be included in your
+.gitignore
+ file.
+
+Push local changes
+
+In this step you'll learn how to propagate a local change to the application through to Heroku. As an example, you'll modify the application to add an additional dependency (the
+Cowsay
+ library) and the code to use it.
+
+First, use Composer to require the new dependency:
+
+$ composer require alrik11es/cowsayphp
+
+This will also change
+composer.json
+. If you introduced the dependency by modifying the
+composer.json
+ file yourself, be sure to update the dependencies by running:
+
+$ composer update
+
+Now modify
+web/index.php
+ to use this library. Since our app uses
+PHP-DI
+ for Dependency Injection, you must first add another entry to the container near the top of the file, so that PHP-DI knows how to instantiate a Cowsay animal instance:
+
+// Add Cowsay to Container
+$container->set(\Cowsayphp\AnimalInterface::class, function() {
+ return \Cowsayphp\Farm::create(\Cowsayphp\Farm\Cow::class);
+});
+
+Now you can add a new route near the bottom of
+web/index.php
+, and its function's
+AnimalInterface
+ type hint will cause PHP-DI to automatically inject an instance of class
+Cow
+:
+
+$app->get('/coolbeans', function(Request $request, Response $response, LoggerInterface $logger, \Cowsayphp\AnimalInterface $animal) {
+ $logger->debug('letting the Cowsay library write something cool.');
+ $response->getBody()->write("<pre>".$animal->say("Cool beans")."</pre>");
+ return $response;
+});
+
+When that route is visited, it will render a beautiful ASCII cow that proclaims "Cool beans"!
+
+If you got lost making these changes, take a look at the
+article-step-push-local-changes
+ branch
+ of the sample app, and
+compare its contents against those of
+main
+.
+
+Now deploy. Almost every deploy to Heroku follows this same pattern.
+
+First, add the modified files to your local Git repository:
+
+$ git add composer.json composer.lock web/index.php
+
+Then commit the changes to the repository:
+
+$ git commit -m "cowsay for /coolbeans"
+
+Now deploy, just as you did previously:
+
+$ git push heroku main
+
+Finally, check that everything is working by quickly opening the
+/coolbeans
+ route in your browser:
+
+$ heroku open coolbeans
+
+Provision add-ons
+
+Add-ons are third-party cloud services that provide out-of-the-box additional services for your application, from persistence through logging to monitoring and more.
+
+By default, Heroku stores 1500 lines of logs from your application. However, it makes the full log stream available as a service - and several add-on providers have written logging services that provide things such as log persistence, search, and email and SMS alerts.
+
+In this step you will provision one of these logging add-ons, Papertrail.
+
+Provision the
+papertrail
+ logging add-on:
+
+$ heroku addons:create papertrail
+Creating papertrail on ⬢ sharp-rain-871... free
+…
+Created papertrail-reticulated-81649 as PAPERTRAIL_API_TOKEN
+Use heroku addons:docs papertrail to view documentation
+
+The add-on is now deployed and configured for your application. You can list add-ons for your app like so:
+
+$ heroku addons
+
+To see this particular add-on in action, visit your application's Heroku URL a few times. Each visit will generate more log messages, which should now get routed to the papertrail add-on. Visit the papertrail console to see the log messages:
+
+$ heroku addons:open papertrail
+
+Your browser will open up a Papertrail web console, showing the latest log events. The interface lets you search and set up alerts:
+
+Start an interactive shell
+
+You can run a command, typically scripts and applications that are part of your app, in a
+one-off dyno
+ using the
+heroku run
+ command. It can also be used to launch an interactive PHP shell attached to your local terminal for experimenting in your app's environment:
+
+$ heroku run "php -a"
+Running php -a on ⬢ sharp-rain-871... up, run.8336 (Eco)
+Interactive shell
+
+php >
+
+If you receive an error,
+Error connecting to process
+, then you may need to
+configure your firewall
+.
+
+The PHP console has nothing loaded other than the PHP standard library. Enter a PHP expression such as an
+echo
+, and eventually quit the PHP shell by typing
+quit
+:
+
+$ heroku run "php -a"
+Running php -a on ⬢ sharp-rain-871... up, run.8336 (Eco)
+Interactive shell
+
+php > echo PHP_VERSION;
+8.2.3
+php > quit
+
+To get a real feel for how dynos work, you can create another one-off dyno and run the
+bash
+ command, which opens up a shell on that dyno. You can then execute commands there. Each dyno has its own ephemeral filespace, populated with your app and its dependencies - once the command completes (in this case,
+bash
+), the dyno is removed.
+
+$ heroku run bash
+Running bash on ⬢ sharp-rain-871... up, run.5134 (Eco)
+~ $ ls
+Procfile README.md app.json composer.json composer.lock vendor views web
+~ $ exit
+exit
+
+Don't forget to type
+exit
+ to exit the shell and terminate the dyno.
+
+Define config vars
+
+Heroku lets you externalise configuration - storing data such as encryption keys or external resource addresses in
+config vars
+.
+
+At runtime, config vars are exposed as environment variables to the application which you can read using PHP's
+getenv
+ function. This way, your app source does not contain hard-coded credentials for databases, external API endpoints and so forth.
+
+In addition to storing credentials such as database connection information, it's also common practice to place configuration flags or values that control essential behavior of your app into config vars. An update to a config var will create a new
+release
+ and change behavior of the app without requiring a new code deploy.
+
+The Cowsay library
+supports other types of animals
+, and this example will use an environment variable to control which class is used.
+
+Modify
+web/index.php
+ so that the DI container uses an environment variable to determine which Cowsay animal class instance to return:
+
+// Add Cowsay to Container
+$container->set(\Cowsayphp\AnimalInterface::class, function() {
+ $class = '\\Cowsayphp\\Farm\\'.(getenv("COWSAY_FARM_CLASS")?:'Cow');
+ return \Cowsayphp\Farm::create($class);
+});
+
+The
+COWSAY_FARM_CLASS
+ config var will now control which class to instantiate; if no such config var exists, it will default to
+Cow
+, as before.
+
+If you got lost making these changes, take a look at the
+article-step-define-config-vars
+ branch
+ of the sample app, and
+compare its contents against the previous step
+.
+
+Commit and deploy this change first:
+
+$ git add web/index.php
+$ git commit -m "make Cowsay animal controllable by env var COWSAY_FARM_CLASS"
+$ git push heroku main
+
+If you visit the
+/coolbeans
+ URL again, the message will still be spoken by a cow, so it's time to change the type of animal by setting the
+COWSAY_FARM_CLASS
+ config var to a value other than "
+Cow
+".
+
+To set the config var on Heroku, execute the following (instead of "
+Dragon
+", you could also use "
+Tux
+" or "
+Whale
+"):
+
+$ heroku config:set COWSAY_FARM_CLASS=Dragon
+Setting COWSAY_FARM_CLASS and restarting ⬢ sharp-rain-871... done, v6
+COWSAY_FARM_CLASS: Dragon
+
+A new release was created by this config var change, which you can again see in
+heroku logs
+:
+
+$ heroku logs
+…
+2023-02-24T15:13:50.993624+00:00 app[api]: Set COWSAY_FARM_CLASS config vars by user me@example.com
+2023-02-24T15:13:50.993624+00:00 app[api]: Release v6 created by user me@example.com
+2023-02-24T15:13:51.274075+00:00 heroku[web.1]: Restarting
+2023-02-24T15:13:51.290040+00:00 heroku[web.1]: State changed from up to starting
+2023-02-24T15:13:52.800435+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+…
+2023-02-24T15:13:53.295318+00:00 heroku[web.1]: Starting process with command `heroku-php-apache2 web/`
+…
+2023-02-24T15:13:55.179619+00:00 heroku[web.1]: State changed from starting to up
+
+Refreshing
+/coolbeans
+ in your browser will now render the "Cool beans" message using a different ASCII animal.
+
+You can always list the config vars that are set on an app using
+heroku config
+:
+
+$ heroku config
+=== sharp-rain-871 Config Vars
+COWSAY_FARM_CLASS: Dragon
+PAPERTRAIL_API_TOKEN: lq7…
+
+Provision a database
+
+Adding a database to complete this tutorial counts towards your usage. Delete your database as soon as you're done to control costs. Learn about our
+low-cost plans
+. Eligible students can apply for platform credits through our
+Heroku for GitHub Students program
+.
+
+The
+add-on marketplace
+ has a large number of data stores, from Redis and MongoDB providers, to Postgres and MySQL. In this step, you add a Heroku Postgres Essential-0 database to your app.
+
+Add the database:
+
+$ heroku addons:create heroku-postgresql:essential-0
+Creating heroku-postgresql:essential-0 on ⬢ sharp-rain-871... ~$0.007/hour (max $5/month)
+Database should be available soon
+postgresql-concentric-05005 is being created in the background. The app will restart when complete...
+Use heroku addons:info postgresql-concentric-05005 to check creation progress
+Use heroku addons:docs heroku-postgresql to view documentation
+
+This created a database, and set a
+DATABASE_URL
+ config var containing a URL with connection information (you can see its value by running
+heroku config
+).
+
+To use the database, first modify
+web/index.php
+ to instruct PHP-DI to construct a PHP
+PDO
+ connection:
+
+// Add Database connection to Container
+$container->set(PDO::class, function() {
+ $dburl = parse_url(getenv('DATABASE_URL') ?: throw new Exception('no DATABASE_URL'));
+ return new PDO(sprintf(
+ "pgsql:host=%s;port=%s;dbname=%s;user=%s;password=%s",
+ $dburl['host'],
+ $dburl['port'],
+ ltrim($dburl['path'], '/'), // URL path is the DB name, must remove leading slash
+ $dburl['user'],
+ $dburl['pass'],
+ ));
+});
+
+Note how this code retrieves the
+DATABASE_URL
+ config var from the environment using
+getenv()
+, and extracts information on hostname, database and credentials from that config var using
+parse_url()
+.
+
+In the same file, add a new route handler for URL
+/db
+ with code to query the database:
+
+$app->get('/db', function(Request $request, Response $response, LoggerInterface $logger, Twig $twig, PDO $pdo) {
+ $st = $pdo->prepare('SELECT name FROM test_table');
+ $st->execute();
+ $names = array();
+ while($row = $st->fetch(PDO::FETCH_ASSOC)) {
+ $logger->debug('Row ' . $row['name']);
+ $names[] = $row;
+ }
+ return $twig->render($response, 'database.twig', [
+ 'names' => $names,
+ ]);
+});
+
+This ensures that when you access your app using the
+/db
+ route, it will return all rows in the
+test_table
+ table (logging each row to
+heroku logs
+ for debugging purposes), and render the results using a Twig template named
+database.twig
+.
+
+Create this
+database.twig
+ template file inside the app's
+views/
+ directory:
+
+{% extends "layout.html" %}
+
+{% block content %}
+<p>Got these rows from the database:</p>
+
+<ul>
+{% for n in names %}
+ <li> {{ n.name }} </li>
+{% else %}
+ <li><em>No entries yet!</em></li>
+{% endfor %}
+</ul>
+
+{% endblock %}
+
+If you got lost making these changes, take a look at the
+article-step-provision-a-database
+ branch
+ of the sample app, and
+compare its contents against the previous step
+.
+
+Deploy the app modifications to Heroku:
+
+$ git add web/index.php views/database.twig
+$ git commit -m "added database access"
+$ git push heroku main
+
+If you now point your browser to
+/db
+ (or use
+heroku open db
+ to access that URL), you will see an error saying
+test_table
+ does not exist.
+
+Assuming that you have
+Postgres installed locally
+, use the
+heroku pg:psql
+ command to connect to the database you provisioned earlier, and create that table using the
+CREATE TABLE
+ SQL command:
+
+$ heroku pg:psql
+--> Connecting to postgresql-concentric-05005
+psql (14.6)
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+=> CREATE TABLE test_table (id INTEGER, name TEXT);
+CREATE TABLE
+
+Now when you access your app's
+/db
+ route, you will see "
+No entries yet!
+", because there are no records in the table yet.
+
+Go back to the
+heroku pg:psql
+ session you have open, and insert a few rows:
+
+=> INSERT INTO test_table VALUES (1, 'hello database');
+INSERT 0 1
+=> INSERT INTO test_table VALUES (2, 'oh nice, this works!');
+INSERT 0 1
+=> QUIT
+
+If you refresh the
+/db
+ page in your browser, these records will now show up!
+
+Read more about
+Heroku PostgreSQL
+.
+
+A similar technique can be used to install
+MongoDB or Redis add-ons
+.
+
+You now know how to deploy an app, change its configuration, view logs, scale, and attach add-ons.
+
+Here's some recommended reading:
+
+Read
+How Heroku Works
+ for a technical overview of the concepts you'll encounter while writing, configuring, deploying and running applications.
+
+Read
+Deploying PHP Apps on Heroku
+ to understand how to take an existing PHP app and deploy it to Heroku.
+
+Visit the
+PHP category
+ to learn more about developing and deploying PHP applications.
+
+xml version="1.0" encoding="UTF-8" standalone="no"?

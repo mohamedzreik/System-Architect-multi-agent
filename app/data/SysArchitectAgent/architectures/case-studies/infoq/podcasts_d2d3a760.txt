@@ -1,0 +1,243 @@
+InfoQ Homepage
+
+Podcasts
+
+Podcasts
+
+RSS Feed
+
+Newer
+
+Older
+
+About this Podcast
+
+Intended for architects and senior developers.
+
+Subscribe
+
+Subscribe to Podcast
+Apple Podcasts
+YouTube
+Soundcloud
+Spotify
+Overcast
+Podcast Feed
+
+Architecture & Design
+
+Startup Software Architecture - You Never Really Throw it Away: a Conversation with David Gudeman
+
+In this podcast, Michael Stiefel spoke with David Gudeman about software architecture for startups. The discussion starts by illuminating how to make decisions with imperfect information, and how uncertainty and ambiguity flow through all aspects of developing the architecture. This leads to analyzing how the architect must focus on both product strategy and technical decisions.
+
+David Gudeman
+
+on Jan 26, 2026
+
+Like
+
+[
+
+Icon
+
+57:59](/podcasts/startup-software-architecture/ "Startup Software Architecture - You Never Really Throw it Away: a Conversation with David Gudeman")
+
+Development
+
+[Video Podcast] AI-Driven Development with Olivia McVicker
+
+In this episode, Thomas Betts chats with Olivia McVicker, a Senior Cloud Advocate at Microsoft about AI-driven software development. The conversation covers the current, mainstream AI coding assistants and gets into where those tools are quickly heading. They then look to the future of how the entire software development lifecycle will see the benefits of AI in the next few years.
+
+Olivia McVicker
+
+on Jan 19, 2026
+
+Like
+
+[
+
+Icon
+
+39:22](/podcasts/ai-driven-development/ "[Video Podcast] AI-Driven Development with Olivia McVicker")
+
+AI, ML & Data Engineering
+
+Somtochi Onyekwere on Distributed Data Systems, Eventual Consistency and Conflict-Free Replicated Data Types
+
+In this podcast, InfoQ spoke with Somtochi Onyekwere on recent developments in distributed data systems, how to achieve fast, eventually consistent replication across distributed nodes, and how Conflict-free Replicated Data Type (CRDTs) can help with conflict resolution when managing data.
+
+Somtochi Onyekwere
+
+on Jan 12, 2026
+
+Like
+
+[
+
+Icon
+
+31:09](/podcasts/distributed-data-systems-consistency/ "Somtochi Onyekwere on Distributed Data Systems, Eventual Consistency and Conflict-Free Replicated Data Types")
+
+Sponsored Content by
+
+[
+
+Icon](#)
+
+Architecture & Design
+
+2025 Key Trends: AI Workflows, Architectural Complexity, Sociotechnical Systems & Platform Products
+
+In this end-of-year panel, the InfoQ podcast hosts reflect on AI's impact on software delivery, the growing importance of sociotechnical systems, evolving cloud realities, and what 2026 may bring.
+
+Daniel Bryant
+
+Renato Losio
+
+Srini Penchikala
+
+Thomas Betts
+
+Shane Hastie
+
+on Jan 06, 2026
+
+Like
+
+[
+
+Icon
+
+55:11](/podcasts/2025-year-review/ "2025 Key Trends: AI Workflows, Architectural Complexity, Sociotechnical Systems & Platform Products")
+
+Java
+
+The Latest in OpenJDK and JCP Expert Group: Insights with Simon Ritter
+
+In this episode, Simon Ritter, deputy CTO at Azul, sat down with podcast host Michael Redlich, lead editor of the Java topic at InfoQ, and discussed the latest features in OpenJDK and Ritter's experiences serving on the JCP Expert Group since JDK 9. OpenJDK topics included: the six-month release cycle, Generational Shenandoah, JDK Flight Recorder, Project Leyden and Compact Object Headers.
+
+Simon Ritter
+
+on Dec 22, 2025
+
+Like
+
+[
+
+Icon
+
+38:45](/podcasts/latest-open-java-development-kit/ "The Latest in OpenJDK and JCP Expert Group: Insights with Simon Ritter")
+
+About this Podcast
+
+Discussions on intentional corporate culture and software management approaches.
+
+Subscribe
+
+Subscribe to Podcast
+Apple Podcasts
+YouTube
+Soundcloud
+Spotify
+Overcast
+Podcast Feed
+
+Culture & Methods
+
+The Technical Founder's Path: Code, Leadership, and Balance
+
+In this podcast, Shane Hastie, Lead Editor for Culture & Methods, spoke to Trisha Ballakur about transitioning from coder to startup CEO, balancing technical leadership with business development, and avoiding burnout on the journey.
+
+Trisha Ballakur
+
+on Jan 30, 2026
+
+Like
+
+[
+
+Icon
+
+21:29](/podcasts/code-leadership-balance/ "The Technical Founder's Path: Code, Leadership, and Balance")
+
+Culture & Methods
+
+Culture Through Tension: Leading Interdisciplinary Teams with Nick Gillian
+
+In this podcast, Shane Hastie, Lead Editor for Culture & Methods, spoke to Nick Gillian about building cross-functional teams for physical AI innovation, growing engineering culture through positive tensions, and navigating the journey from technical execution to organizational influence.
+
+Nick Gillian
+
+on Jan 23, 2026
+
+Like
+
+[
+
+Icon
+
+29:12](/podcasts/leading-interdisciplinary-teams/ "Culture Through Tension: Leading Interdisciplinary Teams with Nick Gillian")
+
+Culture & Methods
+
+Why Engineering Culture Is Everything: Building Teams That Actually Work
+
+In this podcast, Shane Hastie, Lead Editor for Culture & Methods, spoke to Gonzalo (Glo) Maldonado about the central role of engineering culture, measuring team health through qualitative metrics, and learning from other engineering disciplines.
+
+Gonzalo (Glo) Maldonado
+
+on Jan 16, 2026
+
+Like
+
+[
+
+Icon
+
+23:53](/podcasts/engineering-culture-building-teams/ "Why Engineering Culture Is Everything: Building Teams That Actually Work")
+
+Sponsored Content by
+
+[
+
+Icon](#)
+
+Culture & Methods
+
+Effective Mentorship and Remote Team Culture with Gilad Shoham
+
+In this podcast, Shane Hastie, Lead Editor for Culture & Methods, spoke to Gilad Shoham about building effective mentorship relationships, leading fully distributed teams and the evolving role of developers in an AI-augmented future.
+
+Gilad Shoham
+
+on Dec 26, 2025
+
+Like
+
+[
+
+Icon
+
+27:49](/podcasts/effective-mentorship-remote-team-culture/ "Effective Mentorship and Remote Team Culture with Gilad Shoham")
+
+Culture & Methods
+
+Leading from Any Position: Richard Bown on Humane Engineering Organizations
+
+In this podcast, Shane Hastie, Lead Editor for Culture & Methods, spoke to Richard Bown about transitioning from management back to individual contributor roles, leading from any position, and creating humane engineering organizations.
+
+Richard Bown
+
+on Dec 12, 2025
+
+Like
+
+[
+
+Icon
+
+20:37](/podcasts/humane-engineering-organizations/ "Leading from Any Position: Richard Bown on Humane Engineering Organizations")
+
+Newer Podcasts
+
+Older Podcasts

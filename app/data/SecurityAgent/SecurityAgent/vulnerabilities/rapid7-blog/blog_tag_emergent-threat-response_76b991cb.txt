@@ -1,0 +1,131 @@
+Back to Blog
+
+Posts tagged Emergent Threat Response
+
+[
+
+Vulnerabilities and Exploits
+
+Critical Ivanti Endpoint Manager Mobile (EPMM) zero-day exploited in the wild (CVE-2026-1281 & CVE-2026-1340)
+
+Rapid7](/blog/post/etr-critical-ivanti-endpoint-manager-mobile-epmm-zero-day-exploited-in-the-wild-eitw-cve-2026-1281-1340/)[
+
+Vulnerabilities and Exploits
+
+Multiple Critical SolarWinds Web Help Desk Vulnerabilities: CVE-2025-40551, CVE-2025-40552, CVE-2025-40553, CVE-2025-40554
+
+Rapid7](/blog/post/etr-multiple-critical-solarwinds-web-help-desk-vulnerabilities-cve-2025-40551-40552-40553-40554/)[
+
+Vulnerabilities and Exploits
+
+Ni8mare and N8scape flaws among multiple critical vulnerabilities affecting n8n
+
+Rapid7](/blog/post/etr-ni8mare-n8scape-flaws-multiple-critical-vulnerabilities-affecting-n8n/)[
+
+Vulnerabilities and Exploits
+
+MongoBleed CVE-2025-14847: Critical Memory Leak in MongoDB Allowing Attackers to Extract Sensitive Data
+
+Rapid7](/blog/post/etr-mongobleed-cve-2025-1484-critical-memory-leak-in-mongodb-allowing-attackers-to-extract-sensitive-data/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-37164: Critical unauthenticated RCE affecting Hewlett Packard Enterprise OneView
+
+Rapid7](/blog/post/etr-cve-2025-37164-critical-unauthenticated-rce-affecting-hewlett-packard-enterprise-oneview/)[
+
+Vulnerabilities and Exploits
+
+Critical vulnerabilities in Fortinet CVE-2025-59718, CVE-2025-59719, CVE-2026-24858 exploited in the wild
+
+Rapid7](/blog/post/etr-critical-vulnerabilities-in-fortinet-cve-2025-59718-cve-2025-59719-exploited-in-the-wild/)[
+
+Vulnerabilities and Exploits
+
+React2Shell (CVE-2025-55182) - Critical unauthenticated RCE affecting React Server Components
+
+Rapid7](/blog/post/etr-react2shell-cve-2025-55182-critical-unauthenticated-rce-affecting-react-server-components/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-64446: Critical Vulnerability in Fortinet FortiWeb Exploited in the Wild
+
+Rapid7](/blog/post/etr-critical-vulnerability-in-fortinet-fortiweb-exploited-in-the-wild/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-61882: Critical 0day in Oracle E-Business Suite exploited in-the-wild
+
+Stephen Fewer, Christiaan Beek](/blog/post/etr-cve-2025-61882-critical-0day-in-oracle-e-business-suite-exploited-in-the-wild/)[
+
+Detection and Response
+
+Microsoft 365 Direct Send Abuse
+
+Rapid7](/blog/post/dr-microsoft-365-direct-send-abuse/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-20333, CVE-2025-20362, CVE-2025-20363 - Multiple critical vulnerabilities affecting Cisco products
+
+Ryan Emmons](/blog/post/etr-cve-2025-20333-cve-2025-20362-cve-2025-20363-multiple-critical-vulnerabilities-affecting-cisco-products/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-10035 - Critical unauthenticated RCE in GoAnywhere MFT
+
+Stephen Fewer](/blog/post/etr-cve-2025-10035-critical-unauthenticated-rce-in-goanywhere-mft/)[
+
+Detection and Response
+
+Akira Ransomware Group Utilizing SonicWall Devices for Initial Access
+
+Rapid7](/blog/post/dr-akira-ransomware-group-utilizing-sonicwall-devices-for-initial-access/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-7775: Critical NetScaler vulnerability exploited in-the-wild
+
+Stephen Fewer](/blog/post/etr-cve-2025-7775-critical-netscaler-vulnerability-exploited-in-the-wild/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-53770 - Zero-day exploitation in the wild of Microsoft SharePoint servers
+
+Rapid7](/blog/post/etr-zero-day-exploitation-of-microsoft-sharepoint-servers-cve-2025-53770/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-54309: CrushFTP Zero-Day Exploited in the Wild
+
+Ryan Emmons](/blog/post/crushftp-zero-day-exploited-in-the-wild/)[
+
+Vulnerabilities and Exploits
+
+Critical Veeam Backup & Replication CVE-2025-23121
+
+Rapid7](/blog/post/etr-critical-veeam-backup-replication-cve-2025-23121/)[
+
+Vulnerabilities and Exploits
+
+CVE-2025-6543: Zero Day Exploitation of NetScaler ADC and NetScaler Gateway
+
+Stephen Fewer](/blog/post/etr-zero-day-exploitation-of-netscaler-adc-and-netscaler-gateway/)[
+
+Products and Tools
+
+Ivanti Endpoint Manager Mobile exploit chain exploited in the wild
+
+Ryan Emmons](/blog/post/2025/05/16/etr-ivanti-epmm-exploit-chain-exploited-in-the-wild/)[
+
+Products and Tools
+
+CVE-2025-32756 Exploited in the Wild, Affecting Multiple Fortinet Products
+
+Stephen Fewer](/blog/post/2025/05/14/etr-multiple-fortinet-products-cve-2025-32756-exploited-in-the-wild/)[
+
+Exposure Management
+
+Active exploitation of SAP NetWeaver Visual Composer CVE-2025-31324
+
+Caitlin Condon](/blog/post/2025/04/28/etr-active-exploitation-of-sap-netweaver-visual-composer-cve-2025-31324/)

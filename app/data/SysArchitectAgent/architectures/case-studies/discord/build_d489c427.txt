@@ -1,0 +1,391 @@
+[
+
+](/)
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+App Store
+
+Build where the world plays
+
+Build and scale social games and experiences where millions of friends are looking for fun things to do.
+
+Get Started
+
+Inherently Social, Uniquely Discord
+
+With the Embedded App SDK, developers have the power to reach millions of users by creating rich, immersive, and interactive experiences that live directly within Discord.Interactive Games
+
+Create immersive multiplayer games to compete with friends, collaborate, or get the conversation started.Image and Video Remixing
+
+Create generative AI apps that inspire the group chat with animation, image editing, and video remixing.Listen and Watch Parties
+
+Transform music, podcasts, audiobooks, radio, and videos into shared experiences with friends.Game Integrations
+
+Connect players with their favorite games. Leaderboards, stats, and shareable moments keep the fun going outside the game.The Totally Uncategorizable
+
+Share cat facts. Water and grow a virtual tree with your friends. Show off your skills by catching and selling fish. Spice up the chat with Truth or Dare. Bring fun to the chat in unexpected ways.
+
+"The Embedded App SDK was very easy to get started with. We had a build of our game running within a day of getting access to the platform."
+
+Assad Ali, Playroom CTO
+
+Build and ship lightning fast
+
+Our Embedded App SDK makes it quick and easy to ship native web apps, games, and interactive experiences.
+
+View Documentation
+
+Get Discovered
+
+Right in Chat
+
+Show up where people hang out. Friends can instantly see what's happening and play together, no install necessary.
+
+In the Directory
+
+Publish your app to the Directory to get discovered, set up shop, and promote your app right inside of Discord.
+
+On Any Device
+
+Apps are instantly available on every device for people to find, use, and keep coming back to.
+
+Grow your
+business
+
+A better path to product-market fit
+
+From idea to launch, it all lives on Discord. Grow a tight-knit community of early adopters who provide feedback and champion what you build. Reach them and their friends with every new feature and update.
+
+Hassle-free payments
+
+Take advantage of Discord's integrated payment systems that users know, trust, and already use. Focus on innovation rather than financial logistics.
+
+Get Inspired
+
+Join pioneers like Midjourney, FRVR and Playroom who have built thriving businesses on Discord.
+
+Farm Merge ValleyFRVRPLAYROOMMojiworksMidjourneyPicsartChani & MotivationCappucino & MemriseStability.ai
+
+Harvesting Success: Farm Merge Valley Flourishes on Discord
+
+Learn how CoolGames leveraged Discord's social features and payment system to cultivate an active user base and increase the success of Farm Merge Valley.
+
+Read the Case Study
+
+How FRVR Scaled and Monetized Krunker Strike on Discord
+
+"Discord is the most exciting new games channel by a wide margin. It's already where the most engaged players are spending their time, so the ability to allow them to play our games directly is groundbreaking."
+
+**Chris Benjaminsen,**Founder of FRVR
+
+Read the Case Study
+
+Building and Scaling a Multiplayer AI Game on Discord with Playroom
+
+"With Discord implementing more discovery and engagement features, we believe that more users will start playing games on the platform. The potential is immense, and we are excited to be part of this journey."
+
+**Tabish Ahmed,**CEO at Playroom
+
+Read the Case Study
+
+Building Your First Discord Activity with Mojiworks
+
+"Activities are a brilliant way to meet your audience where they are already congregating – on Discord. Their API simplifies the process of connecting with groups of players and utilizes established web standards to facilitate the building of rich and immersive experiences."
+
+**Al Harding,**CTO at Mojiworks
+
+Read the Case Study
+
+How Midjourney built a business on Discord
+
+"Collaboration is at the core of creativity. By building Midjourney's community on Discord, people take inspiration from the ideas of others and expand their imagination beyond what would be possible if creating on their own."
+
+**Caleb Kruse,**Chief of Staff at Midjourney
+
+Read the Case Study
+
+How building a Discord app unlocked new community growth for Picsart
+
+"Discord has become essential in our scaled community development. We've been able to easily plug into, and empower, another thriving ecosystem of creators, and supercharge the Picsart experience in a new way."
+
+**Anthony Yacoub,**Business Development Lead at Picsart
+
+Read the Case Study
+
+How CHANI and Motivation ported their apps onto Discord
+
+Inspirational brands CHANI, known for astrological insights, and Motivation, popular for motivational quotes, ported their cross-platform apps onto Discord in order to encourage connection, reach a broader audience, and establish thriving communities of their own.
+
+Read the Case Study
+
+How Memrise and Cappuccino built an app on Discord
+
+Memrise, a language learning app, and Cappuccino, a mini-podcast creation app are both designed to help users share, learn, and connect. The teams behind these apps saw Discord as an opportunity to facilitate user engagement and reach a wider audience.
+
+Read the Case Study
+
+How Stability.ai leveraged Discord for QA Feedback when building an app
+
+Learn how Stability.ai leveraged Discord's real-time feedback to improve their StableDreamer AI app user experience, increase engagement, and identify emerging trends.
+
+Read the Case Study
+
+View Documentation
+Join the Discord Developers Server
+
+STAY INFORMED
+
+Want to keep up to date with all the latest news and updates Discord has for game developers?
+
+Language
+
+English (US)
+
+Čeština
+
+Dansk
+
+Deutsch
+
+English
+
+English (UK)
+
+Español
+
+Español (América Latina)
+
+Français
+
+Hrvatski
+
+Italiano
+
+lietuvių kalba
+
+Magyar
+
+Nederlands
+
+Norsk
+
+Polski
+
+Português (Brasil)
+
+Română
+
+Suomi
+
+Svenska
+
+Tiếng Việt
+
+Türkçe
+
+Ελληνικά
+
+български
+
+Русский
+
+Українська
+
+हिंदी
+
+ไทย
+
+한국어
+
+中文
+
+中文(繁體)
+
+日本語
+
+Social
+
+Menu
+
+Product
+
+Download
+Nitro
+Status
+App Directory
+
+Company
+
+About
+Jobs
+Brand
+Newsroom
+
+Resources
+
+Support
+Safety
+Blog
+Creators
+Community
+Developers
+Quests
+Official 3rd Party Merch
+Feedback
+
+Policies
+
+Terms
+Privacy
+Cookie Settings
+Guidelines
+Acknowledgements
+Licenses
+Company Information
+
+Social

@@ -1,0 +1,237 @@
+News, tips, and inspiration to accelerate your digital transformation
+
+AI & Machine Learning
+
+#### What Google Cloud announced in AI this month
+
+Learn about the latest announcements, innovations, and guides when it comes to Google Cloud AI.
+
+By Andrea Sanin • 4-minute read
+
+Read article
+
+[
+
+Data Analytics
+
+Introducing Conversational Analytics in BigQuery
+
+By Vasiya Krishnan • 4-minute read](https://cloud.google.com/blog/products/data-analytics/introducing-conversational-analytics-in-bigquery)
+
+[
+
+Security & Identity
+
+Cloud CISO Perspectives: 5 top CISO priorities in 2026
+
+By Taylor Lehmann • 8-minute read](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-5-top-ciso-priorities-in-2026)
+
+Infrastructure
+
+[
+
+Containers & Kubernetes
+
+Accelerate GKE cluster autoscaling with faster concurrent node pool auto-creation
+
+By Daniel Kłobuszewski • 4-minute read](https://cloud.google.com/blog/products/containers-kubernetes/faster-gke-node-pool-auto-creation)
+
+[
+
+Infrastructure
+
+Sawasdee Thailand! Google Cloud launches new region in Bangkok
+
+By Karan Bajwa • 7-minute read](https://cloud.google.com/blog/products/infrastructure/google-cloud-launches-new-region-in-bangkok-thailand)
+
+[
+
+Compute
+
+Scaling WideEP Mixture-of-Experts inference with Google Cloud A4X (GB200) and NVIDIA Dynamo
+
+By Sean Horgan • 9-minute read](https://cloud.google.com/blog/products/compute/scaling-moe-inference-with-nvidia-dynamo-on-google-cloud-a4x)
+
+Data Cloud
+
+[
+
+Databases
+
+Spanner in 2025: Innovations powering intelligent, multi-model AI applications
+
+By Shubhankar Chatterjee • 10-minute read](https://cloud.google.com/blog/products/databases/spanner-in-2025)
+
+[
+
+Data Analytics
+
+What's new with ML infrastructure for Dataflow
+
+By Efesa Origbo • 4-minute read](https://cloud.google.com/blog/products/data-analytics/new-dataflow-features-to-enable-streaming-and-ml-workloads)
+
+[
+
+Databases
+
+Elevate your applications with Firestore's new advanced query engine
+
+By Minh Nguyen • 5-minute read](https://cloud.google.com/blog/products/data-analytics/new-firestore-query-engine-enables-pipelines)
+
+Security
+
+[
+
+Threat Intelligence
+
+No Place Like Home Network: Disrupting the World's Largest Residential Proxy Network
+
+By Google Threat Intelligence Group • 20-minute read](https://cloud.google.com/blog/topics/threat-intelligence/disrupting-largest-residential-proxy-network)
+
+[
+
+Security & Identity
+
+Cloud CISO Perspectives: Practical guidance on building with SAIF
+
+By Tom Curry • 5-minute read](https://cloud.google.com/blog/products/identity-security/cloud-ciso-perspectives-practical-guidance-building-with-saif)
+
+[
+
+Security & Identity
+
+Auto-ISAC and Google partner to boost automotive sector cybersecurity
+
+By Nick Panos • 3-minute read](https://cloud.google.com/blog/products/identity-security/auto-isac-google-partner-to-boost-automotive-sector-cybersecurity)
+
+AI & ML
+
+[
+
+Management Tools
+
+Monitoring Google ADK agentic applications with Datadog LLM Observability
+
+By Abhi Das • 4-minute read](https://cloud.google.com/blog/products/management-tools/datadog-integrates-agent-development-kit-or-adk)
+
+[
+
+Developers & Practitioners
+
+Mastering Gemini CLI: Your Complete Guide from Installation to Advanced Use-Cases
+
+By Jack Wotherspoon • 3-minute read](https://cloud.google.com/blog/topics/developers-practitioners/mastering-gemini-cli-your-complete-guide-from-installation-to-advanced-use-cases)
+
+[
+
+AI & Machine Learning
+
+Introducing Gemini 3 Flash: Intelligence and speed for enterprises
+
+By Saurabh Tiwary • 4-minute read](https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-flash-for-enterprises)
+
+Developers & Operators
+
+[
+
+Developers & Practitioners
+
+Introducing Google Cloud Vertex AI Extensions for .NET
+
+By Mete Atamel • 5-minute read](https://cloud.google.com/blog/topics/developers-practitioners/introducing-google-cloud-vertex-ai-extensions-for-net)
+
+[
+
+Developers & Practitioners
+
+Flutter on Cloud Run: Full Stack Dart Architecture
+
+By Karl Weinmeister • 7-minute read](https://cloud.google.com/blog/topics/developers-practitioners/flutter-on-cloud-run-full-stack-dart-architecture)
+
+[
+
+Developers & Practitioners
+
+Getting Started with Gemini 3: Hello World with Gemini 3 Flash
+
+By Prashanth Subrahmanyam • 4-minute read](https://cloud.google.com/blog/topics/developers-practitioners/getting-started-with-gemini-3-hello-world-with-gemini-3-flash)
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Click here
+
+All stories
+
+[Inside Google Cloud
+
+What's new with Google Cloud
+
+By Google Cloud Content & Editorial • 4-minute read
+
+](https://cloud.google.com/blog/topics/inside-google-cloud/whats-new-google-cloud)
+
+[Threat Intelligence
+
+Vishing for Access: Tracking the Expansion of ShinyHunters-Branded SaaS Data Theft
+
+By Mandiant • 15-minute read](https://cloud.google.com/blog/topics/threat-intelligence/expansion-shinyhunters-saas-data-theft)
+
+[Threat Intelligence
+
+Guidance from the Frontlines: Proactive Defense Against ShinyHunters-Branded Data Theft Targeting SaaS
+
+By Mandiant • 31-minute read](https://cloud.google.com/blog/topics/threat-intelligence/defense-against-shinyhunters-cybercrime-saas)
+
+[Data Analytics
+
+What's new with Google Data Cloud
+
+By The Google Cloud Data Analytics, BI, and Database teams • 3-minute read
+
+](https://cloud.google.com/blog/products/data-analytics/whats-new-with-google-data-cloud)
+
+[Developers & Practitioners
+
+BigQuery AI Hackathon: Celebrating Innovation and a Look at What's New
+
+By Jing Jing Long • 6-minute read
+
+](https://cloud.google.com/blog/topics/developers-practitioners/bigquery-ai-hackathon-celebrating-innovation-and-a-look-at-whats-new)
+
+[Chrome Enterprise
+
+Future Mode Part 1: The intelligent and secure browser for enterprises
+
+By Mark Berschadski • 5-minute read
+
+](https://cloud.google.com/blog/products/chrome-enterprise/future-mode-part-1-the-intelligent-and-secure-browser-for-enterprises)
+
+[Compute
+
+Unlock 2x better price-performance with Axion-based N4A VMs, now generally available
+
+By Nate Baum • 6-minute read](https://cloud.google.com/blog/products/compute/axion-based-n4a-vms-now-in-preview)
+
+[Threat Intelligence
+
+Diverse Threat Actors Exploiting Critical WinRAR Vulnerability CVE-2025-8088
+
+By Google Threat Intelligence Group • 11-minute read](https://cloud.google.com/blog/topics/threat-intelligence/exploiting-critical-winrar-vulnerability)
+
+[Data Analytics
+
+BigQuery AI supports Gemini 3.0, simplified embedding generation and new similarity function
+
+By Tianxiang Gao • 5-minute read](https://cloud.google.com/blog/products/data-analytics/new-bigquery-gen-ai-functions-for-better-data-analysis)
+
+[Public Sector
+
+Gemini for Government: Unlocking the next wave of public sector innovation
+
+By Brent Mitchell • 3-minute read
+
+](https://cloud.google.com/blog/topics/public-sector/gemini-for-government-unlocking-the-next-wave-of-public-sector-innovation)
+
+Load more stories

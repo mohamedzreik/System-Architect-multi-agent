@@ -1,0 +1,405 @@
+[
+
+](/)
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+App Store
+
+Discord
+parent hub
+
+Learn more about how we help teens have positive experiences on our platform and explore resources specific to parents and guardians.
+
+A Guardian's Guide to Discord
+
+Discord's Guardian's Guide is a centralized asset that helps adults who are raising teens understand the latest highlights of how Discord works, information on how their teen might spend time on Discord, and shares tips and resources to talk to teens about keeping their online experiences comfortable.
+
+Download Guardian's Guide
+
+English (US)
+English (UK)
+Spanish
+Brazilian Portuguese
+French
+Korean
+Japanese
+
+How Your Teen Uses Discord
+
+Discord is about hanging out with friends in real time. It's a place where people can be themselves and spend time with others who share their interests and hobbies. Keep reading to learn how your teen can use Discord to talk and hang out with their communities and friends.
+
+Chatting with Friends
+
+Teens use Discord to talk about all sorts of things, ranging from their favorite artists and sports teams to homework and more. It's a home for communities of any size, but it's most widely used by small and active groups of people. These small groups include group chats or other groups, called servers, made by interest-based communities or friend groups. Discord servers are organized into topic-based channels where you can collaborate, share, and just talk about your day without clogging up a group chat. The vast majority of servers are small and invitation-only, so your teen can choose to be a part of servers they want to be in, and if your teen is a server owner, they control who gets to be part of their community.
+
+Hopping into Channels
+
+Communication on Discord isn't just about text! Discord servers are organized into text and voice channels, which are usually dedicated to specific topics. In text channels, users can post messages, upload files, and share images for others to see at any time. Teens hop into a voice channel and connect through a voice or video call in real time, and can share their screen with their friends.
+
+Exploring Interest-based Communities
+
+From gaming, to music, to learning, Discord is the home for people wanting to create a community around a special interest or a hobby. Your teen may also join public communities that are built around shared interests from language learning, to origami, to their favorite TV shows, to houseplants.
+
+More Resources for Parents and Educators
+
+Safer Internet Day 2025
+
+Safety
+
+Discord's commitment to a safe and trusted experience
+
+Safety
+
+Transparency in Moderation
+
+Moderation
+
+Answering parents' and educators' top questions
+
+Policy
+
+Talking about online safety with your teen
+
+Safety
+
+If your teen encounters an issue
+
+Safety
+
+What is Discord?
+
+Safety
+
+Load More
+
+Our Approach to Content Moderation
+
+The safety of our users is a top priority at Discord. Below is an overview of
+how we moderate content
+ posted on our platform.
+
+Our
+Community Guidelines
+ and
+Terms of Service
+ support our belief that Discord should be a place where people can express themselves and spend time with their friends, but not at the expense of anyone else.
+
+User Controls
+
+Our product architecture provides each user with fundamental control over their experience on Discord including who they communicate with, what content they see, and what communities they join or create.
+
+Platform Moderation
+
+Our universal Community Guidelines apply to all content and every interaction on the platform. These fundamental rules are enforced by Discord on an ongoing basis through a mix of proactive and reactive work. In Community Servers larger than 200 members, we take a more proactive and automated approach to safety as described in our Terms of Service and Privacy Policy. We may use automated means to detect violations of our policies.
+
+Community Moderation
+
+Server owners and volunteer community moderators define and enforce norms of behavior for their communities that can go beyond the Discord Community Guidelines. We enable our community moderators with technology (tools like AutoMod) as well as training and peer support (Discord Admin Community).
+
+Reporting on Discord
+
+Learn how to report content and other users on Discord and help support your teen in feeling confident and comfortable when reporting issues themselves.
+
+Identifying the Issues
+
+It's important to have a conversation about what is and isn't considered proper online behavior.. For example, only accept friend requests from people you know. If something doesn't seem right, tell a trusted adult. Behavior that's not okay at school is also not okay online. However, if something does come up, please know that you and your teen can easily report it to Discord for our Safety team to investigate and take appropriate action.
+
+Submitting a Report
+
+If your teen encounters an issue on Discord, here's how they can report it to us. First, select the message they wish to report. If they're on mobile, hold down on the Message, and on desktop, "right click." Then, select "Report Message."
+
+For parents, you too can submit a report by following the instructions in this
+article
+.
+
+Describe the Issue
+
+Once they've hit the "Report Message" button, they can choose which category of violation they're seeing. More details can be provided in the next screen, to further allow them to specify what it is they're encountering.
+
+Our Safety team takes action when we become aware of content that violates our Community Guidelines and policies, including disabling accounts, removing servers, and engaging with authorities as appropriate.
+
+Get Help from a Moderator
+
+Discord communities, especially the large and public ones, often have moderators there to help address issues. If the violation happened in a server with a moderator, your teen can also reach out to the server's moderators, who may be able to respond immediately and help resolve their concerns. In addition, remind your teen that they have the ability to
+block any users
+ they don't want to interact with.
+
+Our Approach to Content Moderation
+
+We currently employ three levers to moderate user content on Discord, while mindful of user privacy.
+
+Family Center
+
+Family Center
+ is designed to help you learn more about how your teen spends their time on Discord and learn more about the communities they are a part of.
+
+Our goal is to help families foster productive dialogue about safer internet habits, and to create mutually beneficial ways for parents and teens to connect about experiences online.
+
+Explore More
+
+Partner Resources for Parents
+
+Our friends at the
+NationalPTA
+,
+ConnectSafely
+, and
+Thorn
+ have leveraged their expertise working with families to create their own parent guides to Discord. Consider checking them out for another view on how your teen uses Discord and ways to start conversations about online safety.
+
+Build Up and Belong – PTA Connected – Programs
+ConnectSafely Parent's Guide to Discord
+Thorn for Parents
+
+Language
+
+English (US)
+
+Čeština
+
+Dansk
+
+Deutsch
+
+English
+
+English (UK)
+
+Español
+
+Español (América Latina)
+
+Français
+
+Hrvatski
+
+Italiano
+
+lietuvių kalba
+
+Magyar
+
+Nederlands
+
+Norsk
+
+Polski
+
+Português (Brasil)
+
+Română
+
+Suomi
+
+Svenska
+
+Tiếng Việt
+
+Türkçe
+
+Ελληνικά
+
+български
+
+Русский
+
+Українська
+
+हिंदी
+
+ไทย
+
+한국어
+
+中文
+
+中文(繁體)
+
+日本語
+
+Social
+
+Menu
+
+Product
+
+Download
+Nitro
+Status
+App Directory
+
+Company
+
+About
+Jobs
+Brand
+Newsroom
+
+Resources
+
+Support
+Safety
+Blog
+Creators
+Community
+Developers
+Quests
+Official 3rd Party Merch
+Feedback
+
+Policies
+
+Terms
+Privacy
+Cookie Settings
+Guidelines
+Acknowledgements
+Licenses
+Company Information
+
+Social

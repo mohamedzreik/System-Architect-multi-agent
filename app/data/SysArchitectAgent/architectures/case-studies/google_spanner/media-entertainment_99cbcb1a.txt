@@ -1,0 +1,73 @@
+Media & Entertainment
+
+The latest on Google Cloud products and services for the media and entertainment industries.
+
+News in short
+
+A quick take on updates, announcements, resources, events, and learning opportunities from Google Cloud in one handy location. Updated weekly.
+
+Read now
+
+[Media & Entertainment
+
+How Lightricks trains video diffusion models at scale with JAX on TPU
+
+By Yaki Bitterman • 6-minute read](https://cloud.google.com/blog/products/media-entertainment/how-lightricks-trains-video-diffusion-models-at-scale-with-jax-on-tpu)
+
+[Media & Entertainment
+
+StreamSight: Driving transparency in music royalties with AI-powered forecasting
+
+By Kiki Ganzemüller • 4-minute read](https://cloud.google.com/blog/products/media-entertainment/streamsight-driving-transparency-in-music-royalties-with-ai-powered-forecasting)
+
+[Application Development
+
+How Jina AI built its 100-billion-token web grounding system with Cloud Run GPUs
+
+By Han Xiao • 4-minute read](https://cloud.google.com/blog/products/application-development/how-jina-ai-built-its-100-billion-token-web-grounding-system-with-cloud-run-gpus)
+
+[Customers
+
+From news to insights: Glance leverages Google Cloud to build a Gemini-powered Content Knowledge Graph (CKG)
+
+By Himanshu Aggarwal • 6-minute read](https://cloud.google.com/blog/topics/customers/glance-builds-gemini-powered-knowledge-graph-with-google-cloud)
+
+[Data Analytics
+
+The AI lens: How Arpeely uses multimodality and BigQuery to revolutionize AdTech
+
+By Roee Sheffer • 4-minute read](https://cloud.google.com/blog/products/data-analytics/how-arpeely-uses-google-cloud-ai-for-smarter-ads)
+
+[DevOps & SRE
+
+Hakuhodo Technologies: The transformative impact of SRE
+
+By Yoshimasa Suzuki • 5-minute read](https://cloud.google.com/blog/products/devops-sre/how-hakuhodo-technologies-transforms-its-organization-with-sre)
+
+[Media & Entertainment
+
+Building the cloud-native broadcast media supply chain with Google Cloud
+
+By Anshul Kapoor • 12-minute read](https://cloud.google.com/blog/products/media-entertainment/how-cloud-enables-the-media-supply-chain)
+
+[Media & Entertainment
+
+Paramount+: A streaming powerhouse with limitless entertainment
+
+By Shiva Paranandi • 5-minute read](https://cloud.google.com/blog/products/media-entertainment/paramount-global-built-its-streaming-platform-on-google-cloud)
+
+[Telecommunications
+
+Upgrading Immersive Stream for XR to Unreal Engine 5.3
+
+By Aria Shahingohar • 2-minute read](https://cloud.google.com/blog/topics/telecommunications/immersive-stream-for-xr-now-supports-unreal-engine-5-3)
+
+[Media & Entertainment
+
+Google Cloud partners fuel media and entertainment boom: Viewers reap the rewards
+
+By Kip Schauer • 4-minute read
+
+](https://cloud.google.com/blog/products/media-entertainment/partners-fueling-powerful-viewer-experiences-with-at-next24)
+
+Load more stories

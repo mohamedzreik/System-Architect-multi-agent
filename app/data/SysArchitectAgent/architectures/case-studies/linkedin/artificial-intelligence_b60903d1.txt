@@ -1,0 +1,114 @@
+linkedin-logo-full
+
+linkedin-logo-icon
+
+logo-404-frontlogo-404-back
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+Skip to main content
+
+Close jump menu
+
+[LinkedIn Logo
+
+LinkedIn Logo
+
+LinkedIn
+Engineering](/india-engineering)
+
+Teams
+
+Blog
+
+Join us
+
+Artificial Intelligence (AI)
+
+LinkedIn was built to help professionals achieve more in their careers, and every day millions of people use our products to make connections, discover opportunities and gain insights. Our global reach means we get to directly impact the world's workforce in ways no other company can. The critical component in the technology ecosystem that powers this mission are our AI algorithms and models that ensure the relevance of the connections made,  jobs explored and insights gained by our members. LinkedIn has a strong team of over 400, consisting of AI experts doing foundational research and applied machine learning to power superior member experience.
+
+Our team in Bangalore  has over 60+ researchers and ML engineers working on multiple vital charters: Content Moderation AI, Multimedia, Groups AI, FirstLine AI, and Search relevance. These teams are developing state of the art natural language processing, computer vision, multi-modal and graph machine learning algorithms to improve the product experience.
+
+Content Abuse Prevention AI:
+ Employs state of the art machine learning algorithms to detect abusive content and tag them with appropriate labels so that the downstream systems will render them the proper treatment. The team not just employs state-of-the-art NLP and Computer visions algorithms but pushes the envelope by conducting cutting-edge research to solve problems such as Contextual Classification of content, Multi-modal classification and Classification algorithms that will be agile to evolving policies. We also partner with Microsoft and onboarded key safety models for wider impact. The team also works on advancing model building process for abuse needs by adopting Pro-ML, standardising AI modelling workflows enabling quick response spam attacks.
+
+Multimedia Foundations AI:
+ Helps improve LinkedIn member experience by a cognitive understanding of multimedia content in images, videos, Ads and live content.  We develop state-of-the-art vision language technologies like in-house OCR models, media topic classification, automatic image captioning models, object detection and scene understanding. In addition, we closely leverage/benchmark in-house solutions to commercial offerings from parent Microsoft tech.
+
+Firstline AI:
+ The team fine-tunes the mainstream models or trains custom ones across the product for metric lift.  This team is a mini AI org in itself as they work across many Linkedin experiences and have the overall knowledge of ML algorithms at play
+
+Search Relevance:
+ Focuses on improving the search and discovery experience of the LinkedIn Learning module. The team applies advanced algorithms for document/query understanding, document/query expansion, diversifying retrieval, multi-pass ranking and personalisation of the results. In addition, they solve the problem of equitably ranking & blending heterogeneous results from different providers and sources
+
+Fairness in Machine learning:
+ Develops algorithms and methods to measure and mitigate bias in machine learning models, especially the content classifiers. The team ensures that the content classifiers are fair to the content subjects.  They are engaged in leading-edge research in tackling the bias against content subjects while classifying content, an underdeveloped area in the industry and academia, and the team has already made breakthrough innovations
+
+Groups AI:
+ Provides AI solutions for members to discover the right groups and quality conversations. The team applies cutting-edge algorithms to understand member needs, build the right ML solutions and deploy them into the multi-faceted LinkedIn ecosystem. The solutions are built to scale to 3 million groups on LinkedIn and require a fine balance of modeling and platform craftsmanship
+
+Back
+
+About
+
+Cookie Policy
+
+Privacy Policy
+
+Your California Privacy Choices
+
+User Agreement
+
+Accessibility
+
+LinkedIn logo
+
+© LinkedIn Corporation 2026
+
+dismiss

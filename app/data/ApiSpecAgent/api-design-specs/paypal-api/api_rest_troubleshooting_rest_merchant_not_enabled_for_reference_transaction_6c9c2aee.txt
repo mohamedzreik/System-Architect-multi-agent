@@ -1,0 +1,18 @@
+Merchant not enabled for reference transaction
+
+Returns from the Payments v1 API.
+
+MERCHANT_NOT_ENABLED_FOR_REFERENCE_TRANSACTION
+ indicates that the merchant account is not configured to perform reference transactions.
+
+Note: If an issue persists or if you have further questions, you can reach out to
+paypal-techsupport.com
+.
+
+| Cause | Impact | Resolution |
+| --- | --- | --- |
+| - Unconfigured account: The merchant account is not configured or approved to handle reference transactions. Reference transactions require specific permissions and account settings that PayPal does not enable by default on all accounts. - Failed attempt: The merchant attempts a reference transaction without enabling the necessary permissions or account settings. | - Failed payment attempt: The merchant cannot process reference transactions for recurring billing, subscriptions, or other post-payment transactions. - Business disruptions: Services that depend on automated billing fail to operate. | -
+Contact customer support
+: Send a request to customer support to enable reference transactions for your account. Enabling reference transactions may require you to provide additional information about your account. - Review account settings: Configure your account settings to support reference transactions. - For more information, see
+Initiate future transactions
+. |

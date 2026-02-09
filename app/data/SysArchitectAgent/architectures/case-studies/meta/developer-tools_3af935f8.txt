@@ -1,0 +1,77 @@
+Culture
+
+Python Typing Survey 2025: Code Quality and Flexibility As Top Reasons for Typing Adoption
+
+DevInfra
+
+OCT 16, 2025
+
+Branching in a Sapling Monorepo
+
+Data Center Engineering
+
+OCT 13, 2025
+
+OCP Summit 2025: The Open Future of Networking Hardware for AI
+
+Articles
+
+Videos
+
+Publications
+
+The Latest
+
+DevInfra
+
+OCT 6, 2025
+
+Introducing OpenZL: An Open Source Format-Aware Compression Framework
+
+AI Research
+
+SEP 29, 2025
+
+Meta's Infrastructure Evolution and the Advent of AI
+
+DevInfra
+
+AUG 11, 2025
+
+Federation Platform and Privacy Waves: How Meta distributes compliance-related tasks at scale
+
+AI Research
+
+AUG 6, 2025
+
+Diff Risk Score: AI-driven risk-aware software development
+
+Culture
+
+JUL 1, 2025
+
+An inside look at Meta's transition from C to Rust on mobile
+
+Android
+
+JUN 30, 2025
+
+Meta joins Kotlin Foundation
+
+Data Infrastructure
+
+MAY 20, 2025
+
+Meta's Full-stack HHVM optimizations for GenAI
+
+Culture
+
+MAY 15, 2025
+
+Open-sourcing Pyrefly: A faster Python type checker written in Rust
+
+DevInfra
+
+MAY 15, 2025
+
+Introducing Pyrefly: A new type checker and IDE experience for Python

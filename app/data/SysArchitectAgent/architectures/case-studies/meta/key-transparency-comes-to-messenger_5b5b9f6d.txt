@@ -1,0 +1,118 @@
+POSTED ON NOVEMBER 20, 2025 TO
+Security & Privacy
+
+Key Transparency Comes to Messenger
+
+By
+Dillon George
+,
+Artem Ignatyev
+,
+Kevin Lewi
+,
+Yihai Long
+,
+Jeff Lu
+
+We're excited to share another advancement in the security of your conversations on Messenger: the launch of key transparency verification for end-to-end encrypted chats.
+
+This new feature enables an additional level of assurance that only you — and the people you're communicating with — can see or listen to what is sent, and that no one else, not even Meta, can do so.
+
+End-to-end encryption on Messenger
+ already ensures that the content of your direct messages and calls are protected from the moment they leave your device to the moment they reach the receiver's device. As part of our end-to-end encrypted chat platform, we believe it's also important that anyone can verify that the public keys (used by the sender's device for encrypting each message) belong to the intended recipients and haven't been tampered with.
+
+This launch builds upon the valuable work and experiences shared by others in the industry.
+WhatsApp's implementation of key transparency
+ in 2023 demonstrated the feasibility of this technology for large-scale encrypted messaging. We've extended these pioneering efforts in our Messenger implementation to deliver a robust and reliable solution with similar security properties.
+
+What Is Key Transparency?
+
+Key transparency provides messaging users with a verifiable and auditable record of public keys. It allows them to confirm that their conversations are indeed encrypted with the correct keys for their contacts, and that these keys haven't been maliciously swapped by a compromised server. This means you can be more confident that your messages are only accessible to the people you intend to communicate with.
+
+You can already
+check your keys for end-to-end encrypted chats on Messenger
+, but this can be cumbersome for people who have logged in to Messenger on multiple devices, each of which has its own key. Moreover, these keys change when new devices are added or are re-registered, which necessitates another check of the key every time this happens.
+
+To address this, we've added a new security feature, based on key transparency, that allows users to verify these keys without having to compare them manually with their contacts. Of course, anyone who wishes to continue manually verifying their keys is free to do so.
+
+How We're Handling Messenger Keys at Scale
+
+Our key transparency implementation leverages the
+Auditable Key Directory (AKD) library
+, mirroring the system already in place for WhatsApp. This system allows Meta to securely distribute and verify users' public keys. To further enhance the security of this process, we use
+Cloudflare's key transparency auditor
+ to provide an additional layer of verification, ensuring that the distribution of keys is transparent and verifiable by anyone. Cloudflare's auditor maintains a live log of the latest entries on the
+Key Transparency Dashboard
+, for both the WhatsApp and Messenger directories.
+
+Implementing key transparency on the scale of Messenger presented unique engineering challenges. One significant factor was the sheer volume and frequency of key updates. Messenger indexes keys for each and every device someone has logged in on, which means that a single user often has multiple, frequently-changing keys associated with their account.
+
+This increased complexity leads to a much higher frequency of key updates being sequenced into our key transparency directory. Currently, we're observing an epoch frequency of approximately 2 minutes per publish, with hundreds of thousands of new keys added in each epoch. Since we began indexing, our database has already grown to billions of key entries. We've implemented a number of advancements in our infrastructure and libraries to help manage this massive and constantly growing dataset, while ensuring high availability and real-time verification:
+
+We improved the algorithmic efficiency of the existing key lookup and verification operations in the AKD library by optimizing for smaller proof sizes, even as the number of updates (versions) for a single key grows. Previously, these proofs grew linearly with the height of the transparency tree, which was still difficult to manage given the number of nodes in the tree.
+
+We also updated our existing infrastructure to be more resilient to temporary outages and improved the process for recovering from long delays in key sequencing. These improvements were adapted from lessons learned from running WhatsApp's key transparency log for the past two years.
+
+With key transparency now live on Messenger, users will have the ability to automatically verify the authenticity of their contacts' encryption keys for one-on-one chats. This represents another step forward in our ongoing investment in providing a secure and private service**.**
+
+Stay tuned for more updates as we continue to enhance the security and privacy of end-to-end encryption in Messenger.
+
+Share this:
+
+Click to share on Facebook (Opens in new window)
+Facebook
+
+Click to share on Threads (Opens in new window)
+Threads
+
+Click to share on WhatsApp (Opens in new window)
+WhatsApp
+
+Click to share on LinkedIn (Opens in new window)
+LinkedIn
+
+Click to share on Reddit (Opens in new window)
+Reddit
+
+Click to share on X (Opens in new window)
+X
+
+Click to share on Bluesky (Opens in new window)
+Bluesky
+
+Click to share on Mastodon (Opens in new window)
+Mastodon
+
+Click to share on Hacker News (Opens in new window)
+Hacker News
+
+Click to email a link to a friend (Opens in new window)
+Email
+
+Read More in Security & Privacy
+
+View All
+
+JAN 27, 2026
+
+Rust at Scale: An Added Layer of Security for WhatsApp
+
+DEC 15, 2025
+
+How AI Is Transforming the Adoption of Secure-by-Default Mobile Frameworks
+
+OCT 23, 2025
+
+Scaling Privacy Infrastructure for GenAI Product Innovation
+
+SEP 30, 2025
+
+LLMs Are the Key to Mutation Testing and Better Compliance
+
+AUG 11, 2025
+
+Federation Platform and Privacy Waves: How Meta distributes compliance-related tasks at scale
+
+JUL 23, 2025
+
+Policy Zones: How Meta enforces purpose limitation at scale in batch processing systems

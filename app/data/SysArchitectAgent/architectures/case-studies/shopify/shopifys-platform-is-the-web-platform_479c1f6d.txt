@@ -1,0 +1,243 @@
+blog
+|
+Apps
+
+Shopify's platform is the Web platform
+
+Remix is now the recommended way to build Admin apps on Shopify. With Remix, you get a best-in-class developer experience while ensuring exceptional out-of-the-box performance for your app. Remix embraces the web platform and web standards, allowing web developers to use more of their existing knowledge and skills.
+
+Published on Jul 26, 2023
+
+Remix for Shopify Apps
+
+TL;DR
+
+Remix is now the recommended way to build Admin apps on Shopify. With Remix, you get a best-in-class developer experience while ensuring exceptional out-of-the-box performance for your app. Remix also embraces the web platform and web standards, allowing web developers to use more of their existing knowledge and skills when developing for Shopify. We are reshaping Shopify's platform to embody the same values, for example by releasing a new, web-centric version of App Bridge.
+
+Admin Apps
+
+One of the powerful ways you can develop for Shopify is by building apps that merchants install to their store. Apps can consist of multiple parts that extend Shopify in different ways, and one core component found  in almost every app is the Admin App: A UI that merchants interact with within the admin area of their store. Here, you can let merchants configure the way your app behaves in their store, visualize data or integrate it with other services outside of Shopify.
+
+Heads-up
+*: The restrictions outlined below apply specifically to cross-origin iframes, where the iframe is on a different origin than the top-level page. This article exclusively talks about cross-origin iframes
+as all Admin Apps are hosted on a different origin than Shopify Admin.
+*
+
+Admin apps are, at their core, web apps that Shopify Admin runs in an
+<iframe>
+. Iframes are the web's way of composing multiple web apps together into one, allowing each iframe to take control of a dedicated space of the top-level page. The browser provides a strong isolation between these individual apps ("sandboxing"), so that each app can only influence the space they have been assigned and not interfere with anything else. In a sense, Shopify Admin functions like an operating system where merchants install multiple applications and use them to customize and enhance their workflows.
+
+Without going into technical details, iframes have been misused in the last few decades as a way to track user behavior on the web. To counteract that, browser vendors have started to restrict what web apps running inside an iframe can and cannot do. As an example, iframes in Safari do not get to set cookies or store data in IndexDB, LocalStorage or SessionStorage. As a result of all these restrictions, some standard practices of web development do not work inside iframes. This can be a source of headaches for developers.
+
+Shopify wants to allow developers to deeply integrate their apps with Shopify Admin. The browser's sandboxing can get in the way of that. The only way to pierce the isolation between Shopify Admin and the app's iframe is through the
+postMessage()
+ API, which allows the two pages to send each other messages in the form of JavaScript objects.
+
+The journey so far: App Bridge
+
+With
+postMessage()
+ being the only way to pierce the browser sandbox between page and iframe, we built
+App Bridge
+, a message-based protocol. On the one hand, it provides capabilities that can be used to restore functionality that browsers removed in their quest to protect user privacy. On the other hand, it also exposes a set of capabilities and information that allows deep integration of apps with Shopify Admin. The App Bridge protocol is supported by Shopify Admin on the Web and on the mobile app, giving merchants a consistent experience no matter how they prefer to work.
+
+Restoring Web Development
+
+One example for web development patterns that don't work in iframes are URLs. When a merchant navigates through an admin app, the app typically updates their URL using client-side routers like
+react-router
+ (which in turn uses
+pushState()
+ and friends from the
+Web's History API
+), to update what is shown in the iframe. However, that new URL is not reflected in the browser's address bar at all. The iframe can only change its own URL, not the parent's page. That means if a merchant reloads the page, they will reload Shopify Admin in the same place, but the app will be opened on the landing page. Through App Bridge, we allow apps to update a dedicated fragment of the top-level page URL, fixing this behavior.
+
+Another example can be found in the sidebar of Shopify Admin, which by default is inaccessible for any iframe running in the Admin. Through App Bridge, however, an app is able to add additional menu items in the sidebar, giving  merchants a more efficient way of navigating:
+
+As a last example, let's talk about cookies. Cookies and other storage mechanisms are not (reliably) available in iframes, so a developer has no way to remember which user originally opened the app. This is critical information for the app because it ensures GraphQL API requests are working against the correct shop. To remedy this,
+App Bridge provides an OpenID Connect ID Token
+ to give the app a way to always determine the identity of the currently active user.
+
+Developer Experience
+
+So far, App Bridge was given to developers in two shapes:
+@shopify/app-bridge
+, which was a very thin wrapper over the
+postMessage()
+-based interface. The API still felt like passing messages around, and it left a lot of work up to developers, like mapping requests to responses. While this was flexible and assumed almost nothing, it was not convenient to use.
+
+To address this, we also maintained
+@shopify/app-bridge-react
+, which wrapped the low-level primitives from the former in React components, providing a much better developer experience (DX).
+
+This was a substantial improvement when you are using React, but these components were not really idiomatic and did not work with systems like Remix that utilize server-side rendering (SSR). This meant we had to invest into updating App Bridge, so while we were at it, we took a page out of Remix's playbook: Instead of making developers who are new to Shopify learn how to use the
+@shopify/app-bridge-react
+, we wanted to allow them to use APIs they are already familiar with by nature of doing web development.
+
+The last version of App Bridge
+
+We have a new — and final! — version of  App Bridge! It replaces
+@shopify/app-bridge
+ and, in the near future, will form the underpinnings of
+@shopify/app-bridge-react
+. We have rewritten it from the ground up, embracing modern web development technologies and best practices.
+
+Simpler, one-off setup
+
+To use one of our previous App Bridge clients, developers had to copy a snippet of initialization code. We realized that this is unnecessary and can lead to confusion. Going forward, all you need to do is include a
+<script>
+ tag in the
+<head>
+ of your document, and you are good to go!
+
+While loading a script from a CDN might seem a bit old-school, it is an intentional choice: This way we can deploy fixes to App Bridge that reach all apps
+immediately.
+ We are committed to maintaining backwards compatibility, without asking developers again to update their npm dependencies and redeploy their app. Now, developers have a more stable and reliable platform to build on!
+
+Fixing the environment
+
+App Bridge aims to fix all the things that got broken by browsers (or by Shopify!) by running apps inside an iframe. For example, with App Bridge running, you can use
+history.pushState()
+ like you would in normal web development, and App Bridge will automatically inform Shopify Admin about the URL changes.
+
+This has wider implications than what it might seem like at first. For the
+history
+ example, the implication is that client-side routing libraries like
+react-router
+ work inside Admin apps
+out of the box
+. Our goal with App Bridge is to fix iframes to the extent that all your standard web development practices, libraries and even frameworks work as expected without having to write custom logic or adapters.
+
+Enhancing the environment
+
+To enable deeper integrations like the side navigation mentioned above, we chose to go with
+Custom Elements
+ to build custom HTML elements. Custom Elements are a web standard and are supported by all browsers. The choice was simple: All web frameworks, past, present and future make extensive use of the DOM API and as such will be able to interface with any HTML element, custom and built-in. Another nice benefit is that these Custom Elements can be inspected and manipulated with your browser's DevTools — no extension required.
+
+Your browser does not support the video tag.
+
+If a merchant clicks any of these links, App Bridge will automatically forward that
+click
+ event to the corresponding
+<a>
+ tag inside the iframe. This means that a client-side router like Remix's
+react-router
+ will also work with these links as expected.
+
+Status Quo
+
+You can find a list of all our capabilities in App Bridge in our
+documentation
+. This new version of App Bridge is ready for you to use in production right now! However, we did not break the old App Bridge clients. Deployed apps will continue to work with no action required from the developer. If, for some reason, you want to mix-and-match the new and the old App Bridge clients, you can do that, too!
+
+Remix
+
+In October 2022,
+we announced that Remix joined Shopify
+. Remix and its team are pioneers at putting the web at the center of their framework to help developers build fast and resilient web apps with ease. With App Bridge restoring a normal web development environment (despite being inside an iframe), Remix works out of the box.
+
+Remix is opinionated about how to build apps. Remix stipulates that apps are separated into routes and each route defines how to get the data it needs to render its content. Whenever the app is opened on a specific URL or path, Remix looks inside the special
+routes/
+ folder and loads the JavaScript file at that path. For example, if your app is loaded with the URL
+http://myapp.com/products/4
+, Remix will look for
+/routes/products/4.js
+ and if it can't find that, it will look if there are matches with placeholders, like
+/routes/products/$id.js
+. These files define the content that should be delivered through React components. Remix will detect whether the incoming request is a browser navigation (where HTML needs to be returned) or a client-side navigation (where data needs to be returned, so it can be consumed by
+react-router
+), and will render the response appropriately. Each route can define a loader function which is called to load the data it needs to render. The
+loader
+ runs server-side and can make use of databases or 3rd party APIs. Remix takes care of feeding that data into the server-side render or transporting it to the frontend for the client-side render. This happens completely transparently for the developer, allowing them to focus on the
+what,
+ not the
+how.
+
+With Remix, an app's backend and the API becomes a by-product of writing the frontend. The API endpoints are implicitly generated and maintained by Remix
+through the definition of loaders and actions
+. This is not only a massive improvement in developer convenience, but also has performance benefits as server-side rendering lets apps get personalized content on screen faster than a traditional, client-side app.
+
+Shopify's API
+
+Most Shopify apps need to interact with
+Shopify's GraphQL API
+. While our GraphQL API is usable with any GraphQL client, there are a small number of Shopify-specific parts that need to be set up, like getting the OAuth access token, handling ID Tokens and HMAC signature verification. To keep the template as clutter-free as possible, we have implemented all of this in our
+@shopify/shopify-app-remix
+ package, which does all the heavy lifting, so you can continue to focus on the business logic.
+
+Here is how you configure your
+shopify
+ singleton:
+
+And here is how you use it to get access to Shopify's Admin GraphQL API for the shop that is loading the app:
+
+Storage
+
+Many apps need to store additional data, about the customers, merchants, products, or store session data. In the past, our templates came with a SQLite database and some adapters to use popular databases like
+MySQL
+ or
+Redis
+. An opinionated approach is a core part of Remix, so we are following suit by providing
+Prisma
+ out of the box. Prisma provides battle-tested adapters for most databases and provides an ergonomic ORM API and a UI to inspect your database's contents.
+
+We don't want you to reinvent the wheel on how to store your user's session information, so we've published a
+Prisma Adapter
+ that takes care of storing sessions. You can use this adapter even if you use one of our previous app templates, as it is completely Remix agnostic.
+
+Quickstart
+
+To get you started as quickly as possible, we have integrated the new Remix template for Admin apps into our Shopify CLI. You can get started right now with this command and choose the brand-new Remix option:
+
+If you have any feedback or questions, please feel free to open an issue on the repository's
+issue tracker
+.
+
+Going forward
+
+A Remix template for Admin apps and the new App Bridge client are just the start of Shopify's effort to make its platform more stable and intuitive for developers. We are also launching similar reworks for Checkout extensions and are rethinking our design system,
+Polaris
+, to be more flexible, idiomatic and generic.
+
+We are extremely excited about this direction for Shopify's platform. We want to leverage more of the web development ecosystem and want to get out the way more to let you choose the right tools for the job. We can't wait to see how you will put all these new powers to good use!
+
+This post was written by
+Surma.
+ DX at Shopify. Web Platform Advocate. Craving simplicity, finding it nowhere. He/him. Internetrovert ️‍ . Find him on
+Twitter
+,
+GitHub
+, or at
+surma.dev
+.
+
+S
+
+by
+Surma
+
+Published on Jul 26, 2023
+
+Share article
+
+Facebook
+
+Twitter
+
+LinkedIn
+
+by
+Surma
+
+Published on Jul 26, 2023
+
+• 10 minute read
+
+Development
+Introducing Ruvy
+Developer Tooling
+Building a ShopifyQL Code Editor
+
+Apps
+Shopify's platform is the Web platform
+Development
+The Engineering Story Behind Flex Comp

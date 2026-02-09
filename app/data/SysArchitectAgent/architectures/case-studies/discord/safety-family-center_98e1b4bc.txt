@@ -1,0 +1,358 @@
+[
+
+](/)
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+Download
+
+Nitro
+
+Discover
+
+Safety
+
+Safety
+
+Resources
+
+Family Center
+Safety Library
+Safety News
+Teen Charter
+
+Hubs
+
+Parent Hub
+Policy Hub
+Privacy Hub
+Transparency Hub
+Wellbeing Hub
+
+Quests
+
+Quests
+
+Resources
+
+Advertising
+Success Stories
+Quests FAQ
+
+Support
+
+Support
+
+Resources
+
+Help Center
+Feedback
+Submit a Request
+
+Blog
+
+Blog
+
+Collections
+
+Featured
+Community
+Discord HQ
+Engineering & Developers
+How to Discord
+Policy & Safety
+Product & Features
+
+Developers
+
+Developers
+
+Featured
+
+Discord Social SDK
+Apps and Activities
+
+Documentation
+
+Developer Home
+Developer Documentation
+Developer Applications
+Developer Help Center
+Developer Newsletter
+
+Careers
+
+App Store
+
+Discord Family Center
+
+Learn more about what we're doing to help your teen stay safer on our platform, explore our Family Center tool, and download our Parent's Guide to Discord.
+
+Open Family Center
+
+For Parents and Guardians
+
+Discord is the communications platform that enables you to build meaningful connections around the joy of playing games through voice, video and text features.
+
+Family Center is designed to help you learn more about how your teen spends their time on Discord and allows you to play an active role in their experience on Discord.
+
+Through an Activity Feed, weekly email summaries and tools to manage certain safety and privacy settings of your teen's account, our goal is to empower families to start collaborative conversations around building positive online behaviors together.
+
+Open Family Center
+
+"
+
+"It is essential that families are empowered with knowledge, tools and resources so they can support healthy digital habits for their children. When platforms offer resources like Discord's new Family Center, this information helps facilitate meaningful conversations between teens and their parents and caregivers about how to be safe, responsible and respectful online. National PTA will continue to work with our partners including Discord to create a healthier digital environment for teens and families."
+
+Yvonne Johnson
+
+National PTA President
+
+"
+
+"Family Center provides parents with what they need to help guide their teen's use of Discord without being too invasive. It's like the physical world where you know who your kids are hanging out with and where they're going but not listening in on their conversations or micromanaging their relationships. Tools like Family Center can help parents help their teens develop the habits and critical thinking skills that apply not only to Discord but all of life."
+
+Larry Magid
+
+CEO ConnectSafely.org
+
+For Teens
+
+We built Family Center to help you help your parents or guardians easily stay informed and support your safety while also maintaining your privacy and autonomy on Discord.
+
+Similar to how your parents might ask about the clubs you're a part of or who your friends are at school, we make it easy for you to share the same information about your Discord experience so your guardian can work with you to set boundaries. Family Center helps them manage certain safety and privacy settings on your account.
+
+Open Family Center
+
+Building healthy digital habits together is a journey
+
+Discord's Approach to Safety
+
+Community Guidelines
+
+Our Community Guidelines are designed to ensure everyone can find belonging on Discord. We enforce them through a mix of proactive and reactive measures.
+
+Safety Controls
+
+Every user is provided with the tools to report content, block users, and limit who can send them friend requests.
+
+Frequently Asked Questions
+
+For Parents and Guardians
+
+How can Parents/Guardians help their teen stay safe on Discord?
+
+As a parent, we encourage you to leverage Family Center as a way to spend some time reviewing and discussing your teen's settings so that you can help customize their Discord experience. We've outlined some discussion starters and tips for helping keep your teen safe on Discord
+here
+.
+
+What are the Discord rules or policies?
+
+Our rules, also known as our Community Guidelines, are bucketed into 3 categories: Respecting each other, Respecting Discord, and Being Honest. Discord's Community Guidelines are designed to help our users express themselves and find community, but not at the expense of anyone else. You can read our Community Guidelines
+here.
+
+Are there recommended safety settings that I should set for my teen?
+
+Although we stand by our safety features and default settings for teens, we know that every teen is different. That's why we encourage guardians and teens to actively review these settings together to make sure they are serving the positive Discord experience teens want to have.
+
+For Teens
+
+Will Family Center allow my parents/guardians to remove me from servers/DMs/GDMs?
+
+No, Family Center does not allow a connected parent to remove their teen from the servers, DMs, and GDMs that their Discord account is in.
+
+Does Family Center allow my parents/guardians to read my DMs?
+
+No. Connected accounts in Family Center will not have access to the private contents of your messages. Parents and guardians will only see information about:
+
+Recently added friends, including their names and avatars
+
+Servers joined or participated in, including names, icons, and member counts
+
+Users messaged or called in direct or group chats, including names, avatars, and # of mutual friends
+
+If at any time you are curious about what your connected family members are able to see, you can always see the same information they do by going into Family Center.
+
+Can I add my brother, grandma, or other trusted family member in addition to a parent?
+
+Yes! You can connect to any trusted adult family member in Family Center. Whether that person is an older brother, sister, aunt, grandparent, or other guardian, you two can connect your Discord accounts and use Family Center.
+
+We're here to help!
+
+From Account Settings to Advanced Permissions, get support for everything Discord at our Help Center.
+
+Visit Discord Safety Center
+
+Language
+
+English (US)
+
+Čeština
+
+Dansk
+
+Deutsch
+
+English
+
+English (UK)
+
+Español
+
+Español (América Latina)
+
+Français
+
+Hrvatski
+
+Italiano
+
+lietuvių kalba
+
+Magyar
+
+Nederlands
+
+Norsk
+
+Polski
+
+Português (Brasil)
+
+Română
+
+Suomi
+
+Svenska
+
+Tiếng Việt
+
+Türkçe
+
+Ελληνικά
+
+български
+
+Русский
+
+Українська
+
+हिंदी
+
+ไทย
+
+한국어
+
+中文
+
+中文(繁體)
+
+日本語
+
+Social
+
+Menu
+
+Product
+
+Download
+Nitro
+Status
+App Directory
+
+Company
+
+About
+Jobs
+Brand
+Newsroom
+
+Resources
+
+Support
+Safety
+Blog
+Creators
+Community
+Developers
+Quests
+Official 3rd Party Merch
+Feedback
+
+Policies
+
+Terms
+Privacy
+Cookie Settings
+Guidelines
+Acknowledgements
+Licenses
+Company Information
+
+Social

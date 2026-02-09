@@ -1,0 +1,28 @@
+NK
+
+[distributed algorithm
+
+Gossip Protocol Explained
+
+You can subscribe to the system design newsletter to excel in system design interviews and software architecture. The original article was published on systemdesign.one website.
+What Is Gossip Protocol?
+The typical problems in a distributed system are the following [1], [11]:
+* maintaining the system state (liveness of nodes)
+* communication
+
+By NK
+16 Jul 2023](/gossip-protocol-explained/)
+
+[consistent hashing
+
+Consistent hashing algorithm
+
+You can subscribe to the system design newsletter to excel in system design interviews and software architecture.
+You can view the original article Consistent hashing explained on systemdesign.one website.
+How does consistent hashing work?
+At a high level, consistent hashing performs the following operations:
+
+The output of the
+
+By NK
+22 Feb 2023](/consistent-hashing-algorithm/)

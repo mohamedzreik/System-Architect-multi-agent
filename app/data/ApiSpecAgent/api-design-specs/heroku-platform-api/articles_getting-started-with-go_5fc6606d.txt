@@ -1,0 +1,980 @@
+Getting Started on Heroku with Go | Heroku Dev Center
+
+Getting Started on Heroku with Go
+
+Complete this tutorial to deploy a sample Go app to
+Cedar
+, the legacy generation of the Heroku platform. To deploy the app to the
+Fir
+ generation, only available to
+Heroku Private Spaces
+, follow this
+guide
+ instead.
+
+The tutorial assumes that you have:
+
+A
+verified Heroku Account
+
+Go 1.20+ installed
+
+An
+Eco dynos plan
+ subscription (recommended)
+
+We recommend using our
+low-cost plans
+ to complete this tutorial. Eligible students can apply for platform credits through our new
+Heroku for GitHub Students program
+.
+
+Set Up
+
+Install the
+Heroku Command Line Interface
+ (CLI). Use the CLI to manage and scale your app, provision add-ons, view your logs, and run your app locally.
+
+The Heroku CLI requires
+Git
+, the popular version control system. If you don't already have Git installed, complete the following before proceeding:
+
+Git installation
+
+First-time Git setup
+
+Download and run the installer for your platform:
+
+macOS
+
+Install Homebrew
+ and run:
+
+$ brew install heroku/brew/heroku
+
+Windows
+
+Download the appropriate installer for your Windows installation:
+
+64-bit installer
+
+32-bit installer
+
+You can find more installation options for the Heroku CLI
+here
+.
+
+After installation, you can use the
+heroku
+ command from your command shell.
+
+On Windows, start the Command Prompt (cmd.exe) or Powershell to access the command shell.
+
+To log in to the Heroku CLI, use the
+heroku login
+ command:
+
+$ heroku login
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/cli/browser/***
+heroku: Waiting for login...
+Logging in... done
+Logged in as me@example.com
+
+This command opens your web browser to the Heroku login page. If your browser is already logged in to Heroku, click the
+ button on the page.
+
+This authentication is required for the
+heroku
+ and
+git
+ commands to work correctly.
+
+If you have any problems installing or using the Heroku CLI, see the main
+Heroku CLI
+ article for advice and troubleshooting steps.
+
+If you're behind a firewall that uses a proxy to connect with external HTTP/HTTPS services,
+set the
+HTTP_PROXY
+ or
+HTTPS_PROXY
+ environment variables
+ in your local development environment before running the
+heroku
+ command.
+
+Prepare the app
+
+In this step, you will prepare a sample application that's ready to be deployed to Heroku.
+
+If you are new to Heroku, it is recommended that you
+complete this tutorial using the Heroku-provided sample application.
+
+However, if you have your own existing application that you want to deploy
+instead, see
+this article
+
+to learn how to prepare it for Heroku deployment.
+
+Clone the sample application so that you have a local version of the code that you can then deploy to Heroku, execute the following commands in your local command shell or terminal:
+
+$ git clone https://github.com/heroku/go-getting-started.git
+$ cd go-getting-started
+
+You now have a functioning git repository that contains a simple application as well as a
+go.mod
+ file, which is used by the Go's module dependency system.
+
+Deploy the app
+
+In this step you will deploy the app to Heroku.
+
+Using dynos to complete this tutorial counts towards your usage.
+Delete your app
+ as soon as you are done to control costs.
+
+By default, apps use Eco dynos if you are subscribed to Eco. Otherwise, it defaults to Basic dynos. The Eco dynos plan is shared across all Eco dynos in your account and is recommended if you plan on deploying many small apps to Heroku. Learn more
+here
+. Eligible students can apply for platform credits through our
+Heroku for GitHub Students program
+.
+
+Create an app on Heroku, which prepares Heroku to receive your source code.
+
+$ heroku create
+Creating polar-inlet-4930... done, stack is heroku-18
+https://polar-inlet-4930.herokuapp.com/ | https://git.heroku.com/polar-inlet-4930.git
+Git remote heroku added
+
+When you create an app, a git remote (called
+heroku
+) is also created and associated with your local git repository.
+
+Heroku generates a random name (in this case
+polar-inlet-4930
+) for your app, or you can pass a parameter to specify your own app name.
+
+Now deploy your code:
+
+$ git push heroku main
+Enumerating objects: 2483, done.
+Counting objects: 100% (2483/2483), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (1921/1921), done.
+Writing objects: 100% (2483/2483), 12.37 MiB | 6.34 MiB/s, done.
+Total 2483 (delta 850), reused 1269 (delta 401), pack-reused 0
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-22 stack
+remote: -----> Determining which buildpack to use for this app
+remote: -----> Go app detected
+remote: -----> Fetching jq... done
+remote: -----> Fetching stdlib.sh.v8... done
+remote: ----->
+remote: Detected go modules via go.mod
+remote: ----->
+remote: Detected Module Name: github.com/heroku/go-getting-started
+remote: ----->
+remote: -----> New Go Version, clearing old cache
+remote: -----> Installing go1.20
+remote: -----> Fetching go1.20.linux-amd64.tar.gz... done
+remote: -----> Determining packages to install
+remote:
+remote: Detected the following main packages to install:
+remote: github.com/heroku/go-getting-started
+remote:
+remote: -----> Running: go install -v -tags heroku -mod=vendor github.com/heroku/go-getting-started
+remote: internal/unsafeheader
+remote: internal/goarch
+remote: internal/cpu
+remote: internal/abi
+remote (many more lines of dependendencies truncated)
+remote: github.com/gin-gonic/gin
+remote: github.com/heroku/go-getting-started
+remote:
+remote: Installed the following binaries:
+remote: ./bin/go-getting-started
+remote: -----> Discovering process types
+remote: Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote: Done: 19.9M
+remote: -----> Launching...
+remote: Released v3
+remote: https://polar-inlet-4930.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/polar-inlet-4930.git
+
+The application is now deployed.
+
+Visit the app at the URL generated by its app name.
+
+As a handy shortcut, you can open the website as follows:
+
+$ heroku open
+
+View logs
+
+Heroku treats logs as streams of time-ordered events aggregated from the output streams of all your app and Heroku components, providing a single channel for all of the events.
+
+View information about your running app using one of the
+logging commands
+,
+heroku logs --tail
+:
+
+$ heroku logs --tail
+2023-03-06T17:45:11.483269+00:00 app[api]: Initial release by user jlewis@heroku.com
+2023-03-06T17:45:11.483269+00:00 app[api]: Release v1 created by user jlewis@heroku.com
+2023-03-06T17:45:11.617923+00:00 app[api]: Enable Logplex by user jlewis@heroku.com
+2023-03-06T17:45:11.617923+00:00 app[api]: Release v2 created by user jlewis@heroku.com
+2023-03-06T17:46:03.000000+00:00 app[api]: Build started by user jlewis@heroku.com
+2023-03-06T17:46:42.719610+00:00 app[api]: Release v3 created by user jlewis@heroku.com
+2023-03-06T17:46:42.719610+00:00 app[api]: Deploy 396c5869 by user jlewis@heroku.com
+2023-03-06T17:46:42.733628+00:00 app[api]: Scaled to web@1:Basic by user jlewis@heroku.com
+2023-03-06T17:46:43.984474+00:00 heroku[web.1]: Starting process with command `go-getting-started`
+2023-03-06T17:46:45.283361+00:00 app[web.1]: [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+2023-03-06T17:46:45.283386+00:00 app[web.1]: - using env: export GIN_MODE=release
+2023-03-06T17:46:45.283386+00:00 app[web.1]: - using code: gin.SetMode(gin.ReleaseMode)
+2023-03-06T17:46:45.283390+00:00 app[web.1]:
+2023-03-06T17:46:45.283602+00:00 app[web.1]: [GIN-debug] Loaded HTML Templates (4):
+2023-03-06T17:46:45.283602+00:00 app[web.1]: -
+2023-03-06T17:46:45.283610+00:00 app[web.1]: - header.tmpl.html
+2023-03-06T17:46:45.283610+00:00 app[web.1]: - index.tmpl.html
+2023-03-06T17:46:45.283610+00:00 app[web.1]: - nav.tmpl.html
+2023-03-06T17:46:45.283610+00:00 app[web.1]:
+2023-03-06T17:46:45.283626+00:00 app[web.1]: [GIN-debug] GET /static/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (2 handlers)
+2023-03-06T17:46:45.283629+00:00 app[web.1]: [GIN-debug] HEAD /static/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (2 handlers)
+2023-03-06T17:46:45.283644+00:00 app[web.1]: [GIN-debug] GET / --> main.main.func1 (2 handlers)
+2023-03-06T17:46:45.283660+00:00 app[web.1]: [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+2023-03-06T17:46:45.283660+00:00 app[web.1]: Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+2023-03-06T17:46:45.283666+00:00 app[web.1]: [GIN-debug] Listening and serving HTTP on :41763
+2023-03-06T17:46:45.354966+00:00 heroku[web.1]: State changed from starting to up
+2023-03-06T17:46:58.000000+00:00 app[api]: Build succeeded
+2023-03-06T17:47:41.010183+00:00 app[web.1]: [GIN] 2023/03/06 - 17:47:41 | 200 | 562.047µs | 204.14.236.211 | GET "/"
+2023-03-06T17:47:41.013474+00:00 heroku[router]: at=info method=GET path="/" host=go-getting-started-update.herokuapp.com request_id=fb0d39df-1e8c-4a29-86d3-8c9b9b256abd fwd="204.14.236.211" dyno=web.1 connect=0ms service=1ms status=200 bytes=6979 protocol=https
+2023-03-06T17:47:41.077966+00:00 app[web.1]: [GIN] 2023/03/06 - 17:47:41 | 200 | 9.411982ms | 204.14.236.211 | GET "/static/main.css"
+2023-03-06T17:47:41.081163+00:00 heroku[router]: at=info method=GET path="/static/main.css" host=go-getting-started-update.herokuapp.com request_id=7075befe-37d7-4429-963e-f91e8f25c2be fwd="204.14.236.211" dyno=web.1 connect=0ms service=11ms status=200 bytes=823 protocol=https
+
+Visit your application in the browser again, and you'll see another log message generated.
+
+Press
+Control+C
+ to stop streaming the logs.
+
+Define a Procfile
+
+Use a
+Procfile
+, a text file in the root directory of your application, to explicitly declare what command should be executed to start your app.
+
+The
+Procfile
+ in the example app you deployed looks like this:
+
+web: go-getting-started
+
+This declares a single process type,
+web
+, and the command needed to run it. The name
+web
+ is important here. It declares that this process type will be attached to the
+HTTP routing
+ stack of Heroku, and receive web traffic when deployed. The command used here,
+go-getting-started
+ is the compiled binary of the getting started app. The heroku build process makes this compiled binary available on the
+$PATH
+.
+
+Procfiles can contain additional process types. For example, you might declare one for a background worker process that processes items off of a queue.
+
+Scale the app
+
+Right now, your app is running on a single web
+dyno
+. Think of a dyno as a lightweight container that runs the command specified in the
+Procfile
+.
+
+You can check how many dynos are running using the
+ps
+ command:
+
+$ heroku ps
+=== web (Eco): `go-getting-started`
+web.1: up 2015/05/12 11:28:21 (~ 4m ago)
+
+By default, your app is deployed on an eco dyno. Eco dynos will sleep after a half hour of inactivity (if they don't receive any traffic). This causes a delay of a few seconds for the first request upon waking. Subsequent requests will perform normally. Eco dynos also consume from a monthly, account-level quota of
+eco dyno hours
+ - as long as the quota is not exhausted, all eco apps can continue to run.
+
+To avoid dyno sleeping, you can upgrade to a Basic or Professional dyno type as described in the
+Dyno Types
+ article. For example, if you migrate your app to a professional dyno, you can easily scale it by running a command telling Heroku to execute a specific number of dynos, each running your web process type.
+
+Scaling an application on Heroku is equivalent to changing the number of dynos that are running. Scale the number of web dynos to zero:
+
+$ heroku ps:scale web=0
+
+Access the app again by hitting refresh on the web tab, or
+heroku open
+ to open it in a web tab. You will get an error message because you no longer have any web dynos available to serve requests.
+
+Scale it up again:
+
+$ heroku ps:scale web=1
+
+Declare app dependencies
+
+Heroku recognizes an app as being written in Go by the existence of a
+go.mod
+ file in the root directory. The demo app you deployed already has a
+go.mod
+ file, and it looks something like
+this
+:
+
+module github.com/heroku/go-getting-started
+
+// +heroku goVersion go1.20
+go 1.20
+
+require (
+ github.com/gin-gonic/gin v1.9.0
+ github.com/heroku/x v0.0.55
+)
+
+require (
+ github.com/bytedance/sonic v1.8.0 // indirect
+ github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
+ github.com/gin-contrib/sse v0.1.0 // indirect
+ github.com/go-playground/locales v0.14.1 // indirect
+ github.com/go-playground/universal-translator v0.18.1 // indirect
+ github.com/go-playground/validator/v10 v10.11.2 // indirect
+ github.com/goccy/go-json v0.10.0 // indirect
+ github.com/json-iterator/go v1.1.12 // indirect
+ github.com/klauspost/cpuid/v2 v2.0.9 // indirect
+ github.com/leodido/go-urn v1.2.1 // indirect
+ github.com/mattn/go-isatty v0.0.17 // indirect
+ github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421 // indirect
+ github.com/modern-go/reflect2 v1.0.2 // indirect
+ github.com/pelletier/go-toml/v2 v2.0.6 // indirect
+ github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
+ github.com/ugorji/go/codec v1.2.9 // indirect
+ golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
+ golang.org/x/crypto v0.5.0 // indirect
+ golang.org/x/net v0.7.0 // indirect
+ golang.org/x/sys v0.5.0 // indirect
+ golang.org/x/text v0.7.0 // indirect
+ google.golang.org/protobuf v1.28.1 // indirect
+ gopkg.in/yaml.v3 v3.0.1 // indirect
+)
+
+On Windows, under Command Prompt, the command would be
+more go.mod
+ instead of
+cat
+.
+
+The
+go.mod
+ file is used by
+Go tool
+ and specifies both the dependencies that are required to build your application and the build configuration Heroku should use to compile the application. This Go app has a few dependencies, primarily on Gin, a HTTP web framework.
+
+When an app is deployed, Heroku reads this file, installs an appropriate Go version and compiles your code using
+go install .
+.
+
+Run the app locally
+
+Running apps locally in your own dev environment requires a little more effort. Go is a compiled language and you must compile the application and ensure it available on your
+$PATH
+, which can be done with one command:
+
+$ go install -v .
+github.com/heroku/go-getting-started
+
+Now start your application locally using the
+heroku local
+ command, which was installed as part of the Heroku CLI:
+
+$ heroku local web --port 5001
+[OKAY] Loaded ENV .env File as KEY=VALUE Format
+11:58:15 AM web.1 | [GIN-debug] Listening and serving HTTP on :5001
+
+On Windows you will need to do two things before being able to run
+heroku local
+:
+
+Run
+go build -o bin/go-getting-started.exe -v
+ instead of the command listed above.
+
+Alter Procfile so it's contents are:
+web: bin\go-getting-started.exe
+ instead of what is in the checkout. Don't commit changes to Procfile though, otherwise your application's web process won't be able to start on Heroku.
+
+Just like Heroku,
+heroku local
+ examines the
+Procfile
+ to determine what to run.
+
+Open
+http://localhost:5001
+ with your web browser. You should see your app running locally.
+
+To stop the app from running locally, go back to your terminal window and press
+Ctrl
++
+C
+ to exit.
+
+Push local changes
+
+In this step you'll learn how to propagate a local change to the application through to Heroku. As an example, you'll modify the application to add an additional dependency and the code to use it.
+
+Dependencies are managed with the
+Go tool
+ .
+
+Let's modify the app to use the Blackfriday markdown parser. Since this dependency is not already used by your application we need to tell go to fetch a copy of the dependency:
+
+$ go get github.com/russross/blackfriday@v2
+go: downloading github.com/russross/blackfriday v2.0.0+incompatible
+go: downloading github.com/shurcooL/sanitized_anchor_name v1.0.0
+go: added github.com/russross/blackfriday v2.0.0+incompatible
+
+This does 3 things:
+
+Downloads
+v2
+ of the Blackfriday module and any of it's dependencies to the
+module cache
+.
+
+Records the Blackfriday dependency, and its dependencies in
+go.mod
+.
+
+Records a cryptographic sum of Blackfriday and it's dependencies in
+go.sum
+
+Next, let's add the new dependency to the vendor folder. This will allow
+go install
+ to find the dependencies during builds both locally and during remote builds. Vendoring also ensures that builds are repeatable and resistant to
+erosion
+.
+
+$ go mod vendor
+
+After that let's introduce a new route,
+/mark
+, which will show the HTML rendered by the parser. Modify
+main.go
+ so that it uses Blackfriday by adding
+"github.com/russross/blackfriday"
+ to the list of imports, so it looks something like this:
+
+import (
+ "log"
+ "net/http"
+ "os"
+
+ "github.com/gin-gonic/gin"
+ _ "github.com/heroku/x/hmetrics/onload"
+ "github.com/russross/blackfriday@v2"
+)
+
+Next, modify the
+main()
+ function to introduce a new route that uses blackfriday. Add the following after the existing
+router.GET()
+ call:
+
+router.GET("/mark", func(c *gin.Context) {
+ c.String(http.StatusOK, string(blackfriday.Run([]byte("**hi!**"))))
+})
+
+Finally, let's recompile and start the program locally to manually test our new endpoint:
+
+$ go install -v .
+$ heroku local --port 5001
+
+Visit your application at the new
+/mark
+ route:
+http://localhost:5001/mark
+. You should now see the
+textual
+ representation of the HTML generated from the Markdown:
+<p><strong>hi!</strong></p>
+.
+
+To finish up, let's deploy the local changes to Heroku. Almost every deploy of a Go application to Heroku follows the same pattern.
+
+First, make sure that any unused modules have been removed from your application:
+
+$ go mod tidy
+
+Next, add any modified or new files to the git repository and commit them:
+
+$ git add -A .
+$ git commit -m "Markdown demo dependency"
+[blackFriday fc791f7] Markdown demo dependency
+ 20 files changed, 5962 insertions(+)
+ create mode 100644 vendor/github.com/russross/blackfriday/.gitignore
+ create mode 100644 vendor/github.com/russross/blackfriday/.travis.yml
+ create mode 100644 vendor/github.com/russross/blackfriday/LICENSE.txt
+ create mode 100644 vendor/github.com/russross/blackfriday/README.md
+ create mode 100644 vendor/github.com/russross/blackfriday/block.go
+ create mode 100644 vendor/github.com/russross/blackfriday/doc.go
+ create mode 100644 vendor/github.com/russross/blackfriday/esc.go
+ create mode 100644 vendor/github.com/russross/blackfriday/html.go
+ create mode 100644 vendor/github.com/russross/blackfriday/inline.go
+ create mode 100644 vendor/github.com/russross/blackfriday/markdown.go
+ create mode 100644 vendor/github.com/russross/blackfriday/node.go
+ create mode 100644 vendor/github.com/russross/blackfriday/smartypants.go
+ create mode 100644 vendor/github.com/shurcooL/sanitized_anchor_name/.travis.yml
+ create mode 100644 vendor/github.com/shurcooL/sanitized_anchor_name/LICENSE
+ create mode 100644 vendor/github.com/shurcooL/sanitized_anchor_name/README.md
+ create mode 100644 vendor/github.com/shurcooL/sanitized_anchor_name/main.go
+
+Deploy just as you did previously:
+
+$ git push heroku main
+
+And finally, check that your new code is working:
+
+$ heroku open mark
+
+Provision add-ons
+
+Add-ons are third-party cloud services that provide out-of-the-box additional services for your application, from persistence through logging to monitoring and more.
+
+By default, Heroku stores 1500 lines of logs from your application. However, it makes the full log stream available as a service - and several add-on providers have written logging services that provide things such as log persistence, search, and email and SMS alerts.
+
+In this step you will provision one of these logging add-ons, Papertrail.
+
+Provision the
+papertrail
+ logging add-on:
+
+$ heroku addons:create papertrail
+Creating giggling-carefully-3978... done
+Adding giggling-carefully-3978 to polar-inlet-4930... done
+Setting PAPERTRAIL_API_TOKEN and restarting polar-inlet-4930... done, v5
+Welcome to Papertrail. Questions and ideas are welcome (support@papertrailapp.com). Happy logging!
+
+The add-on is now deployed and configured for your application. You can list add-ons for your app like this:
+
+$ heroku addons
+
+To see this particular add-on in action, visit your application's Heroku URL a few times. Each visit will generate more log messages, which should now get routed to the Papertrail add-on. Visit the Papertrail console to see the log messages:
+
+$ heroku addons:open papertrail
+
+You may need to wait a few minutes for logs to show up in Papertrail's UI.
+
+Your browser will open up a Papertrail web console, showing the latest log events. The interface lets you search and set up alerts:
+
+Start a one off dyno
+
+You can run a command, typically scripts and applications that are part of your app, in a
+one-off dyno
+ using the
+heroku run
+ command. To get a real feel for how dynos work, let's create a one-off dyno that runs the
+bash
+ command, which opens up a shell on that dyno. You can then execute commands there. Each dyno has its own ephemeral filespace, populated with your app and its dependencies - once the command completes (in this case,
+bash
+), the dyno is removed:
+
+$ heroku run bash
+Running bash on ⬢ go-getting-started... up, run.9087
+~ $ ls
+Dockerfile Procfile app.json go.mod heroku.yml static vendor
+Makefile README.md bin go.sum main.go templates
+~ $ exit
+exit
+
+Don't forget to type
+exit
+ to exit the shell and terminate the dyno.
+
+If you receive an error,
+Error connecting to process
+, then you may need to
+configure your firewall
+.
+
+Define config vars
+
+Heroku lets you
+externalize configuration
+, storing data such as encryption keys or external resource addresses in
+config vars
+.
+
+At runtime, config vars are exposed as environment variables to the application. Your application is already reading one config var, the
+$PORT
+ config var.
+$PORT
+ is automatically set by Heroku on
+web
+ dynos
+. Let's explore how to use user-set config vars in your Go application.
+
+Modify
+main.go
+ and add a
+repeatHandler
+ function that returns
+Hello From Go!
+ the number of times specified by the value of the
+REPEAT
+ environment variable. Change the file so that it reads like this:
+
+package main
+
+import (
+ "bytes"
+ "log"
+ "net/http"
+ "os"
+ "strconv"
+
+ "github.com/gin-gonic/gin"
+ _ "github.com/heroku/x/hmetrics/onload"
+ "github.com/russross/blackfriday"
+)
+
+func repeatHandler(r int) gin.HandlerFunc {
+ return func(c *gin.Context) {
+ var buffer bytes.Buffer
+ for i := 0; i < r; i++ {
+ buffer.WriteString("Hello from Go!\n")
+ }
+ c.String(http.StatusOK, buffer.String())
+ }
+}
+
+func main() {
+ port := os.Getenv("PORT")
+
+ if port == "" {
+ log.Fatal("$PORT must be set")
+ }
+
+ tStr := os.Getenv("REPEAT")
+ repeat, err := strconv.Atoi(tStr)
+ if err != nil {
+ log.Printf("Error converting $REPEAT to an int: %q - Using default\n", err)
+ repeat = 5
+ }
+
+ router := gin.New()
+ router.Use(gin.Logger())
+ router.LoadHTMLGlob("templates/*.tmpl.html")
+ router.Static("/static", "static")
+
+ router.GET("/", func(c *gin.Context) {
+ c.HTML(http.StatusOK, "index.tmpl.html", nil)
+ })
+
+ router.GET("/mark", func(c *gin.Context) {
+ c.String(http.StatusOK, string(blackfriday.Run([]byte("**hi!**"))))
+ })
+
+ router.GET("/repeat", repeatHandler(repeat))
+
+ router.Run(":" + port)
+}
+
+heroku local
+ will automatically set up the environment based on the contents of the
+.env
+ file in your local directory. In the top-level directory of your project there is already a
+.env
+ file that has the following contents:
+
+REPEAT=10
+
+Recompile the app and run it:
+
+$ go install -v .
+$ heroku local
+
+When you access the
+/repeat
+ route on the app at
+http://localhost:5001/repeat
+ you'll see "Hello From Go!" ten times.
+
+To set the config var on Heroku, execute the following:
+
+$ heroku config:set REPEAT=10
+Setting config vars and restarting polar-inlet-4930... done, v6
+REPEAT: 10
+
+View the config vars that are set using
+heroku config
+:
+
+$ heroku config
+== polar-inlet-4930 Config Vars
+PAPERTRAIL_API_TOKEN: abcfaketoken123
+REPEAT: 10
+
+Deploy the changes to heroku using what you learned in the
+Push local changes
+ section and try it out by visiting the
+/repeat
+ handler of your application:
+
+$ heroku open repeat
+
+Use a database
+
+Adding a database to complete this tutorial counts towards your usage. Delete your database as soon as you're done to control costs. Learn about our
+low-cost plans
+. Eligible students can apply for platform credits through our
+Heroku for GitHub Students program
+.
+
+The
+add-on marketplace
+ has a large number of data stores, from Redis and MongoDB providers, to Postgres and MySQL. In this step, you add a Heroku Postgres Essential-0 database to your app.
+
+Add the database:
+
+$ heroku addons:create heroku-postgresql:essential-0
+Creating heroku-postgresql:essential-0 on ⬢ go-getting-started... ~$0.007/hour (max $5/month)
+Database should be available soon
+postgresql-curved-22223 is being created in the background. The app will restart when complete...
+Use heroku addons:info postgresql-curved-22223 to check creation progress
+Use heroku addons:docs heroku-postgresql to view documentation
+
+This creates a database and sets the
+$DATABASE_URL
+ environment variable. Listing the config vars for your app will display the value of
+$DATABASE_URL
+:
+
+$ heroku config
+=== polar-inlet-4930 Config Vars
+DATABASE_URL: postgres://xx:yyy@host:5432/d8slm9t7b5mjnd
+
+Heroku also provides a
+pg
+ command that shows a lot more:
+
+$ heroku pg
+=== DATABASE_URL
+Plan: Essential 0
+Status: Available
+Connections: 0/20
+PG Version: 15.5
+Created: 2024-05-01 16:00 UTC
+Data Size: 8.6 MB/1.00 GB (0.84%) (In compliance)
+Tables: 0
+Fork/Follow: Unsupported
+Rollback: Unsupported
+Continuous Protection: Off
+Add-on: postgresql-defined-78209
+
+This indicates that you have an
+essential-0
+ database, running Postgres 15.5 with no tables.
+
+Let's add a route to the application that will use this database.
+
+Just like the blackfriday module, we need to
+go get
+ Go's postgresql module,
+github.com/lib/pq
+, before we can use it.
+
+$ go get github.com/lib/pq@v1
+go: finding github.com/lib/pq v1.0.0
+go: downloading github.com/lib/pq v1.0.0
+go: extracting github.com/lib/pq v1.0.0
+
+And just like before, we add the module to the vendor folder:
+
+$ go mod vendor
+
+Add a
+dbFunc
+ function to the app and register the
+/db
+ route:
+
+package main
+
+import (
+ "bytes"
+ "database/sql"
+ "fmt"
+ "log"
+ "net/http"
+ "os"
+ "strconv"
+ "time"
+
+ "github.com/gin-gonic/gin"
+ _ "github.com/heroku/x/hmetrics/onload"
+ _ "github.com/lib/pq"
+ "github.com/russross/blackfriday"
+)
+
+func repeatHandler(r int) gin.HandlerFunc {
+ return func(c *gin.Context) {
+ var buffer bytes.Buffer
+ for i := 0; i < r; i++ {
+ buffer.WriteString("Hello from Go!\n")
+ }
+ c.String(http.StatusOK, buffer.String())
+ }
+}
+
+func dbFunc(db *sql.DB) gin.HandlerFunc {
+ return func(c *gin.Context) {
+ if _, err := db.Exec("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)"); err != nil {
+ c.String(http.StatusInternalServerError,
+ fmt.Sprintf("Error creating database table: %q", err))
+ return
+ }
+
+ if _, err := db.Exec("INSERT INTO ticks VALUES (now())"); err != nil {
+ c.String(http.StatusInternalServerError,
+ fmt.Sprintf("Error incrementing tick: %q", err))
+ return
+ }
+
+ rows, err := db.Query("SELECT tick FROM ticks")
+ if err != nil {
+ c.String(http.StatusInternalServerError,
+ fmt.Sprintf("Error reading ticks: %q", err))
+ return
+ }
+
+ defer rows.Close()
+ for rows.Next() {
+ var tick time.Time
+ if err := rows.Scan(&tick); err != nil {
+ c.String(http.StatusInternalServerError,
+ fmt.Sprintf("Error scanning ticks: %q", err))
+ return
+ }
+ c.String(http.StatusOK, fmt.Sprintf("Read from DB: %s\n", tick.String()))
+ }
+ }
+}
+
+func main() {
+ port := os.Getenv("PORT")
+
+ if port == "" {
+ log.Fatal("$PORT must be set")
+ }
+
+ tStr := os.Getenv("REPEAT")
+ repeat, err := strconv.Atoi(tStr)
+ if err != nil {
+ log.Printf("Error converting $REPEAT to an int: %q - Using default\n", err)
+ repeat = 5
+ }
+
+ db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
+ if err != nil {
+ log.Fatalf("Error opening database: %q", err)
+ }
+
+ router := gin.New()
+ router.Use(gin.Logger())
+ router.LoadHTMLGlob("templates/*.tmpl.html")
+ router.Static("/static", "static")
+
+ router.GET("/", func(c *gin.Context) {
+ c.HTML(http.StatusOK, "index.tmpl.html", nil)
+ })
+
+ router.GET("/mark", func(c *gin.Context) {
+ c.String(http.StatusOK, string(blackfriday.Run([]byte("**hi!**"))))
+ })
+
+ router.GET("/repeat", repeatHandler(repeat))
+
+ router.GET("/db", dbFunc(db))
+
+ router.Run(":" + port)
+}
+
+Update your dependencies, commit the new code, and deploy your changes to Heroku:
+
+$ go mod tidy
+$ git add -A .
+$ git commit -m "/db"
+$ git push heroku main
+$ heroku open db
+
+Reload the page a few times and, you will see something like this:
+
+Read from DB: 2023-03-06 20:17:29.664738 +0000 +0000
+Read from DB: 2023-03-06 20:17:29.820189 +0000 +0000
+Read from DB: 2023-03-06 20:17:30.009628 +0000 +0000
+Read from DB: 2023-03-06 20:17:30.226158 +0000 +0000
+Read from DB: 2023-03-06 20:17:30.464666 +0000 +0000
+Read from DB: 2023-03-06 20:17:30.63997 +0000 +0000
+Read from DB: 2023-03-06 20:17:30.858864 +0000 +0000
+
+If you have
+Postgres installed locally
+, you can use the
+heroku pg:psql
+ command to connect to the remote database and see all the rows:
+
+$ heroku pg:psql
+--> Connecting to postgresql-defined-78209
+psql (14.7 (Homebrew))
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+go-getting-started-update::DATABASE=> SELECT * FROM ticks;
+ tick
+----------------------------
+ 2023-03-06 20:17:11.998688
+ 2023-03-06 20:17:12.964102
+ 2023-03-06 20:17:27.640823
+ 2023-03-06 20:17:28.796569
+ 2023-03-06 20:17:29.115884
+ 2023-03-06 20:17:29.314284
+ 2023-03-06 20:17:29.487526
+...
+
+Read more about
+Heroku PostgreSQL
+.
+
+A similar technique can be used to install
+MongoDB or Redis add-ons
+.
+
+You now know how to deploy a Go application, change its configuration, view logs, scale, and attach and use add-ons.
+
+Here's some recommended reading:
+
+Read
+How Heroku Works
+ for a technical overview of the concepts you'll encounter while writing, configuring, deploying and running applications.
+
+Visit the
+Go category
+ to learn more about developing and deploying Go applications.
+
+xml version="1.0" encoding="UTF-8" standalone="no"?

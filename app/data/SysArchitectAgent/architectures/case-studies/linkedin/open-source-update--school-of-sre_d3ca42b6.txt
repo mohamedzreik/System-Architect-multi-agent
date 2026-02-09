@@ -1,0 +1,127 @@
+Open Source
+
+Open source update: School of SRE
+
+Authored byAkbar KM
+
+Engineering Leader - Compute Infrastructure
+
+February 3, 2021
+
+Co-authors:
+Akbar KM
+ and
+Kalyanasundaram Somasundaram
+
+Site up and secure is a fundamental element of how we operate, and site reliability engineers (SREs) play a critical role in fulfilling that responsibility. Talent has always been the number one operating priority, and over the last few years, we've been running multiple programs to identify, hire, and develop talented SREs, including those without an SRE background. On this journey, we made a few realizations:
+
+There's a general lack of awareness of SRE as an engineering discipline and career choice.
+
+There's a lack of clarity around the necessary skill sets required and formal academic streams to support the learning process for Site Reliability Engineering.
+
+The resources available are scattered and somewhat limited as it pertains to the basic skills and knowledge for those looking to start their SRE careers. This includes topics from what an SRE does to approaches and fundamentals of monitoring site health, handling production incidents, and defining SLO/SLI.
+
+This was the starting point for the
+School of SRE
+, a curated curriculum for aspiring site reliability engineers recently open sourced and made available on
+GitHub
+. Developed by our engineers, we wanted to equip our new SREs with the knowledge and skills to flourish before integrating with a specific team. The course curriculum includes modules on the following subjects:
+
+Fundamentals Series
+
+Linux Basics
+
+Git
+
+Linux Networking
+
+Python and Web
+
+Data
+
+Relational Databases
+
+NoSQL
+
+Big Data
+
+Systems Design
+
+Security
+
+Our hope is that this effort will build better awareness about the SRE role, improve the quality of the available talent pool, provide a better onboarding experience, and foster greater diversity in the SRE community as a whole.
+
+What's next
+
+We've seen encouraging results internally through an increased ramp up time and a greater understanding of SRE fundamentals, which provided us with the confidence to share this knowledge and curriculum outside of LinkedIn. Since then, we've also seen strong external interest, including landing on the front page of
+HackerNews
+ and, as of today, receiving
+4.2K stars
+ on GitHub.
+
+Looking ahead, we'll be expanding the content beyond the existing topics, including a new module on metrics and monitoring. We also look forward to further enhancing the overall knowledge base and welcome contributions from the community across all the topics. Please submit your PR by following the process as outlined in the
+contribution guidelines.
+
+Acknowledgements
+
+The program would not have grown to where it is today without the help of highly talented and motivated engineers across the organization, with a major lift from the Bangalore SRE team. From creating to reviewing the training materials, content, and modules, their commitment to jump right in and help is a testament to our culture here at LinkedIn. We're excited to continue expanding its focus and commitment to helping people grow and get into the SRE role across companies.
+
+We would like to thank the core members of the initiative:
+Pranay Kanwar
+,
+Safeer CM
+,
+Isha Ganeriwal
+,
+Sumesh Premraj
+,
+Sanket Patel
+,
+Nishant Singh
+,
+Aditya Kamat
+,
+Shivam Mitra
+, and
+Sai Kiran Kanuri
+, and our partners
+Kurt Andersen
+ and
+Snehangshu Karmakar
+ for the review and help in structuring the content. Also, a huge thanks to
+Ayyapadas Ravindran
+ and
+Sudhakar BG
+ for the immense support to make this happen.
+
+Topics:
+
+Developer Experience/Productivity
+
+Open Source
+
+Related articles
+
+AI
+
+Contextual agent playbooks and tools: How LinkedIn gave AI cod...
+
+Ajay Prakash
+
+Jan 27, 2026
+
+AI
+
+Turbocharging LinkedIn's Recommendation Systems with SGLang
+
+Steven Shimizu
+
+Dec 9, 2025
+
+Infrastructure
+
+The evolution of the Venice ingestion pipeline
+
+Gaojie Liu
+
+Nov 20, 2025

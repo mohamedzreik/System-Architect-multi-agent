@@ -1,0 +1,76 @@
+SOAP (Simple Object Access Protocol) defines a very strongly typed messaging framework that relies heavily on XML and schemas.
+
+REST (REpresentational State Transfer) is an architectural style
+ that makes use of existing and widely adopted technologies, specifically HTTP and does not create any new standards. REST can structure data into XML, YAML, or any other machine-readable format, but usually, JSON is preferred.
+
+SOAP and REST – both provide support for building SOA-based applications. The choice of which one to use – largely depends on what really is required, from the business and an architectural point of view.
+
+By looking at both their strengths and weaknesses in certain environments, as well as understanding your own project scope, you can make the most informed decision.
+
+Comparison of SOAP and REST APIs
+
+1. Underlying Protocol
+
+The SOAP itself is a protocol (over HTTP) for developing SOAP-based APIs.
+
+REST is almost synonymous with HTTP, though REST specification does not mandate it.
+
+2. Data Format
+
+SOAP relies exclusively on XML to provide messaging services, which can become extremely complex in some cases, e.g., accessing web services via JavaScript.
+
+REST can use the data in Comma Separated Value (CSV), JavaScript Object Notation (JSON), and Really Simple Syndication (RSS).
+
+The point is that you can obtain the output you need in a form that's easy to parse within the language you need for your application.
+
+3. Statefulness
+
+RESTful Web services are completely stateless. Managing the state of conversation is the complete responsibility of the client itself. The server does not help you with this.
+
+Normally, SOAP Web services are stateless – but you can easily
+make SOAP API stateful
+ by changing the code on the server.
+
+4. Caching
+
+REST provides a good caching infrastructure over HTTP
+GET
+methods thus enabling response data to be marked as cacheable or not-cachable. The
+ETag
+ header is a good way to implement caching providing you've got a cheap way to compute what the value should be.
+
+SOAP, when using HTTP as the transfer mechanism, is sent via HTTP POST requests. As HTTP POST is non-idempotent, it can not be cached at the HTTP level. So, SOAP responses should be cached using information given in the
+Response Caching Optimization Module
+.
+
+5. HTTP Verbs Used
+
+REST is primarily used over HTTP and it makes use of
+HTTP GET, POST, PUT, DELETE, and PATCH methods
+ for different CRUD operations.
+
+SOAP also defines a binding to the HTTP protocol. When binding to HTTP, all SOAP requests are sent through HTTP POST.
+
+6. Security
+
+REST is based on HTTP – which itself is a very insecure protocol. It supports basic authentication and communication encryption through TLS. Any further security should be additionally implemented at the server.
+
+SOAP security is well standardized through
+WS-SECURITY
+, which is very feature-rich and easy to implement into application code.
+
+7. Asynchronous Processing
+
+Asynchronous request processing may be required when creating/updating a resource is time-consuming. In this case, REST suggests returning the HTTP response code 202 and sending the location of the queue where the status of task completion will be updated on a frequent interval. REST has pretty good support for
+async APIs in JAX-RS
+ itself.
+
+If your application needs a guaranteed level of reliability and security, then SOAP 1.2 offers additional standards to ensure this type of operation. Things like WSRM –
+WS-Reliable Messaging
+.
+
+Summary
+
+Overall, REST is simpler to develop because it leverages the web, which is already in place, and the degree of freedom is limited (fewer choices to make, so simpler). SOAP offers several alternatives and is also slightly more difficult to develop, but offers more alternatives and areas to work.
+
+Happy Learning !!

@@ -1,0 +1,138 @@
+Availability and Reliability
+
+Positive FeedbackNegative Feedback
+
+Fallback URLs
+
+fallback-urls page anchor
+
+Positive FeedbackNegative Feedback
+
+Twilio maintains a redundant, clustered architecture designed to ensure reliable,
+highly available service. This is only half of the challenge. Because of the
+distributed nature of a Twilio application, your web application must be reliable
+and highly available as well. To aid you in this task, Twilio allows the configuration
+of "Fallback" URLs on incoming phone numbers.
+
+A Fallback URL is a URL that Twilio requests in the event of a fatal error while
+executing your call. If Twilio is unable to retrieve or execute TwiML from your
+web server, a request is immediately made to the number's Fallback URL. Twilio
+will submit the
+ErrorCode
+ and
+ErrorUrl
+ parameters, indicating the error code of
+the failure and what URL the failure occurred on. You can reply to the fallback
+URL request with more TwiML, a custom application error message, or
+you can attempt to recover and continue your call or messaging session.
+
+You can set the Fallback URL in the
+Twilio Console
+ or via the
+REST API's IncomingPhoneNumbers resource
+.
+
+To configure the Fallback URL in the Twilio Console, navigate to your
+Active Numbers
+ and click on the number you wish to configure. Under both the Voice Configuration and Messaging Configuration sections, there is a field called "Primary handler fails"; this is where you can configure the Fallback URL for either voice or messaging use cases. You can also set this fallback option to go to a Studio Flow, TwiML Bin, Twilio Function, or Proxy Service.
+
+In the REST API, you can set the Fallback URL and Fallback method (
+GET
+ or
+POST
+) for voice and SMS when
+creating the incoming phone number
+. You can set this URL to be any valid URL, including the Webhook URL for a Studio Flow, TwiML Bin, Twilio Function, or other Twilio service.
+
+Example Use Cases
+
+use-cases page anchor
+
+Positive FeedbackNegative Feedback
+
+Primary Web Server Failover
+
+failover page anchor
+
+Problem
+: You want to make sure your Twilio application continues to accept calls even if your primary web server goes down.
+
+Solution
+: Configure your incoming phone number's Voice URL to "
+http://www.example.com/index(link takes you to an external page)
+"
+and Voice Fallback URL to "
+http://fallback.example.com/index(link takes you to an external page)
+". If Twilio requests
+"
+http://www.example.com/index(link takes you to an external page)
+" and receives an HTTP error or connection failure,
+it will then request "
+http://fallback.example.com/index(link takes you to an external page)
+". If that fallback URL responds
+with valid TwiML, Twilio will use it to continue the call as if there was no problem.
+
+Custom Error Message
+
+custom-error-message page anchor
+
+Problem
+: You do not want your callers to hear the default Twilio application error message.
+
+Solution
+: Create an error TwiML document to
+<Say>
+ or
+<Play>
+ a custom error message. Configure
+the Voice Fallback URL for your phone number to point at this document's URL. If Twilio encounters a fatal
+error, callers will hear your custom failure message instead of Twilio's.
+
+Example TwiML for this custom error message:
+
+Copy code block
+
+1
+
+<?xml version="1.0" encoding="UTF-8" ?>
+
+2
+
+<Response>
+
+3
+
+<Say>
+
+4
+
+An application error has occurred.
+
+5
+
+Please call back later.
+
+6
+
+</Say>
+
+7
+
+</Response>
+
+Catching Errors
+
+catching-errors page anchor
+
+Problem
+: You want to be notified of errors as they occur.
+
+Solution
+: Configure your Fallback URL to point at a URL that looks for
+the
+ErrorCode
+ and
+ErrorUrl
+ parameters from Twilio's request. Your application can log these errors, email
+you an alert, etc. You can respond to the request with TwiML containing an error message
+for the caller or attempt to recover and continue with the call.

@@ -1,0 +1,14 @@
+Duplicate transaction
+
+Returns from the Payments v1 API.
+
+DUPLICATE_TRANSACTION
+ indicates that a transaction with identical details has already been processed, and has been flagged to prevent duplicate charges.
+
+Note: If an issue persists or if you have further questions, you can reach out to
+paypal-techsupport.com
+.
+
+| Cause | Impact | Resolution |
+| --- | --- | --- |
+| - Network latency or delays: Issues in network or server communication could result in a resending of the transaction request. - Payer actions: A payer might inadvertently submit the payment information multiple times, such as by clicking the payment button more than once. - Server error: The client-side application did not receive a response and retried the transaction. | - Customer dissatisfaction: Needing to perform additional steps to confirm the transaction status, or being unsure whether the transaction succeeded, can lead to customer confusion or frustration. | - Check transaction status: Verify whether the original transaction succeeded by checking the transaction history in your PayPal account or through the API. - Implement idempotency: Use unique identifiers, such as an idempotency key, for each transaction request to ensure that retries do not result in duplicate transactions. - Improve user feedback: Provide clear feedback to payers about their transaction status to prevent them from resubmitting the payment. - Implement error handling: Implement error handling and network retry logic to manage connectivity issues without resubmitting identical requests. |

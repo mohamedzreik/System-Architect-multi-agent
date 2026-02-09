@@ -1,0 +1,1142 @@
+Getting Started on Heroku with Rails 8.x
+
+Local Setup
+
+Create a New or Upgrade an Existing Rails App
+
+Add the pg Gem
+
+Create a Welcome Page
+
+Specify the Ruby Version
+
+Create a Procfile
+
+Store The App in Git
+
+Create a Heroku App
+
+Provision a Database
+
+Deploy the App to Heroku
+
+Migrate The Database
+
+Scale and Access the Application
+
+View Application Logs
+
+Optional Steps
+
+Troubleshooting
+
+Delete Your App and Add-on
+
+Last updated November 18, 2025
+
+Ruby on Rails is a popular web framework written in
+Ruby
+. This guide covers using Rails 8 on Heroku. For information on running previous versions of Rails on Heroku, see the tutorial for
+Rails 7.x
+ or
+Rails 6.x
+.
+
+The tutorial assumes that you have:
+
+Basic familiarity with Ruby, Ruby on Rails, and Git
+
+A locally installed version of Ruby 3.2.0+, Rubygems, Bundler, and Rails 8+
+
+A locally installed version of the
+Heroku CLI
+
+A
+verified Heroku Account
+
+A subscription to the
+Eco dynos plan
+ (recommended)
+
+Using dynos and databases to complete this tutorial counts towards your usage. We recommend using our
+low-cost plans
+ to complete this tutorial. Eligible students can apply for platform credits through our new
+Heroku for GitHub Students program
+.
+
+Local Setup
+
+After installing the
+Heroku CLI
+, log in through your terminal:
+
+$ heroku login
+heroku: Press any key to open up the browser to login or q to exit
+ › Warning: If browser does not open, visit
+ › https://cli-auth.heroku.com/auth/browser/***
+heroku: Waiting for login...
+Logging in... done
+Logged in as developer@example.com
+
+This command opens your web browser to the Heroku login page. If your browser is already logged in to Heroku, click the
+ button on the page.
+
+This authentication is required for the
+heroku
+ and
+git
+ commands to work correctly.
+
+If you're behind a firewall that uses a proxy to connect with external HTTP/HTTPS services,
+set the
+HTTP_PROXY
+ or
+HTTPS_PROXY
+ environment variables
+ in your local development environment before running the
+heroku
+ command.
+
+Create a New or Upgrade an Existing Rails App
+
+Ensure you have Rails 8 installed by running
+rails -v
+ before creating an app. If necessary, install Rails 8 with
+gem install
+:
+
+$ gem install rails --no-document
+Successfully installed rails-8.1.1
+1 gem installed
+
+Create a Rails app:
+
+$ rails new myapp --database=postgresql
+
+Move into the application directory
+
+$ cd myapp
+$ ls -1
+app
+bin
+config
+config.ru
+db
+Dockerfile
+Gemfile
+Gemfile.lock
+lib
+log
+public
+Rakefile
+README.md
+script
+storage
+test
+tmp
+vendor
+
+Create a local database:
+
+$ bin/rails db:create
+
+Database 'myapp_development' already exists
+Database 'myapp_test' already exists
+
+Add the pg Gem
+
+For new or existing apps where
+--database=postgresql
+ isn't defined, confirm the
+sqlite3
+ gem doesn't exist in the
+Gemfile
+. Add the
+pg
+ gem in its place.
+
+Within the
+Gemfile
+ remove:
+
+gem 'sqlite3'
+
+Replace it with:
+
+gem 'pg'
+
+Heroku highly recommends using PostgreSQL locally during development. Maintaining
+parity between development
+ and deployment environments prevents introducing subtle bugs due to the differences in environments.
+
+Install Postgres locally
+. For more information on why Postgres is recommended instead of Sqlite3, see
+why Sqlite3 is not compatible with Heroku
+.
+
+With the
+Gemfile
+ updated, reinstall the dependencies:
+
+$ bundle install
+
+The installation also updates
+Gemfile.lock
+ with the changes.
+
+In addition to the
+pg
+ gem, ensure that
+config/database.yml
+ defines the
+postgresql
+ adapter. The development section of
+config/database.yml
+ file looks something like this:
+
+$ cat config/database.yml
+# PostgreSQL. Versions 9.3 and up are supported.
+#
+# Install the pg driver:
+# gem install pg
+# On macOS with Homebrew:
+# gem install pg -- --with-pg-config=/opt/homebrew/bin/pg_config
+# On Windows:
+# gem install pg
+# Choose the win32 build.
+# Install PostgreSQL and put its /bin directory on your path.
+#
+# Configure Using Gemfile
+# gem "pg"
+#
+default: &default
+ adapter: postgresql
+ encoding: unicode
+ # For details on connection pooling, see Rails configuration guide
+ # https://guides.rubyonrails.org/configuring.html#database-pooling
+ max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+ <<: *default
+ database: myapp_development
+
+ # The specified database role being used to connect to PostgreSQL.
+ # To create additional roles in PostgreSQL see `$ createuser --help`.
+ # When left blank, PostgreSQL will use the default role. This is
+ # the same name as the operating system user running Rails.
+ #username: myapp
+
+ # The password associated with the PostgreSQL role (username).
+ #password:
+
+ # Connect on a TCP socket. Omitted by default since the client uses a
+ # domain socket that doesn't need configuration. Windows does not have
+ # domain sockets, so uncomment these lines.
+ #host: localhost
+
+ # The TCP port the server listens on. Defaults to 5432.
+ # If your server runs on a different port number, change accordingly.
+ #port: 5432
+
+ # Schema search path. The server defaults to $user,public
+ #schema_search_path: myapp,sharedapp,public
+
+ # Minimum log levels, in increasing order:
+ # debug5, debug4, debug3, debug2, debug1,
+ # log, notice, warning, error, fatal, and panic
+ # Defaults to warning.
+ #min_messages: notice
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+ <<: *default
+ database: myapp_test
+
+# As with config/credentials.yml, you never want to store sensitive information,
+# like your database password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.
+#
+# Instead, provide the password or a full connection URL as an environment
+# variable when you boot the app. For example:
+#
+# DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+#
+# If the connection URL is provided in the special DATABASE_URL environment
+# variable, Rails will automatically merge its configuration values on top of
+# the values provided in this file. Alternatively, you can specify a connection
+# URL environment variable explicitly:
+#
+# production:
+# url: <%= ENV["MY_APP_DATABASE_URL"] %>
+#
+# Connection URLs for non-primary databases can also be configured using
+# environment variables. The variable name is formed by concatenating the
+# connection name with `_DATABASE_URL`. For example:
+#
+# CACHE_DATABASE_URL="postgres://cacheuser:cachepass@localhost/cachedatabase"
+#
+# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full overview on how database connection configuration can be specified.
+#
+production:
+ primary: &primary_production
+ <<: *default
+ database: myapp_production
+ username: myapp
+ password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
+ cache:
+ <<: *primary_production
+ database: myapp_production_cache
+ migrations_paths: db/cache_migrate
+ queue:
+ <<: *primary_production
+ database: myapp_production_queue
+ migrations_paths: db/queue_migrate
+ cable:
+ <<: *primary_production
+ database: myapp_production_cable
+ migrations_paths: db/cable_migrate
+
+Be careful here. If the value of
+adapter
+ is
+postgres
+ and not
+postgresql
+, the application won't work.
+
+Create a Welcome Page
+
+Rails 8 no longer has a static index page in production by default. Apps upgraded to Rails 8 keep their existing page configurations, but new Rails 8 apps don't automatically generate a welcome page. Create a
+welcome
+ controller to hold the homepage:
+
+$ rails generate controller welcome
+
+Create
+app/views/welcome/index.html.erb
+ and add the following code:
+
+<h2>Hello World</h2>
+<p>
+ The time is now: <%= Time.now %>
+</p>
+
+With a welcome page created, create a route to map to this action.
+
+In file
+config/routes.rb
+, on line 2 add:
+
+ root 'welcome#index'
+
+Verify the page is present by starting the Rails web server:
+
+$ rails server
+
+Visit
+http://localhost:3000
+ in a browser. If the page doesn't display,
+reference the logs
+ to debug the error. Rails outputs logs in the same terminal where
+rails server
+ was started.
+
+Specify the Ruby Version
+
+Rails 8 requires Ruby 3.2.0 or above. Heroku installs a recent version of Ruby by default. Specify an exact version with the
+ruby
+ DSL in
+Gemfile
+. For example:
+
+ruby "3.2.9"
+
+Update the
+RUBY VERSION
+ in the
+Gemfile.lock
+ by running:
+
+$ bundle update --ruby
+Fetching gem metadata from https://rubygems.org/.........
+Resolving dependencies...
+Bundle updated!
+1 installed gem you directly depend on is looking for funding.
+ Run `bundle fund` for details
+
+Verify the change:
+
+$ cat Gemfile.lock | grep RUBY -a1
+
+RUBY VERSION
+ ruby 3.2.9p265
+
+Always use the same version of Ruby locally. Confirm the local version of ruby with
+ruby -v
+. Refer to the
+Ruby Versions
+ article for more details on defining a specific ruby version.
+
+Create a Procfile
+
+Use a
+Procfile
+, a text file in the root directory of your application, to explicitly declare what command to execute to start your app.
+
+This Procfile declares a single process type,
+web
+, and the command needed to run it. The name
+web
+ is important here. It declares that this process type is attached to Heroku's
+HTTP routing
+ stack and receives web traffic when deployed.
+
+By default, a Rails app's web process runs
+rails server
+, which uses Puma in Rails 8. When you deploy a Rails 8 application without a
+Procfile
+, this command executes. However, we recommend explicitly declaring how to boot your server process via a
+Procfile
+. For example:
+
+web: bundle exec puma -C config/puma.rb
+
+The
+Procfile
+ filename is case sensitive. There is no file extension.
+
+If
+config/puma.rb
+ doesn't exist, create one using
+Heroku's Puma documentation
+ for maximum performance.
+
+A Procfile can contain additional process types. For example, you can declare a
+background worker process
+ that processes items off a queue.
+
+Store The App in Git
+
+Heroku relies on
+Git
+, a distributed source control management tool, for deploying applications. If the application is not already in Git, first verify that
+git
+ is on the system with
+git --help
+:
+
+$ git --help
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+ [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+ [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]
+ [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]
+ [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]
+
+If the command produces no output or
+command not found
+,
+install Git
+.
+
+Navigate to the root directory of the Rails app. Use the
+ls
+ command to see its contents:
+
+$ ls
+app
+bin
+config
+config.ru
+db
+Dockerfile
+Gemfile
+Gemfile-e
+Gemfile.lock
+lib
+log
+Procfile
+public
+Rakefile
+README.md
+script
+storage
+test
+tmp
+vendor
+
+Within the Rails app directly, initialize a local empty Git repository and commit the app's code:
+
+$ git init
+$ git add .
+$ git commit -m "init"
+
+Verify everything committed correctly with
+git status
+:
+
+$ git status
+On branch main
+nothing to commit, working tree clean
+
+With the application committed to Git, it's ready to deploy to Heroku.
+
+Create a Heroku App
+
+Using a dyno and a database to complete this tutorial counts towards your usage.
+Delete your app
+, and
+database
+ as soon as you're done to control costs.
+
+To create an app on Heroku, use the Heroku CLI Inside the Rails app's root directory:
+
+$ heroku apps:create
+Creating app...
+Creating app... done, quiet-escarpment-74379
+https://quiet-escarpment-74379-83955fa5b8df.herokuapp.com/ | https://git.heroku.com/quiet-escarpment-74379.git
+
+When you create an app, a git remote called
+heroku
+ is also created and associated with your local git repository. Git remotes are versions of your repository that live on other servers. You deploy your app by pushing its code to that special Heroku-hosted remote associated with your app. Verify the remote is set with
+git config
+:
+
+$ git config --list --local | grep heroku
+remote.heroku.url=https://git.heroku.com/quiet-escarpment-74379.git
+remote.heroku.fetch=+refs/heads/*:refs/remotes/heroku/*
+
+If the current directory is incorrect or Git isn't
+initialized
+, Git returns
+fatal: not in a git directory
+. If Git returns a list of remotes, it's ready to deploy.
+
+Following changes in the industry, Heroku
+updated the default branch name
+ to
+main
+. If the project uses
+master
+ as its default branch name, use
+git push heroku master
+.
+
+Provision a Database
+
+Provision a
+Heroku Postgres
+ database, one of the add-ons available through the
+Elements Marketplace
+. Add-ons are cloud services that provide out-of-the-box additional services for your application, such as logging, monitoring, databases, and more.
+
+A
+mini
+ Postgres size costs
+$5 a month, prorated to the minute
+. At the end of this tutorial, we prompt you to
+delete your database
+ to minimize costs.
+
+$ heroku addons:create heroku-postgresql:essential-0
+Creating heroku-postgresql:essential-0 on quiet-escarpment-74379...
+Creating heroku-postgresql:essential-0 on quiet-escarpment-74379... ~$0.007/hour (max $5/month)
+Database should be available soon
+postgresql-graceful-86162 is being created in the background. The app will restart when complete...
+Use heroku addons:info postgresql-graceful-86162 to check creation progress
+Use heroku addons:docs heroku-postgresql to view documentation
+
+Your Heroku app can now access this Postgres database. The
+DATABASE_URL
+ environment variable stores your credentials, which Rails connects to by convention.
+
+Deploy the App to Heroku
+
+Using a dyno to complete this tutorial counts towards your usage.
+Delete your app
+ as soon as you're done to control costs.
+
+Deploy your code. This command pushes the
+main
+ branch of the sample repo to your
+heroku
+ remote, which then deploys to Heroku:
+
+$ git push heroku main
+remote: Updated 114 paths from 1f3201b
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Building on the Heroku-24 stack
+remote: -----> Determining which buildpack to use for this app
+remote: -----> Ruby app detected
+remote: -----> Installing bundler 2.7.2
+remote: -----> Removing BUNDLED WITH version in the Gemfile.lock
+remote: -----> Compiling Ruby/Rails
+remote: -----> Using Ruby version: ruby-3.2.9
+remote: -----> Installing dependencies using bundler 2.7.2
+remote: Running: BUNDLE_WITHOUT='development:test' BUNDLE_PATH=vendor/bundle BUNDLE_BIN=vendor/bundle/bin BUNDLE_DEPLOYMENT=1 bundle install -j4
+remote: Fetching gem metadata from https://rubygems.org/.........
+remote: Fetching rake 13.3.1
+remote: Installing rake 13.3.1
+remote: Fetching base64 0.3.0
+remote: Fetching concurrent-ruby 1.3.5
+remote: Fetching connection_pool 2.5.4
+remote: Fetching bigdecimal 3.3.1
+remote: Installing base64 0.3.0
+remote: Fetching drb 2.2.3
+remote: Installing bigdecimal 3.3.1 with native extensions
+remote: Installing connection_pool 2.5.4
+remote: Installing concurrent-ruby 1.3.5
+remote: Installing drb 2.2.3
+remote: Fetching json 2.16.0
+remote: Fetching logger 1.7.0
+remote: Installing json 2.16.0 with native extensions
+remote: Installing logger 1.7.0
+remote: Fetching minitest 5.26.1
+remote: Installing minitest 5.26.1
+remote: Fetching securerandom 0.4.1
+remote: Installing securerandom 0.4.1
+remote: Fetching uri 1.1.1
+remote: Fetching builder 3.3.0
+remote: Installing uri 1.1.1
+remote: Installing builder 3.3.0
+remote: Fetching erubi 1.13.1
+remote: Fetching racc 1.8.1
+remote: Installing erubi 1.13.1
+remote: Fetching crass 1.0.6
+remote: Installing racc 1.8.1 with native extensions
+remote: Installing crass 1.0.6
+remote: Fetching rack 3.2.4
+remote: Installing rack 3.2.4
+remote: Fetching useragent 0.16.11
+remote: Installing useragent 0.16.11
+remote: Fetching prettyprint 0.2.0
+remote: Installing prettyprint 0.2.0
+remote: Fetching erb 6.0.0
+remote: Installing erb 6.0.0 with native extensions
+remote: Fetching date 3.5.0
+remote: Installing date 3.5.0 with native extensions
+remote: Fetching stringio 3.1.8
+remote: Installing stringio 3.1.8 with native extensions
+remote: Fetching tsort 0.2.0
+remote: Installing tsort 0.2.0
+remote: Fetching io-console 0.8.1
+remote: Installing io-console 0.8.1 with native extensions
+remote: Fetching thor 1.4.0
+remote: Installing thor 1.4.0
+remote: Fetching zeitwerk 2.7.3
+remote: Installing zeitwerk 2.7.3
+remote: Fetching nio4r 2.7.5
+remote: Installing nio4r 2.7.5 with native extensions
+remote: Fetching websocket-extensions 0.1.5
+remote: Installing websocket-extensions 0.1.5
+remote: Fetching timeout 0.4.4
+remote: Installing timeout 0.4.4
+remote: Fetching marcel 1.1.0
+remote: Installing marcel 1.1.0
+remote: Fetching mini_mime 1.1.5
+remote: Installing mini_mime 1.1.5
+remote: Fetching bcrypt_pbkdf 1.1.1
+remote: Installing bcrypt_pbkdf 1.1.1 with native extensions
+remote: Fetching msgpack 1.8.0
+remote: Installing msgpack 1.8.0 with native extensions
+remote: Bundler itself does not use binstubs because its version is selected by RubyGems
+remote: Fetching dotenv 3.1.8
+remote: Installing dotenv 3.1.8
+remote: Fetching ed25519 1.4.0
+remote: Installing ed25519 1.4.0 with native extensions
+remote: Fetching ffi 1.17.2 (x86_64-linux-gnu)
+remote: Installing ffi 1.17.2 (x86_64-linux-gnu)
+remote: Fetching raabro 1.4.0
+remote: Installing raabro 1.4.0
+remote: Fetching net-ssh 7.3.0
+remote: Installing net-ssh 7.3.0
+remote: Fetching ostruct 0.6.3
+remote: Installing ostruct 0.6.3
+remote: Fetching pg 1.6.2 (x86_64-linux)
+remote: Fetching thruster 0.1.16 (x86_64-linux)
+remote: Installing pg 1.6.2 (x86_64-linux)
+remote: Installing thruster 0.1.16 (x86_64-linux)
+remote: Fetching mini_magick 5.3.1
+remote: Installing mini_magick 5.3.1
+remote: Fetching i18n 1.14.7
+remote: Installing i18n 1.14.7
+remote: Fetching tzinfo 2.0.6
+remote: Fetching rack-session 2.1.1
+remote: Installing rack-session 2.1.1
+remote: Installing tzinfo 2.0.6
+remote: Fetching rack-test 2.2.0
+remote: Installing rack-test 2.2.0
+remote: Fetching rackup 2.2.1
+remote: Installing rackup 2.2.1
+remote: Fetching pp 0.6.3
+remote: Installing pp 0.6.3
+remote: Fetching nokogiri 1.18.10 (x86_64-linux-gnu)
+remote: Fetching reline 0.6.3
+remote: Installing reline 0.6.3
+remote: Fetching websocket-driver 0.8.0
+remote: Installing websocket-driver 0.8.0 with native extensions
+remote: Installing nokogiri 1.18.10 (x86_64-linux-gnu)
+remote: Fetching net-protocol 0.2.2
+remote: Installing net-protocol 0.2.2
+remote: Fetching puma 7.1.0
+remote: Installing puma 7.1.0 with native extensions
+remote: Fetching ruby-vips 2.2.5
+remote: Installing ruby-vips 2.2.5
+remote: Fetching net-scp 4.1.0
+remote: Installing net-scp 4.1.0
+remote: Fetching net-sftp 4.0.0
+remote: Installing net-sftp 4.0.0
+remote: Fetching psych 5.2.6
+remote: Installing psych 5.2.6 with native extensions
+remote: Fetching activesupport 8.1.1
+remote: Installing activesupport 8.1.1
+remote: Fetching et-orbi 1.4.0
+remote: Installing et-orbi 1.4.0
+remote: Fetching loofah 2.24.1
+remote: Installing loofah 2.24.1
+remote: Fetching net-imap 0.5.12
+remote: Installing net-imap 0.5.12
+remote: Fetching net-pop 0.1.2
+remote: Installing net-pop 0.1.2
+remote: Fetching net-smtp 0.5.1
+remote: Installing net-smtp 0.5.1
+remote: Fetching image_processing 1.14.0
+remote: Installing image_processing 1.14.0
+remote: Fetching sshkit 1.24.0
+remote: Installing sshkit 1.24.0
+remote: Fetching rails-dom-testing 2.3.0
+remote: Installing rails-dom-testing 2.3.0
+remote: Fetching globalid 1.3.0
+remote: Installing globalid 1.3.0
+remote: Fetching activemodel 8.1.1
+remote: Installing activemodel 8.1.1
+remote: Fetching fugit 1.12.1
+remote: Installing fugit 1.12.1
+remote: Fetching rails-html-sanitizer 1.6.2
+remote: Installing rails-html-sanitizer 1.6.2
+remote: Fetching mail 2.9.0
+remote: Installing mail 2.9.0
+remote: Fetching kamal 2.8.2
+remote: Installing kamal 2.8.2
+remote: Fetching activejob 8.1.1
+remote: Installing activejob 8.1.1
+remote: Fetching activerecord 8.1.1
+remote: Installing activerecord 8.1.1
+remote: Fetching actionview 8.1.1
+remote: Installing actionview 8.1.1
+remote: Fetching actionpack 8.1.1
+remote: Installing actionpack 8.1.1
+remote: Fetching jbuilder 2.14.1
+remote: Installing jbuilder 2.14.1
+remote: Fetching actioncable 8.1.1
+remote: Installing actioncable 8.1.1
+remote: Fetching activestorage 8.1.1
+remote: Installing activestorage 8.1.1
+remote: Fetching actionmailer 8.1.1
+remote: Installing actionmailer 8.1.1
+remote: Fetching propshaft 1.3.1
+remote: Installing propshaft 1.3.1
+remote: Fetching actionmailbox 8.1.1
+remote: Installing actionmailbox 8.1.1
+remote: Fetching rdoc 6.15.1
+remote: Installing rdoc 6.15.1
+remote: Fetching irb 1.15.3
+remote: Installing irb 1.15.3
+remote: Fetching railties 8.1.1
+remote: Installing railties 8.1.1
+remote: Fetching bootsnap 1.19.0
+remote: Installing bootsnap 1.19.0 with native extensions
+remote: Fetching importmap-rails 2.2.2
+remote: Fetching action_text-trix 2.1.15
+remote: Installing importmap-rails 2.2.2
+remote: Installing action_text-trix 2.1.15
+remote: Fetching solid_cable 3.0.12
+remote: Installing solid_cable 3.0.12
+remote: Fetching solid_cache 1.0.10
+remote: Fetching solid_queue 1.2.4
+remote: Installing solid_cache 1.0.10
+remote: Installing solid_queue 1.2.4
+remote: Fetching stimulus-rails 1.3.4
+remote: Installing stimulus-rails 1.3.4
+remote: Fetching turbo-rails 2.0.20
+remote: Fetching actiontext 8.1.1
+remote: Installing actiontext 8.1.1
+remote: Installing turbo-rails 2.0.20
+remote: Fetching rails 8.1.1
+remote: Installing rails 8.1.1
+remote: Bundle complete! 23 Gemfile dependencies, 95 gems now installed.
+remote: Gems in the groups 'development' and 'test' were not installed.
+remote: Bundled gems are installed into `./vendor/bundle`
+remote: Post-install message from solid_queue:
+remote: Upgrading from Solid Queue < 1.0? Check details on breaking changes and upgrade instructions
+remote: --> https://github.com/rails/solid_queue/blob/main/UPGRADING.md
+remote: Bundle completed (14.59s)
+remote: Cleaning up the bundler cache.
+remote: Running: bundle list
+remote: -----> Detecting rake tasks
+remote: -----> Preparing app for Rails asset pipeline
+remote: Running: rake assets:precompile
+remote: Writing application-8b441ae0.css
+remote: Writing stimulus-autoloader-9d447422.js
+remote: Writing stimulus-importmap-autoloader-64cc03e1.js
+remote: Writing stimulus-loading-1fc53fe7.js
+remote: Writing stimulus-d59b3b7f.js
+remote: Writing stimulus.min-4b1e420e.js
+remote: Writing stimulus.min-2395e199.js.map
+remote: Writing turbo-3bd2ae57.js
+remote: Writing turbo.min-ad2c7b86.js
+remote: Writing turbo.min-b571832f.js.map
+remote: Writing actiontext.esm-c376325e.js
+remote: Writing actiontext-c9c6c481.js
+remote: Writing trix-9a18fe03.js
+remote: Writing trix-65afdb1d.css
+remote: Writing action_cable-5212cfee.js
+remote: Writing actioncable.esm-e0ec9819.js
+remote: Writing actioncable-ac25813f.js
+remote: Writing activestorage.esm-81bb34bc.js
+remote: Writing activestorage-f9e46063.js
+remote: Writing rails-ujs.esm-e925103b.js
+remote: Writing rails-ujs-20eaf715.js
+remote: Writing application-bfcdf840.js
+remote: Writing controllers/application-3affb389.js
+remote: Writing controllers/hello_controller-708796bd.js
+remote: Writing controllers/index-ee64e1f1.js
+remote: Asset precompilation completed (0.70s)
+remote: Cleaning assets
+remote: Running: rake assets:clean
+remote: -----> Detecting rails configuration
+remote:
+remote:
+remote: -----> Discovering process types
+remote: Procfile declares types -> web
+remote: Default types for buildpack -> console, rake
+remote:
+remote: -----> Compressing...
+remote: Done: 54.3M
+remote: -----> Launching...
+remote: Released v3
+remote: https://quiet-escarpment-74379-83955fa5b8df.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/quiet-escarpment-74379.git
+ * [new branch] main -> main
+
+If the output displays warnings or error messages, check the output and make adjustments.
+
+After a successful deployment, complete these tasks as necessary:
+
+Database migrations
+
+Scale your dynos
+
+Check the app's logs if issues arise
+
+Migrate The Database
+
+If you're using a database in your application, trigger a migration by using the Heroku CLI to start a one-off
+dyno
+. You can run commands, typically scripts and applications that are part of your app, in one-off dynos using the
+heroku run
+ command. You can trigger a database migration with this command:
+
+$ heroku run rake db:migrate
+
+To use an interactive shell session instead, you can execute
+heroku run bash
+.
+
+Scale and Access the Application
+
+Heroku runs application code using defined processes and
+process types
+. New applications don't have a process type active by default. The following command scales your app up to one dyno, running the
+web
+ process:
+
+$ heroku ps:scale web=1
+
+Use the Heroku CLI's
+ps
+ command to display the state of all app dynos in the terminal:
+
+$ heroku ps
+=== web (Basic): bundle exec puma -C config/puma.rb (1)
+
+web.1: up 2025/11/17 20:02:52 -0600 (~ 6s ago)
+
+In this example, a single
+web
+ process is running.
+
+By default, apps use Eco dynos if you're subscribed to
+Eco
+. Otherwise, it defaults to Basic dynos. The Eco dynos plan is shared across all Eco dynos in your account and is recommended if you plan on deploying many small apps to Heroku. Eco dynos sleep if they don't receive any traffic for half an hour. This sleep behavior causes a few seconds delay for the first request upon waking. Eco dynos consume from a monthly, account-level quota of
+eco dyno hours
+. As long as you haven't exhausted the quota, your apps can continue to run.
+
+To avoid dyno sleeping, upgrade to a Basic or higher dyno type as described in the
+Dyno Types
+ article. Upgrading to at least Standard dynos also allows you to scale up to multiple dynos per process type.
+
+To launch the app in the browser, run
+heroku open
+:
+
+$ heroku open
+
+The browser displays the "Hello World" text. If it doesn't, or there's an error,
+review and confirm the welcome page contents
+.
+
+Heroku provides a
+default web URL
+ for every application during development. When the application is ready for production, add a
+custom domain
+.
+
+View Application Logs
+
+The app logs are a valuable tool if the app is not performing correctly or generating errors.
+
+View information about a running app using the Heroku CLI
+logging command
+,
+heroku logs
+. Here's example output:
+
+$ heroku logs
+2025-11-18T02:02:47.981498+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2025-11-18T02:02:49.096073+00:00 app[web.1]: Puma starting in single mode...
+2025-11-18T02:02:49.096101+00:00 app[web.1]: * Puma version: 7.1.0 ("Neon Witch")
+2025-11-18T02:02:49.096101+00:00 app[web.1]: * Ruby version: ruby 3.2.9 (2025-07-24 revision 8f611e0c46) [x86_64-linux]
+2025-11-18T02:02:49.096102+00:00 app[web.1]: * Min threads: 3
+2025-11-18T02:02:49.096116+00:00 app[web.1]: * Max threads: 3
+2025-11-18T02:02:49.096117+00:00 app[web.1]: * Environment: production
+2025-11-18T02:02:49.096117+00:00 app[web.1]: * PID: 2
+2025-11-18T02:02:51.604607+00:00 app[web.1]: * Listening on http://0.0.0.0:9165
+2025-11-18T02:02:51.607059+00:00 app[web.1]: Use Ctrl-C to stop
+2025-11-18T02:02:52.168446+00:00 heroku[web.1]: State changed from starting to up
+2025-11-18T02:03:01.616081+00:00 app[web.1]: [686be8d4-12b6-ff9e-c577-57ed6c87117d] Started GET "/" for 66.203.115.11 at 2025-11-18 02:03:01 +0000
+2025-11-18T02:03:01.618264+00:00 app[web.1]: [686be8d4-12b6-ff9e-c577-57ed6c87117d] Processing by WelcomeController#index as HTML
+2025-11-18T02:03:01.644571+00:00 app[web.1]: [686be8d4-12b6-ff9e-c577-57ed6c87117d] Rendered layout layouts/application.html.erb (Duration: 12.0ms | GC: 5.2ms)
+2025-11-18T02:03:01.644855+00:00 app[web.1]: [686be8d4-12b6-ff9e-c577-57ed6c87117d] Completed 200 OK in 26ms (Views: 13.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 5.2ms)
+2025-11-18T02:03:01.646038+00:00 heroku[router]: at=info method=GET path="/" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=686be8d4-12b6-ff9e-c577-57ed6c87117d fwd="66.203.115.11" dyno=web.1 connect=0ms service=32ms status=200 bytes=1992 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.737903+00:00 heroku[router]: at=info method=GET path="/assets/application-8b441ae0.css" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=61c29ac0-3afb-70fc-028d-43f91fb59556 fwd="66.203.115.11" dyno=web.1 connect=0ms service=1ms status=200 bytes=491 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.784461+00:00 heroku[router]: at=info method=GET path="/assets/application-bfcdf840.js" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=5401c1c5-a6d8-3d74-c06a-ed838920608f fwd="66.203.115.11" dyno=web.1 connect=0ms service=0ms status=200 bytes=157 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.904114+00:00 heroku[router]: at=info method=GET path="/assets/turbo.min-ad2c7b86.js" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=8e4c22ff-bb3f-ceec-2393-2cd130a11b06 fwd="66.203.115.11" dyno=web.1 connect=0ms service=1ms status=200 bytes=107046 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.913443+00:00 heroku[router]: at=info method=GET path="/assets/stimulus.min-4b1e420e.js" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=81826297-0e0b-1483-de07-d700bc920f0a fwd="66.203.115.11" dyno=web.1 connect=0ms service=2ms status=200 bytes=45657 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.915945+00:00 heroku[router]: at=info method=GET path="/assets/stimulus-loading-1fc53fe7.js" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=9f556722-c3d2-bec0-5cee-65027cf2ef59 fwd="66.203.115.11" dyno=web.1 connect=0ms service=0ms status=200 bytes=3315 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.919966+00:00 heroku[router]: at=info method=GET path="/assets/controllers/application-3affb389.js" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=c0f1c9bb-3a2f-5234-e7b9-175ea0182b7b fwd="66.203.115.11" dyno=web.1 connect=0ms service=1ms status=200 bytes=218 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.924226+00:00 heroku[router]: at=info method=GET path="/assets/controllers/hello_controller-708796bd.js" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=c8f3415d-8bc2-6c01-d9cb-c72c143bf0ee fwd="66.203.115.11" dyno=web.1 connect=0ms service=1ms status=200 bytes=157 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:01.927669+00:00 heroku[router]: at=info method=GET path="/assets/controllers/index-ee64e1f1.js" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=778cca5f-3eea-1587-a9cf-b6a447edcf50 fwd="66.203.115.11" dyno=web.1 connect=0ms service=0ms status=200 bytes=272 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:02.168225+00:00 heroku[router]: at=info method=GET path="/icon.svg" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=595595ab-9492-457d-0abe-4ced84449019 fwd="66.203.115.11" dyno=web.1 connect=0ms service=1ms status=200 bytes=122 protocol=http1.1 tls=true tls_version=unknown
+2025-11-18T02:03:02.215854+00:00 heroku[router]: at=info method=GET path="/icon.png" host=quiet-escarpment-74379-83955fa5b8df.herokuapp.com request_id=3de73e70-5d3c-0386-7c97-bed0820dfb1d fwd="66.203.115.11" dyno=web.1 connect=0ms service=0ms status=200 bytes=4166 protocol=http1.1 tls=true tls_version=unknown
+
+Append
+-t
+/
+--tail
+ to the command to see a full, live stream of the app's logs:
+
+$ heroku logs --tail
+
+By default, Heroku stores 1500 lines of logs from your application, but the full log stream is available as a service. Several
+add-on providers
+ have logging services that provide things such as log persistence, search, and email and SMS alerts.
+
+Optional Steps
+
+Use The Rails Console
+
+Use the Heroku CLI
+run
+ command to trigger
+one-off dynos
+ to run scripts and applications only when necessary. Use the command to launch a Rails console process attached to the local terminal for experimenting in the app's environment:
+
+$ heroku run rails console
+irb(main):001:0> puts 1+1
+2
+
+The
+run bash
+ Heroku CLI command is also helpful for debugging. The command starts a new one-off dyno with an interactive bash session.
+
+Run Rake Commands
+
+Run
+rake
+ commands, such as
+db:migrate
+, using the
+run
+ command exactly like the Rails console:
+
+$ heroku run rake db:migrate
+
+Use a Procfile locally
+
+To use the
+Procfile
+ locally, use the
+heroku local
+ CLI command.
+
+In addition to running commands in the
+Procfile
+, the
+heroku local
+ command can also manage environment variables locally through a
+.env
+ file. Set
+RACK_ENV
+ to
+development
+ for the local environment and the
+PORT
+ for Puma.
+
+$ echo "RACK_ENV=development" >>.env
+$ echo "PORT=3000" >> .env
+
+Another alternative to using environment variables locally with a
+.env
+ file is the
+dotenv
+ gem.
+
+Add
+.env
+ to
+.gitignore
+ as these variables are for local environment setup only.
+
+$ echo ".env" >> .gitignore
+$ git add .gitignore
+$ git commit -m "add .env to .gitignore"
+
+Test the Procfile locally using
+Foreman
+​​. Start the web server with
+local
+:
+
+$ heroku local
+[OKAY] Loaded ENV .env File as KEY=VALUE Format
+8:03:07 PM web.1 | Puma starting in single mode...
+8:03:07 PM web.1 | * Puma version: 7.1.0 ("Neon Witch")
+8:03:07 PM web.1 | * Ruby version: ruby 3.2.9 (2025-07-24 revision 8f611e0c46) [arm64-darwin24]
+8:03:07 PM web.1 | * Min threads: 3
+8:03:07 PM web.1 | * Max threads: 3
+8:03:07 PM web.1 | * Environment: development
+8:03:07 PM web.1 | * PID: 26277
+8:03:08 PM web.1 | * Listening on http://0.0.0.0:3000
+8:03:08 PM web.1 | Use Ctrl-C to stop
+
+Press
+Ctrl+C
+ or
+Cmd+C
+ to exit.
+
+Troubleshooting
+
+If an app deployed to Heroku crashes, for example,
+heroku ps
+ shows the state
+crashed
+, review the app's logs. The following section covers common causes of app crashes.
+
+Runtime Dependencies on Development or Test Gems
+
+If a gem is missing during deployment, check the Bundler groups. Heroku builds apps without the
+development
+ or
+test
+ groups, and if the app depends on a gem from one of these groups to run, move it out of the group.
+
+A common example is using the RSpec tasks in the
+Rakefile
+. The error often looks like this:
+
+$ heroku run rake -T
+Running `bundle exec rake -T` attached to terminal... up, ps.3
+rake aborted!
+no such file to load -- rspec/core/rake_task
+
+First, duplicate the problem locally by running
+bundle install
+ without the development or test gem groups:
+
+$ bundle install --without development:test
+…
+$ bundle exec rake -T
+rake aborted!
+no such file to load -- rspec/core/rake_task
+
+The
+--without
+ option on
+bundler
+ is persistent. To remove this option, run
+bundle config --delete without
+.
+
+Fix the error by making these Rake tasks conditional during gem load. For example:
+
+begin
+ require "rspec/core/rake_task"
+
+ desc "Run all examples"
+
+ RSpec::Core::RakeTask.new(:spec) do |t|
+ t.rspec_opts = %w[--color]
+ t.pattern = 'spec/**/*_spec.rb'
+ end
+rescue LoadError
+end
+
+Confirm it works locally, then push it to Heroku.
+
+Congratulations on deploying a Rails 8 application! To continue exploring, review the following articles next:
+
+Visit the
+Ruby support category
+ to learn more about using Ruby and Rails on Heroku.
+
+The
+Deployment category
+ provides a variety of powerful integrations and features to help streamline and simplify your deployments.
+
+Remember to
+delete your example app
+, and
+database
+ as soon as you're done with the tutorial, to control costs.
+
+Delete Your App and Add-on
+
+Remove the app and database from your account. You're only charged for the resources you used.
+
+This action removes your add-on and any data saved in the database.
+
+$ heroku addons:destroy heroku-postgresql
+
+This action permanently deletes your application
+
+$ heroku apps:destroy
+
+You can confirm that your add-on and app are gone with these commands:
+
+$ heroku addons --all
+$ heroku apps --all
+
+You're now ready to
+deploy your app
+.
+
+Feedback

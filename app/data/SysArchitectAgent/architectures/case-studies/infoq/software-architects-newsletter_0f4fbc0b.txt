@@ -1,0 +1,43 @@
+The Software Architects' Newsletter
+
+The role of the modern software architect is continually shifting, and so are the underlying frameworks, platforms, and tools that are used as part of the craft.
+
+To help you stay up to date we create and curate The InfoQ Architects' Newsletter, your monthly guide to all the topics, technologies, and techniques that every professional or aspiring software architect needs to know about.
+
+Subscribe to get your monthly newsletter. See what you've been missing in the past issues below.
+
+Enter your e-mail address*
+
+Select your country
+
+Select a country
+
+I consent to InfoQ.com handling my data as explained in this
+Privacy Notice
+.
+
+We protect your privacy.
+
+We require your email for the delivery of the newsletter. We will review analytical data for performance purposes but will not use your data for any behavioral targeting. If you are based in the EEA, please contact us so we can provide you with the protections afforded to you under EEA protection laws.
+
+WHAT
+
+Actionable takeaways, valuable insights to guide your problem-solving approach, and inspiration from your software peers
+
+WHO
+
+Over 300,000 Subscribers: Architects, Software Engineers, and CTOs who want to drive innovation in the software industry
+
+WHEN
+
+Every last Friday of the month - only one email per month
+
+Curated By Domain Experts
+
+Daniel Bryant
+
+Java Champion, Co-author of "Mastering API Architecture", Independent Technical Consultant, and InfoQ News Manager
+
+Thomas Betts
+
+Laureate Application Architect @Blackbaud, Lead Editor for Architecture & Design @InfoQ

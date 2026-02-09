@@ -1,0 +1,126 @@
+linkedin-logo-full
+
+linkedin-logo-icon
+
+logo-404-frontlogo-404-back
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+xml version="1.0" encoding="UTF-8"?
+
+LinkedIn logo
+
+Skip to main content
+
+Close jump menu
+
+[LinkedIn Logo
+
+LinkedIn Logo
+
+LinkedIn
+Engineering](/india-engineering)
+
+Teams
+
+Blog
+
+Join us
+
+Big Data
+
+Big Data organization works towards providing a fast, self-service data platform to data producers and consumers while preserving data governance and trust. Our key business customers are the Artificial intelligence, Data science, Product Engineering, Trust and Safety orgs within LinkedIn. The overall vision of the organization is to enable limitless insights on data.
+
+In working towards this vision, we need a strong data infrastructure foundation that enables analytics at a gigantic scale. We have amongst the largest Hadoop clusters with thousands of nodes running hundreds of thousands of MapReduce and Spark jobs daily.
+
+Our engineers play a key role in achieving the Big Data vision. We organize ourselves as completely owned charters (building Roadmap/Vision for the Platforms, Operationalize, Product Feedback loop with our customers spread across LinkedIn in different Geographies) and Business critical charters(YARN). We closely work with the AI and Data sciences teams for the following charters:
+
+Data Science Platform
+ DARWIN (Data science & Artificial Intelligence Workbench @ LinkedIn) : Data analysts, Data engineers, Data scientists, and AI engineers use the data to power several Linkedin products and the website, ranging from job recommendations to personal feed. DARWIN team enables these personas by providing a Data science platform that acts as the single window for all Exploratory Data Access (EDA) at LinkedIn
+
+Compute Platform :
+ Responsible for building the platform which runs all of this offline compute at LinkedIn, powering machine learning and data analytics. The bright set of engineers on this team, with expertise in building mission-critical distributed systems, solve interesting problems of scale and efficiency to serve compute on our YARN and K8s clusters.
+
+Data Hub
+ :
+LinkedIn's generalized metadata search & discovery tool,
+ and is also an
+open-source
+ project. Our goal is to connect employees to the data that matters to them. To achieve this vision, we are building a world-class metadata platform for data search and discovery, data lineage, data management, and compliance management.
+
+Operational Intelligence and Insights :
+ Works on building a unified one-stop operational intelligence platform which will detect, help investigate and predict failures on the cluster. The platform will not only help us track job failures but also serve as data lineage and dataset discovery platform and help find out cases of breached dataset SLAs' and their root cause, self-healing where applicable
+
+Performance Insights
+ : Enables users to compare different Spark applications, understand their runtime characteristics, improve job performance and measure the improvements
+
+Data Compliance (Gobblin)
+ : Helps meet the regulatory data compliance requirements enforced by local law
+
+Data Management Infra  - Opal
+ :  Powers several critical use-cases including daily executive dashboards, data pipelines
+
+Data Engineering
+ : Produces the "Source of Truth(SoT)" datasets for consumers like data science, product, insights teams using a wide range of niche technologies
+
+Back
+
+About
+
+Cookie Policy
+
+Privacy Policy
+
+Your California Privacy Choices
+
+User Agreement
+
+Accessibility
+
+LinkedIn logo
+
+© LinkedIn Corporation 2026
+
+dismiss

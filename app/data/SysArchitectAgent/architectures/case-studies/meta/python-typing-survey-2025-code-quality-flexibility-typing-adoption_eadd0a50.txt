@@ -1,0 +1,275 @@
+POSTED ON DECEMBER 22, 2025 TO
+Culture
+,
+DevInfra
+
+Python Typing Survey 2025: Code Quality and Flexibility As Top Reasons for Typing Adoption
+
+The 2025 Typed Python Survey, conducted by contributors from JetBrains, Meta, and the broader Python typing community, offers a comprehensive look at the current state of Python's type system and developer tooling. With 1,241 responses (a 15% increase from last year), the survey captures the evolving sentiment, challenges, and opportunities around Python typing in the open-source ecosystem. In this blog we'll cover a summary of the key findings and trends from this year's results**.**
+
+Who Responded?
+
+The survey was initially distributed on official social media accounts by the survey creators, and subsequently shared organically across further platforms including Reddit, email newsletters, Mastodon, LinkedIn, Discord, and Twitter. When respondents were asked which platform they heard about the survey from,
+Reddit emerged as the most effective channel
+, but significant engagement also came from email newsletters and Mastodon, reflecting the diverse spaces where Python developers connect and share knowledge.
+
+The respondent pool was predominantly composed of developers experienced with Python and typing
+. Nearly half reported over a decade of Python experience, and another third had between five and 10 years. While there was representation from newcomers, the majority of participants brought substantial expertise to their responses. Experience with type hints was similarly robust, with most respondents having used them for several years and only a small minority indicating no experience with typing.
+
+Typing Adoption and Attitudes
+
+The survey results reveal that Python's type hinting system has become a core part of development for most engineers. An impressive 86% of respondents report that they "always" or "often" use type hints in their Python code, a figure that remains consistent with
+last year's Typed Python survey
+.
+
+For the first time this year the survey also asked participants to indicate how many years of experience they have with Python and with Python typing. We found that adoption of typing is similar across all experience levels, but there are some interesting nuances:
+
+Developers with 5–10 years of Python experience are the most enthusiastic adopters, with
+93%
+ reporting regularly using type hints.
+
+Among the most junior developers (0–2 years of experience), adoption is slightly lower at
+83%
+. Possible reasons for this could be the learning curve for newcomers (repeatedly mentioned in later survey questions).
+
+For senior developers (10+ years of experience), adoption was the lowest of all cohorts, with  only
+80%
+ reporting using them always or often. Reasons for this drop are unclear, it could reflect more experienced python developers having gotten used to writing Python without type hints before they were supported, or possibly they are more likely to work on larger or legacy codebases that are difficult to migrate.
+
+Percent of respondents who use types "often" or "always," segmented by years of Python experience.
+
+Overall, the data shows that type hints are widely embraced by the Python community, with strong support from engineers at all experience levels. However, we should note there may be some selection bias at play here, as it's possible developers who are more familiar with types and use them more often are also more likely to be interested in taking a survey about it.
+
+Why Developers Love Python Typing
+
+When asked what developers loved about the Python type system there were some mixed reactions, with a number of responses just stating, "nothing" (note this was an optional question). This indicates the presence of some strong negative opinions towards the type system among a minority of Python users. The majority of responses were positive, with the following themes emerging prominently:
+
+Optionality and Gradual Adoption
+: The optional nature of the type system and the ability to adopt it incrementally into existing projects are highly valued, allowing flexibility in development.
+
+Improved Readability and Documentation
+: Type hints serve as in-code documentation, making code clearer and easier to read, understand, and reason about for both the author and other developers, especially in larger codebases.
+
+Enhanced Tooling and IDE Support
+: The type system significantly improves IDE features like autocomplete/IntelliSense, jump-to-definition, and inline type hints, leading to a better developer experience.
+
+Bug Prevention and Code Correctness
+: It helps catch errors and subtle bugs earlier during development or refactoring, increasing confidence and leading to more robust and reliable code.
+
+Flexibility and Features
+: Respondents appreciate the flexibility, expressiveness, and powerful features of the system, including protocols, generics (especially the new syntax), and the ability to inspect annotations at runtime for use with libraries like Pydantic/FastAPI.
+
+Sample of responses to the question, "What do you love about Python Typing?"
+
+Challenges and Pain Points
+
+In addition to assessing positive sentiment towards Python typing, we also asked respondents what challenges and pain points they face. With over 800 responses to the question, "What is the hardest part about using the Python type system?" the following themes were identified:
+
+Third-Party Library/Framework Support:
+ Many respondents cited the difficulty of integrating types with untyped, incomplete, or incorrect type annotations in third-party libraries (e.g., NumPy, Pandas, Django).
+
+Complexity of Advanced Features:
+ Advanced concepts such as
+generics
+, TypeVar (including co/contravariance),
+callables/decorators
+, and
+complex/nested types
+ were frequently mentioned as difficult to understand or express.
+
+Tooling and Ecosystem Fragmentation:
+ The ecosystem is seen as chaotic, with inconsistencies between different type checkers (like Mypy and Pyright), slow performance of tools like Mypy, and a desire for an official, built-in type checker.
+
+Lack of Enforcement and Runtime Guarantees:
+ The fact that typing is
+optional
+ and is not enforced at runtime or by the Python interpreter makes it harder to convince others to use it, enforce its consistent use, and fully trust the type hints.
+
+Verbosity and Code Readability:
+ The necessary type hints, especially for complex structures, can be verbose, make the code less readable, and feel non-Pythonic.
+
+Dealing with Legacy/Dynamic Code:
+ It is hard to integrate typing into old, untyped codebases, particularly when they use dynamic Python features that do not play well with static typing.
+
+Type System Limitations and Evolution:
+ The type system is perceived as incomplete or less expressive than languages like TypeScript, and its rapid evolution means syntax and best practices are constantly changing.
+
+Most Requested Features
+
+A little less than half of respondents had suggestions for what they thought was missing from the Python type system, the most commonly requested features being:
+
+Missing Features From TypeScript and Other Languages:
+ Many respondents requested features inspired by TypeScript, such as
+Intersection types
+ (like the & operator),
+Mapped and Conditional types
+,
+Utility types
+ (like Pick, Omit, keyof, and typeof), and better
+Structural typing
+ for dictionaries/dicts (e.g., more flexible TypedDict or anonymous types).
+
+Runtime Type Enforcement and Performance:
+ A significant number of developers desire
+optional runtime type enforcement
+ or guarantees, as well as
+performance optimizations
+ (JIT/AOT compilation) based on the type hints provided.
+
+Better Generics and Algebraic Data Types (ADTs):
+ Requests include features like
+higher-kinded types (HKT)
+, improved support for
+TypeVarTuple
+ (e.g., bounds and unpacking), better
+generics
+ implementation, and official support for
+algebraic data types
+ (e.g., Result, Option, or Rust-like enums/sum types).
+
+Improved Tooling, Consistency, and Syntax:
+ Developers asked for an
+official/built-in type checker
+ that is fast and consistent, a less
+verbose syntax
+ for common patterns like nullable types (? instead of | None) and callables, and
+better support/documentation
+ for complex types (like nested dicts, NumPy/Pandas arrays).
+
+Handling of Complex/Dynamic Patterns:
+ Specific missing capabilities include better support for typing
+function wrappers/decorators
+ (e.g., using ParamSpec effectively), being able to type
+dynamic attributes
+ (like those added by Django/ORMs), and improved type
+narrowing
+ and
+control flow analysis
+.
+
+Tooling Trends
+
+The developer tooling landscape for Python typing continues to evolve, with both established and emerging tools shaping how engineers work.
+
+Mypy remains the most widely used type checker, with 58% of respondents reporting using it. While this represents a slight dip from 61% in
+last year's survey
+, Mypy still holds a dominant position in the ecosystem. At the same time, new Rust-based type checkers like Pyrefly, Ty, and Zuban are quickly gaining traction, now used by over 20% of survey participants collectively.
+
+The top six most popular answers to the question, "What type checking tools do your projects use (select all that apply)?"
+
+When it comes to development environments, VS Code leads the pack as the most popular IDE among Python developers, followed by PyCharm and (Neo)vim/vim. The use of type checking tools within IDEs also mimics the popularity of the IDE themselves, with VS Code's default (Pylance/Pyright) and PyCharm's built-in support being the first and third most popular options respectively.
+
+How Developers Learn and Get Help
+
+When it comes to learning about Python typing and getting help, developers rely on a mix of official resources, community-driven content, and AI-powered tools, a similar learning landscape to what we saw in
+last year's survey
+.
+
+Top six responses to the question, "How do you learn Python typing (select all that apply)?"
+
+Official documentation remains the go-to resource for most developers. The majority of respondents reported learning about Python typing through the official docs,
+with 865 citing it as their primary source for learning and 891 turning to it for help
+. Python's dedicated typing documentation and type checker-specific docs are also heavily used, showing that well-maintained, authoritative resources are still highly valued.
+
+Blog posts have climbed in popularity, now ranking as the second most common way developers learn about typing, up from third place last year. Online tutorials, code reviews, and YouTube videos also play a significant role.
+
+Community platforms are gaining traction as sources for updates and new features. Reddit, in particular, has become a key channel for discovering new developments in the type system, jumping from fifth to third place as a source for news. Email newsletters, podcasts, and Mastodon are also on the rise.
+
+Large language models (LLMs) are now a notable part of the help-seeking landscape. Over 400 respondents reported using LLM chat tools, and nearly 300 use in-editor LLM suggestions when working with Python typing.
+
+Opportunities and Next Steps
+
+The 2025 Python Typing Survey highlights the Python community's sustained adoption of typing features and tools to support their usage. It also points to clear opportunities for continued growth and improvement, including:
+
+Increasing library coverage
+: One of the most consistent requests from the community is for broader and deeper type annotation coverage in popular libraries. Expanding type hints across widely used packages will make static typing more practical and valuable for everyone.
+
+Improving documentation
+: While official documentation remains the top resource, there's a strong appetite for more discoverable and accessible learning materials. Leveraging channels like newsletters, blog posts, and Reddit can help surface new features, best practices, and real-world examples to a wider audience.
+
+Clarify tooling differences
+: The growing variety of type checkers and tools is a sign of a healthy ecosystem, but can also reflect a lack of consensus/standardisation and can be confusing for users. There's an opportunity to drive more consistency between tools or provide clearer guidance on their differences and best-fit use cases.
+
+To learn more about Meta Open Source, visit our
+website
+, subscribe to our
+YouTube channel
+, or follow us on
+Facebook
+,
+Threads
+,
+X
+,
+Bluesky
+ and
+LinkedIn
+.
+
+Acknowledgements
+
+This survey ran from 29th Aug to 16th Sept 2025 and received 1,241 responses in total.
+
+Thanks to everyone who participated! The Python typing ecosystem continues to evolve, and your feedback helps shape its future.
+
+Also, special thanks to the Jetbrains PyCharm team for providing the graphics used in this piece.
+
+Share this:
+
+Click to share on Facebook (Opens in new window)
+Facebook
+
+Click to share on Threads (Opens in new window)
+Threads
+
+Click to share on WhatsApp (Opens in new window)
+WhatsApp
+
+Click to share on LinkedIn (Opens in new window)
+LinkedIn
+
+Click to share on Reddit (Opens in new window)
+Reddit
+
+Click to share on X (Opens in new window)
+X
+
+Click to share on Bluesky (Opens in new window)
+Bluesky
+
+Click to share on Mastodon (Opens in new window)
+Mastodon
+
+Click to share on Hacker News (Opens in new window)
+Hacker News
+
+Click to email a link to a friend (Opens in new window)
+Email
+
+Read More in Culture
+
+View All
+
+DEC 17, 2025
+
+How We Built Meta Ray-Ban Display: From Zero to Polish
+
+AUG 4, 2025
+
+Building a human-computer interface for everyone
+
+JUL 1, 2025
+
+An inside look at Meta's transition from C to Rust on mobile
+
+MAY 15, 2025
+
+Open-sourcing Pyrefly: A faster Python type checker written in Rust
+
+JAN 24, 2025
+
+Bringing Jetpack Compose to Instagram for Android
+
+JAN 16, 2025
+
+Measuring productivity impact with Diff Authoring Time
